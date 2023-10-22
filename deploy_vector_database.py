@@ -30,9 +30,17 @@ def normalize_l2(score):
     return 1 - score/math.sqrt(2)
 
 # Set the title and a description
-st.title("Search Hadiths")
+st.title("Search Daleel")
 
-index_path = "clean-raw-hadith-all-mpnet-base-v2-normalized-cuda"
+options = ["Quran", "Hadith"]
+
+# Create a dropdown widget
+selected_option = st.selectbox("Select a source:", options)
+
+if selected_option == 'Quran':
+    index_path = 'clean-raw-quran-all-mpnet-base-v2-normalized-cuda'
+else:
+    index_path = 'clean-raw-hadith-all-mpnet-base-v2-normalized-cuda'
 
 input_query = st.text_area("", "Write your query")
 
