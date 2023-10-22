@@ -29,6 +29,10 @@ class VectorSearchDeployment:
 def normalize_l2(score):
     return 1 - score/math.sqrt(2)
 
+@st.cache_resource
+def get_model(index_path):
+    return VectorSearchDeployment(index_path)
+
 # Set the title and a description
 st.title("Search Daleel")
 
@@ -51,7 +55,7 @@ search_button = st.button("Search")
 
 if search_button:
 
-    deployment = VectorSearchDeployment(index_path)
+    deployment = get_model(index_path)
 
     # Display the user's input
     results = deployment.search(input_query, num_of_results)
