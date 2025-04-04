@@ -1,3 +1,4 @@
+streamlit
 langchain
 faiss-cpu
 sentence-transformers
