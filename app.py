@@ -1,5 +1,5 @@
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 import time
 import streamlit as st
 import math
@@ -18,7 +18,7 @@ class VectorSearchDeployment:
             encode_kwargs=encode_kwargs
         )
 
-        self.db = FAISS.load_local(index_path, self.embeddings, normalize_L2=True)
+        self.db = FAISS.load_local(index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
         et = time.time() - st
         print(f'Loading database took {et} seconds.')
 
@@ -34,7 +34,7 @@ def get_model(index_path):
     return VectorSearchDeployment(index_path)
 
 # Set the title and a description
-st.title("Search Daleel")
+st.title("Find Dalil From Quran and Hadith")
 
 options = ["Quran", "Hadith"]
 
