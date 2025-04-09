@@ -66,8 +66,10 @@ def prepare_training_examples(dataset, train_test_split_ratio=0.8):
 def fine_tune_model(model_name, dataset_path, output_dir, max_length=512, num_epochs=3, batch_size=8, learning_rate=5e-5, weight_decay=0.01):
     """Fine-tune a SentenceTransformer model for semantic retrieval with additional training args"""
     # Load model
+    device = "cuda" 
     model = SentenceTransformer(model_name, trust_remote_code=True)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = model.to(device)  
 
     # Load and preprocess dataset
     dataset = load_data(dataset_path, tokenizer, max_length)
