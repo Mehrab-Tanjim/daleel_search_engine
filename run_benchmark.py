@@ -32,7 +32,8 @@ def extract_colon_reference(text):
 
 def batch_semantic_match_score(ref_text, result_embeddings, embed_func):
     """Compute semantic similarity scores in batch"""
-    
+    # TODO: this is not accurate at all, as it depends on the embedding model. For objective evaluator, we need to use the same model for both reference and result embeddings. Still this can be give a comparative score for the same model
+
     ref_embedding = embed_func(ref_text)
     
     # Cosine similarity
@@ -182,7 +183,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             "detailed_results": detailed_results
         }
 
-    save_results(all_results, model_name, doctype, device, name)
+    save_results(all_results, model_name, doctype, device)
 
 
 def run_benchmark_wrapper(args):
@@ -193,8 +194,8 @@ def run_benchmark_wrapper(args):
 
 if __name__ == '__main__':
     model_names = [
-        # "Alibaba-NLP/gte-multilingual-base",
-        # "sentence-transformers/all-mpnet-base-v2",
+        "Alibaba-NLP/gte-multilingual-base",
+        "sentence-transformers/all-mpnet-base-v2",
         "sentence-transformers/LaBSE",
         "intfloat/multilingual-e5-base",
         'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
