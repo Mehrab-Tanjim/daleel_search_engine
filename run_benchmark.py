@@ -132,7 +132,7 @@ def process_entry(entry, name, model, method, k, sim_threshold):
         "retrieved_text": retrieved_texts
     }
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=10, sim_threshold=0.70):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.70):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
