@@ -39,10 +39,12 @@ def load_data(dataset_path, tokenizer, max_length=512):
     for entry in tqdm(data, desc="Processing entries"):
         question = entry.get("question", "").strip()
         full_answer = entry.get("answer", "").strip()
-        if full_answer:
-            answer_chunks = chunk_text(full_answer, tokenizer, max_length)
-            for chunk in answer_chunks:
-                examples.append({"Question":question, "Answer":chunk})
+
+        # if full_answer:
+        #     answer_chunks = chunk_text(full_answer, tokenizer, max_length)
+        #     for chunk in answer_chunks:
+        #         examples.append({"Question":question, "Answer":chunk})
+        
         for ref in entry.get("extracted_references", []):
             ref_text = ref.get("text", "").strip()
             if question and ref_text:
