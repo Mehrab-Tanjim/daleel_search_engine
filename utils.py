@@ -20,19 +20,30 @@ class VectorSearchDeployment:
         )
 
         self.db = FAISS.load_local(index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
+        self.db_docstore_id_to_index = dict(zip(self.db.index_to_docstore_id.values(), self.db.index_to_docstore_id.keys()))
         et = time.time() - st
         print(f'Loading database took {et} seconds.')
 
-    def search(self, method, query, k=10): 
+    def search(self, method, query, k=10, return_embeddings=False): 
+        query_embedding = self.embeddings.embed_query(query)
         if method == 'best_match':
             results = self.db.similarity_search_with_score_by_vector(
-                self.embeddings.embed_query(query),
+                query_embedding,
                 k=k
             )
         elif method == 'best_match_dedup':
             results = self.relevance_search_dedup(query, k)
         elif method == 'mmr':
-            results = self.db.max_marginal_relevance_search_with_score_by_vector(self.embeddings.embed_query(query), k=k, fetch_k=k*2)
+            results = self.db.max_marginal_relevance_search_with_score_by_vector(query_embedding, k=k, fetch_k=k*2)
+        
+        if return_embeddings:
+            # Get embeddings for the results from the index
+            result_embeddings = []
+            for doc, score in results:
+                # Get the document's embedding from the index
+                doc_embedding = self.db.index.reconstruct(self.db_docstore_id_to_index[doc.id])
+                result_embeddings.append(doc_embedding)
+            return results, result_embeddings
         
         return results
 
@@ -46,19 +57,20 @@ class VectorSearchDeployment:
         Returns:
             list: Deduplicated search results with scores
         """
-        # Get initial results using similarity search (more than k to allow for dedup)
+        # Get initial results with embeddings using similarity search (more than k to allow for dedup)
         initial_k = k * 3
-        results = self.db.similarity_search_with_score_by_vector(
-            self.embeddings.embed_query(query),
-            k=initial_k
+        results, embeddings = self.search(
+            method='best_match',
+            query=query,
+            k=initial_k,
+            return_embeddings=True
         )
         
         # Deduplication process
         deduped_results = []
         seen_embeddings = []
         
-        for doc, score in results:
-            doc_embedding = self.embeddings.embed_query(doc.page_content)
+        for (doc, score), doc_embedding in zip(results, embeddings):
             is_duplicate = False
             
             # Check similarity with already selected documents

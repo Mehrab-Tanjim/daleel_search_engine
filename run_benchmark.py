@@ -10,6 +10,7 @@ from datetime import datetime
 import numpy as np
 from multiprocessing import Pool
 from functools import partial
+import multiprocessing
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -29,12 +30,10 @@ def extract_colon_reference(text):
     match = COLON_PATTERN.search(text)
     return match.group(0) if match else ''
 
-def batch_semantic_match_score(ref_text, result_texts, embed_func):
+def batch_semantic_match_score(ref_text, result_embeddings, embed_func):
     """Compute semantic similarity scores in batch"""
-    all_texts = [ref_text] + result_texts
-    embeddings = embed_func(all_texts)
-    ref_embedding = embeddings[0]
-    result_embeddings = embeddings[1:]
+    
+    ref_embedding = embed_func(ref_text)
     
     # Cosine similarity
     dot_product = np.dot(result_embeddings, ref_embedding)
@@ -42,11 +41,12 @@ def batch_semantic_match_score(ref_text, result_texts, embed_func):
     similarities = dot_product / (norms + 1e-8)  # Avoid division by zero
     return np.max(similarities)
 
-def evaluate_retrieval(results, ground_truth_refs, matching='exact', embed_func=None, sim_threshold=0.75):
+def evaluate_retrieval(results, ground_truth_refs, result_embeddings = None, matching='exact', embed_func=None, sim_threshold=0.75):
     matched = 0
     retrieved = len(results) if results else 0
     total_refs = len(ground_truth_refs) if ground_truth_refs else 0
 
+    # if not results or not ground_truth_refs:
     if not results or not ground_truth_refs:
         return 0, total_refs, retrieved, 0.0, 0.0
 
@@ -57,8 +57,9 @@ def evaluate_retrieval(results, ground_truth_refs, matching='exact', embed_func=
                 matched += 1
     else:
         for ref in ground_truth_refs:
-            sim_text = batch_semantic_match_score(ref[0], [r[0] for r in results], embed_func)
-            if sim_text >= sim_threshold:
+            sim_text = batch_semantic_match_score(ref[0], result_embeddings, embed_func)
+            # sim_reference = batch_semantic_match_score(ref[1], [res[1] for res in results], embed_func)
+            if sim_text >= sim_threshold: # or sim_reference >= sim_threshold
                 matched += 1
 
     precision = matched / retrieved if retrieved > 0 else 0.0
@@ -107,7 +108,7 @@ def process_entry(entry, name, model, method, k, sim_threshold):
             return None
 
         try:
-            retrieved_docs = model.search(method, query, k)
+            retrieved_docs, retrieved_embeddings = model.search(method, query, k, return_embeddings=True)
             retrieved_texts = [(doc.page_content, 
                           ' '.join([doc.metadata['source'], 
                                   doc.metadata['chapter_no'], 
@@ -115,8 +116,8 @@ def process_entry(entry, name, model, method, k, sim_threshold):
                          for doc, score in retrieved_docs]
 
             matched, expected, retrieved, precision, recall = evaluate_retrieval(
-                retrieved_texts, references, matching='cosine', 
-                embed_func=model.embeddings.embed_documents, sim_threshold=sim_threshold)
+                retrieved_texts, references, retrieved_embeddings, matching='cosine', 
+                embed_func=model.embeddings.embed_query, sim_threshold=sim_threshold)
         except Exception as e:
             logging.error(f"Search or evaluation failed for query '{query}': {e}")
             return None
@@ -132,7 +133,7 @@ def process_entry(entry, name, model, method, k, sim_threshold):
         "retrieved_text": retrieved_texts
     }
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.70):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.70, num_rows=-1):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
@@ -161,7 +162,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             continue
 
         detailed_results = []
-        for entry in tqdm(benchmark_data, desc=f"Processing {name}"):
+        for entry in tqdm(benchmark_data[:num_rows], desc=f"Processing {name}"):
             result = process_entry(entry, name, model, method, k, sim_threshold)
             if result is not None:
                 detailed_results.append(result)
@@ -183,6 +184,13 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
 
     save_results(all_results, model_name, doctype, device)
 
+
+def run_benchmark_wrapper(args):
+    """Wrapper function to unpack arguments for multiprocessing"""
+    model_name, doctype, device, benchmark_path, method = args
+    return run_benchmark(model_name, doctype, device, benchmark_path, method)
+
+
 if __name__ == '__main__':
     model_names = [
         "Alibaba-NLP/gte-multilingual-base",
@@ -195,7 +203,12 @@ if __name__ == '__main__':
     benchmark_path = "datasets/islamqa_references_train.json"
     
     for model_name in model_names:
-        method = "best_match_dedup"
+        method = "best_match_dedup" #best_match_dedup
         doctypes = ["preprocessed", "original"]
-        for doctype in doctypes:
-            run_benchmark(model_name, doctype, device, benchmark_path, method)
+
+        # Create a pool with 2 processes (one for each document type)
+        with multiprocessing.Pool(processes=2) as pool:
+            # Prepare arguments for each doctype
+            tasks = [(model_name, doctype, device, benchmark_path, method) for doctype in doctypes]
+            # Run the tasks in parallel
+            results = pool.map(run_benchmark_wrapper, tasks)

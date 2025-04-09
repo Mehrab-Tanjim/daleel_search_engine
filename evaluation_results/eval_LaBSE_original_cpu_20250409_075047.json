@@ -1,0 +1,1893 @@
+{
+  "hadith": {
+    "average_recall": 0.023809523809523808,
+    "average_precision": 0.009523809523809525,
+    "detailed_results": [
+      {
+        "query": "If a man sees the signs of sexual discharge impurity (janaba) on his clothes, and he is not sure when the discharge occurred, and several prayers have passed, what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "I was a man with frequent urethral discharge, so I kept performing ghusl until the skin of my back started cracking, so I mentioned this to the Prophet (peace be upon him) (or it was mentioned to him) so the messenger of Allah (peace be upon him) said, \"Don't do ghusl if you see urethral discharge, just wash your male organ and perform wudu' same as wudu' of salaat. If semen appears, then perform ghusl\"",
+            "Narrated by Abu Dawood number 206 and verified sahih by Albani in Arwaa' al-Ghaleel number 125"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "'A'isha thus reported about the (night prayer) of the Messenger of Allah (may peace be upon him):                      He used to sleep in the early part of the night, and woke up in the latter part. If he then wished intercourse with his wife, he satisfied his desire, and then went to sleep; and when the first call to prayer was made he jumped up (by Allah, she, i. e. 'A'isha, did not say\" he stood up\" ), and poured water over him (by Allah she, i. e. 'A'isha, did not say that he took a bath but I know what she meant) and if he did not have an intercourse, he performed ablution, just as a man performs ablution for prayer and then observed two rak'ahs.",
+            "Sahih Muslim 7 1761"
+          ],
+          [
+            "Narrated `Aisha:                     I used to wash the traces of Janaba (semen) from the clothes of the Prophet and he used to go for prayers while traces of water were still on it (water spots were still visible).",
+            "Sahih Bukhari 4 229"
+          ],
+          [
+            "Narrated Asma':                     A woman came to the Prophet and said, \"If anyone of us gets menses in her clothes then what should she do?\" He replied, \"She should (take hold of the soiled place), rub it and put it in the water and rub it in order to remove the traces of blood and then pour water over it. Then she can pray in it.\"",
+            "Sahih Bukhari 4 227"
+          ],
+          [
+            "'A'isha, the wife of the Apostle of Allah (may peace be upon him), said:                      The dawn broke upon the Messenger of Allah (may peace be upon him) during the Ramadan in a state of junub not because of sexual dream (but on account of intercourse) and he washed himself and observed fast.",
+            "Sahih Muslim 14 2646"
+          ],
+          [
+            "Ubayy ibn Ka'b narrated it from the Messenger of Allah (may peace be upon him) that he said:                      If a person has sexual intercourse with his wife, but does not experience orgasm, he should wash his organ and perform an ablution.",
+            "Sahih Muslim 4 346"
+          ]
+        ]
+      },
+      {
+        "query": "A lawyer in Argentina is asking about the ruling on circumcision for a disbelieving man or woman who wants to enter Islam.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The prophet Ibrahim (peace be upon him) circumcised himself when he was eighty years old\u2026",
+            "Narrated by al-Bukhari, 6/388"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Anas b. Malik reported:                      A woman asked the Messenger of Allah (way peace be upon him) about a woman who sees in her dream what a man sees in his dream (sexual dream). He (the Holy Prophet) said: If she experiences what a man experiences, she should take a bath.",
+            "Sahih Muslim 4 312"
+          ],
+          [
+            "Umm Fadl (Allah be pleased with her) reported that a person asked Allah's Apostle (may peace be upon him):                      Does one suckling make (the marriage) unlawful? He said: No.",
+            "Sahih Muslim 18 3669"
+          ],
+          [
+            "Narrated Salim's father:                     The Prophet said, \"If the wife of anyone of you asks permission to go to the mosque, he should not forbid her.\"",
+            "Sahih Bukhari 67 5293"
+          ],
+          [
+            "Anas reported that Allah's Messenger (may peace be upon him) forbade that a person should (wear) clothes dyed in saffron.",
+            "Sahih Muslim 38 5629"
+          ],
+          [
+            "A\u2019ishah reported \u201cThe Apostle of Allaah(\ufdfa) as saying One or two sucks does not make marriage unlawful\u201d.",
+            "Sunan Abi Da'ud 12 2063"
+          ]
+        ]
+      },
+      {
+        "query": "If a woman has a miscarriage and has discharge of blood, does she pray?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Each one of you, human creation, forms in his mother's womb for forty days, then he is a hanging clot for the same amount of time, then he is a mudghah (the size of a morsel) for the same amount of time, then Allah sends an angel who is commanded with four things: he is told to write his deeds, his livelihood and sustenance, whether he is happy or distressed",
+            "Sahih al-Bukhari 6/303"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Muhammad b. 'Uthman asked al-Qasim b. Muhammad about the woman who has a prolonged flow of blood. He replied:                      She should abandon prayer during her menstrual period, then wash and pray ; then she should wash during her menstrual period.",
+            "Sunan Abi Da'ud 1 303"
+          ],
+          [
+            "Asma' daughter of Abu Bakr said:                      A woman asked the Messenger of Allah (\ufdfa): Messenger of Allah, what do you think if the clothe of any of us smeared with the blood of menstruation; what should she do ? He said: If (the clothe of) any of you is smeared with blood of menstruation, she should scratch it; then she should sprinkle water upon it and then she may pray.",
+            "Sunan Abi Da'ud 1 361"
+          ],
+          [
+            "Asma' daughter of Abu Bakr said:                      I heard a woman asking the Messenger of Allah (\ufdfa): What should any of us to with her clothe (in which she menstruated) when she becomes purified ? Can she pray in that (clothe) ? He said: She should see; if she finds blood in it, she should scratch it with some water and (in case of doubt) sprinkle upon it (some water) and pray so long as she does not find (any blood).",
+            "Sunan Abi Da'ud 1 360"
+          ],
+          [
+            "Narrated Asma':                     A woman came to the Prophet and said, \"If anyone of us gets menses in her clothes then what should she do?\" He replied, \"She should (take hold of the soiled place), rub it and put it in the water and rub it in order to remove the traces of blood and then pour water over it. Then she can pray in it.\"",
+            "Sahih Bukhari 4 227"
+          ],
+          [
+            "Narrated Abdullah ibn Abbas:                     If a man has sexual intercourse (with menstruating woman) during her bleeding, he should give one dinar as sadaqah, and if he does so when bleeding has stopped, he should give half a dinar as sadaqah.",
+            "Sunan Abi Da'ud 12 2169"
+          ]
+        ]
+      },
+      {
+        "query": "If a person praying experiences insinuating thoughts from Shaytan in his prayer, causing him problems in reciting the Quran, and resulting in bad or evil thoughts, and making him doubt the number of completed rak\u2019ahs, what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The Shaytan comes between me and my prayer and causes me problems with my recitation.",
+            "Sahih Muslim, 2203"
+          ],
+          [
+            "That is a Shaytan called Khanzab, so if you feel his presence, seek refuge in Allah and blow a mist to your left three times.",
+            "Sahih Muslim, 2203"
+          ],
+          [
+            "I applied this advice and Allah has rid me of him.",
+            "Sahih Muslim, 2203"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Abu Sa'id al-Khudri reported:                      The Messenger of Allah (may peace be upon him) said: When any one of you is in doubt about his prayer and he does Dot know how much he has prayed, three or four (rak'ahs). he should cast aside his doubt and base his prayer on what he is sure of. then perform two prostrations before giving salutations. If he has prayed five rak'ahs, they will make his prayer an even number for him, and if he has prayed exactly four, they will be humiliation for the devil.",
+            "Sahih Muslim 6 1300"
+          ],
+          [
+            "It was narrated from Shabib Abi Rawh, from a man among the companions of the Prophet (\ufdfa), that:                     He prayed Subh and recited Ar-Rum, but he stumbled in his recitation. When he had finished praying he said: 'What is the matter with people who pray with us without purifying themselves properly? Those people make us stumble in reciting Quran.'\"",
+            "Sunan an-Nasa'i 11 947"
+          ],
+          [
+            "It wasnarrated that \u2018Abdur-Rahman bin \u2018Awf said:                      \u201cI heard theMessenger of Allah (\ufdfa) say: \u2018If anyone of you is uncertain as towhether he has prayed one or two Rak\u2019ah, let him assume it is one.Ifhe is uncertain as to whether he has prayed two or three, let himassume it is two. If he is uncertain as to whether he has prayedthreeor four, let him assume it is three. Then let him complete whatisleft of his prayer, so that the doubt will be about what is more.Thenlet him prostrate twice while he is sitting, before the Taslim(sayingthe Salam).\u2019\u201d",
+            "Sunan Ibn Majah 5 1266"
+          ],
+          [
+            "Narrated `Abdullah:                     The Prophet prayed (and the sub-narrator Ibrahim said, \"I do not know whether he prayed more or less than usual\"), and when he had finished the prayers he was asked, \"O Allah's Apostle! Has there been any change in the prayers?\" He said, \"What is it?' The people said, \"You have prayed so much and so much.\" So the Prophet bent his legs, faced the Qibla and performed two prostration's (of Sahu) and finished his prayers with Taslim (by turning his face to right and left saying: 'As-Salamu `Alaikum- Warahmat-ullah'). When he turned his face to us he said, \"If there had been anything changed in the prayer, surely I would have informed you but I am a human being like you and liable to forget like you. So if I forget remind me and if anyone of you is doubtful about his prayer, he should follow what he thinks to be correct and complete his prayer accordingly and finish it and do two prostrations (of Sahu).",
+            "Sahih Bukhari 8 401"
+          ],
+          [
+            "It was narrated from Abu Sa'eed that:                     The Prophet (\ufdfa) said: \"If one of you is not sure about his prayer, let him forget about what he is unsure of and complete his prayer on the basis of what he is sure of. When he is sure that he has completed it, let him prostrate twice while he is sitting. Then if he has prayed five (rak'ahs), they (the two prostrations) will make his prayer even-numbered, and if he had prayed four, they will annoy and humiliate the shaitan.\"",
+            "Sunan an-Nasa'i 13 1238"
+          ]
+        ]
+      },
+      {
+        "query": "If prayer starts (i.e. the iqama is called) and the person feels the call of \nnature, what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If one of you needed to go to the restroom and the salaat starts, he should start with the restroom.",
+            "Abu Dawood 88 and Sahih al-Jaami' 373"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Anas bin Malik:                          The Prophet said, If supper is served and the Iqama for (Isha) prayer      is proclaimed, start with you supper first.\"",
+            "Sahih Bukhari 70 5519"
+          ],
+          [
+            "Narrated Abdullah ibn Amr ibn al-'As:                     The Prophet (\ufdfa) said: When the Imam completes the prayer and sits (for reciting tashahhud), and then becomes defiled (i.e. his ablution becomes void) before he speaks (to someone), his prayer becomes complete. And those who prayed behind him also complete the prayer.",
+            "Sunan Abi Da'ud 2 617"
+          ],
+          [
+            "Anas b. Malik reported the Apostle of Allah (may peace be upon him) saying:                      When the supper is brought and the prayer begins, one, should first take food.",
+            "Sahih Muslim 6 1269"
+          ],
+          [
+            "Anas reported :                      the Iqamah was pronounced (for the night prayer) and the Messenger of Allah (\ufdfa) remained engaged in talking (to a person) in the corner of the mosque. He did not begin prayer until the people slept.",
+            "Sunan Abi Da'ud 2 544"
+          ],
+          [
+            "It was narrated that 'Abdullah bin Arqam said:                     \"The Messenger of Allah said: 'If anyone of you needs to defecate and the immediate call to prayer (Iqamah) is given, let him start with (relieving himself).'\"",
+            "Sunan Ibn Majah 1 659"
+          ]
+        ]
+      },
+      {
+        "query": "If a person has something happen to him (i.e., someone speaks to him or \napproaches him) while praying what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If something bothers you in your salaat, men should make tasbeeh and women should clap.",
+            "Sunan Abu Dawood 941, Sahih al-Bukhari 1145, Sahih Muslim 106"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Anas reported:                      (The people) stood up for the night prayer when a man spoke forth: I need to say something. The Apostle of Allah (may peace be upon him) entered into secret conversation with him, till the people dozed off or some of the people (dozed off), and then they said the prayer.",
+            "Sahih Muslim 4 376"
+          ],
+          [
+            "Narrated Abdullah ibn Amr ibn al-'As:                     The Prophet (\ufdfa) said: When the Imam completes the prayer and sits (for reciting tashahhud), and then becomes defiled (i.e. his ablution becomes void) before he speaks (to someone), his prayer becomes complete. And those who prayed behind him also complete the prayer.",
+            "Sunan Abi Da'ud 2 617"
+          ],
+          [
+            "Narrated Abu Said Al-Khudri:                          The Prophet said, \"If while you are praying, somebody intends to pass in front of you, prevent him; and should he insist, prevent him again; and if he insists again, fight with him (i.e. prevent him violently e.g. pushing him violently), because such a person is (like) a devil.\"",
+            "Sahih Bukhari 59 3274"
+          ],
+          [
+            "Narrated Abu Huraira:                     The Prophet said, \"If somebody fights (or beats somebody) then he should avoid the face.\"",
+            "Sahih Bukhari 49 2559"
+          ],
+          [
+            "Anas b. Malik reported:                      The Messenger of Allah (may peace be upon him) said: When any one of you is engaged in prayer, he is holding intimate conversation with his Lord, so none of you must spit in front of him, or towards his right side, but towards his left side under his foot.",
+            "Sahih Muslim 6 1258"
+          ]
+        ]
+      },
+      {
+        "query": "If a praying person is in doubt whether he has passed wind or not, or if \nhe feels movement or gasses in his abdomen, should he stop prayer or \ncontinue?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If one is in prayer and feels movement in his behind, (and is in question whether) he has passed wind or not, and he is in doubt, then he should not leave unless he hears the sound or detects the smell.",
+            "Abu Dawood 177, and Sahih al-Jaami 750"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It wasnarrated that \u2018Aishah said:                      \u201cThe Messenger of Allah (\ufdfa)said:\u2018Whoever vomits, has a nosebleed, belches, or emits prostaticfluid, should stop praying; perform ablution, then resume his prayer,and while he is in that state he should not speak.\u201d",
+            "Sunan Ibn Majah 5 1278"
+          ],
+          [
+            "Abu Hurairah said:                      The Messenger of Allah (\ufdfa) said: If any one of you offers prayer and feels a movement between his paddocks, but is doubtful whether or not his ablution broke, he should not cease praying unless he hears a sound or perceives a smell.",
+            "Sunan Abi Da'ud 1 177"
+          ],
+          [
+            "Narrated `Abbas bin Tamim:                     that his uncle said: \"The Prophet was asked: If a person feels something during his prayer; should one interrupt his prayer?\" The Prophet said: No! You should not give it up unless you hear a sound or smell something.\" Narrated Ibn Abi Hafsa: Az-Zuhri said, \"There is no need of repeating ablution unless you detect a smell or hear a sound.\"",
+            "Sahih Bukhari 34 2056"
+          ],
+          [
+            "Narrated `Abbas bin Tamim:                     My uncle asked Allah's Apostle about a person who imagined to have passed wind during the prayer. Allah' Apostle replied: \"He should not leave his prayers unless he hears sound or smells something.\"",
+            "Sahih Bukhari 4 137"
+          ],
+          [
+            "Narrated 'Aishah:                     Hamzat al-Aslami asked the Prophet (\ufdfa): Messenger of Allah, I am a man who keeps perpetual fast, may I fast while on a journey? He replied: Fast if you like, or break your fast if you like.",
+            "Sunan Abi Da'ud 14 2402"
+          ]
+        ]
+      },
+      {
+        "query": "If a traveling person comes upon a congregation praying, and he does \nnot know if: (1) the imam (prayer leader) is a traveler, meaning that he \nshould join the prayer with the intention of qasr (shortening prayer), or \n(2) if he is resident, and thus should pray the complete prayer, what \nshould he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "What is reason that the traveler prays two rakaat if he is alone and four rakaat if he is led in [a full] prayer by a resident? So he said, that is the sunna (tradition of the Prophet), and in another narration 'That is the sunna of Abi Al-Qasim.'",
+            "Narrated by Imam Ahmad"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Nafi`:                     Ibn `Umar never offered the Duha prayer except on two occasions: (1) Whenever he reached Mecca; and he always used to reach Mecca in the forenoon. He would perform Tawaf round the Ka`ba and then offer two rak`at at the rear of Maqam Ibrahim. (2) Whenever he visited Quba, for he used to visit it every Saturday. When he entered the Mosque, he disliked to leave it without offering a prayer. Ibn `Umar narrated that Allah's Apostle used to visit the Mosque of Quba (sometime) walking and (sometime) riding. And he (i.e. Ibn `Umar) used to say, \"I do only what my companions used to do and I don't forbid anybody to pray at any time during the day or night except that one should not intend to pray at sunrise or sunset.\"",
+            "Sahih Bukhari 20 1191"
+          ],
+          [
+            "Anas b. Malik said:                      A man came panting to join the row of worshippers, and said: Allah is most great; praise be to Allah, much praise, good and blessed. When the Messenger of Allah(\ufdfa) finished his prayer, he asked: Which of you is the one who spoke the words? He said nothing wrong. Then the man said: I (said), Messenger of Allah (\ufdfa); I came and had difficulty in breathing, so I said them. He said: I saw twelve angels racing against one another to be the one to take them to Allah.The narrator Humaid added: When any of you comes for praying, he should walk as usual (i.e. he should not hasten and run quickly); then he should pray as much as he finds it (along with the imam), and should offer the part of the prayer himself (when the prayer is finished) which the Imam had offered before him.",
+            "Sunan Abi Da'ud 2 763"
+          ],
+          [
+            "Narrated Abdullah ibn Amr ibn al-'As:                     The Prophet (\ufdfa) said: When the Imam completes the prayer and sits (for reciting tashahhud), and then becomes defiled (i.e. his ablution becomes void) before he speaks (to someone), his prayer becomes complete. And those who prayed behind him also complete the prayer.",
+            "Sunan Abi Da'ud 2 617"
+          ],
+          [
+            "It wasnarrated that Ibn \u2018Umar said:                      \u201cThe Messenger of Allah (\ufdfa)saidconcerning the fear prayer: \u201cThe Imam should lead one group inprayer, and they should perform one prostration, and there should beanother group between them and the enemy (guarding them). Then thosewho did the prostration with their leader should move away, and takethe place of those who have not yet prayed. Then those who have notyet prayed should come forward and perform one prostration with theirleader. Then their leader should move away, and his prayer will becomplete. Then each group should perform one prostration by itself.Ifthe fear is too great, then (they should pray) on foot orriding.\u2019\u201d Hesaid: What is meant by prostration here is a Rak\u2019ah.",
+            "Sunan Ibn Majah 5 1316"
+          ],
+          [
+            "Narrated A person from the Ansar:                     Sa'id ibn al-Musayyab said: An Ansari was breathing his last. He said: I narrate to you a tradition, and I narrate it with the intention of getting a reward from Allah.  I heard the Messenger of Allah (\ufdfa) say: If any one of you performs ablution and performs it very well, and goes out for prayer, he does not take his right step but Allah records a good work (or blessing) for him, and he does not take his left step but Allah remits one sin from him. Any one of you may reside near the mosque or far from it; if he comes to the mosque and prays in congregation, he will be forgiven (by Allah). If he comes to the mosque while the people had prayed in part, and the prayer remained in part, and he prays in congregation the part he joined, and completed the part he had missed, he will enjoy similarly (i.e. he will be forgiven). If he comes to the mosque when the people had finished prayer, he will enjoy the same.",
+            "Sunan Abi Da'ud 2 563"
+          ]
+        ]
+      },
+      {
+        "query": "If a praying person suddenly cannot stand up for the remainder of the \nprayer, or he was unable to pray standing up so he was praying sitting \ndown, then he became able to stand again, what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Pray standing up; if you cannot, then sitting down; if you can not, then on your side.",
+            "Sunan Abu Dawood 922 and Sahih Sunan Abu Dawood 815"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It wasnarrated that \u2018Aishah said:                      \u201cThe Messenger of Allah (\ufdfa)said:\u2018Whoever vomits, has a nosebleed, belches, or emits prostaticfluid, should stop praying; perform ablution, then resume his prayer,and while he is in that state he should not speak.\u201d",
+            "Sunan Ibn Majah 5 1278"
+          ],
+          [
+            "Narrated Abu Huraira:                     Allah's Apostle finished his prayer after offerings two rak`at only. Dhul-Yaddain asked him whether the prayer had been reduced, or you had forgotten?\" The Prophet said, \"Is Dhul-Yaddain speaking the truth?\" The people said, \"Yes.\" Then Allah's Apostle stood up and performed another two rak`at and then finished prayer with Taslim, and then said the Takbir and performed a prostration similar to or longer than his ordinary prostrations; then he raised his head, said Takbir and prostrated and then raised his head (Sahu prostrations).",
+            "Sahih Bukhari 96 7337"
+          ],
+          [
+            "\u2018A\u2019ishah said; The Messenger of Allah (\ufdfa) prayed in his house sitting and the people prayed behind him standing. He made a sign to them (asking them) to sit down. When he finished the prayer, he said :                      The IMAM is  appointed only to be followed; so when he prays standing. Pray standing ; and when he raises himself, raise yourself: and when he prays sitting. Pray sitting.",
+            "Sunan Abi Da'ud 2 605"
+          ],
+          [
+            "Narrated Abu Huraira:                     A man entered the mosque and started praying while Allah's Apostle was sitting somewhere in the mosque. Then (after finishing the prayer) the man came to the Prophet and greeted him. The Prophet said to him, \"Go back and pray, for you have not prayed. The man went back, and having prayed, he came and greeted the Prophet. The Prophet after returning his greetings said, \"Go back and pray, for you did not pray.\" On the third time the man said, \"(O Allah's Apostle!) teach me (how to pray).\" The Prophet said, \"When you get up for the prayer, perform the ablution properly and then face the Qibla and say Takbir (Allahu Akbar), and then recite of what you know of the Qur'an, and then bow, and remain in this state till you feel at rest in bowing, and then raise your head and stand straight; and then prostrate till you feel at rest in prostration, and then sit up till you feel at rest while sitting; and then prostrate again till you feel at rest in prostration; and then get up and stand straight, and do all this in all your prayers.\"",
+            "Sahih Bukhari 83 6748"
+          ],
+          [
+            "It wasnarrated from Abu Hurairah that a man entered the mosque andperformed prayer, and the Prophet (\ufdfa) was in a corner of themosque.The man came and greeted him, and he said:                      \u201cAnd also uponyou. Go backand repeat your prayer, for you have not prayed.\u201d Sohe went back andrepeated his prayer, then he came and greeted theProphet (\ufdfa). Hesaid: \u201cAnd also upon you. Go back and repeat yourprayer, for you havenot prayed.\u201d On the third occasion, the mansaid: \u201cTeach me, OMessenger of Allah!\u201d He said: \u201cWhen youstand up to offer the prayer,perform ablution properly, then standto face the prayer direction andsay Allahu Akbar. Then recitewhatever you can of Qur\u2019an, and then bowuntil you can feel at easebowing. Then stand up until you feel atease standing, then prostrateuntil you feel at ease prostrating. Thenraise your head until youare sitting up straight. Do that throughoutyour prayer.\u201d",
+            "Sunan Ibn Majah 5 1113"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one is distracted during the prayer by something \nhappening in ones environment, such as someone knocking on the \ndoor, or a child in danger, e.g. playing with an electrical outlet, etc., \nperhaps requiring him to move?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The Messenger of Allah (peace be upon him), used to pray with the door closed, so I arrived and asked him to open it, so he came and opened it and returned to his prayer.",
+            "Sunan Abu Dawood, number 922, and Sahih Sunan Abu Dawood 815"
+          ],
+          [
+            "The Messenger of Allah (peace be upon him), said: Kill the two black things while in prayer: the snake and scorpion.",
+            "Sunan Abu Dawood, number 921, and Sahih Sunan Abu Dawood 814"
+          ],
+          [
+            "If one of you prays with something in front of him protecting him from [passing] people, and someone wants to pass in front of him, then he should push him, and if he refuses to [turn back], then fight him, for he is a shaitan (satan).",
+            "Narrated al-Bukhari Fath 1/582"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abdullah ibn Amr ibn al-'As:                     The Prophet (\ufdfa) said: How will you do when that time will come? Or he said: A time will soon come when the people are sifted and only dregs of mankind survive and their covenants and guarantees have been impaired and they have disagreed among themselves and become thus, interwining his fingers. They asked: What do you order us to do, Messenger of Allah? He replied: Accept what you approve, abandon what  you disapprove, attend to your own affairs and leave alone the affairs of the generality.Abu dawud said: A similar tradition has been transmitted by 'Abd Allah bin 'Amr from the Prophet (\ufdfa) through different chain.",
+            "Sunan Abi Da'ud 39 4342"
+          ],
+          [
+            "Narrated Thawban:                     The Messenger of Allah (\ufdfa) said: Three things one is not allowed to do: supplicating Allah specifically for himself and ignoring others while leading people in prayer; if he did so, he deceived them; looking inside a house before taking permission: if he did so, it is as if he entered the house, saying prayer while one is feeling the call of nature until one eases oneself.",
+            "Sunan Abi Da'ud 1 90"
+          ],
+          [
+            "Narrated `Abbas bin Tamim:                     that his uncle said: \"The Prophet was asked: If a person feels something during his prayer; should one interrupt his prayer?\" The Prophet said: No! You should not give it up unless you hear a sound or smell something.\" Narrated Ibn Abi Hafsa: Az-Zuhri said, \"There is no need of repeating ablution unless you detect a smell or hear a sound.\"",
+            "Sahih Bukhari 34 2056"
+          ],
+          [
+            "'Abdullah (b. 'Umar) reported from his father that while he was addressing the people on Friday (sermon), a person, one of the Companions of the Messenger of Allah (may peace be upon him), entered (the mosque). Umar said to him loudly:                      What is this hour (for attending the prayer)? He said: I was busy today and I did not return to my house when I heard the call (to Friday prayer), and I did no more but performed ablution only. Upon this Umar said: just ablution! You know that the Messenger of Allah (may peace be upon him) commanded (us) to take a bath (on Friday).",
+            "Sahih Muslim 8 1992"
+          ],
+          [
+            "Narrated Abu Said Al-Khudri:                          The Prophet said, \"If while you are praying, somebody intends to pass in front of you, prevent him; and should he insist, prevent him again; and if he insists again, fight with him (i.e. prevent him violently e.g. pushing him violently), because such a person is (like) a devil.\"",
+            "Sahih Bukhari 59 3274"
+          ]
+        ]
+      },
+      {
+        "query": "If as-salaam (the greeting of Islam) was said to someone during his \nprayer, what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "I passed by the Messenger of Allah (peace be upon him), while he was praying and I said salaam to him and he replied by signal.",
+            "Narrated by Sohaib"
+          ],
+          [
+            "The Messenger of Allah (peace be upon him) went to Qubaa\u2019 (first Masjid in Medina) to pray. He said that the Ansaar (first Muslims of Medina) came to him and said salaam to him while he was praying. He said, 'So, I said to Bilal, \u2018How did you see the Messenger of Allah (peace be upon him) reply to them when they said salaam to him while he was praying?\u2019' He said that he said, 'Like this.' and he flattened his hand.",
+            "Narrated by Ibn Omar"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "'A'isha (Allah be pleased with her) reported Allah's Messenger (may peace be upon him) as saying:                      If anyone dies in a state (that he had to complete) some fasts, his heir must fast on his behalf.",
+            "Sahih Muslim 14 2748"
+          ],
+          [
+            "It wasnarrated from Umm Salamah that when the Prophet (\ufdfa)performed theSubh (morning prayer), while he said the Salam, he would say:                      \u2018Allahummainnias\u2019aluka \u2018ilman nafi\u2019an, wa rizqan tayyiban, wa \u2018amalanmutaqabbalan (O Allah, I ask You for beneficial knowledge, goodlyprovision and acceptable deeds).\u2019\u201d",
+            "Sunan Ibn Majah 5 978"
+          ],
+          [
+            "\u2018Abd Allah b. Shaqiq said:                      I asked \u2018A\u2019ishah whether the Messenger of Allah (\ufdfa) recited a whole Surah (of the Quran) in one Rak\u2019ah of the prayer. She replied : (He recited from among) the Mufassal surahs. I asked: Did he pray (at night) sitting? She replied : (he prayed sitting) when the people made him old.",
+            "Sunan Abi Da'ud 2 956"
+          ],
+          [
+            "'A'isha (Allah be pleased with her) said that the Messenger of Allah (may peace be upon him) kissed one of his wives while he was fasting, and then she ('A'isha) smiled (as she narrated).",
+            "Sahih Muslim 14 2628"
+          ],
+          [
+            "'A'isha (Allah be pleased with her) reported that Allah's Messenger (may peace be upon him) kissed (his wives) during Ramadan while observing fast.",
+            "Sahih Muslim 14 2640"
+          ]
+        ]
+      },
+      {
+        "query": "If a man enters the masjid while the imam (leader of prayer) is praying. \nShould he join the imam immediately in whatever position he is in and \nstart praying, or should he wait to find out whether the imam is going to \nsit or stand?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If you come to prayer and we are prostrating, then you should prostrate [but] don't count it, and whoever catches a rakaa, then he has caught the salaat.",
+            "Sunan Abu Dawood 893 and Sahih Sunan Abu Dawood 792"
+          ],
+          [
+            "If one of you comes to prayer and the Imam is in a certain position, then do as the Imam is doing.",
+            "Sunan Al-Tirmidhi 591 and Sahih Sunan Al-Tirmidhi 484"
+          ],
+          [
+            "What you catch up with, pray.",
+            "General meaning"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated `Abdullah bin Zaid Al-Ansari:                     The Prophet went out towards the Musalla in order to offer the Istisqa' prayer and when he intended to invoke (Allah) or started invoking, he faced the Qibla and turned his cloak inside out.",
+            "Sahih Bukhari 15 1028"
+          ],
+          [
+            "Narrated `Ikrima:                     I saw a person praying at Muqam-Ibrahim (the place of Abraham by the Ka`ba) and he was saying Takbir on every bowing, rising, standing and sitting. I asked Ibn `Abbas (about this prayer). He admonished me saying: \"Isn't that the prayer of the Prophet?\"",
+            "Sahih Bukhari 10 787"
+          ],
+          [
+            "It wasnarrated that \u2018Aishah said:                      \u201cThe Messenger of Allah (\ufdfa) fellill and come of his Companions came to visit him. The Messenger ofAllah (\ufdfa) performed prayer while sitting down, and they prayedbehind him standing up. He gestured them to sit down, and when hefinished he said: \u2018The Imam is appointed to be followed. When hebows,then bow; when he stands up again, then stand up, and if heprayssitting down the pray sitting down.\u2019\u201d",
+            "Sunan Ibn Majah 5 1295"
+          ],
+          [
+            "'A'isha reported Allah's Apostle (may peace be upon him) as saying:                      When anyone amongst you dozes in prayer, he should sleep, till sleep is gone, for when one of you prays while dozing he does not know whether he may be asking pardon or vilifying himself.",
+            "Sahih Muslim 7 1870"
+          ],
+          [
+            "\u2018A\u2019ishah said; The Messenger of Allah (\ufdfa) prayed in his house sitting and the people prayed behind him standing. He made a sign to them (asking them) to sit down. When he finished the prayer, he said :                      The IMAM is  appointed only to be followed; so when he prays standing. Pray standing ; and when he raises himself, raise yourself: and when he prays sitting. Pray sitting.",
+            "Sunan Abi Da'ud 2 605"
+          ]
+        ]
+      },
+      {
+        "query": "What should a person do if prayer starts and a person is still on his way \nto the masjid?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If salaat is started, do not approach it running, but approach it walking, with calmness. Whatever you catch up with, pray, and what you miss, complete it.",
+            "Narrated by Al-Bukhari, Fath 2/390"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Anas bin Malik:                     Whenever the Prophet started the journey before noon, he used to delay the Zuhr prayer till the time for the `Asr prayer and then he would dismount and pray them together; and whenever the sun declined before he started the journey he used to offer the Zuhr prayer and then ride (for the journey).",
+            "Sahih Bukhari 18 1111"
+          ],
+          [
+            "Musa b. Salama Hudhali said:                      I asked Ibn 'Abbas: How should I say prayer when I am in Mecca, and when I do not pray along with the Imam? He said: Two rak'ahs (of prayer) is the Sunnah of Abu'l-Qasim (may peace be upon him).",
+            "Sahih Muslim 7 1609"
+          ],
+          [
+            "Narrated Anas ibn Malik:                     When the Messenger of Allah (\ufdfa) halted at a certain place (while on a journey), he would not leave that place till he offered the noon prayer. A man said to him: Even if in the middle of the day? He replied: Even if in the middle of the day.",
+            "Sunan Abi Da'ud 4 1205"
+          ],
+          [
+            "Anas reported :                      the Iqamah was pronounced (for the night prayer) and the Messenger of Allah (\ufdfa) remained engaged in talking (to a person) in the corner of the mosque. He did not begin prayer until the people slept.",
+            "Sunan Abi Da'ud 2 544"
+          ],
+          [
+            "Narrated Ibn Mas`ud:                     A man asked the Prophet \"What deeds are the best?\" The Prophet said: (1) To perform the (daily compulsory) prayers at their (early) stated fixed times, (2) To be good and dutiful to one's own parents. (3) and to participate in Jihad in Allah's Cause.\"",
+            "Sahih Bukhari 98 7628"
+          ]
+        ]
+      },
+      {
+        "query": "What should a person do with the profits he made from selling cigarettes, when it has been mixed with other lawful money?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Allah is pure and does not accept but the pure.",
+            null
+          ],
+          [
+            "For the Prophet (peace and blessings of Allah be upon him) did not demand from his followers that they purify their wealth after coming into the fold of Islam.",
+            null
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "p>     Narrated Anas bin Malik:                          Allah's Apostle forbade the sale of fruits till they are almost ripe.      He was asked what is meant by 'are almost ripe.' He replied, \"Till      they become red.\" Allah's Apostle further said, \"If Allah spoiled the      fruits, what right would one have to take the money of one's brother      (i.e. other people)?\"",
+            "Sahih Bukhari 34 2198"
+          ],
+          [
+            "It was narrated from Jabir bin 'Abdullah that the Messenger of Allah (\ufdfa) said:                     \"Whoever sells fruits then the crop fails, should not take any of his brother's money. Why would any of you take the money of his Muslim brother?\"",
+            "Sunan Ibn Majah 12 2304"
+          ],
+          [
+            "Salim narrated from his father that the Prophet (\ufdfa) said:                      \"Whoever frees a portion of a slave he owns, then he can afford the remainder of the price, then he should free him with his wealth.\"",
+            "Jami' al-Tirmidhi 15 1347"
+          ],
+          [
+            "Ibn 'Umar reported the Prophet (\ufdfa) as saying:                      If a man emancipates his share in a slave, the rest will be emancipated by his money if he has enough money to pay the full price for him.",
+            "Sunan Abi Da'ud 31 3946"
+          ],
+          [
+            "It was narrated from Salim, from his father that the Prophet said:                     \"Whoever buys a date-palm tree after it has been pollinated, its fruits belong to the seller, unless the purchaser has stipulated otherwise. And whoever buys a slave who has wealth, his wealth belongs to the seller, unless the purchaser has stipulated otherwise. \"(sahih)",
+            "Sunan an-Nasa'i 44 4636"
+          ]
+        ]
+      },
+      {
+        "query": "What is required of the man who repents homosexuality?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Whomsoever you find committing the act, kill them: both the active and the passive partners.",
+            "Abu Dawood, Tirmidhi, and Ibn Majah"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abi Ghallab Yunus bin Jubair:                     I asked Ibn `Umar,\"(What is said regarding) a man divorces his wife during her period?\" He said, \"Do you know Ibn `Umar? Ibn `Umar divorced his wife while she was menstruating. `Umar then went to the Prophet and mentioned that to him. The Prophet ordered him to take her back and when she became clean, he could divorce her if he wanted.\" I asked (Ibn `Umar), \"Was that divorce counted as one legal divorce?\" He said, \"If one becomes helpless and foolish (will he be excused? Of course not). \"",
+            "Sahih Bukhari 68 5313"
+          ],
+          [
+            "Zaid b. Khalid al-Jubani reported that he askad Uthman b. 'Affan:                      What is your opinion about the man who has sexual intercourse with his wife, but does not experience orgasm? Uthman said: He should perform ablution as he does for prayer, and wash his organ. 'Uthmin also said: I have heard it from the Messenger of Allah (may peace be upon him).",
+            "Sahih Muslim 4 347"
+          ],
+          [
+            "It was narrated from Hakim bin Muawiyah, from his father, that:                     a man asked the Prophet(\ufdfa): \u201cWhat are the right of the woman over her husband?\u201d He said: \u201cThat he should feed her as he feeds himself and clothe her as he clothes himself; he should not strike her on the face nor disfigure her, and he should not abandon her except in the house (as a form of discipline).\u201d (Hassan)",
+            "Sunan Ibn Majah 9 1923"
+          ],
+          [
+            "Maimun bin Siyah asked Anas bin Malik:                     \"O Abu Hamzah, what makes the blood and wealth of a Muslim forbidden?\" He said: \"Whoever bears witness to La ilaha illallah (there is none worthy of worship except Allah) and that Muhammad is the Messenger of Allah [SAW], faces our Qiblah, prays as we pray, and eats our slaughtered animals, he is a Muslim, and has the same rights and obligations as the Muslims.\"",
+            "Sunan an-Nasa'i 37 3968"
+          ],
+          [
+            "It wasnarrated that Ibn \u2018Umar said:                      \u201cA man stood up and said to theProphet (\ufdfa): \u2018O Messenger of Allah! What makes Hajj obligatory?\u2019Hesaid: \u2018Provision and a mount.\u2019 He said: \u2018O Messenger ofAllah, what isthe (real) Hajj?\u2019 He said: \u2018The one withdishevelled hair and noperfume.\u2019 Another (man) stood up and said:\u2018O Messenger of Allah, whatis the (real) Hajj?\u2019 He said:\u2018Raising one\u2019s voice and slaughteringthe sacrificial animal.\u2019\u201d",
+            "Sunan Ibn Majah 25 3008"
+          ]
+        ]
+      },
+      {
+        "query": "I have repented. But in my possession are some forbidden things such as musical instruments, cassettes, films, etc. Is it permissible for me to sell them, particularly since they are worth a large amount?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "When Allah forbids a thing, then He forbids its price (as well).",
+            "Abu Dawood"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It was narrated from 'Ata:                     \"I heard Jabir bin 'Abdullah (narrate) from the Prophet that he forbade Mukhabarah, Muzabanah and Muhaqalah, an (he forbade) selling fruits until their condition is known, an that they should only sold for Dinars and Dirhams, but he granted a concession regarding the sale of Araya:",
+            "Sunan an-Nasa'i 44 4523"
+          ],
+          [
+            "Narrated Hakim ibn Hizam:                     Hakim asked (the Prophet): Messenger of Allah, a man comes to me and wants me to sell him something which is not in my possession. Should I buy it for him from the market? He replied: Do not sell what you do not possess.",
+            "Sunan Abi Da'ud 24 3503"
+          ],
+          [
+            "Jabir b. Abdullah (Allah be pleased with them) reported that Allah's Messenger (may peace be upon him) had forbidden Muhaqala. and Muzabana, Mukhibara and the sale of fruits until their good condition becomes clear, and (he commanded) that (commodities) should not be sold but for the dinar and dirham except in case of araya.",
+            "Sahih Muslim 22 3989"
+          ],
+          [
+            "Mus'ab b. Sa'd reported on the authority of his father. I was ailing. I sent message to Allah's Apostle (may peace be upon him) saying:                      Permit me to give away my property as I like. He refused. I (again) said: (Permit me) to give away half. He (again refused). I (again said): Then one-third. He (the Holy Prophet) observed silence after (I had asked permission to give away) one-third. He (the narrater) said: It was then that endowment of one-third became permissible.",
+            "Sahih Muslim 26 4299"
+          ],
+          [
+            "Narrated Jabir bin \u2018Abdullah :                     I sold it, that is, camel, to the Prophet (\ufdfa), but I made the stipulation that I should be allowed to ride it to home. At the end he (the Prophet) said: Do you think that I made this transaction with you so that I take your camel ? Take your camel and its price; both are yours.",
+            "Sunan Abi Da'ud 24 3505"
+          ]
+        ]
+      },
+      {
+        "query": "If a person has already prayed in a mosque then goes to another one and finds people there praying the congregational prayer, should he pray again?",
+        "precision": 0.4,
+        "recall": 1.0,
+        "matched": 2,
+        "ground_truths": [
+          [
+            "He said: I performed Hajj with the Prophet (peace be upon him) and prayed Fajr with him in Masjid Al-Khayf. When he completed his prayer and turned around, he found two people who did not pray with him. He said: I have to talk to them. So he came to them and they were trembling. He asked them: What prevented you two from praying with us? They said: O Prophet of Allah! We had already prayed in our places. He said: Do not do that. If you already prayed at your places and then came to a congregational mosque, pray with them too and it will become a supererogatory prayer for you.",
+            "Sunan Al-Tirmidhi, No. 219; Sahih Al-Jami\u2018, No. 667"
+          ],
+          [
+            "Mihjan (may Allah be pleased with him), says that he was in the company of the Prophet (peace and blessings be upon him) and the Prophet (peace and blessings be upon him) prayed in congregation and returned while Mihjan himself did not pray with them. So the Prophet (peace and blessings be upon him) said to him: What prevented you from praying with the people? Are you not a Muslim? He said: Indeed, O Prophet of Allah (peace and blessings be upon him)! But I had already prayed at home. The Prophet (peace and blessings be upon him) said to him: When you come (to the mosque) then pray with the people even if you have prayed.",
+            "Muwatta, Imam Malik"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Ubayy b. Ka'b reported that he was sitting in a mosque that a person entered it and he observed prayer, and made recitation, the rest of the hadith is the same.",
+            "Sahih Muslim 7 1941"
+          ],
+          [
+            "'Ata said:                      When Ibn 'Umar offered the Friday prayer in Mecca he would go forward and pray two rak'ahs, he would then go forward and pray four rak'ahs; but when he was in Medina, he offered the Friday prayer, then returned to his house and prayed two rak'ahs, not praying them in the mosque. Someone mentioned this to him and he replied that the Messenger of Allah (\ufdfa) used to do it.",
+            "Sunan Abi Da'ud 2 1130"
+          ],
+          [
+            "Narrated Anas bin Malik:                     We used to pray the `Asr prayer and after that if someone happened to go to the tribe of Bani `Amr bin `Auf, he would find them still praying the `Asr (prayer).",
+            "Sahih Bukhari 9 548"
+          ],
+          [
+            "Narrated Mu'awiyah ibn Khudayj:                     One day the Messenger of Allah (\ufdfa) prayed and gave the salutation while a rak'ah of the prayer remained to be offered. A man went to him and said: You forgot to offer one rak'ah of prayer. Then he returned and entered the mosque and ordered Bilal (to utter the Iqamah). He uttered the Iqamah for prayer. He then led the people in one rak'ah of prayer. I stated it to the people. They asked me: Do you know who he was? I said: No, but I can recognise him if I see him. Then the man passed by me, I said: It is he. The people said: This is Talhah ibn Ubaydullah.",
+            "Sunan Abi Da'ud 2 1023"
+          ],
+          [
+            "Abu IdrisAl-Khawlani narrated that a man asked Abu Darda\u2019:                      \u201cShould Irecite when the Imam is reciting?\u201d He said: \u201cA man asked theProphet(\ufdfa) whether there was recitation in every prayer. TheMessenger ofAllah (\ufdfa) said: \u2018Yes.\u2019 A man among the peoplesaid: \u2018It has becomeobligatory.\u2019\u201d",
+            "Sunan Ibn Majah 5 891"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one is praying the sunnah prayer \nin the mosque and the iqamah is called?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If iqamah is called for the prayer then there is no prayer except the obligatory one.",
+            "Sahih Muslim, 1/493"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It was narrated from Ibn 'Umar that the Prophet (\ufdfa) prayed Maghrib and 'Isha' at Al-Muzdalifah.",
+            "Sunan an-Nasa'i 6 614"
+          ],
+          [
+            "Musa b. Salama Hudhali said:                      I asked Ibn 'Abbas: How should I say prayer when I am in Mecca, and when I do not pray along with the Imam? He said: Two rak'ahs (of prayer) is the Sunnah of Abu'l-Qasim (may peace be upon him).",
+            "Sahih Muslim 7 1609"
+          ],
+          [
+            "It was narrated from Sa'eed bin Jubair that he prayed Maghrib and 'Isha' in Jam' (Muzdalifah) with one Iqamah, then he narrated that Ibn 'Umar had done that, and Ibn 'Umar narrated that the Prophet (\ufdfa) had done that.",
+            "Sunan an-Nasa'i 7 665"
+          ],
+          [
+            "It was narrated that Ibn Umar said:                     \"The Messenger of Allah prayed Maghrib and Isha in Jam (Al-Muzdalifah) with one Iqamah.\"",
+            "Sunan an-Nasa'i 24 3030"
+          ],
+          [
+            "It was narrated that Anas bin Malik was asked:                     \"Did the Messenger of Allah (\ufdfa) say the Qunut in Subh prayer?\" He said: \"Yes.\" He was asked: \"Was that before bowing or after?\" He said: \"After bowing.\"",
+            "Sunan an-Nasa'i 12 1071"
+          ]
+        ]
+      },
+      {
+        "query": "What should one who is informed about the correct direction of the qiblah \nduring a prayer?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "While the Prophet (peace be upon him) was praying towards Bayt-al-Maqdis (Jerusalem), the verse was revealed to him...",
+            "Sahih Muslim, No. 527"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Abu IdrisAl-Khawlani narrated that a man asked Abu Darda\u2019:                      \u201cShould Irecite when the Imam is reciting?\u201d He said: \u201cA man asked theProphet(\ufdfa) whether there was recitation in every prayer. TheMessenger ofAllah (\ufdfa) said: \u2018Yes.\u2019 A man among the peoplesaid: \u2018It has becomeobligatory.\u2019\u201d",
+            "Sunan Ibn Majah 5 891"
+          ],
+          [
+            "'Ali reported that Allah's Messenger (may peace be upon him) said to him:                      Say,\" O Allah, direct me to the right path and make me adhere to the straight path,\" and when you make a mention of right guidance, keep in mind the right path and when you consider of the straight (path), keep in mind the straightness of the arrow.",
+            "Sahih Muslim 49 7086"
+          ],
+          [
+            "Abd al-'Aziz b. Rufai' (Allah be pleased with him) said:                      I asked Anas b. Malik to tell me about something he knew about Allah's Messenger (may peace be upon him), viz. where he observed the noon prayer on Yaum al-Tarwiya. He said: At Mina. I said: Where did he observe the afternoon prayer on the Yaum an-Nafr? and he said: It was at al-Abtah. He then said: Do as your rulers do.",
+            "Sahih Muslim 16 3226"
+          ],
+          [
+            "Narrated Anas bin Malik:                     The Prophet said, \"What is wrong with those people who look towards the sky during the prayer?\" His talk grew stern while delivering this speech and he said, \"They should stop (looking towards the sky during the prayer); otherwise their eyesight would be taken away.\"",
+            "Sahih Bukhari 10 750"
+          ],
+          [
+            "'Abdullah b. Malik b. Buhaina reported:                      The Messenger of Allah (may peace be upon him) happened to pass by a person who was busy in praying while the (Fard of the) dawn prayer had commenced. He said something to him, which we do not know what it was. When we turned back we surrounded him and said: What is it that the Messenger of Allah (may peace be upon him) said to you? He replied: He (the Holy Prophet) had said to me that he perceived as if one of them was about to observe four (rak'ahs) of the dawn prayer. Qa'nabi reported that 'Abdullah b. Malik b. Buhaina narrated it on the authority of his father. (Abu'l-Husain Muslim said): His assertion that he has narrated this hadith on the authority of his father is not correct.",
+            "Sahih Muslim 7 1682"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one is praying behind an imam and one misses one \nof the obligatory parts (arkaan)of the prayer?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The Imam is selected to be followed; the, do not differ with him. When he makes the takbeer, make the takbeer, when he goes into ruku\u2018, make ruku\u2018. When he says \u201csamia\u2018 Allahu li man hamidah\u201d (Allah hears he who praises Him), say \u201cRabbanaa lakal Hamd\u201d (O our Lord! To You belongs the Praise). When he goes into sajdah, make sajdah. If he prays sitting, then all should be sitting.",
+            "Sahih Al-Bukhari, No. 689"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It wasnarrated that Bara\u2019 said:                      \u201cWhen we performed prayer behind theMessenger of Allah (\ufdfa) (One of the narrators) Mis\u2019ar said: \u2018Oneofthe things we liked, or one of the things I liked\u2019 \u2018was tostand tohis right.\u2019\u201d",
+            "Sunan Ibn Majah 5 1059"
+          ],
+          [
+            "Mu'adha reported:                      A woman asked 'A'isha: Should one amongst us complete prayers abandoned during the period of menses? 'A'isha said: Are you a Haruriya? When any one of us during the time of the Messenger of Allah (may peace be upon him) was in her menses (and abandoned prayer) she was not required to complete them.",
+            "Sahih Muslim 4 335"
+          ],
+          [
+            "Abu Huraira reported Allah's Messenger (may peace be upon him) as saying:                      When any one of you observes the Jumu'a prayer (two obligatory rak'ahs in congregation), he should observe four (rak'ahs) afterwards.",
+            "Sahih Muslim 8 2073"
+          ],
+          [
+            "Narrated AbuHurayrah:                     The Prophet (\ufdfa) said: If any of you prays two rak'ahs before the dawn prayer, he should lie at his right side. Marwan ibn al-Hakam said to him: Is it not enough that one of us walks to the mosque until he lies at his right side? According to the version of Ubaydullah, he (AbuHurayrah) replied: No. This statement (of AbuHurayrah) reached Ibn Umar. He said: AbuHurayrah exceed limits on himself. He was asked: Do you look askance at what he says? He replied: No, but he dared and we showed cowardice. This (criticism of Ibn Umar) reached AbuHurayrah. He said: What is my sin if I remembered and they forgot?",
+            "Sunan Abi Da'ud 5 1261"
+          ],
+          [
+            "Narrated Nafi`:                     \"The Prophet used to make his she-camel sit across and he would pray facing it (as a Sutra).\" I asked, \"What would the Prophet do if the she-camel was provoked and moved?\" He said, \"He would take its camel-saddle and put it in front of him and pray facing its back part (as a Sutra). And Ibn `Umar used to do the same.\" (This indicates that one should not pray except behind a Sutra).",
+            "Sahih Bukhari 8 507"
+          ]
+        ]
+      },
+      {
+        "query": "What happens if the Imam nullifies his ablution during the prayer? Or what \nif he suddenly recalls that he in fact was not in a state of wudu\u2019 in the first \nplace? What should he do? Is the prayer of the people praying behind him \nstill valid or do they need to make up all or part of it?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The Prophet (sallallaahu \u2018alayhi wa sallam) entered into the Fajr prayer and indicated to the people that they should stay in their places. Then he came back to lead them and water was dripping from his head.",
+            "Sunan Abi Dawud, No. 233; Sahih Sunan Abi Dawud, 1/45"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abdullah ibn Mas'ud:                     The Messenger of Allah (\ufdfa) offered prayer. The version of the narrator Ibrahim goes: I do not know whether he increased or decreased (the rak'ahs of prayer). When he gave the salutation, he was asked: Has something new happened in the prayer, Messenger of Allah? He said: What is it? They said: You prayed so many and so many (rak'ahs). He then relented his foot and faced the Qiblah and made two prostrations. He then gave the salutation. When he turned away (finished the prayer), he turned his face to us and said: Had anything new happened in prayer, I would have informed you. I am only a human being and I forget just as you do; so when I forget, remind me, and when any of you is in doubt about his prayer he should aim at what is correct, and complete his prayer in that respect, then give the salutation and afterwards made two prostrations.",
+            "Sunan Abi Da'ud 2 1020"
+          ],
+          [
+            "Narrated `Abdullah:                     The Prophet prayed (and the sub-narrator Ibrahim said, \"I do not know whether he prayed more or less than usual\"), and when he had finished the prayers he was asked, \"O Allah's Apostle! Has there been any change in the prayers?\" He said, \"What is it?' The people said, \"You have prayed so much and so much.\" So the Prophet bent his legs, faced the Qibla and performed two prostration's (of Sahu) and finished his prayers with Taslim (by turning his face to right and left saying: 'As-Salamu `Alaikum- Warahmat-ullah'). When he turned his face to us he said, \"If there had been anything changed in the prayer, surely I would have informed you but I am a human being like you and liable to forget like you. So if I forget remind me and if anyone of you is doubtful about his prayer, he should follow what he thinks to be correct and complete his prayer accordingly and finish it and do two prostrations (of Sahu).",
+            "Sahih Bukhari 8 401"
+          ],
+          [
+            "'Alqama narrated It on the authority of 'Abdullah (b. Mas'ud) who said:                      The Messenger of Allah (may peace be upon him) said the prayer; (the narrator added): He made some act of omission or commission when he pronounced salutation; it was said to him: Messenger of Allah, is there something new about the prayer? He (the Holy Prophet) said: What is it? They said: You said prayer in such and such away. He (the narrator) said: He (the Holy Prophet) turned his feet and faced the Qibla and performed two prostrations and then pronounced salutations, and then turned his face towards us and said: If there is anything new about prayer (new command from the Lord) I informed you of that. But I am a human being and I forget as you for. get, so when I forget, remind me, and when any one of you is in doubt about his prayer. he should aim at what Is correct. and complete his prayer in that respect and then make two prostrations.",
+            "Sahih Muslim 6 1302"
+          ],
+          [
+            "Narrated Abu Huraira:                     Allah's Apostle finished his prayer after offerings two rak`at only. Dhul-Yaddain asked him whether the prayer had been reduced, or you had forgotten?\" The Prophet said, \"Is Dhul-Yaddain speaking the truth?\" The people said, \"Yes.\" Then Allah's Apostle stood up and performed another two rak`at and then finished prayer with Taslim, and then said the Takbir and performed a prostration similar to or longer than his ordinary prostrations; then he raised his head, said Takbir and prostrated and then raised his head (Sahu prostrations).",
+            "Sahih Bukhari 96 7337"
+          ],
+          [
+            "Narrated Abdullah ibn Amr ibn al-'As:                     The Prophet (\ufdfa) said: When the Imam completes the prayer and sits (for reciting tashahhud), and then becomes defiled (i.e. his ablution becomes void) before he speaks (to someone), his prayer becomes complete. And those who prayed behind him also complete the prayer.",
+            "Sunan Abi Da'ud 2 617"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one feels oneself dozing off \nduring Friday prayer?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If one of you dozes during the Friday sermon, he should exchange his position with the person sitting next to him.",
+            "Al-Baihaqi, 3/238; Sahih Al-Jami\u2018 No. 812"
+          ],
+          [
+            "If one of you dozes in the mosque on Friday, he should move his position to another place.",
+            "Abu Dawud, No. 1119; Sahih Al-Jami\u2018 No. 809"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abu Huraira:                     While `Umar (bin Al-Khattab) was delivering the Khutba on a Friday, a man entered (the mosque). `Umar asked him, \"What has detained you from the prayer?\" The man said, \"It was only that when I heard the Adhan I performed ablution (for the prayer).\" On that `Umar said, \"Did you not hear the Prophet saying: 'Anyone of you going out for the Jumua prayer should take a bath'?\".",
+            "Sahih Bukhari 11 882"
+          ],
+          [
+            "Narrated `Abbas bin Tamim:                     that his uncle said: \"The Prophet was asked: If a person feels something during his prayer; should one interrupt his prayer?\" The Prophet said: No! You should not give it up unless you hear a sound or smell something.\" Narrated Ibn Abi Hafsa: Az-Zuhri said, \"There is no need of repeating ablution unless you detect a smell or hear a sound.\"",
+            "Sahih Bukhari 34 2056"
+          ],
+          [
+            "Abu Hurairah said:                      While 'Umar b. al-Khattab was making a speech on Friday (in the mosque), a man came in. 'Umar said: Are you detained from prayer ? The man said: As soon as I heard the call for prayer, I perfumed ablution. Then 'Umar said: Only ablution ? Did you not hear the Messenger of Allah (\ufdfa) say: When any one of you comes for Friday (prayer) he should take a bath.",
+            "Sunan Abi Da'ud 1 340"
+          ],
+          [
+            "Narrated Aws ibn Aws ath-Thaqafi:                     I heard the apostle of Allah (\ufdfa) say: If anyone makes (his wife) wash and he washes himself on Friday, goes out early (for Friday prayer), attends the sermon from the beginning, walking, not riding, takes his seat near the imam, listens attentively, and does not indulge in idle talk, he will get the reward of a year's fasting and praying at night for every step he takes.",
+            "Sunan Abi Da'ud 1 345"
+          ],
+          [
+            "Abu Huraira reported Allah's Messenger (may peace be upon him) as saying:                      If you (even) ask your companion to be quiet on Friday while the Imam is delivering the sermon, you have in fact talked irrelevance.",
+            "Sahih Muslim 8 2002"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one finds oneself unsure in the middle of the prayer how many raka\u2019at one has prayed?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If one of you has doubts during his prayer and he does not recall how many rak`ahs he has prayed, whether three or four, then he can put an end to his doubt by praying according to what he was certain of (the lesser amount) and then making two sujud before the salam. If it turns out that he had prayed five rak`ahs, the two sujud would make it even. Whereas if he ended up completing his four rak`ahs, they would be in defiance of the Satan.",
+            "Sahih Muslim, No. 571"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Mu'adha asked 'A'isha (Allah be pleased with her) how many rak'ahs Allah's Messenger (may peace be upon him) prayed at the forenoon prayer. She replied:                      Four rak'ahs, but sometimes more as he pleased.",
+            "Sahih Muslim 7 1696"
+          ],
+          [
+            "\u2018Iyadnarrated that he asked Abu Sa\u2019eed Al-Khudri:                      \u201cOne of us praysandhe does not know how many (Rak\u2019ah) he has prayed.\u201d He said: \u201cTheMessenger of Allah (\ufdfa) said: \u2018When anyone of you prays and doesnotknow how many he has prayed, let him perform two prostrationswhile heis sitting.\u2019\u201d",
+            "Sunan Ibn Majah 5 1261"
+          ],
+          [
+            "Mu'adha reported:                      A woman asked 'A'isha: Should one amongst us complete prayers abandoned during the period of menses? 'A'isha said: Are you a Haruriya? When any one of us during the time of the Messenger of Allah (may peace be upon him) was in her menses (and abandoned prayer) she was not required to complete them.",
+            "Sahih Muslim 4 335"
+          ],
+          [
+            "\u2018Abd Allah b. Shaqiq said:                      I asked \u2018A\u2019ishah whether the Messenger of Allah (\ufdfa) recited a whole Surah (of the Quran) in one Rak\u2019ah of the prayer. She replied : (He recited from among) the Mufassal surahs. I asked: Did he pray (at night) sitting? She replied : (he prayed sitting) when the people made him old.",
+            "Sunan Abi Da'ud 2 956"
+          ],
+          [
+            "It wasnarrated that \u2018Abdur-Rahman bin \u2018Awf said:                      \u201cI heard theMessenger of Allah (\ufdfa) say: \u2018If anyone of you is uncertain as towhether he has prayed one or two Rak\u2019ah, let him assume it is one.Ifhe is uncertain as to whether he has prayed two or three, let himassume it is two. If he is uncertain as to whether he has prayedthreeor four, let him assume it is three. Then let him complete whatisleft of his prayer, so that the doubt will be about what is more.Thenlet him prostrate twice while he is sitting, before the Taslim(sayingthe Salam).\u2019\u201d",
+            "Sunan Ibn Majah 5 1266"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one remembers in the final \ntashahhud that one recited at tahiyyaat in the beginning \nof the rak\u2019ah instead of al-Fatihah?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "There is no prayer for the one who did not recite (in it) Al-Fatihah (the opening chapter of the Qur\u2019an).",
+            "Sahih Al-Bukhari, No. 723"
+          ],
+          [
+            "May Allah increase your endeavor. You do not need to repeat.",
+            "Sahih Al-Bukhari, No. 750"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It wasnarrated from Ibn \u2018Abbas that the Prophet (\ufdfa) recited theOpeningof the Book (Al-Fatihah) in the funeral prayer.",
+            "Sunan Ibn Majah 6 1562"
+          ],
+          [
+            "Narrated Al-Bara:                     While the Prophet was on a journey, he recited Surat at-Tini waz-Zaituni (95) in one of the first two rak`at of the `Isha prayer.",
+            "Sahih Bukhari 65 5003"
+          ],
+          [
+            "It was narrated from Hafsah that the Prophet said:                     \"Whoever does not intend to fast before dawn comes, should not fast.\" (Daif)",
+            "Sunan an-Nasa'i 22 2333"
+          ],
+          [
+            "It wasnarrated that \u2018Aishah said:                      \u201cWhen the Prophet (\ufdfa) prayed thetwo (Sunnah) Rak\u2019ah of Fajr, he would lie down on his right side.\u201d",
+            "Sunan Ibn Majah 5 1254"
+          ],
+          [
+            "Narrated Anas:                     The Prophet said, \"If anyone forgets a prayer he should pray that prayer when he remembers it. There is no expiation except to pray the same.\" Then he recited: \"Establish prayer for My (i.e. Allah's) remembrance.\" (20.14).",
+            "Sahih Bukhari 9 597"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one forgets the first tashahhud (sitting after the second rak\u2019ah)?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If the Imam stands up after the second rak`ah, and remembers that he has to sit, before he straightens himself (upright), then he should sit down, and if he straightened upright, he should not sit and make two prostrations of forgetfulness.",
+            "Abu Dawud, No. 1036; Silsilah Al-Sahihah, 321"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It wasnarrated that \u2018Aishah said:                      \u201cIf the Messenger of Allah (\ufdfa)missed the four Rak\u2019ah before the Zuhr, he would perform them afterthe two Rak\u2019ah which come after the Zuhr.\u201d",
+            "Sunan Ibn Majah 5 1213"
+          ],
+          [
+            "Narrated `Abdullah bin Buhaina Al-Asdi:                     (the ally of Bani `Abdul Muttalib) Allah's Apostle stood up for the Zuhr prayer and he should have sat (after the second rak`a but he stood up for the third rak`a without sitting for Tashah-hud) and when he finished the prayer he performed two prostrations and said Takbir on each prostration while sitting, before ending (the prayer) with Taslim; and the people too performed the two prostrations with him instead of the sitting he forgot.",
+            "Sahih Bukhari 22 1230"
+          ],
+          [
+            "Salim narrated from his father:                     \"The Prophet prayed Salat Al-Khawf, praying one Rak'ah with one of the two groups, while the other group was facing the enemy. (When the first group finished they first Rak'ah with him), they went and took position (of the second group, facing the enemy). Then the second group came and he led them in another Rak'ah, then he said the Taslim to them, while the group proceeded to complete their (second) Rak'ah. Thereafter, the first group stood up to finish their (second) Rak'ah.\"",
+            "Jami' al-Tirmidhi 6 564"
+          ],
+          [
+            "Abu Huraira reported Allah's Messenger (may peace be upon him) as saying:                      When any one of you observes the Jumu'a prayer (two obligatory rak'ahs in congregation), he should observe four (rak'ahs) afterwards.",
+            "Sahih Muslim 8 2073"
+          ],
+          [
+            "Narrated `Abdullah bin Buhaina:                     Allah's Apostle got up after the second rak`a of the Zuhr prayer without sitting in between (the second and the third rak`at). When he finished the prayer he performed two prostrations (of Sahu) and then finished the prayer with Taslim.",
+            "Sahih Bukhari 22 1225"
+          ]
+        ]
+      },
+      {
+        "query": "Is one allowed to borrow money from some one works in a restaurant which \nsells haram things? If he borrowed this money already what is the hukm?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The Prophet (peace be upon him) borrowed from the Jews and they were dealing in riba.",
+            "Not specified"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It was narrated that Masruq said:                     \"If a judge accepts a gift he has consumed something unlawful, and if he accepts a bribe, that takes him to the level of Kufr.\" Masruq said: \"Whoever drinks Khamr, he has committed (an act of) Kufr, and his Kufr is that his Salah does not count.\"",
+            "Sunan an-Nasa'i 51 5665"
+          ],
+          [
+            "It was narrated from Ibn 'Umar that the Messenger of Allah (\ufdfa) said:                     \u201cWhen a rich man takes too long to repay a debt, this is wrongdoing, and if the debt is transferred to a rich man, you should accept if.\u201d",
+            "Sunan Ibn Majah 15 2496"
+          ],
+          [
+            "Ibn Umar (Allah be pleased with them) said that Allah's Messenger (may peace be upon him) prohibited Shighar which means that a man gives his daughter in marriage on the condition that the other gives his daughter to him in marriage with- out any dower being paid by either.",
+            "Sahih Muslim 17 3530"
+          ],
+          [
+            "Ibn 'Umar reported the Prophet (\ufdfa) as saying:                      If a man emancipates his share in a slave, the rest will be emancipated by his money if he has enough money to pay the full price for him.",
+            "Sunan Abi Da'ud 31 3946"
+          ],
+          [
+            "Ibn 'Umar said:                      He who drank wine in the world and did not repent would be deprived of it (the pure drink) in the Hereafter. It was said to Malik: Is this hadith Marfu'? He said: Yes.",
+            "Sahih Muslim 37 5341"
+          ]
+        ]
+      },
+      {
+        "query": "During prayer, do you perform 'takbeer' during the course of a particular \naction or at the end of that action? E.g during sujood, should we say \"Allah Akbar\" DURING the course of getting up or once we've straightened up completely?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Abu Huraira used to say takbeer in all the prayers, compulsory and optional, ... He used to say takbeer when standing for prayer and when bowing; then he would say, 'Sami'allahu li-man hamida,' and before prostrating he would say 'Rabbana walaka-l-hamd.' Then he would say takbeer when prostrating and when raising his head from the prostration, then another takbeer when prostrating (for the second time), and when raising his head from the prostration. He also would say the takbeer when standing from the second raka'a. He used to do the same in every raka'a until he completed the prayer. On completion of the prayer, he would say, 'By Him in Whose Hands my soul is! No doubt my prayer is closer to that of Allah's messenger than yours, and this was his prayer until he left this world.'",
+            "Sahih al-Bukhari"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Ibn \u2018Abbas said:                      The Messenger of Allah (\ufdfa) used to say in his tahajjud prayer(i.e. supererogatory prayer offered in or after the midnight) after he said the takbir; he then narrated the tradition to the same effect.",
+            "Sunan Abi Da'ud 2 772"
+          ],
+          [
+            "\u2018Abd Allah b. Shaqiq said:                      I asked \u2018A\u2019ishah whether the Messenger of Allah (\ufdfa) recited a whole Surah (of the Quran) in one Rak\u2019ah of the prayer. She replied : (He recited from among) the Mufassal surahs. I asked: Did he pray (at night) sitting? She replied : (he prayed sitting) when the people made him old.",
+            "Sunan Abi Da'ud 2 956"
+          ],
+          [
+            "Narrated Abdullah ibn Amr ibn al-'As:                     The Prophet (\ufdfa) said: When the Imam completes the prayer and sits (for reciting tashahhud), and then becomes defiled (i.e. his ablution becomes void) before he speaks (to someone), his prayer becomes complete. And those who prayed behind him also complete the prayer.",
+            "Sunan Abi Da'ud 2 617"
+          ],
+          [
+            "It was narrated that Anas bin Malik was asked:                     \"Did the Messenger of Allah (\ufdfa) say the Qunut in Subh prayer?\" He said: \"Yes.\" He was asked: \"Was that before bowing or after?\" He said: \"After bowing.\"",
+            "Sunan an-Nasa'i 12 1071"
+          ],
+          [
+            "Jabir b. \u2018Abd Allah said:                      we used to offer supererogatory prayers and recite supplications while we were standing, and would glorify Allah while bowing and prostrating.",
+            "Sunan Abi Da'ud 2 833"
+          ]
+        ]
+      },
+      {
+        "query": "I have a question for my friend. She is 17 years old and \nthey just moved here from their home country and her \nguardians and mom want her to marry her cousin who \nlived in their same house back home but this girl really \nrefuses to marry him because she dislikes for some \nreason and she is begging and crying in front of her \nmother not to make her marry him. This girl is saying \nshe will not be happy with him \nMy question is does any girl have the RIGHT to say no \nfor her marriage if she does not like the man? This girl is \nIslamic and going to school and she doesn't know \nanybody to talk to but she really doesnt want to marry \nhim and her mother is utterly pressuring her by telling \nher she will die and she will be destroyed if she doesnt \nmarry this guy and her mother is telling her that nobody \nwill marry her because she is not beautiful and rich.\nSorry it was long question but please reply me as soon \nas possible.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "If he whose character and deen (practice of religion) pleases you, approaches you in marriage, then marry him, for if you don't, there will be fitna in the land and vast corruption.",
+            "Sunan Tirmidhi #1085"
+          ],
+          [
+            "My father married me to his brother's son (i.e. her cousin) in order to raise his standing among the people, so the Prophet (peace be upon him) put the matter in her hands (i.e. asserted that the validity of the marriage is conditioned on her approval and negated by her refusal). So she said, I authorize and endorse what he has done but I wanted women to know that fathers cannot force their will in these matters.",
+            "Sunan al-Nasaa'i, Kitaab al-Nikaah min Sunanihi"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Abu Salamah bin \u2018Abd Al Rahman reported on the authority of Fatimah daughter of Qais Abu \u2018Amr bin Hafs divorced her (Fathima daughter of Qais) absolutely when he was away from home and his agent sent her home barely. She was displeased with it. He said \u201cI swear by Allaah, you have no claim on us. She then came to Apostle of Allaah(\ufdfa) and mentioned that to him. He said to her \u201cNo maintenance is due to you for from him. He ordered her to spend the waiting period in the house of Umm Sharik but he said afterwards \u201cthat is a woman whom my Companions visits spend the waiting period in the house of Ibn Umm Maktum for he is blind and you can undress. Then when you are in a position of being remarried, tell me.\u201d She said \u201cWhen I was in a position to remarry, I mentioned to him that Mu\u2019awiyah bin Abi Sufyan and Abu Jahm had asked me in marriage. The Apostle of Allaah(\ufdfa)said \u201cAs for Abu Jahm, he does not put down his stick from his shoulder, and as for Mu\u2019awiyah he is a poor man who has no property; marry Usamah bin Zaid. I disliked him but he said \u201cMaary Usamah bin Zaid. So, I married him. And Allaah prospered him very much and I was envied.\u201d",
+            "Sunan Abi Da'ud 13 2284"
+          ],
+          [
+            "Umm Habiba, the daughter of AbuSufyan, reported:                      The Messenger of Allah (may peace be upon him) came to me and I said to him: Have you any inclination towards my the daughter of Abu Sufyan? He (the Holy Prophet) said: Then what should I do? I said: Marry her. He said: Do you like that? I said: I am not the exclusive (wife) of yours; I, therefore, wish to join my sister in good. He, said: She is not lawful for me. I said: I have been informed that you have given the proposal of marriage to Durrah daughter of Abu Salama He raid: You mean the daughter of Umm Salama? I said: Yes. He said: Even if she had not been my step-daughter brought up under my guardianship, she would not have been lawful for me, for she is the daughter of my foster-brother (Hamza), for Thuwaiba had suckled me and her father. So do not give me the proposal of the marriage of your daughters and sisters.",
+            "Sahih Muslim 18 3659"
+          ],
+          [
+            "Narrated `Aisha:                     Once Fatima came walking and her gait resembled the gait of the Prophet . The Prophet said, \"Welcome, O my daughter!\" Then he made her sit on his right or on his left side, and then he told her a secret and she started weeping. I asked her, \"Why are you weeping?\" He again told her a secret and she started laughing. I said, \"I never saw happiness so near to sadness as I saw today.\" I asked her what the Prophet had told her. She said, \"I would never disclose the secret of Allah's Apostle .\" When the Prophet died, I asked her about it. She replied. \"The Prophet said.) 'Every year Gabriel used to revise the Qur'an with me once only, but this year he has done so twice. I think this portends my death, and you will be the first of my family to follow me.' So I started weeping. Then he said. 'Don't you like to be the mistress of all the ladies of Paradise or the mistress of all the lady believers? So I laughed for that.\"",
+            "Sahih Bukhari 61 3666"
+          ],
+          [
+            "A\u2019ishah wife of the Prophet (\ufdfa) said \u201cMarriage in pre Islamic times was of four kinds.\u201d One of them was the marriage contracted by the people today. A man asked another man to marry his relative (sister or daughter) to him. He fixed the dower and married her to him. Another kind of marriage was that a man asked his wife when she became pure from menstruation to send fro so and so and have sexual intercourse with him. Her husband kept himself aloof and did not have intercourse with her till It became apparent that she was pregnant from the man who had intercourse with her. When it was manifest that she was pregnant, her husband approached her if he liked. This marriage was called istibda\u2019(to utilize man for intercourse for a noble birth). A third kind of marriage was that a group of people less than ten in number entered upon a woman and had intercourse with her. When she conceived gave birth to a child and a number of days passed after her delivery, she sent for them. No one of them could refuse to attend and they gathered before her. She said to them \u201cYou have realized your affair. I have now given birth to a child. And this is your son.  O so and so. She called the name of anyone of them she liked and the child was attributed to him. A fourth kind of marriage was that many people gathered together and entered upon a woman who did not prevent anyone who came to her. They were prostitutes. They hoisted flags at their doors which served as a sign for the one who intended to enter upon them. When she became pregnant and delivered the child , they got together before her and called for the experts of tracing relationship from physical features. They attributed the child to whom they considered and it was given to him. The child was called his son and he could not deny. When Allah sent Muhammad (\ufdfa) as a Prophet, he abolished all kinds of marriages prevalent among the people of the pre Islamic times except of the Muslims practiced today.",
+            "Sunan Abi Da'ud 13 2272"
+          ],
+          [
+            "Hilal ibn Usamah quoted Abu Maimunah Salma, client of the people of Medina, as saying:                      While I was sitting with AbuHurayrah, a Persian woman came to him along with a son of hers. She had been divorced by her husband and they both claimed him.  She said: AbuHurayrah, speaking to him in Persian, my husband wishes to take my son away.  AbuHurayrah said: Cast lots for him, saying it to her in a foreign language.  Then her husband came and asked: Who is disputing with me about my son?  AbuHurayrah said: O Allah, I do not say this, except that I heard a woman who came to the Messenger of Allah (\ufdfa) while I was sitting with him, and she said: My husband wishes to take away my son, Messenger of Allah, and he draws water for me from the well of AbuInabah, and he has been good to me.  The Messenger of Allah (\ufdfa) said: Cast lots for him.  Her husband said: Who is disputing with me about my son?  The Prophet (\ufdfa) said: This is your father and this your mother, so take whichever of them you wish by the hand. So he took his mother's hand and she went away with him.",
+            "Sunan Abi Da'ud 13 2277"
+          ]
+        ]
+      },
+      {
+        "query": "Dear brother in faith.\nI start with the name of Allah. I would like to thank you for your prompt response for our previous question which was of a great help to our community (All thanks be to Allah).\nWhat is the Islamic point-of-view regarding those who attend Friday prayers in the Masjid and fail to attend any other of the daily prayers? Do you have to attend the prayers at the Masjid if time permits?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "The heaviest salat for the hypocrite is that of Isha'a and Fajr and if they knew what was in them they would have attended them even if it meant crawling, and I have a strong desire to order the salat to be established, then order a man to lead the people in salat then I would go with some men carrying bundles of wood to a people not attending the salat and burn their houses on them.",
+            "Agreed upon by Bukhari and Muslim"
+          ],
+          [
+            "Do you hear the call? Then answer.",
+            "Narrated by Muslim"
+          ],
+          [
+            "Whosover hears the call to salat, and does not respond, then there is no salat for him unless he has a valid excuse.",
+            "Narrated by Abu Dawood, Ibn Majah, Daar qutni, Al-Hakim, Al-Baghawi, Bayhaqi"
+          ],
+          [
+            "If there are three let one of them be their Imam, and the one with the strongest right to be Imam is the one that is the best reciter of the Quran (both in terms of the amount memorized, and ability to recite it properly).",
+            "Narrated by Abu Dawood and Ahmed"
+          ],
+          [
+            "There are not three in a town where no Athan is called, and congregational prayers are not established amongst them except that the Sheitan will overcome them, so you must stick to jama'ah because the wolf gets the stray one.",
+            "Narrated by Abu Dawood and Ahmed"
+          ],
+          [
+            "As for this person he has disobeyed Abal Qasim (the Messenger).",
+            "Narrated by Muslim"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated `Abdullah:                     I asked the Prophet \"Which deed is the dearest to Allah?\" He replied, \"To offer the prayers at their early stated fixed times.\" I asked, \"What is the next (in goodness)?\" He replied, \"To be good and dutiful to your parents\" I again asked, \"What is the next (in goodness)?\" He replied, 'To participate in Jihad (religious fighting) in Allah's cause.\" `Abdullah added, \"I asked only that much and if I had asked more, the Prophet would have told me more.\"",
+            "Sahih Bukhari 9 527"
+          ],
+          [
+            "Narrated `Abdullah bin Masud:                     I asked Allah's Apostle, \"O Allah's Apostle! What is the best deed?\" He replied, \"To offer the prayers at their early stated fixed times.\" I asked, \"What is next in goodness?\" He replied, \"To be good and dutiful to your parents.\" I further asked, what is next in goodness?\" He replied, \"To participate in Jihad in Allah's Cause.\" I did not ask Allah's Apostle anymore and if I had asked him more, he would have told me more.",
+            "Sahih Bukhari 56 2782"
+          ],
+          [
+            "Narrated Ziyad bin'Ilaqa:                          I heard Jarir bin 'Abdullah (Praising Allah). On the day when      Al-Mughira bin Shu'ba died, he (Jarir) got up (on the pulpit) and      thanked and praised Allah and said, \"Be afraid of Allah alone Who has      none along with Him to be worshipped.(You should) be calm and quiet      till the (new) chief comes to you and he will come to you soon. Ask      Allah's forgiveness for your (late) chief because he himself loved to      forgive others.\" Jarir added, \"Amma badu (now then), I went to the      Prophet and said, 'I give my pledge of allegiance to you for Islam.\"      The Prophet conditioned (my pledge) for me to be sincere and true to      every Muslim so I gave my pledge to him for this. By the Lord of this      mosque! I am sincere and true to you (Muslims). Then Jarir asked for      Allah's forgiveness and came down (from the pulpit).",
+            "Sahih Bukhari 2 58"
+          ],
+          [
+            "It is narrated on the authority of 'Abdullah b. Mas'ud that he observed. I asked the Messenger of Allah (may peace be upon him) which deed was the best. He (the Holy Prophet) replied:                      Prayer at its appointed hour. I (again) said: Then what? He (the Holy Prophet) replied: Kindness to the parents. I (again) said: Then what? He replied: Earnest endeavour (Jihad) in the cause of Allah. And I would have not ceased asking more questions but out of regard (for his feelings).",
+            "Sahih Muslim 2 262"
+          ],
+          [
+            "Abu Sa'id b. al-Mu'alla said that when he was praying the Prophet (\ufdfa) passed by him and he called him. He said:                      I prayed ant then I came to him. He asked: What prevented you from answering me ? He replied: I was praying. He said: Has not Allah said: \"O you who believe, respond to Allah and the Apostle when he calls you to that which gives you life ? (8:24) Let me teach you the greatest surah from the Qur'an or in the Qur'an (the narrator Khalid doubted) before I leave the mosque. I said: (I shall memorize) your saying. He said: It is: \"Praise be to Allah, the Lord of the Universe\" which is the seven oft-repeated verses, and the mighty Qur'an.",
+            "Sunan Abi Da'ud 8 1458"
+          ]
+        ]
+      },
+      {
+        "query": "What should one do if one is asked to perform something at work that he feels is \ncontrary to the teachings of Islam?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "A human must not be obeyed if that (i.e., obeying the human) causes disobedience to Allah (subhaanahu wa ta'aala). Indeed, obedience is only in righteous deeds",
+            "Sahih Al-Bukhari with Fath Al-Bari, 13/121; Ahmad, 1/91; Al-Silsilah As-Sahihah, No. 181"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Aisha:                     Allah's Apostle said, \"If somebody innovates something which is not in harmony with the principles of our religion, that thing is rejected.\"",
+            "Sahih Bukhari 53 2697"
+          ],
+          [
+            "Narrated 'Abdullah bin 'Amr:                          A person asked Allah's Apostle . \"What (sort of) deeds in or (what      qualities of) Islam are good?\" He replied, \"To feed (the poor) and      greet those whom you know and those whom you don't know.\"",
+            "Sahih Bukhari 2 28"
+          ],
+          [
+            "Narrated `Aisha:                     The Prophet did something as it was allowed from the religious point of view but some people refrained from it. When the Prophet heard of that, he, after glorifying and praising Allah, said, \"Why do some people refrain from doing something which I do? By Allah, I know Allah more than they.\"",
+            "Sahih Bukhari 97 7387"
+          ],
+          [
+            "It was narrated that Hammam heard Abu Hurairah saying that 'Abul-Qasim (\ufdfa) said:                     \"If anyone of you insists on fulfilling what he swore to (after learning that it is wrong) then it is more sinful before Allah than (breaking the oath for which) the expiation that has been enjoined upon him.\"",
+            "Sunan Ibn Majah 11 2192"
+          ],
+          [
+            "Narrated Qabisah ibn Halb:                     A man asked the Messenger of Allah (\ufdfa): Is there any food from which I should keep myself away? I heard the Messenger of Allah (\ufdfa) say: Anything which creates doubt should not occur in your mind by which you resemble Christianity.",
+            "Sunan Abi Da'ud 28 3784"
+          ]
+        ]
+      },
+      {
+        "query": "What is the distance which, once one has set out for it, allows one to shorten the prayer?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Ya'la bin Umayyah said: I said to `Umar ibn al-Khattab \"Verily Allah has said ' if you shorten your prayers, for fear the unbelievers may attack you' and now the people feel secure.\" 'Umar said, \"[Indeed] I wondered the same thing you are wondering, so I mentioned it to the Prophet (peace and blessings be upon him) and he said '[It is] a charity that Allah has bestowed upon you so accept His charity.' \"",
+            "Al-Tirmidhi, hadith 2960"
+          ],
+          [
+            "Umayyah ibn \u2018Abdullah ibn Khalid ibn Asid said to Ibn `Umar, \"How can you shorten the prayer when Allah the Almighty has said, 'there is no blame on you if you shorten your prayers, for fear' ,\" so Ibn `Umar said, \"O son of my brother, verily the Prophet (peace and blessings be upon him) came to us when we were misguided, so he taught us, and among what he taught us was that Allah the Almighty has ordered us to pray two raka'ahs during travel.\"",
+            "Al-Tirmidhi, hadith 453"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Al-Bara':                     The bowing, the prostrations, the period of standing after bowing and the interval between the two prostrations of the Prophet used to be equal in duration .",
+            "Sahih Bukhari 10 801"
+          ],
+          [
+            "It was narrated from Abu Hurairah that:                     The Messenger of Allah (\ufdfa) used to pause briefly when he had started to pray.",
+            "Sunan an-Nasa'i 11 894"
+          ],
+          [
+            "Narrated `Abdullah bin `Amr:                     The Prophet asked me, \"How long does it take you to finish the recitation of the whole Qur'an?\"",
+            "Sahih Bukhari 66 5108"
+          ],
+          [
+            "Abu Qatadah reported the Messenger of Allah (\ufdfa) as saying:                      There is no remissness in sleep, it is only when one is awake that there is remissness when you delay saying the prayer till the time for the next prayer comes.",
+            "Sunan Abi Da'ud 2 441"
+          ],
+          [
+            "It was narrated that Ahu Dharr said:                      \"The Messenger of A;;ah (\ufdfa) said to me, and struck my thigh: 'What will you do if you stay among people who delay the prayer until its time is over?' He said: 'What do you command me to do?' He said: 'Offer the prayer on time, then go about your business, Then if the Iqamah for that prayer is saidand you are in the Masjid, then pray.\"'",
+            "Sunan an-Nasa'i 10 859"
+          ]
+        ]
+      },
+      {
+        "query": "What is the ruling on libaas ul-shuhrah or the wearing of extravagant clothing?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "He who wears libaas ul-shuhra in this world will be dressed in humiliating clothes on the day of judgment.",
+            "Narrated by Ahmed & Abu Dawood, confirmed sahih by Al Albani in Sahih Al-Jami' 6526"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Ali ibn AbuTalib:                     The Messenger of Allah (\ufdfa) forbade me to wear a gold ring, or a Qassi garment or the use purple saddle-cloths.",
+            "Sunan Abi Da'ud 34 4051"
+          ],
+          [
+            "Ibn \u2018Umar reported that the Prophet(\ufdfa) as saying A woman in the sacred state (wearing ihram) must not be veiled or wear gloves.",
+            "Sunan Abi Da'ud 11 1826"
+          ],
+          [
+            "\u2018Abd Allaah bin Umar said A man asked the Apostle of Allaah(\ufdfa) What clothing one should put on if one intend to put on ihram? He said He should not wear shirts, turbans, trousers, garments with head coverings and clothing which has any dye of waras or saffron; one should not put on shoes unless one cannot get sandals. If one cannot get sandals, one should wear the shoes, in which case one must cut them to come below the ankles.",
+            "Sunan Abi Da'ud 11 1823"
+          ],
+          [
+            "It wasnarrated from \u2018Abdullah bin \u2018Umar that a man asked theMessengerof Allah (\ufdfa), what clothes may the Muhrim wear? TheMessenger ofAllah (\ufdfa) said:                      \u201cHe should not wear a shirt, or turbans(or headcover), pants or pajamas, hooded cloaks and no leather socks,unlesshe cannot find sandals, in which case he may wear leather socksbutshould cut them to below the ankles. And he should not wear anyclothes that have been touched (dyed) with saffron or Wars.\u201d*",
+            "Sunan Ibn Majah 25 3041"
+          ],
+          [
+            "Narrated Ibn `Umar:                     A man asked, \"O Allah s Apostle What kind of clothes should a Muhrim wear?\" The Prophet, said, \"A Muhrim should not wear a shirt, trousers a hooded cloak, or Khuffs (socks made from thick fabric or leather) unless he cannot get sandals, in which case he should cut the part (of the Khuff) that covers the ankles.\"",
+            "Sahih Bukhari 77 5854"
+          ]
+        ]
+      },
+      {
+        "query": "If the sin involves the rights of another person then what form should repentance take?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "He upon whom his brother has a right, be it of the nature of money or honor, let him compensate for it before he is made to compensate for it on a day when there will be neither dinar nor dirham to deal with. Instead, if he has a good deed in his account it will be taken away from him and given to the person he had wronged. And if he has no good deeds in his account, sins of the other person will be taken from him and added to his account",
+            "Sahih al-Bukhari"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "A man bit the hand of another man but in that process the latter broke one incisor tooth of the former, and the Prophet forgave the latter.",
+            "Sahih Bukhari 28 1879"
+          ],
+          [
+            "Abu Hurairah reported the Messenger of Allah (\ufdfa) as saying:                      If anyone summons other to follow right guidance, his reward will be equivalent to that of the people who follow him, without their rewards being diminished in any respect on that account; and if anyone summons others to follow error the sin of which sins being diminished in any respect on that account.",
+            "Sunan Abi Da'ud 42 4609"
+          ],
+          [
+            "Narrated AbuHurayrah:                     The Prophet (\ufdfa) said: If anyone is given a legal decision ignorantly, the sin rests on the one who gave it. Sulayman al-Mahri added in his version: If anyone advises his brother, knowing that guidance lies in another direction, he has deceived him. These are the wordings of Sulayman.",
+            "Sunan Abi Da'ud 26 3657"
+          ],
+          [
+            "Another version of the tradition differently transmitted begins with the words:                     \" A man came to the Messenger of Allah (may peace be upon him) and he was sitting on the pulpit.... He said: What do you find if I strike with the sword?\" (The rest of the tradition is the same as the previous one.)",
+            "Sahih Muslim 34 4990"
+          ],
+          [
+            "Narrated Abu Huraira:                     Allah's Apostle said, \"Whoever has oppressed another person concerning his reputation or anything else, he should beg him to forgive him before the Day of Resurrection when there will be no money (to compensate for wrong deeds), but if he has good deeds, those good deeds will be taken from him according to his oppression which he has done, and if he has no good deeds, the sins of the oppressed person will be loaded on him.\"",
+            "Sahih Bukhari 46 2449"
+          ]
+        ]
+      },
+      {
+        "query": "Should the Zakat be paid from the WHOLE money you \nhave (if more than elnisab) or from the amount you have \nbeyond elnisab (the remains from subtracting the nisab \nfrom the whole money) ?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "for silver, one fourth of one tenth",
+            "Al-Mughni ma'a al-sharh il-kabeer, 2/600"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Ibn `Umar:                     The Prophet said, \"If one manumits his share of a common slave (Abd), and he has money sufficient to free the remaining portion of the price of the slave (justly estimated), then he should free the slave completely by paying the rest of his price; otherwise the slave is freed partly. \"",
+            "Sahih Bukhari 49 2553"
+          ],
+          [
+            "Narrated Abu Sa`id:                     Allah's Apostle (p.b.u.h) said, \"No Zakat is due on property mounting to less than five Uqiyas (of silver), and no Zakat is due on less than five camels, and there is no Zakat on less than five Wasqs.\" (A Wasqs equals 60 Sa's) & (1 Sa=3 K gms App.)",
+            "Sahih Bukhari 24 1425"
+          ],
+          [
+            "Abu Huraira reported Allah's Apostle (may peace be upon him) as saying:                      He who emancipates his portion in a slave, full emancipation may be secured for him out of his property (if he has money) if he has enough property to meet (the required expenses), but if he has not enough property, the slave should be put to extra labour (in order to earn money for buying his freedom), but he should not be overburdened.",
+            "Sahih Muslim 28 4423"
+          ],
+          [
+            "Narrated Abdullah ibn Abbas:                     If a man has sexual intercourse (with menstruating woman) during her bleeding, he should give one dinar as sadaqah, and if he does so when bleeding has stopped, he should give half a dinar as sadaqah.",
+            "Sunan Abi Da'ud 12 2169"
+          ],
+          [
+            "Narrated Anas:                     Abu Bakr wrote to me what was made compulsory by Allah's Apostle and that was (regarding the payments of Zakat): Neither the property of different people may be taken together nor the joint property may be split for fear of (paying more, or receiving less) Zakat.",
+            "Sahih Bukhari 24 1473"
+          ]
+        ]
+      },
+      {
+        "query": "I have read several articles on what foods are halal and what foods are haraam. But when I \ngo to a restaurant I still [doubt] if what I am eating is halal. I know that the meat needs to be \nslaughtered in the name of Allah, and it shall be done by the people of the book. Currently \nin the United States, the Christians and the Jews don't follow the true Bible and the Torah. \nThe Christians call Isa (may Allah be pleased with him) the son of God. Is the meat cut by \nthese people halal, can it be eaten?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Mention the name of Allah upon it and eat it.",
+            "Sahih Bukhari"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abu Tha`laba Al-Khushani:                     I said, \"O Allah's Prophet! We are living in a land ruled by the people of the Scripture; Can we take our meals in their utensils? In that land there is plenty of game and I hunt the game with my bow and with my hound that is not trained and with my trained hound. Then what is lawful for me to eat?\" He said, \"As for what you have mentioned about the people of the Scripture, if you can get utensils other than theirs, do not eat out of theirs, but if you cannot get other than theirs, wash their utensils and eat out of it. If you hunt an animal with your bow after mentioning Allah's Name, eat of it. and if you hunt something with your trained hound after mentioning Allah's Name, eat of it, and if you hunt something with your untrained hound (and get it before it dies) and slaughter it, eat of it.\"",
+            "Sahih Bukhari 72 5536"
+          ],
+          [
+            "It wasnarrated that Khuzaimah bin Jaz\u2019 said:                      \u201cI said: \u2018O MessengerofAllah, I have come to you to ask you about the vermin of the earth.What do you say about mastigures?\u2019 He said: \u2018I do not eat themand Ido not forbid them.\u2019 I said: \u2018I will eat of that which youhave notforbidden. But why (do you not eat them), O Messenger ofAllah?\u2019 Hesaid: \u2018One of the nations was turned into beasts and Ilooked at thiscreature and was uncertain.\u2019 I said: \u2018O Messengerof Allah, what doyou say about rabbits?\u2019 He said: \u2018I do not eatthem and I do notforbid them.\u2019 I said: \u2018I will eat of that whichyou have notforbidden. But why (do you not eat them), O Messenger ofAllah?\u2019 Hesaid: \u2018I have been told that it menstruates.\u2019\u201d",
+            "Sunan Ibn Majah 28 3368"
+          ],
+          [
+            "'Iyad b. Him-ar reported that Allah's Messenger (may peace be upon him), while delivering a sermon one day, said:                      Behold, my Lord commanded me that I should teach you which you do not know and which He has taught me today. (He has instructed thus): The property which I have conferred upon them is lawful for them. I have created My servants as one having a natural inclination to the worship of Allah but it is Satan who turns them away from the right religion and he makes unlawful what has been declared lawful for them and he commands them to ascribe partnership with Re, although he has no justification for that. And verily, Allah looked towards the people of the world and He showed hatred for the Arabs and the non-Arabs, but with the exception of some remnants from the People of the Book. And He (further) said: I have sent thee (the Holy Prophet) in order to put you to test and put (those to test) through you. And I sent the Book to you which cannot be washed away by water, so that you may recite it while in the state of wakefulness or sleep. Verily, Allah commanded me to burn (kill) the Quraish. I said: My Lord, they would break my head (like the tearing) of bread, and Allah said: You turn them out as they turned you out, you fight against them and We shall help you in this, you should spend and you would be conferred upon. You send an army and I would send an army five times greater than that. Fight against those who disobey you along with those who obey you. The inmates of Paradise are three: One who wields authority and is just and fair, one who Is truthful and has been endowed with power to do good deeds. And the person who is merciful and kind hearted towards his relatives and to every pious Muslim, and one who does not stretch his hand in spite of having a large family to support. And He said: The inmates of Hell are five: the weak who lack power to (avoid evil), the (carefree) who pursue (everything irrespective of the fact that it is good or evil) and who do not have any care for their family or for their wealth. And those dishonest whose greed cannot be concealed even in the case of minor things. And the third. who betray you. morning and evening, in regard to your family and your property. He also made a mention of the miser and the liar and those who are in the habit of abusing people and using obscene and foul language. Abu Ghassan in his narration did not make mention of\" Spend and there would be spent for you.\"",
+            "Sahih Muslim 54 7386"
+          ],
+          [
+            "Anas b. Malik reported:                      I was the cup-bearer of some people in the house of Abu Talha on the day when liquor was forbidden. Their liquor had been prepared from dry dates or fresh dates when the announcer made the announcement. He (Abu Talha) said to me: Go out and find out (what the announcement is). I got out (and found) an announcer making this announcement: Behold, liquor has been declared unlawful. He said: The liquor (was spilt and) flawed in the lanes of Medina. Abu Talha said to me: Go out and Spill it, and I spilt it. They said or some of them said: Such and such were killed, such and such were killed for (the wine) had been in their stomachs. He (the narrator) said. I do not know whether it is the narration transmitted by Anas, (or by someone else). Then Allah, the Exalted and Majestic, revealed:\" There shall be no sin (imputed) unto those who have believed and done good works for what they may have eaten as long as they fear (Allah) and believe and do good works\" (v. 93).",
+            "Sahih Muslim 37 5246"
+          ],
+          [
+            "Narrated An-Nu'man bin Bashir:                          I heard Allah's Apostle saying, 'Both legal and illegal things are      evident but in between them there are doubtful (suspicious) things and     most of the people have no knowledge about them. So whoever saves      himself from these suspicious things saves his religion and his honor.     And whoever indulges in these suspicious things is like a shepherd who     grazes (his animals) near the Hima (private pasture) of someone else      and at any moment he is liable to get in it. (O people!) Beware! Every     king has a Hima and the Hima of Allah on the earth is His illegal      (forbidden) things. Beware! There is a piece of flesh in the body if      it becomes good (reformed) the whole body becomes good but if it gets      spoilt the whole body gets spoilt and that is the heart.",
+            "Sahih Bukhari 2 52"
+          ]
+        ]
+      },
+      {
+        "query": "If the calender table indicates 4:45 a.m. as Ishraq till what \ntime can Fajr be prayed?\nThank you",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Whoever catches a raka'a of the morning prayer before the sun rises has caught the prayer",
+            "Sahih Bukhari"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abu Huraira:                     Allah's Apostle said, \"If anyone of you can get one rak`a of the `Asr prayer before sunset, he should complete his prayer. If any of you can get one rak`a of the Fajr prayer before sunrise, he should complete his prayer.\"",
+            "Sahih Bukhari 9 556"
+          ],
+          [
+            "Narrated `Aisha:                     After offering the Sunna of the Fajr prayer, the Prophet used to talk to me, if I happen to be awake; otherwise he would lie down till the Iqama call was proclaimed (for the Fajr prayer).",
+            "Sahih Bukhari 19 1161"
+          ],
+          [
+            "Masruq said:                      I asked 'Aishah: When would the Messenger of Allah (\ufdfa) observe the witr prayer ? She replied: Any time he observed the witr, sometimes in the early hours of the night, sometimes at midnight and sometimes towards the end of it. But he used to observe the witr just before the dawn when he died.",
+            "Sunan Abi Da'ud 8 1435"
+          ],
+          [
+            "Abu Hurairah reported the Messenger of Allah (\ufdfa) as saying:                      If anyone says a rak'ah of the 'Asr prayer before sunset, he has observed (the 'Asr prayer), and if anyone performs a rak'ah of the Fajr prayer, he has observed (the Fajr prayer).",
+            "Sunan Abi Da'ud 2 412"
+          ],
+          [
+            "'Aishah said:                     \"The Messenger of Allah said: 'If the people knew what (reward) there is in the 'Isha' prayer and fajr prayer, they would come even if they had to crawl.'\"",
+            "Sunan Ibn Majah 4 796"
+          ]
+        ]
+      },
+      {
+        "query": "Is smoking cigarettes Haraam?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "There is no harm or causing of harm (in Islaam).",
+            "Arabic 'laa darar wa laa diraar'"
+          ],
+          [
+            "A person will not be able to move on the Day of Judgment until he is asked about ... his body as to what he engaged it in.",
+            "Not specified"
+          ],
+          [
+            "Your body has a right on you.",
+            "Not specified"
+          ],
+          [
+            "A person will not be able to move on the Day of Judgment until he is asked about ..... what he owned as to how he spent it.",
+            "Not specified"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Abu Hazim:                     that he asked Sahl, \"Did you use white flour during the lifetime of the Prophet ?\" Sahl replied, \"No. Hazim asked, \"Did you use to sift barley flour?\" He said, \"No, but we used to blow off the husk (of the barley).",
+            "Sahih Bukhari 70 5465"
+          ],
+          [
+            "Jabir narrated that:                     The Prophet was asked about whether Umrah was obligatory? He said: \"No. But if you perform Umrah it is more virtuous.\"",
+            "Jami' al-Tirmidhi 9 931"
+          ],
+          [
+            "Narrated 'Ata:                     People said: safar is a pain within the belly. I asked: What is hamah ? He said: People said (believed) that hamah which is an owl or a nightbird and which shrieks is the spirit of men. It is not the spirit of men. It is an animal.",
+            "Sunan Abi Da'ud 30 3918"
+          ],
+          [
+            "Narrated Sa`id bin Al-Harith:                     that he heard Ibn `Umar saying, \"Weren't people forbidden to make vows?\" The Prophet said, 'A vow neither hastens nor delays anything, but by the making of vows, some of the wealth of a miser is taken out.\"",
+            "Sahih Bukhari 83 6775"
+          ],
+          [
+            "Narrated `Aisha:                     (the wife of the Prophet) Hamza bin `Amr Al-Aslami asked the Prophet, \"Should I fast while traveling?\" The Prophet replied, \"You may fast if you wish, and you may not fast if you wish.\"",
+            "Sahih Bukhari 30 1943"
+          ]
+        ]
+      },
+      {
+        "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this \nman? If he refuses to become a Muslim, can she continue to live with him?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Invite them to Islam and inform them what is required of them, for (I swear) by Allah, that Allah guides a man through you is better than if you had humr un-na'am (a particular kind of camel which is the most sought-after wealth among the Arabs)",
+            "Al-Bukhari, Fath il-Baari 3009"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated `Aisha:                     A man divorced his wife thrice (by expressing his decision to divorce her thrice), then she married another man who also divorced her. The Prophet was asked if she could legally marry the first husband (or not). The Prophet replied, \"No, she cannot marry the first husband unless the second husband consummates his marriage with her, just as the first husband had done.\"",
+            "Sahih Bukhari 68 5316"
+          ],
+          [
+            "Narrated `Aisha:                     A man divorced his wife and she married another man who proved to be impotent and divorced her. She could not get her satisfaction from him, and after a while he divorced her. Then she came to the Prophet and said, \"O Allah's Apostle! My first husband divorced me and then I married another man who entered upon me to consummate his marriage but he proved to be impotent and did not approach me except once during which he benefited nothing from me. Can I remarry my first husband in this case?\" Allah's Apostle said, \"It is unlawful to marry your first husband till the other husband consummates his marriage with you.\"",
+            "Sahih Bukhari 68 5320"
+          ],
+          [
+            "Narrated Anas b. Malik :                     When a man who has a wife married a virgin he should stay with her seven nights ; if he marries to a woman who has been previously married he should stay with her three nights. (The narrator said:) If I say that he (Anas) narrated this tradition from the Prophet (\ufdfa) I shall be true. But he said: The Sunnah is so-and-so.",
+            "Sunan Abi Da'ud 12 2124"
+          ],
+          [
+            "'A'isha (Allah be pleased with her) reported that Allah's Messenger (may peace be upon him) was asked about a woman whom a man married and then divorced her, and then she married (another) person, and she was divorced before sexual intercourse with her, whether it was lawful for her first husband (to marry her in this state). He (the Holy Prophet) said:                      No, until he has tasted her sweetness.",
+            "Sahih Muslim 17 3602"
+          ],
+          [
+            "Narrated Aisha, Ummul Mu'minin:                     The Messenger of Allah (\ufdfa) was asked about a man who divorced his wife three times, and she married another who entered upon her, but divorced her before having intercourse with her, whether she was lawful for the former husband. She said: The Prophet (\ufdfa) replied: She is not lawful for the first (husband) until she tastes the honey of the other husband and he tastes her honey.",
+            "Sunan Abi Da'ud 13 2309"
+          ]
+        ]
+      },
+      {
+        "query": "When is the romedon holiday? I hope the spelling is correct.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "Begin fasting after sighting the moon.",
+            "Not specified"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "It wasnarrated that \u2018Umar said:                      \u201cThe prayer while traveling is twoRak\u2019ah, and Friday is two Rak\u2019ah, and \u2018Eid is two Rak\u2019ah.They arecomplete and are not shortened, as told by Muhammad (\ufdfa).\u201d",
+            "Sunan Ibn Majah 5 1116"
+          ],
+          [
+            "It was narrated that Humaid bin 'Abdur-Rahman bin 'Awf said:                     \"I heard Mu'awiyah say on the day of 'Ashura when he was on the Mindar: O people of Al-Madinah, where are your scholars? I heard the Messenger of Allah say on this day: \"I am fasting, so whoever wants to fast let him do so.\"",
+            "Sunan an-Nasa'i 22 2371"
+          ],
+          [
+            "Narrated Humaid bin `Abdur Rahman:                     That he heard Muawiya bin Abi Sufyan on the day of 'Ashura' during the year he performed the Hajj, saying on the pulpit, \"O the people of Medina! Where are your Religious Scholars? I heard Allah's Apostle saying, 'This is the day of 'Ashura'. Allah has not enjoined its fasting on you but I am fasting it. You have the choice either to fast or not to fast (on this day).' \"",
+            "Sahih Bukhari 30 2003"
+          ],
+          [
+            "Ibn Umar (Allah be pleased with both of them) reported Allah's Messenger (may peace be upon him) as saying in connection with Ramadan:                      Do not fast till you see the new moon, and do not break fast till you see it; but if the weather is cloudy calculate about it.",
+            "Sahih Muslim 14 2550"
+          ],
+          [
+            "Narrated Abu Huraira:                     Abu-l-Qasim (the Prophet) said, \"On Friday there is a particular time. If a Muslim happens to be praying and invoking Allah for something good during that time, Allah will surely fulfill his request.\" The Prophet pointed out with his hand. We thought that he wanted to illustrate how short that time was.",
+            "Sahih Bukhari 80 6474"
+          ]
+        ]
+      },
+      {
+        "query": "Here in Singapore, the Muslims have very little, if not any, chance to participate in \nnon-interest based transactions. What advice can you give to us who have no choice but \nto be involved in these transactions for our basic needs?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "There will come a day where a Muslim holding fast to his deen (religion) is like he who is gripping a hot coal.",
+            "Al-Tirmidhi, sahih"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Salman said that (one among) the polytheists remarked:                      I see that your friend even teaches you about the excrement. He replied; Yes, he has in fact forbidden us that anyone amongst us should cleanse himself with his right hand, or face the Qibla. He has forbidden the use of dung or bone for it, and he has also instructed us not to use less than three pebbles (for this purpose).",
+            "Sahih Muslim 3 262"
+          ],
+          [
+            "Narrated Abu Musa Al-Ash`ari:                     The Prophet said, \"On every Muslim there is enjoined (a compulsory) Sadaqa (alms).\" They (the people) said, \"If one has nothing?' He said, \"He should work with his hands so that he may benefit himself and give in charity.\" They said, \"If he cannot work or does not work?\" He said, \"Then he should help the oppressed unhappy person (by word or action or both).\" They said, \"If he does not do it?\" He said, \"Then he should enjoin what is good (or said what is reasonable).' They said, \"If he does not do that''' He said, \"Then he should refrain from doing evil, for that will be considered for Him as a Sadaqa (charity) . \"",
+            "Sahih Bukhari 78 6091"
+          ],
+          [
+            "It was narrated from Abu Musa that the Prophet said:                     \"Every Muslim must give charity.\" It was said: \"What if he cannot find (anything to give)? \"He said: \"Let him work with his hands and benefit himself and give in charity.\" It was said: \"What if he cannot do that?\" He said: \"Let him help someone who is in desperate need.\" It was said: \"What if he cannot do that?\" He said: \"Let him enjoin good.\" It was said: \"What if he cannot do that? He said: \"Let him refrain from doing evil, for that is an act of charity.\"",
+            "Sunan an-Nasa'i 23 2538"
+          ],
+          [
+            "Narrated `Abdullah:                     Today a man came to me and asked me a question which I did not know how to answer. He said, \"Tell me, if a wealthy active man, well-equipped with arms, goes out on military expeditions with our chiefs, and orders us to do such things as we cannot do (should we obey him?)\" I replied, \"By Allah, I do not know what to reply you, except that we, were in the company of the Prophet and he used to order us to do a thing once only till we finished it. And no doubt, everyone among you will remain in a good state as long as he obeys Allah. If one is in doubt as to the legality of something, he should ask somebody who would satisfy him, but soon will come a time when you will not find such a man. By Him, except Whom none has the right to be worshipped. I see that the example of what has passed of this life (to what remains thereof) is like a pond whose fresh water has been used up and nothing remains but muddy water.\"",
+            "Sahih Bukhari 56 2964"
+          ],
+          [
+            "Narrated `Abdullah:                     We used to participate in the holy wars carried on by the Prophet and we had no women (wives) with us. So we said (to the Prophet ). \"Shall we castrate ourselves?\" But the Prophet forbade us to do that and thenceforth he allowed us to marry a woman (temporarily) by giving her even a garment, and then he recited: \"O you who believe! Do not make unlawful the good things which Allah has made lawful for you.\"",
+            "Sahih Bukhari 65 4658"
+          ]
+        ]
+      },
+      {
+        "query": "Our extended family seem to de divided on the issue of women visiting graves. Some say it is perfectly okay and do so and some say it is not permitted and do not visit graves. Please let me know if it is permissible for women to visit graves.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "I [once] had forbid you from visiting graves, [and I now enjoin] you to do so, so that the visit may serve as a beneficial reminder.",
+            "related by Muslim and others"
+          ],
+          [
+            "for [such visits] soften the heart, bring tears to the eyes, and serve as a reminder of the Hereafter, [but be careful] not to speak forbidden expressions [i.e. while visiting].",
+            "Sahih al-Jaami' 4584"
+          ],
+          [
+            "Allah has cursed women who frequent graves.",
+            "related by Ahmed and Tirmidhi and Ibn Maajah"
+          ],
+          [
+            "Allah has cursed women who visit graves and those who build mosques and place lights upon them.",
+            "related by Abu Dawood, al-Tirmidhi, al-Nisaa'i and al-Haakim"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Narrated Um `Atiya:                     We were ordered to bring out our menstruating women and veiled women in the religious gatherings and invocation of Muslims on the two `Id festivals. These menstruating women were to keep away from their Musalla. A woman asked, \"O Allah's Apostle ' What about one who does not have a veil?\" He said, \"Let her share the veil of her companion.\"",
+            "Sahih Bukhari 8 351"
+          ],
+          [
+            "Narrated Um-`Atiya:                     We were ordered to go out (for `Id) and also to take along with us the menstruating women, mature girls and virgins staying in seclusion. (Ibn `Aun said, \"Or mature virgins staying in seclusion).\" The menstruating women could present themselves at the religious gathering and invocation of Muslims but should keep away from their Musalla.",
+            "Sahih Bukhari 13 981"
+          ],
+          [
+            "Umm Atiyya reported:                      We were commanded to bring out on old days purdah-observing ladies and those unmarried, and menstruating women came out but remained behind people and pronounced takbir (Allah-o-Akbar) along with them.",
+            "Sahih Muslim 9 2092"
+          ],
+          [
+            "Narrated Abu Hurairah:                     The Messenger of Allah (\ufdfa) visited his mother's grave and wept and cause those around him to weep. The Messenger of Allah (\ufdfa) then said: I asked my Lord's permission to pray for forgiveness for her, but I was not allowed. I then asked His permission to visit her grave, and I was allowed. So visit graves, for they make one mindful of death.",
+            "Sunan Abi Da'ud 21 3234"
+          ],
+          [
+            "Narrated Aisha, Ummul Mu'minin:                     The sunnah for one who is observing i'tikaf (in a mosque) is not to visit a patient, or to attend a funeral, or touch or embrace one's wife, or go out for anything but necessary purposes. There is no i'tikaf without fasting, and there is no i'tikaf except in a congregational mosque.",
+            "Sunan Abi Da'ud 14 2473"
+          ]
+        ]
+      },
+      {
+        "query": "By Allah's mercy, many Muslims are entering Islam in America. Many Muslims change their names after accepting Islam. Some change their names to names of angels like Jibril or Mikail, etc. According to the 'aqidah of Ahl-us-Sunnah, angels are neither male nor female. If one says they are male, this is bid`ah and if one says they are female, this is kufr.\u00a0\nSo, I would like to know in light of all of this, what is the proper status of changing one's name to the name of an angel. Is it haram, makruh, mubah, etc.? Please help me with this answer for I have been asking and I have yet to receive a response. May Allah reward you for your answer! What advice would you give someone who has changed his or her name to the name of an angel?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          [
+            "la tusammow bi-asma al-malaikah",
+            "al-Bukhari"
+          ]
+        ],
+        "retrieved_text": [
+          [
+            "Jabir b. 'Abdullah reported that a child was born to one of the persons amongst us and he decided to give him the name of Muhammad We said:                      We will not allow you to give the name after the name of Allah's Messenger (may peace be upon him) until you ask him (the Holy Prophet). So he (that person) came and said (to the Holy Prophet): A child was born in my house and I wanted to give him the name (of Muhammad) after the name of Allah's Messenger, whereas my people did not allow me that I should name him after that (sacred) name until I have asked Allah's Apostle (may peace be upon him) in this connection, whereupon he said: Give him the name after my name, but do not call him by my kunya, for I have been sent as a Qasim as I distribute amongst you.",
+            "Sahih Muslim 39 5711"
+          ],
+          [
+            "Some companions of Mu'adh ibn Jabal said:                      When the Messenger of Allah (\ufdfa) intended to send Mu'adh ibn Jabal to the Yemen, he asked: How will you judge when the occasion of deciding a case arises?  He replied: I shall judge in accordance with Allah's Book.  He asked: (What will you do) if you do not find any guidance in Allah's Book?  He replied: (I shall act) in accordance with the Sunnah of the Messenger of Allah (\ufdfa).  He asked: (What will you do) if you do not find any guidance in the Sunnah of the Messenger of Allah (\ufdfa) and in Allah's Book?  He replied: I shall do my best to form an opinion and I shall spare no effort.  The Messenger of Allah (\ufdfa) then patted him on the breast and said: Praise be to Allah Who has helped the messenger of the Messenger of Allah to find something which pleases the Messenger of Allah.",
+            "Sunan Abi Da'ud 25 3592"
+          ],
+          [
+            "It has been narrated on the authority of Anas that the Quraish made peace with the Prophet (may peace be upon him). Among them was Suhail b. Amr. The Prophet (may peace be upon him) said to 'Ali:                      Write\" In the name of Allah, most Gracious and most Merciful.\" Suhail said: As for\" Bismillah,\" we do not know what is meant by\" Bismillah-ir-Rahman-ir-Rahim\" (In the name of Allah most Gracious and most Merciful). But write what we understand, i. e. Bi ismika allahumma (in thy name. O Allah). Then, the Prophet (may peace be upon him) said: Write:\" From Muhammad, the Messenger of Allah.\" They said: If we knew that thou welt the Messenger of Allah, we would follow you. Therefore, write your name and the name of your father. So the Holy Prophet (may peace be upon him) said: Write\" From Muhammad b. 'Abdullah.\" They laid the condition on the Prophet (may peace be upon him) that anyone who joined them from the Muslims, the Meccans would not return him, and anyone who joined you (the Muslims) from them, you would send him back to them. The Companions said: Messenger of Allah, should we write this? He said: Yes. One who goes away from us to join them-may Allah keep him away! and one who comes to join us from them (and is sent back) Allah will provide him relief and a way of escape.",
+            "Sahih Muslim 33 4732"
+          ],
+          [
+            "Narrated Jabir bin `Abdullah:                     As-Salami: Allah's Apostle used to teach his companions to perform the prayer of Istikhara for each and every matter just as he used to teach them the Suras from the Qur'an He used to say, \"If anyone of you intends to do some thing, he should offer a two rak`at prayer other than the compulsory prayers, and after finishing it, he should say: O Allah! I consult You, for You have all knowledge, and appeal to You to support me with Your Power and ask for Your Bounty, for You are able to do things while I am not, and You know while I do not; and You are the Knower of the Unseen. O Allah If You know It this matter (name your matter) is good for me both at present and in the future, (or in my religion), in my this life and in the Hereafter, then fulfill it for me and make it easy for me, and then bestow Your Blessings on me in that matter. O Allah! If You know that this matter is not good for me in my religion, in my this life and in my coming Hereafter (or at present or in the future), then divert me from it and choose for me what is good wherever it may be, and make me be pleased with it.\" (See Hadith No. 391, Vol. 8)",
+            "Sahih Bukhari 98 7479"
+          ],
+          [
+            "Narrated Hudhaifa bin Al-Yaman:                     The people used to ask Allah's Apostle about the good but I used to ask him about the evil lest I should be overtaken by them. So I said, \"O Allah's Apostle! We were living in ignorance and in an (extremely) worst atmosphere, then Allah brought to us this good (i.e., Islam); will there be any evil after this good?\" He said, \"Yes.\" I said, 'Will there be any good after that evil?\" He replied, \"Yes, but it will be tainted (not pure.)'' I asked, \"What will be its taint?\" He replied, \"(There will be) some people who will guide others not according to my tradition? You will approve of some of their deeds and disapprove of some others.\" I asked, \"Will there be any evil after that good?\" He replied, \"Yes, (there will be) some people calling at the gates of the (Hell) Fire, and whoever will respond to their call, will be thrown by them into the (Hell) Fire.\" I said, \"O Allah s Apostle! Will you describe them to us?\" He said, \"They will be from our own people and will speak our language.\" I said, \"What do you order me to do if such a state should take place in my life?\" He said, \"Stick to the group of Muslims and their Imam (ruler).\" I said, \"If there is neither a group of Muslims nor an Imam (ruler)?\" He said, \"Then turn away from all those sects even if you were to bite (eat) the roots of a tree till death overtakes you while you are in that state.\"",
+            "Sahih Bukhari 93 7173"
+          ]
+        ]
+      }
+    ]
+  },
+  "quran": {
+    "average_recall": 0.03514739229024943,
+    "average_precision": 0.047619047619047616,
+    "detailed_results": [
+      {
+        "query": "If a man sees the signs of sexual discharge impurity (janaba) on his clothes, and he is not sure when the discharge occurred, and several prayers have passed, what should he do?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "4:43"
+        ],
+        "retrieved_text": [
+          "58:13",
+          "47:18",
+          "13:8",
+          "2:203",
+          "16:61"
+        ]
+      },
+      {
+        "query": "A lawyer in Argentina is asking about the ruling on circumcision for a disbelieving man or woman who wants to enter Islam.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "16:123"
+        ],
+        "retrieved_text": [
+          "70:1",
+          "15:2",
+          "33:36",
+          "24:3",
+          "85:10"
+        ]
+      },
+      {
+        "query": "There is another problem that has been worrying me for some time\u2014namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair?\n\nAnother man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child\u2019s upbringing?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "24:3"
+        ],
+        "retrieved_text": [
+          "46:15",
+          "11:72",
+          "2:233",
+          "3:36",
+          "65:6"
+        ]
+      },
+      {
+        "query": "What is required of the man who repents homosexuality?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          ""
+        ],
+        "retrieved_text": [
+          "53:21",
+          "96:10",
+          "80:17",
+          "53:24",
+          "23:5"
+        ]
+      },
+      {
+        "query": "I was a misguided person spreading secularist ideologies, and writing heretical stories and articles, and using my poetry as a vehicle to spread corruption and liberalism. Then Allah turned to me with His mercy and brought me forth from darkness into light. How should I repent?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "2:160"
+        ],
+        "retrieved_text": [
+          "2:213",
+          "12:101",
+          "18:56",
+          "5:31",
+          "5:44"
+        ]
+      },
+      {
+        "query": "What should one who is informed about the correct direction of the qiblah \nduring a prayer?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "2:144"
+        ],
+        "retrieved_text": [
+          "3:101",
+          "90:12",
+          "3:86",
+          "96:10",
+          "82:17"
+        ]
+      },
+      {
+        "query": "Is it OK for a husband to marry a second wife, without the consent of the first wife just because the man, or husband, in our case, falls in love with another woman? Should he marry her, even though he is already married? Does Islam allow such a situation for a man?",
+        "precision": 0.2,
+        "recall": 0.16666666666666666,
+        "matched": 1,
+        "ground_truths": [
+          "5:5",
+          "33:53",
+          "33:32",
+          "4:3",
+          "4:65",
+          "33:36"
+        ],
+        "retrieved_text": [
+          "24:3",
+          "2:230",
+          "33:36",
+          "66:5",
+          "2:229"
+        ]
+      },
+      {
+        "query": "Salam Alicom, A friend of mine has gotten an offer \nfrom a life insurance company in USA. He is a student \nbut he must work to support himself and his study. what \nmakes the problem worse is that he must find a job by \nSept 97 otherwise he will be illegal and will be kicked \nout of the country. So my questions are: (1) is working \nin life insurance companies Haram? (2) Are this \ncircumstances for my friend considered a necessity and \ncan he get this job until get a better one instead of \nloosing everything?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "65:2"
+        ],
+        "retrieved_text": [
+          "8:72",
+          "46:15",
+          "2:136",
+          "46:17",
+          "60:9"
+        ]
+      },
+      {
+        "query": "Dear brother in faith.\nI start with the name of Allah. I would like to thank you for your prompt response for our previous question which was of a great help to our community (All thanks be to Allah).\nWhat is the Islamic point-of-view regarding those who attend Friday prayers in the Masjid and fail to attend any other of the daily prayers? Do you have to attend the prayers at the Masjid if time permits?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "4:102",
+          "68:42",
+          "2:43"
+        ],
+        "retrieved_text": [
+          "4:77",
+          "58:13",
+          "9:19",
+          "4:162",
+          "8:72"
+        ]
+      },
+      {
+        "query": "What should one do if one is asked to perform something at work that he feels is \ncontrary to the teachings of Islam?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          ""
+        ],
+        "retrieved_text": [
+          "21:108",
+          "61:7",
+          "41:33",
+          "4:125",
+          "39:64"
+        ]
+      },
+      {
+        "query": "What is the distance which, once one has set out for it, allows one to shorten the prayer?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "4:101"
+        ],
+        "retrieved_text": [
+          "96:10",
+          "43:21",
+          "95:7",
+          "74:49",
+          "77:50"
+        ]
+      },
+      {
+        "query": "I have read several articles on what foods are halal and what foods are haraam. But when I \ngo to a restaurant I still [doubt] if what I am eating is halal. I know that the meat needs to be \nslaughtered in the name of Allah, and it shall be done by the people of the book. Currently \nin the United States, the Christians and the Jews don't follow the true Bible and the Torah. \nThe Christians call Isa (may Allah be pleased with him) the son of God. Is the meat cut by \nthese people halal, can it be eaten?",
+        "precision": 0.8,
+        "recall": 0.5714285714285714,
+        "matched": 4,
+        "ground_truths": [
+          "3:70",
+          "5:15",
+          "59:2",
+          "5:5",
+          "5:3",
+          "5:3",
+          "5:5"
+        ],
+        "retrieved_text": [
+          "5:3",
+          "5:5",
+          "2:196",
+          "5:2",
+          "9:19"
+        ]
+      },
+      {
+        "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "4:23"
+        ],
+        "retrieved_text": [
+          "37:153",
+          "17:40",
+          "2:100",
+          "37:176",
+          "3:80"
+        ]
+      },
+      {
+        "query": "Is smoking cigarettes Haraam?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "7:157",
+          "4:29",
+          "33:58",
+          "17:26"
+        ],
+        "retrieved_text": [
+          "56:71",
+          "85:18",
+          "56:68",
+          "56:72",
+          "96:12"
+        ]
+      },
+      {
+        "query": "Can a non-muslim man marry a muslim woman?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "",
+          ""
+        ],
+        "retrieved_text": [
+          "24:3",
+          "53:21",
+          "2:230",
+          "95:8",
+          "68:35"
+        ]
+      },
+      {
+        "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this \nman? If he refuses to become a Muslim, can she continue to live with him?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "60:10"
+        ],
+        "retrieved_text": [
+          "2:230",
+          "24:3",
+          "3:85",
+          "2:28",
+          "3:160"
+        ]
+      },
+      {
+        "query": "When is the romedon holiday? I hope the spelling is correct.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "2:189"
+        ],
+        "retrieved_text": [
+          "26:82",
+          "21:38",
+          "51:12",
+          "78:17",
+          "44:40"
+        ]
+      },
+      {
+        "query": "Dear brother in faith.\r\nI start with the name of Allah. I would like to thank you for your prompt response for our previous answer which was of a great help to our community (all thanks be to Allah). We are still have not purchased a masjid yet.\u00a0 We are considering an older church, with the will of Allah, we will convert it into a masjid and a school.\u00a0 Therefore, we are still collecting donations, which leads to my questions:\r\nOur Imam has been leading the efforts in gathering the donations from local sources and out of town resources.\u00a0 The Imam is on a bi-weekly salary and it is not in his contract to collect donations for the masjid.\u00a0 The Imam has suggested the idea of building or purchasing a masjid, and he also suggested collecting the donations.\u00a0 It has been suggested to us by one of the brothers that the Imam should get a percentage of the donations he collects according to Surah 6 Tawbah #60 \"Alms are for the poor and the needy, and those employed to administer the (funds)\" \u00a0\r\n1. Is the Imam entitled to a percentage of what he collected; if so, what is the percentage. Note that no prior agreement with Imam was established.\r\n2. If a percentage is to be paid, when should this percentage be given to the Imam.\r\n3. If the Imam is not entitled for a percentage, is the board of trustees in the community permitted to give him a reward for his efforts from the money collected.",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "9:60"
+        ],
+        "retrieved_text": [
+          "4:92",
+          "2:196",
+          "33:50",
+          "73:20",
+          "2:282"
+        ]
+      },
+      {
+        "query": "Assalamu'alaikum. I am very in love with my girlfriend, a Chinese non-muslim.We've \nbeen together for 5 years and planned to be wed soon. The problem is she is the eldest \nin her family and by tradition has to look after her parents who are non-muslim.I have \ntried to convert them to the islamic faith but they refused to submit to islam.As a muslim, \ni respect their decision but will i be doing a sin if they continued to livewith my girlfriend \nand I after we wed.I deeply love and respect them even though they rejected our religion \nas they are my girlfriend's parents. They however were understanding enough to not \nkeep idols and dieties in the house after we wed but they love to eat pork (just like any \nother chinese) What am i supposed to do? My girlfriend doesn't eat pork anymore and \nshe has submitted to islam willingly but she is concerned about changing her name as her \nparents want her to keep her original name(ie Wong Wan Pei). Can this be allowed?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "5:5",
+          "58:22"
+        ],
+        "retrieved_text": [
+          "2:233",
+          "9:74",
+          "8:72",
+          "24:55",
+          "60:1"
+        ]
+      },
+      {
+        "query": "Here in Singapore, the Muslims have very little, if not any, chance to participate in \nnon-interest based transactions. What advice can you give to us who have no choice but \nto be involved in these transactions for our basic needs?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "6:162",
+          "2:286"
+        ],
+        "retrieved_text": [
+          "6:81",
+          "30:28",
+          "11:116",
+          "7:100",
+          "4:77"
+        ]
+      },
+      {
+        "query": "Is it permissable for the\nhusband to move out of the home during the\niddah of his wife? For what period\nof time is he required to maintain her\nafter he pronounces divorce? If\nhe abandons the home and does not maintain her, what does the Sharee'ah\nsay about such actions?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "matched": 0,
+        "ground_truths": [
+          "65:1"
+        ],
+        "retrieved_text": [
+          "2:230",
+          "2:240",
+          "16:61",
+          "35:45",
+          "2:229"
+        ]
+      }
+    ]
+  }
+}
