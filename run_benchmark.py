@@ -66,10 +66,10 @@ def evaluate_retrieval(results, ground_truth_refs, result_embeddings = None, mat
     recall = matched / total_refs if total_refs > 0 else 0.0
     return matched, total_refs, retrieved, precision, recall
 
-def save_results(results, model_name, doctype, device, output_dir="evaluation_results"):
+def save_results(results, model_name, doctype, device, name, output_dir="evaluation_results"):
     os.makedirs(output_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{output_dir}/eval_{model_name.split('/')[-1]}_{doctype}_{device}_{timestamp}.json"
+    filename = f"{output_dir}/eval_{model_name.split('/')[-1]}_{doctype}_{device}_{name}_{timestamp}.json"
     
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
@@ -80,34 +80,33 @@ def process_entry(entry, name, model, method, k, sim_threshold):
     
     query = entry["question"].strip()
 
-    if name == 'quran':
-        references = [extract_colon_reference(ref["reference"]) 
+    try:
+        if name == 'quran':
+        
+            references = [extract_colon_reference(ref["reference"]) 
                      for ref in entry["extracted_references"] 
                      if ref['type'].lower() == name]
-        if not references:
-            return None
-
-        try:
+            
+            if not references:
+                return None
+                
             retrieved_docs = model.search(method, query, k)
             retrieved_texts = [f"{doc.metadata['SurahNo']}:{doc.metadata['AyahNo']}" 
                          for doc, score in retrieved_docs]
         
             matched, expected, retrieved, precision, recall = evaluate_retrieval(
                 retrieved_texts, references)
-            
-        except Exception as e:
-            logging.error(f"Search or evaluation failed for query '{query}': {e}")
-            return None
+
         
         
-    else:
-        references = [(ref["text"], ref["reference"]) 
+        else:
+        
+            references = [(ref["text"], ref["reference"]) 
                      for ref in entry["extracted_references"] 
                      if ref['type'].lower() == name]
-        if not references:
-            return None
+            if not references:
+                return None
 
-        try:
             retrieved_docs, retrieved_embeddings = model.search(method, query, k, return_embeddings=True)
             retrieved_texts = [(doc.page_content, 
                           ' '.join([doc.metadata['source'], 
@@ -118,20 +117,21 @@ def process_entry(entry, name, model, method, k, sim_threshold):
             matched, expected, retrieved, precision, recall = evaluate_retrieval(
                 retrieved_texts, references, retrieved_embeddings, matching='cosine', 
                 embed_func=model.embeddings.embed_query, sim_threshold=sim_threshold)
-        except Exception as e:
-            logging.error(f"Search or evaluation failed for query '{query}': {e}")
-            return None
-        
-        
 
-    return {
-        "query": query,
-        "precision": precision,
-        "recall": recall,
-        "matched": matched,
-        "ground_truths": references,
-        "retrieved_text": retrieved_texts
-    }
+        return {
+            "query": query,
+            "precision": precision,
+            "recall": recall,
+            "matched": matched,
+            "ground_truths": references,
+            "retrieved_text": retrieved_texts
+        }
+
+    except Exception as e:
+        logging.error(f"Search or evaluation failed for query '{query}': {e}")
+        return None
+        
+        
 
 def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.75, num_rows=None):
     try:
@@ -143,7 +143,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
     base_path = f"vector_databases/{model_name.split('/')[-1]}_{doctype}_{device}"
     index_paths = {
         name: os.path.join(base_path, name.lower())
-        for name in ["hadith", "quran"]
+        for name in [ "quran", "hadith"]
     }
 
     all_results = {}
@@ -182,7 +182,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             "detailed_results": detailed_results
         }
 
-    save_results(all_results, model_name, doctype, device)
+        save_results(all_results, model_name, doctype, device, name)
 
 
 def run_benchmark_wrapper(args):
