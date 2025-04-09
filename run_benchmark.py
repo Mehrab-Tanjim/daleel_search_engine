@@ -66,10 +66,10 @@ def evaluate_retrieval(results, ground_truth_refs, result_embeddings = None, mat
     recall = matched / total_refs if total_refs > 0 else 0.0
     return matched, total_refs, retrieved, precision, recall
 
-def save_results(results, model_name, doctype, device, name, output_dir="evaluation_results"):
+def save_results(results, model_name, doctype, device, output_dir="evaluation_results"):
     os.makedirs(output_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{output_dir}/eval_{model_name.split('/')[-1]}_{doctype}_{device}_{name}_{timestamp}.json"
+    filename = f"{output_dir}/eval_{model_name.split('/')[-1]}_{doctype}_{device}.json" #_{timestamp}
     
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
@@ -182,7 +182,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             "detailed_results": detailed_results
         }
 
-        save_results(all_results, model_name, doctype, device, name)
+    save_results(all_results, model_name, doctype, device, name)
 
 
 def run_benchmark_wrapper(args):
@@ -193,7 +193,8 @@ def run_benchmark_wrapper(args):
 
 if __name__ == '__main__':
     model_names = [
-        "Alibaba-NLP/gte-multilingual-base",
+        # "Alibaba-NLP/gte-multilingual-base",
+        # "sentence-transformers/all-mpnet-base-v2",
         "sentence-transformers/LaBSE",
         "intfloat/multilingual-e5-base",
         'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
