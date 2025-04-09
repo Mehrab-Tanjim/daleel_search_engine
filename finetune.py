@@ -12,6 +12,7 @@ from transformers import AutoTokenizer
 import torch
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+from tqdm import tqdm
 
 def chunk_text(text, tokenizer, max_length=512, overlap=50):
     """Chunk text into smaller pieces fitting within max_length tokens"""
@@ -35,7 +36,7 @@ def load_data(dataset_path, tokenizer, max_length=512):
     
     # Prepare examples: question paired with each reference text
     examples = []
-    for entry in data:
+    for entry in tqdm(data, desc="Processing entries"):
         question = entry.get("question", "").strip()
         full_answer = entry.get("answer", "").strip()
         if full_answer:
