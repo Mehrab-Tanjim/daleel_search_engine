@@ -133,7 +133,7 @@ def process_entry(entry, name, model, method, k, sim_threshold):
         "retrieved_text": retrieved_texts
     }
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.70, num_rows=-1):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.75, num_rows=None):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
@@ -162,7 +162,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             continue
 
         detailed_results = []
-        for entry in tqdm(benchmark_data[:num_rows], desc=f"Processing {name}"):
+        for entry in tqdm(benchmark_data[:num_rows] if num_rows else benchmark_data, desc=f"Processing {name}"):
             result = process_entry(entry, name, model, method, k, sim_threshold)
             if result is not None:
                 detailed_results.append(result)
