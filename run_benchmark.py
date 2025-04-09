@@ -88,15 +88,17 @@ def process_entry(entry, name, model, method, k, sim_threshold):
 
         try:
             retrieved_docs = model.search(method, query, k)
-        except Exception as e:
-            logging.error(f"Search failed for query '{query}': {e}")
-            return None
-        
-        retrieved_texts = [f"{doc.metadata['SurahNo']}:{doc.metadata['AyahNo']}" 
+            retrieved_texts = [f"{doc.metadata['SurahNo']}:{doc.metadata['AyahNo']}" 
                          for doc, score in retrieved_docs]
         
-        matched, expected, retrieved, precision, recall = evaluate_retrieval(
-            retrieved_texts, references)
+            matched, expected, retrieved, precision, recall = evaluate_retrieval(
+                retrieved_texts, references)
+            
+        except Exception as e:
+            logging.error(f"Search or evaluation failed for query '{query}': {e}")
+            return None
+        
+        
     else:
         references = [(ref["text"], ref["reference"]) 
                      for ref in entry["extracted_references"] 
@@ -106,19 +108,20 @@ def process_entry(entry, name, model, method, k, sim_threshold):
 
         try:
             retrieved_docs = model.search(method, query, k)
-        except Exception as e:
-            logging.error(f"Search failed for query '{query}': {e}")
-            return None
-        
-        retrieved_texts = [(doc.page_content, 
+            retrieved_texts = [(doc.page_content, 
                           ' '.join([doc.metadata['source'], 
                                   doc.metadata['chapter_no'], 
                                   doc.metadata['hadith_no']])) 
                          for doc, score in retrieved_docs]
 
-        matched, expected, retrieved, precision, recall = evaluate_retrieval(
-            retrieved_texts, references, matching='cosine', 
-            embed_func=model.embeddings.embed_documents, sim_threshold=sim_threshold)
+            matched, expected, retrieved, precision, recall = evaluate_retrieval(
+                retrieved_texts, references, matching='cosine', 
+                embed_func=model.embeddings.embed_documents, sim_threshold=sim_threshold)
+        except Exception as e:
+            logging.error(f"Search or evaluation failed for query '{query}': {e}")
+            return None
+        
+        
 
     return {
         "query": query,
@@ -139,7 +142,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=10, sim
     base_path = f"vector_databases/{model_name.split('/')[-1]}_{doctype}_{device}"
     index_paths = {
         name: os.path.join(base_path, name.lower())
-        for name in [ "quran"]
+        for name in ["hadith", "quran"]
     }
 
     all_results = {}
