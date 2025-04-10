@@ -17,8 +17,11 @@ def save_vectorstore(documents, embeddings, base_path):
 
 
 # Build and save vector stores
-embedding_model_names = ["Alibaba-NLP/gte-multilingual-base", 
-"sentence-transformers/all-mpnet-base-v2", 'sentence-transformers/LaBSE', 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2', "intfloat/multilingual-e5-base", ]
+embedding_model_names = [
+    "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+#     "Alibaba-NLP/gte-multilingual-base", 
+# "sentence-transformers/all-mpnet-base-v2", 'sentence-transformers/LaBSE', 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2', "intfloat/multilingual-e5-base", 
+]
 
 device = 'cpu' #'cuda'
 

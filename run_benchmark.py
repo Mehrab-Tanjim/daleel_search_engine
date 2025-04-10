@@ -194,11 +194,12 @@ def run_benchmark_wrapper(args):
 
 if __name__ == '__main__':
     model_names = [
-        "Alibaba-NLP/gte-multilingual-base",
-        "sentence-transformers/all-mpnet-base-v2",
-        "sentence-transformers/LaBSE",
-        "intfloat/multilingual-e5-base",
-        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
+        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        # "Alibaba-NLP/gte-multilingual-base",
+        # "sentence-transformers/all-mpnet-base-v2",
+        # "sentence-transformers/LaBSE",
+        # "intfloat/multilingual-e5-base",
+        # 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
     ]
 
     device = "cpu"
