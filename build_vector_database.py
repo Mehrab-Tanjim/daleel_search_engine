@@ -14,19 +14,9 @@ def save_vectorstore(documents, embeddings, base_path):
     db = FAISS.from_documents(documents, embeddings, normalize_L2=True, distance_strategy = "MAX_INNER_PRODUCT")
     db.save_local(base_path)
     print(f"Saved vector store to {base_path}")
+    return db
 
-
-# Build and save vector stores
-embedding_model_names = [
-    "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
-#     "Alibaba-NLP/gte-multilingual-base", 
-# "sentence-transformers/all-mpnet-base-v2", 'sentence-transformers/LaBSE', 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2', "intfloat/multilingual-e5-base", 
-]
-
-device = 'cpu' #'cuda'
-
-for embedding_model_name in embedding_model_names:
-    
+def build_vd(embedding_model_name, device):
     embeddings = HuggingFaceEmbeddings(
         model_name=embedding_model_name,
         model_kwargs={"device": device, "trust_remote_code": True},
@@ -47,3 +37,19 @@ for embedding_model_name in embedding_model_names:
         save_vectorstore(quran_docs, embeddings, f"vector_databases/{model_path}/quran")
         save_vectorstore(hadith_docs, embeddings, f"vector_databases/{model_path}/hadith")
         # save_vectorstore(quran_docs + hadith_docs, embeddings, f"vector_databases/{model_path}/all")
+
+if __name__ == "__main__":
+    
+    # Build and save vector stores
+    embedding_model_names = [
+        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+    #     "Alibaba-NLP/gte-multilingual-base", 
+    # "sentence-transformers/all-mpnet-base-v2", 'sentence-transformers/LaBSE', 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2', "intfloat/multilingual-e5-base", 
+    ]
+
+    device = 'cpu' #'cuda'
+
+    for embedding_model_name in embedding_model_names:
+        build_vd(embedding_model_name, device)
+    
+    
