@@ -203,7 +203,7 @@ if __name__ == '__main__':
     ]
 
     device = "cpu"
-    benchmark_path = "datasets/islamqa_references_train.json"
+    benchmark_path = "datasets/islamqa_references_benchmark.json"
     
     for model_name in model_names:
         method = "best_match_dedup" #best_match_dedup

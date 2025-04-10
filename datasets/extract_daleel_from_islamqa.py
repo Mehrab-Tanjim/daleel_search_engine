@@ -154,4 +154,4 @@ def process_and_save(dataset, output_file):
     logger.info(f"Results saved to {output_file}")
 
 process_and_save(train_ds, output_file="islamqa_references_train.json")
-process_and_save(test_ds, output_file="islamqa_references_benchmarks.json")
+process_and_save(test_ds, output_file="islamqa_references_benchmark.json")
