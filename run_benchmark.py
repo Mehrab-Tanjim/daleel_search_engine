@@ -162,7 +162,7 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
         logging.error(f"Search or evaluation failed for query '{query}': {e}")
         return None
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.8, num_rows=None, eval_model_name="Alibaba-NLP/gte-multilingual-base"):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.8, num_rows=None, eval_model_name="Alibaba-NLP/gte-multilingual-base" ):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
