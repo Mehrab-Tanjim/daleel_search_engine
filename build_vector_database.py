@@ -39,10 +39,12 @@ def build_vd(embedding_model_name, device):
         # save_vectorstore(quran_docs + hadith_docs, embeddings, f"vector_databases/{model_path}/all")
 
 if __name__ == "__main__":
-    
+
     # Build and save vector stores
     embedding_model_names = [
-        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        # "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        "nomic-ai/nomic-embed-text-v1",
+        "nomic-ai/nomic-embed-text-v2-moe",
     #     "Alibaba-NLP/gte-multilingual-base", 
     # "sentence-transformers/all-mpnet-base-v2", 'sentence-transformers/LaBSE', 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2', "intfloat/multilingual-e5-base", 
     ]

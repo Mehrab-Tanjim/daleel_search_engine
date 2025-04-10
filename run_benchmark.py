@@ -32,17 +32,15 @@ def extract_colon_reference(text):
     match = COLON_PATTERN.search(text)
     return match.group(0) if match else ''
 
-def batch_semantic_match_score(ref_texts, result_embeddings, eval_embed_func):
-    """Compute semantic similarity scores in batch using precomputed result embeddings"""
-    ref_embeddings = np.array(eval_embed_func(ref_texts))  # Embed references on-the-fly (fewer references than results)
+def batch_semantic_match_score(ref_text, result_embeddings, embed_func):
+    """Compute semantic similarity scores in batch"""
+    ref_embedding = embed_func(ref_text)
     
     # Cosine similarity
-    dot_product = np.dot(result_embeddings, ref_embeddings.T)
-    ref_norms = np.linalg.norm(ref_embeddings, axis=1)
-    result_norms = np.linalg.norm(result_embeddings, axis=1)
-    norms = ref_norms[:, np.newaxis] * result_norms[np.newaxis, :] + 1e-8
-    similarities = dot_product / norms
-    return np.max(similarities, axis=1)
+    dot_product = np.dot(result_embeddings, ref_embedding)
+    norms = np.linalg.norm(ref_embedding) * np.linalg.norm(result_embeddings, axis=1)
+    similarities = dot_product / (norms + 1e-8)  # Avoid division by zero
+    return np.max(similarities)
 
 def evaluate_retrieval(results, ground_truth_refs, result_embeddings=None, matching='exact', eval_embed_func=None, sim_threshold=0.75):
     matched = 0
@@ -60,14 +58,11 @@ def evaluate_retrieval(results, ground_truth_refs, result_embeddings=None, match
     else:
         # Need to perform fuzzy matching or semantic similarity for hadiths since the reference by book and hadith is not consistent
         # For example, "Muslim 8" vs "Muslim book 8" vs "Muslim 8:1234" vs "Muslim 1234" vs "Muslim 8/1234"
-        ref_texts = [ref[0] for ref in ground_truth_refs]
-        text_similarities = batch_semantic_match_score(ref_texts, result_embeddings, eval_embed_func)
-        
-        #TODO: optionally calculate the similarity score for the reference sources like Muslim 8 with Muslim book 8
-        # ref_sources = [ref[1] for ref in ground_truth_refs]
-        # source_similarities = batch_semantic_match_score(ref_sources, result_embeddings, eval_embed_func)
-
-        matched = np.sum(text_similarities >= sim_threshold) # + np.sum(source_similarities >= sim_threshold)
+        for ref in ground_truth_refs:
+            sim_text = batch_semantic_match_score(ref[0], result_embeddings, eval_embed_func)
+            # sim_reference = batch_semantic_match_score(ref[1], [res[1] for res in results], embed_func)
+            if sim_text >= sim_threshold: # or sim_reference >= sim_threshold
+                matched += 1
 
     precision = matched / retrieved if retrieved > 0 else 0.0
     recall = matched / total_refs if total_refs > 0 else 0.0
@@ -102,7 +97,7 @@ def load_precomputed_embeddings(eval_index_path, eval_model_name, device):
             logging.error(f"Failed to load precomputed evaluation embeddings: {e}")
             raise
 
-def process_entry(entry, name, model, method, k, sim_threshold, eval_embed_func, eval_faiss_index):
+def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval_embed_func, eval_faiss_index):
     query = entry["question"].strip()
 
     try:
@@ -114,7 +109,7 @@ def process_entry(entry, name, model, method, k, sim_threshold, eval_embed_func,
             if not references:
                 return None
                 
-            retrieved_docs = model.search(method, query, k)
+            retrieved_docs = model_faiss_index.search(method, query, k)
             retrieved_texts = [f"{doc.metadata['SurahNo']}:{doc.metadata['AyahNo']}" 
                               for doc, score in retrieved_docs]
         
@@ -128,7 +123,7 @@ def process_entry(entry, name, model, method, k, sim_threshold, eval_embed_func,
             if not references:
                 return None
 
-            retrieved_docs = model.search(method, query, k)
+            retrieved_docs = model_faiss_index.search(method, query, k)
             retrieved_texts = [(doc.page_content, 
                                ' '.join([doc.metadata['source'], 
                                         doc.metadata['chapter_no'], 
@@ -136,11 +131,12 @@ def process_entry(entry, name, model, method, k, sim_threshold, eval_embed_func,
                               for doc, score in retrieved_docs]
 
             # Retrieve precomputed evaluation embeddings using document IDs
-            retrieved_ids = [doc.metadata.get('id', i) for i, doc in enumerate([doc for doc, _ in retrieved_docs])]  # Use index as fallback ID
+            retrieved_ids = [model_faiss_index.db_docstore_id_to_index[doc.id] for i, doc in enumerate([doc for doc, _ in retrieved_docs])]  # Use index as fallback ID
             retrieved_eval_embeddings = []
             for doc_id in retrieved_ids:
                 try:
-                    # Assuming eval_faiss_index stores embeddings accessible by ID
+                    # Assuming eval_faiss_index stores embeddings in the same serial as model_faiss_index
+                    # and that the document IDs are consistent across both indices
                     doc_vector = eval_faiss_index.db.index.reconstruct(int(doc_id))  # Fetch embedding by ID
                     retrieved_eval_embeddings.append(doc_vector)
                 except Exception as e:
@@ -167,25 +163,23 @@ def process_entry(entry, name, model, method, k, sim_threshold, eval_embed_func,
         return None
 
 def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.75, num_rows=None, 
-                 eval_model_name="sentence-transformers/all-MiniLM-L6-v2", eval_index_base="eval_vector_databases"):
+                 eval_model_name="Alibaba-NLP/gte-multilingual-base"): #nomic-ai/nomic-embed-text-v1"):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
         logging.error(f"Failed to load benchmark data: {e}")
         return
 
-    # Initialize the evaluation embedding model for reference texts
-    eval_embed_func = HuggingFaceEmbeddings(model_name=eval_model_name, model_kwargs={'device': device}).embed_documents
 
     base_path = f"vector_databases/{model_name.split('/')[-1]}_{doctype}_{device}"
     eval_base_path = f"vector_databases/{eval_model_name.split('/')[-1]}_{doctype}_{device}"
     index_paths = {
         name: os.path.join(base_path, name.lower())
-        for name in ["quran", "hadith"]
+        for name in [ "hadith", "quran"]
     }
     eval_index_paths = {
         name: os.path.join(eval_base_path, name.lower())
-        for name in ["quran", "hadith"]
+        for name in [ "hadith", "quran"]
     }
 
     all_results = {}
@@ -200,15 +194,16 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
         logging.info(f"Running benchmark on index: {name}")
         
         try:
-            model = VectorSearchDeployment(path, model_name, device)
+            model_faiss_index = VectorSearchDeployment(path, model_name, device)
             eval_faiss_index = load_precomputed_embeddings(eval_index_path, eval_model_name, device)
+            eval_embed_func = eval_faiss_index.embeddings.embed_query
         except Exception as e:
             logging.error(f"Failed to initialize model or eval index for {name}: {e}")
             continue
 
         detailed_results = []
         for entry in tqdm(benchmark_data[:num_rows] if num_rows else benchmark_data, desc=f"Processing {name}"):
-            result = process_entry(entry, name, model, method, k, sim_threshold, eval_embed_func, eval_faiss_index)
+            result = process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval_embed_func, eval_faiss_index)
             if result is not None:
                 detailed_results.append(result)
 
@@ -251,8 +246,8 @@ if __name__ == '__main__':
         method = "best_match_dedup"
         doctypes = ["preprocessed", "original"]
 
-        run_benchmark_wrapper(model_name, doctypes[0], device, benchmark_path, method)
+        # run_benchmark(model_name, doctypes[0], device, benchmark_path, method)
 
-        # with multiprocessing.Pool(processes=2) as pool:
-        #     tasks = [(model_name, doctype, device, benchmark_path, method) for doctype in doctypes]
-        #     results = pool.map(run_benchmark_wrapper, tasks)
+        with multiprocessing.Pool(processes=2) as pool:
+            tasks = [(model_name, doctype, device, benchmark_path, method) for doctype in doctypes]
+            results = pool.map(run_benchmark_wrapper, tasks)
