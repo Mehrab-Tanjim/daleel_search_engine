@@ -162,8 +162,7 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
         logging.error(f"Search or evaluation failed for query '{query}': {e}")
         return None
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.75, num_rows=None, 
-                 eval_model_name="Alibaba-NLP/gte-multilingual-base"): #nomic-ai/nomic-embed-text-v1"):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.8, num_rows=None, eval_model_name="Alibaba-NLP/gte-multilingual-base"):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
@@ -231,12 +230,14 @@ def run_benchmark_wrapper(args):
 
 if __name__ == '__main__':
     model_names = [
+        "nomic-ai/nomic-embed-text-v1",
+        "nomic-ai/nomic-embed-text-v2-moe",
+        "Alibaba-NLP/gte-multilingual-base",
         "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
-        # "Alibaba-NLP/gte-multilingual-base",
-        # "sentence-transformers/all-mpnet-base-v2",
-        # "sentence-transformers/LaBSE",
-        # "intfloat/multilingual-e5-base",
-        # 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
+        "sentence-transformers/all-mpnet-base-v2",
+        "sentence-transformers/LaBSE",
+        "intfloat/multilingual-e5-base",
+        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
     ]
 
     device = "cpu"

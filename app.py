@@ -11,14 +11,20 @@ def get_model(index_path, model_name, selected_device):
 st.title("Find Dalil From Quran and Hadith")
 
 options = [ "Hadith", "Quran", "Both"]
-model_names = ["Alibaba-NLP/gte-multilingual-base",  "sentence-transformers/LaBSE", "sentence-transformers/all-mpnet-base-v2", "intfloat/multilingual-e5-base", "intfloat/multilingual-e5-small", 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'] #, "sentence-transformers/all-mpnet-base-v2" ]
+model_names = ["nomic-ai/nomic-embed-text-v1", "nomic-ai/nomic-embed-text-v2-moe",
+        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        "Alibaba-NLP/gte-multilingual-base",
+        "sentence-transformers/all-mpnet-base-v2",
+        "sentence-transformers/LaBSE",
+        "intfloat/multilingual-e5-base",
+        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2']
 search_methods = ['best_match', 'best_match_dedup', 'mmr']
 
 # Create a dropdown widget
 selected_option = st.selectbox("Select a source:", options)
 selected_model = st.selectbox("Select a model:", model_names)
 selected_method = st.selectbox("Select a search method:", search_methods)
-selected_device = st.selectbox("Select a device:", ['cuda', 'cpu'])
+selected_device = st.selectbox("Select a device:", ['cpu', 'cuda'])
 selected_doctype = st.selectbox("Select a device:", ['preprocessed', 'original'])
 
 model_path = f"{selected_model.split('/')[-1]}_{selected_doctype}_{selected_device}"

@@ -187,7 +187,7 @@ def fine_tune_model(model_name, dataset_path, output_dir, max_length=512, num_ep
 
 if __name__ == "__main__":
     dataset_path = "datasets/islamqa_references_train.json"
-    model_names = ["sentence-transformers/all-mpnet-base-v2"]
+    model_names = ["Alibaba-NLP/gte-multilingual-base"]#"sentence-transformers/all-mpnet-base-v2"]
     
     for model_name in model_names:
         output_dir = f"fine_tuned_models/islamqa_fine_tuned_{model_name.split('/')[-1]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
