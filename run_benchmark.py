@@ -68,10 +68,10 @@ def evaluate_retrieval(results, ground_truth_refs, result_embeddings=None, match
     recall = matched / total_refs if total_refs > 0 else 0.0
     return matched, total_refs, retrieved, precision, recall
 
-def save_results(results, model_name, doctype, device, output_dir="evaluation_results"):
-    os.makedirs(output_dir, exist_ok=True)
+def save_results(results, model_name, doctype, device, eval_model_name, output_dir="evaluation_results"):
+    os.makedirs(f"{output_dir}/eval_{eval_model_name.split('/')[-1]}", exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{output_dir}/eval_{model_name.split('/')[-1]}_{doctype}_{device}.json"
+    filename = f"{output_dir}/eval_{eval_model_name.split('/')[-1]}/{model_name.split('/')[-1]}_{doctype}_{device}.json"
     
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
@@ -162,7 +162,7 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
         logging.error(f"Search or evaluation failed for query '{query}': {e}")
         return None
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.8, num_rows=None, eval_model_name="Alibaba-NLP/gte-multilingual-base" ):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, eval_model_name, k=5, sim_threshold=0.8, num_rows=None):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
     except Exception as e:
@@ -221,12 +221,12 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             "detailed_results": detailed_results
         }
 
-    save_results(all_results, model_name, doctype, device)
+    save_results(all_results, model_name, doctype, device, eval_model_name)
 
 def run_benchmark_wrapper(args):
     """Wrapper function to unpack arguments for multiprocessing"""
-    model_name, doctype, device, benchmark_path, method = args
-    return run_benchmark(model_name, doctype, device, benchmark_path, method)
+    model_name, doctype, device, benchmark_path, method, eval_model_name = args
+    return run_benchmark(model_name, doctype, device, benchmark_path, method, eval_model_name)
 
 if __name__ == '__main__':
     model_names = [
@@ -246,9 +246,11 @@ if __name__ == '__main__':
     for model_name in model_names:
         method = "best_match_dedup"
         doctypes = ["preprocessed", "original"]
-
+        eval_model_names = ["Alibaba-NLP/gte-multilingual-base", "nomic-ai/nomic-embed-text-v2-moe"]
         # run_benchmark(model_name, doctypes[0], device, benchmark_path, method)
-
-        with multiprocessing.Pool(processes=2) as pool:
-            tasks = [(model_name, doctype, device, benchmark_path, method) for doctype in doctypes]
-            results = pool.map(run_benchmark_wrapper, tasks)
+        
+        for eval_model_name in eval_model_names:
+            
+            with multiprocessing.Pool(processes=2) as pool:
+                tasks = [(model_name, doctype, device, benchmark_path, method, eval_model_name) for doctype in doctypes]
+                results = pool.map(run_benchmark_wrapper, tasks)
