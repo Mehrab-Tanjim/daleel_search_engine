@@ -34,6 +34,13 @@ def build_vd(embedding_model_name, device):
         with open(f"datasets/{doctype}_hadith_docs.pkl", "rb") as f:
             hadith_docs = pickle.load(f)
 
+        if embedding_model_name == "nomic-ai/nomic-embed-text-v2-moe":
+            # Add "search_document: " prefix to each document's text
+            for doc in quran_docs:
+                doc.page_content = f"search_document: {doc.page_content}"
+            for doc in hadith_docs:
+                doc.page_content = f"search_document: {doc.page_content}"
+                
         save_vectorstore(quran_docs, embeddings, f"vector_databases/{model_path}/quran")
         save_vectorstore(hadith_docs, embeddings, f"vector_databases/{model_path}/hadith")
         # save_vectorstore(quran_docs + hadith_docs, embeddings, f"vector_databases/{model_path}/all")
@@ -43,7 +50,7 @@ if __name__ == "__main__":
     # Build and save vector stores
     embedding_model_names = [
         # "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
-        "nomic-ai/nomic-embed-text-v1",
+        # "nomic-ai/nomic-embed-text-v1",
         "nomic-ai/nomic-embed-text-v2-moe",
     #     "Alibaba-NLP/gte-multilingual-base", 
     # "sentence-transformers/all-mpnet-base-v2", 'sentence-transformers/LaBSE', 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2', "intfloat/multilingual-e5-base", 

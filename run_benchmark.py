@@ -68,10 +68,10 @@ def evaluate_retrieval(results, ground_truth_refs, result_embeddings=None, match
     recall = matched / total_refs if total_refs > 0 else 0.0
     return matched, total_refs, retrieved, precision, recall
 
-def save_results(results, model_name, doctype, device, output_dir="evaluation_results"):
+def save_results(results, model_name, doctype, device, eval_model_name, output_dir="evaluation_results"):
     os.makedirs(output_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{output_dir}/eval_{model_name.split('/')[-1]}_{doctype}_{device}.json"
+    filename = f"{output_dir}/eval_model_{eval_model_name.split('/')[-1]}/{model_name.split('/')[-1]}_{doctype}_{device}.json"
     
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
@@ -124,7 +124,7 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
                 return None
 
             retrieved_docs = model_faiss_index.search(method, query, k)
-            retrieved_texts = [(doc.page_content, 
+            retrieved_texts = [(doc.page_content if eval_faiss_index.model_name != "nomic-ai/nomic-embed-text-v2-moe" else f"search_document: {doc.page_content}", 
                                ' '.join([doc.metadata['source'], 
                                         doc.metadata['chapter_no'], 
                                         doc.metadata['hadith_no']])) 
@@ -162,13 +162,30 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
         logging.error(f"Search or evaluation failed for query '{query}': {e}")
         return None
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.8, num_rows=None, eval_model_name="Alibaba-NLP/gte-multilingual-base" ):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_threshold=0.8, num_rows=None, eval_model_name="nomic-ai/nomic-embed-text-v2-moe" ): #"Alibaba-NLP/gte-multilingual-base"
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
+
+        if model_name == "nomic-ai/nomic-embed-text-v2-moe":
+            # Process the data to add prefixes
+            for item in benchmark_data:
+                # Add "search_query: " to question
+                if 'question' in item:
+                    item['question'] = f"search_query: {item['question']}"
+                
+                # Add "search_document: " to answer
+                if 'answer' in item:
+                    item['answer'] = f"search_document: {item['answer']}"
+                
+                # Add "search_document: " to text in extracted_references
+                if 'extracted_references' in item:
+                    for ref in item['extracted_references']:
+                        if 'text' in ref:
+                            ref['text'] = f"search_document: {ref['text']}"
+
     except Exception as e:
         logging.error(f"Failed to load benchmark data: {e}")
         return
-
 
     base_path = f"vector_databases/{model_name.split('/')[-1]}_{doctype}_{device}"
     eval_base_path = f"vector_databases/{eval_model_name.split('/')[-1]}_{doctype}_{device}"
@@ -221,7 +238,7 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, k=5, sim_
             "detailed_results": detailed_results
         }
 
-    save_results(all_results, model_name, doctype, device)
+    save_results(all_results, model_name, doctype, device, eval_model_name)
 
 def run_benchmark_wrapper(args):
     """Wrapper function to unpack arguments for multiprocessing"""
@@ -230,14 +247,14 @@ def run_benchmark_wrapper(args):
 
 if __name__ == '__main__':
     model_names = [
-        "nomic-ai/nomic-embed-text-v1",
+        # "nomic-ai/nomic-embed-text-v1",
         "nomic-ai/nomic-embed-text-v2-moe",
-        "Alibaba-NLP/gte-multilingual-base",
-        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
-        "sentence-transformers/all-mpnet-base-v2",
-        "sentence-transformers/LaBSE",
-        "intfloat/multilingual-e5-base",
-        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
+        # "Alibaba-NLP/gte-multilingual-base",
+        # "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        # "sentence-transformers/all-mpnet-base-v2",
+        # "sentence-transformers/LaBSE",
+        # "intfloat/multilingual-e5-base",
+        # 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
     ]
 
     device = "cpu"
@@ -247,8 +264,8 @@ if __name__ == '__main__':
         method = "best_match_dedup"
         doctypes = ["preprocessed", "original"]
 
-        # run_benchmark(model_name, doctypes[0], device, benchmark_path, method)
+        run_benchmark(model_name, doctypes[0], device, benchmark_path, method)
 
-        with multiprocessing.Pool(processes=2) as pool:
-            tasks = [(model_name, doctype, device, benchmark_path, method) for doctype in doctypes]
-            results = pool.map(run_benchmark_wrapper, tasks)
+        # with multiprocessing.Pool(processes=2) as pool:
+        #     tasks = [(model_name, doctype, device, benchmark_path, method) for doctype in doctypes]
+        #     results = pool.map(run_benchmark_wrapper, tasks)

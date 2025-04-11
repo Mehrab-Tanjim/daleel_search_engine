@@ -33,7 +33,10 @@ index_dicts = {"Quran": f'vector_databases/{model_path}/quran', 'Hadith': f'vect
 index_path = index_dicts[selected_option]
 
 input_query = st.text_area("", "Write your query")
-
+if selected_model == "nomic-ai/nomic-embed-text-v2-moe":
+    input_query = f"search_query: {input_query}"
+    print(f"input query: {input_query}")
+    
 num_of_results = st.slider("Number of results", min_value=1, max_value=500, value=25, step=1)
 
 search_button = st.button("Search")

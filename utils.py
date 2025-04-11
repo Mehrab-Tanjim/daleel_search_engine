@@ -10,7 +10,7 @@ class VectorSearchDeployment:
     def __init__(self, index_path, model_name, device):
         #Load the data from faiss
         st = time.time()
-        
+        self.model_name = model_name
         model_kwargs = {'device': device, 'trust_remote_code':True}
         encode_kwargs = {'normalize_embeddings': True, "max_seq_length": 8192}
         self.embeddings = HuggingFaceEmbeddings(
