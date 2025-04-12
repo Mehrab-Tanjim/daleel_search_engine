@@ -10,14 +10,22 @@ def get_model(index_path, model_name, selected_device):
 # Set the title and a description
 st.title("Find Dalil From Quran and Hadith")
 
-sources = [ "Hadith", "Quran"]
+options = [ "Hadith", "Quran", "Both"]
+model_names = ["nomic-ai/nomic-embed-text-v1", "nomic-ai/nomic-embed-text-v2-moe",
+        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        "Alibaba-NLP/gte-multilingual-base",
+        "sentence-transformers/all-mpnet-base-v2",
+        "sentence-transformers/LaBSE",
+        "intfloat/multilingual-e5-base",
+        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2']
+search_methods = ['best_match', 'best_match_dedup', 'mmr']
 
 # Create a dropdown widget
-selected_option = st.selectbox("Select a source:", sources)
-selected_model = "nomic-ai/nomic-embed-text-v2-moe"
-selected_method = 'best_match'
-selected_device = 'cpu'
-selected_doctype = 'preprocessed' if selected_option=='hadith' else 'original'
+selected_option = st.selectbox("Select a source:", options)
+selected_model = st.selectbox("Select a model:", model_names)
+selected_method = st.selectbox("Select a search method:", search_methods)
+selected_device = st.selectbox("Select a device:", ['cpu', 'cuda'])
+selected_doctype = st.selectbox("Select a device:", ['preprocessed', 'original'])
 
 model_path = f"{selected_model.split('/')[-1]}_{selected_doctype}_{selected_device}"
 index_dicts = {"Quran": f'vector_databases/{model_path}/quran', 'Hadith': f'vector_databases/{model_path}/hadith', 'Both': f'vector_databases/{model_path}/all'}
@@ -29,7 +37,7 @@ if selected_model == "nomic-ai/nomic-embed-text-v2-moe":
     input_query = f"search_query: {input_query}"
     print(f"input query: {input_query}")
     
-num_of_results = st.slider("Number of results", min_value=1, max_value=500, value=5, step=5)
+num_of_results = st.slider("Number of results", min_value=1, max_value=500, value=25, step=1)
 
 search_button = st.button("Search")
 
@@ -55,8 +63,7 @@ if search_button:
         
         with col2:
         # Display the text
-            clean_text = result.page_content.replace('`', '') if selected_option == 'Quran' else result.metadata['original_text'].replace('`', '')
-            clean_text = clean_text.replace('search_document: ', '')
+            clean_text = result.page_content.replace('`', '')
             st.write(f'**{clean_text}**')
             st.markdown(f'Relevance Score: **{results[i][1]*100:.2f}**%') #normalize_l2(results[i][1]) if using IndexFlatL2 instead
 

@@ -1,7 +1,7 @@
 {
   "hadith": {
-    "average_recall": 0.03438275049603175,
-    "average_precision": 0.006640625000000001,
+    "average_recall": 0.060501922123015875,
+    "average_precision": 0.013671875,
     "detailed_results": [
       {
         "query": "Can Babies See the Angels?",
@@ -721,9 +721,9 @@
       },
       {
         "query": "He swore that if he did such and such, he would die a disbeliever, then he did that thing, then he died, so has he died a disbeliever?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "Whoever swears deliberately and falsely that he belongs to a religion other than Islam is as he said.",
@@ -1823,9 +1823,9 @@
       },
       {
         "query": "Why Do Muslims Kiss the Black Stone?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "Circumambulation of the Ka`bah (tawaf), going between as-Safa and al-Marwah (sa\u2018i), and stoning the Jamarat have only been ordained to establish the remembrance of Allah.",
@@ -3037,9 +3037,9 @@
       },
       {
         "query": "Will the Qur\u2019an testify, on the Day of Resurrection, against those who went against it as it will testify for its companions (those who read it and acted upon it) and intercede for them?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.14285714285714285,
+        "matched": 1,
         "ground_truths": [
           [
             "Read the Qur\u2019aan, for it will come on the Day of Resurrection interceding for its companions.",
@@ -4473,9 +4473,9 @@
       },
       {
         "query": "The view of Ahl al-Sunnah towards the Sahaabah and the leadership of Abu Bakr al-Siddeeq",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.1111111111111111,
+        "matched": 1,
         "ground_truths": [
           [
             "Do not revile my companions, for by the One in Whose hand is my soul, if one of you were to spend in charity gold equal to the size of Mount Uhud, he would not achieve the status of one of them, or even come halfway.",
@@ -4629,9 +4629,9 @@
       },
       {
         "query": "What Are the Pillars of Islam?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.16666666666666666,
+        "matched": 1,
         "ground_truths": [
           [
             "Islam is built upon five [pillars]: the testimony that there is no god but Allah and that Muhammad is the Messenger of Allah; establishing regular prayer (salah); paying the zakah; Hajj (pilgrimage) and fasting Ramadan.",
@@ -5593,9 +5593,9 @@
       },
       {
         "query": "Khalwah if Another Woman is Present",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "No man should be alone with a woman unless there is a mahram with her.",
@@ -8831,9 +8831,9 @@
       },
       {
         "query": "Does Anal Sex Break Nikah?",
-        "precision": 0.1,
-        "recall": 0.5,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 1.0,
+        "matched": 2,
         "ground_truths": [
           [
             "Allah is not too shy to tell you the truth: do not have intercourse with your wives in the anus.",
@@ -10139,9 +10139,9 @@
       },
       {
         "query": "Will a person be brought to account for whatever crosses his mind of good or evil?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.2,
+        "matched": 1,
         "ground_truths": [
           [
             "Allah decreed good deeds and bad deeds, then He explained that. Whoever thinks of doing a good deed then does not do it, Allah will write it down as one complete good deed. If he thinks of doing a good deed and then does it, Allah [may He be glorified and exalted] will write it down between ten and seven hundred fold, or many more. If he thinks of doing a bad deed then he does not do it, Allah will write it down as one complete good deed, and if he thinks of it then does it, Allah will write it down as one bad deed.",
@@ -10739,9 +10739,9 @@
       },
       {
         "query": "The status of a faqeeh is superior to that of a hadeeth narrator, but both are good",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "May Allaah bless a man who hears a hadeeth from us and memorizes it so that he can convey it to others, for perhaps he is conveying it to one who will understand it better than him, and perhaps the one who conveys knowledge does not understand it himself.",
@@ -10991,9 +10991,9 @@
       },
       {
         "query": "A Weak Narration About the Virtues of Ramadaan",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "O people, there has come to you a great month, a blessed month, a month in which there is a night that is better than a thousand months. Allah has made fasting it obligatory and spending its nights in prayer a voluntary act. Whoever draws close (to Allah) during it by doing a good deed will be like one who did an obligatory deed in any other month, and the one who does an obligatory deed in it will be like one who did seventy obligatory deeds in any other month. It is the month of patience, and the reward of patience is Paradise. It is the month of helping others. It is a month in which the believer\u2019s provision is increased. Whoever gives a fasting person food with which to break his fast will have his sins forgiven and he will be ransomed from the Fire, and he will have a reward like his without it detracting from his reward in the slightest.",
@@ -11845,9 +11845,9 @@
       },
       {
         "query": "\u201cPraise be to Allah who has fed me and granted me provision.\u201d?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.25,
+        "matched": 1,
         "ground_truths": [
           [
             "Al-hamdu Lillah illathi at\u2019amana wa saqana wa ja\u2019alana Muslimeen (Praise be to Allah Who has given us food and drink and made us Muslims).",
@@ -12251,9 +12251,9 @@
       },
       {
         "query": "Status of the Hadeeth, \u201cDo not please anyone by angering Allah?\u201d",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "Do not please anyone by angering Allah.",
@@ -12359,9 +12359,9 @@
       },
       {
         "query": "Meaning of the Hadeeth, \u201cFaith retreats to Madeenah\u201d",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "Faith retreats to Madeenah like a snake returns to its hole.",
@@ -13205,9 +13205,9 @@
       },
       {
         "query": "What is narrated in the Sunnah about the invasion of India",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "The hadith of Thawbaan, the freed slave of the Messenger of Allah (blessings and peace of Allah be upon him).",
@@ -13507,9 +13507,9 @@
       },
       {
         "query": "Is there any report to suggest that the astrologers knew about the birth of Ibraaheem (peace be upon him) and warned Nimrood about him?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.16666666666666666,
+        "matched": 1,
         "ground_truths": [
           [
             "Augury (observing omens in birds etc.), superstition and geomancy come under the heading of jibt (magic).",
@@ -14405,9 +14405,9 @@
       },
       {
         "query": "Who was Ibn Sayyaad? Was he the false messiah (al-maseeh al-dajjaal)?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.14285714285714285,
+        "matched": 1,
         "ground_truths": [
           [
             "Do you bear witness that I am the Messenger of Allaah?",
@@ -15551,9 +15551,9 @@
       },
       {
         "query": "Does a father educating his children come under the heading of knowledge that will benefit him after he dies?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.2,
+        "recall": 0.4,
+        "matched": 2,
         "ground_truths": [
           [
             "The best dinar that a man spends is a dinar that he spends on his dependents, and a dinar that a man spends on his mount (for jihad) in Allah\u2019s cause, and a dinar that he spends on his companions (in jihad) in Allah\u2019s cause.",
@@ -15741,9 +15741,9 @@
       },
       {
         "query": "The ruling on seeking knowledge with the intention of refuting the specious arguments that are made against Islam",
-        "precision": 0.1,
-        "recall": 0.2,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.4,
+        "matched": 2,
         "ground_truths": [
           [
             "Whoever seeks knowledge in order to argue with the foolish or to show off before the scholars or to attract people\u2019s attention, will be in Hell.",
@@ -16659,9 +16659,9 @@
       },
       {
         "query": "Ruling on Men Imitating Women",
-        "precision": 0.2,
-        "recall": 0.5,
-        "matched": 2,
+        "precision": 0.3,
+        "recall": 0.75,
+        "matched": 3,
         "ground_truths": [
           [
             "The Prophet (peace and blessings of Allah be upon him) cursed men who imitate women and women who imitate men, and he said: 'Throw them out of your houses.'",
@@ -19519,9 +19519,9 @@
       },
       {
         "query": "How should a person fill his spare time?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.25,
+        "matched": 1,
         "ground_truths": [
           [
             "Make the most of five things before five others: life before death, health before sickness, free time before becoming busy, youth before old age, and wealth before poverty.",
@@ -19585,9 +19585,9 @@
       },
       {
         "query": "Is it a sin if one does not feel comfortable with a particular person?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "Do not hate one another, do not envy one another, do not turn your backs on one another, and be, O slaves of Allaah, brothers. It is not permissible for a Muslim to forsake his brother for more than three days.",
@@ -20285,9 +20285,9 @@
       },
       {
         "query": "Is Suicide Due to Depression Haram?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.2,
+        "matched": 1,
         "ground_truths": [
           [
             "Whoever throws himself down from a mountain and kills himself will be throwing himself down in the Fire of Hell for ever and ever. Whoever drinks poison and kills himself will be sipping it in the Fire of Hell for ever and ever. Whoever kills himself with a piece of iron will have that iron in his hand, thrusting it into his belly in the Fire of Hell for ever and ever.",
@@ -20629,9 +20629,9 @@
       },
       {
         "query": "Her wali repeatedly refused suitors; can she arrange her own marriage?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.25,
+        "matched": 1,
         "ground_truths": [
           [
             "There is no marriage without a wali.",
@@ -23157,9 +23157,9 @@
       },
       {
         "query": "She was put under pressure and forced to steal from her maternal aunt",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.16666666666666666,
+        "matched": 1,
         "ground_truths": [
           [
             "The maternal aunt is like the mother.",
@@ -24905,9 +24905,9 @@
       },
       {
         "query": "Are Nose Jobs Haram?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "\u2018Arfajah ibn As\u2019ad narrated that he lost his nose in the battle of al-Kulab during the Jahiliyyah, so he wore a nose made of silver but it became putrid, so the Prophet (peace and blessings of Allah be upon him) told him to wear a nose made of gold.",
@@ -26487,9 +26487,9 @@
       },
       {
         "query": "Women wearing    perfume when they attend the mosque",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.3,
+        "recall": 0.75,
+        "matched": 3,
         "ground_truths": [
           [
             "Any woman who puts on perfume then passes by people so that they can smell her fragrance, is an adulteress.",
@@ -27199,9 +27199,9 @@
       },
       {
         "query": "Definition of al-Mufassal in the Quran, and the long and short soorahs of al-Mufassal",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "I asked the companions of the Messenger of Allah (blessings and peace of Allah upon him) how they divided the Quran. They said, Three and five and seven and nine and eleven and thirteen, and Hizb al-Mufassal.",
@@ -27999,9 +27999,9 @@
       },
       {
         "query": "Is it permissible to complete the Qur\u2019an every day? How are we to understand the proven reports which say that the salaf used to complete it in less than three days?",
-        "precision": 0.1,
-        "recall": 0.25,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.5,
+        "matched": 2,
         "ground_truths": [
           [
             "Read the Qur\u2019an in a month.",
@@ -28293,9 +28293,9 @@
       },
       {
         "query": "Will the Qur\u2019an testify, on the Day of Resurrection, against those who went against it as it will testify for its companions (those who read it and acted upon it) and intercede for them?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.14285714285714285,
+        "matched": 1,
         "ground_truths": [
           [
             "Read the Qur\u2019aan, for it will come on the Day of Resurrection interceding for its companions.",
@@ -28765,9 +28765,9 @@
       },
       {
         "query": "Which is better -- reading Quran or listening to it on tapes?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "Recite the Quran to me.",
@@ -29333,9 +29333,9 @@
       },
       {
         "query": "Meaning of \u2018Qul Huwallahu Ahad\u2019 Being Equivalent to One-Third of the Quran",
-        "precision": 0.1,
-        "recall": 0.3333333333333333,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.6666666666666666,
+        "matched": 2,
         "ground_truths": [
           [
             "By the One in Whose Hand is my soul, it is equivalent to one-third of the Quran.",
@@ -29395,9 +29395,9 @@
       },
       {
         "query": "What is meant by reciting Qur\u2019aan in a melodious voice",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "Allaah never listens to anything as He listens to a Prophet with a beautiful voice reciting the Qur\u2019aan out loud",
@@ -30451,9 +30451,9 @@
       },
       {
         "query": "Abrogation of the verse ordering the confinement of an adulteress in a \r\nhouse",
-        "precision": 0.1,
-        "recall": 0.3333333333333333,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.6666666666666666,
+        "matched": 2,
         "ground_truths": [
           [
             "Listen to me, Allah has made another way for them. (When) a married man (commits adultery) with a married woman, and an unmarried man with an unmarried woman, then in the case of married (persons) there is (a punishment) of one hundred lashes and then stoning (to death), and in the case of unmarried persons, (the punishment) is one hundred lashes and exile for one year.",

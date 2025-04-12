@@ -1,7 +1,7 @@
 {
   "hadith": {
-    "average_recall": 0.008094618055555555,
-    "average_precision": 0.0015625,
+    "average_recall": 0.02816840277777778,
+    "average_precision": 0.00625,
     "detailed_results": [
       {
         "query": "search_query: Can Babies See the Angels?",
@@ -229,9 +229,9 @@
       },
       {
         "query": "search_query: Good dreams are one of the parts of prophethood; what are the other parts?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Good dreams are one of the forty-six parts of prophethood.",
@@ -1823,9 +1823,9 @@
       },
       {
         "query": "search_query: Why Do Muslims Kiss the Black Stone?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Circumambulation of the Ka`bah (tawaf), going between as-Safa and al-Marwah (sa\u2018i), and stoning the Jamarat have only been ordained to establish the remembrance of Allah.",
@@ -3711,9 +3711,9 @@
       },
       {
         "query": "search_query: Seeking barakah (blessing) from water in which there is said to be a hair of the Prophet (peace and blessings of Allaah be upon him)",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: When the Messenger of Allaah (peace and blessings of Allaah be upon him) stoned the Jamrah and offered his sacrifice and shaved his head, he showed his right side to the barber and he shaved it, then he called Abu Talhah al-Ansaari and gave it to him. Then he showed him the left side and said: 'Shave it.' So he shaved it, and he gave it to Abu Talhah and said: 'Share it out among the people.'",
@@ -4559,9 +4559,9 @@
       },
       {
         "query": "search_query: Islamic rights",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.2,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: A man came to the Prophet (peace and blessings of Allaah be upon him) and said, \u201cO Messenger of Allaah, who is most deserving of my good companionship?\u201d He said, \u201cYour mother.\u201d He said, \u201cThen who?\u201d He said, \u201cYour mother.\u201d He said, \u201cThen who?\u201d He said, \u201cYour mother.\u201d He said, \u201cThen who?\u201d He said, \u201cYour father.\u201d",
@@ -4629,9 +4629,9 @@
       },
       {
         "query": "search_query: What Are the Pillars of Islam?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.16666666666666666,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Islam is built upon five [pillars]: the testimony that there is no god but Allah and that Muhammad is the Messenger of Allah; establishing regular prayer (salah); paying the zakah; Hajj (pilgrimage) and fasting Ramadan.",
@@ -7703,9 +7703,9 @@
       },
       {
         "query": "search_query: He wants to get married but his parents want him to delay that",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: O young men, whoever among you can afford to get married, let him do so, for it is more effective in lowering the gaze and preserving chastity. Whoever cannot afford it, let him fast, for that will be a shield for him.",
@@ -10139,9 +10139,9 @@
       },
       {
         "query": "search_query: Will a person be brought to account for whatever crosses his mind of good or evil?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.2,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Allah decreed good deeds and bad deeds, then He explained that. Whoever thinks of doing a good deed then does not do it, Allah will write it down as one complete good deed. If he thinks of doing a good deed and then does it, Allah [may He be glorified and exalted] will write it down between ten and seven hundred fold, or many more. If he thinks of doing a bad deed then he does not do it, Allah will write it down as one complete good deed, and if he thinks of it then does it, Allah will write it down as one bad deed.",
@@ -12565,9 +12565,9 @@
       },
       {
         "query": "search_query: Al-Masjid al-Aqsa is not the Temple and was not built on its ruins",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: I said: O Messenger of Allah, which mosque on earth was built first? He said: \u201cAl-Masjid al-Haram (in Makkah).\u201d I said: Then which? He said: \u201cAl-Masjid al-Aqsa (in Jerusalem).\u201d I said: How long was there between the two? He said: \u201cForty years.\u201d",
@@ -14351,9 +14351,9 @@
       },
       {
         "query": "search_query: No-one who was alive in 10 AH lived for more than one hundred years",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The Prophet (peace and blessings of Allaah be upon him) led us in praying \u2018Ishaa towards the end of his life. When he had said the salaam, he stood up and said: \u2018Do you see this night of yours? One hundred years from now, there will not be anyone left of those who are on the face of the earth.\u2019",
@@ -14483,9 +14483,9 @@
       },
       {
         "query": "search_query: Forsaking Your Muslim Brother because of Differences in Opinion",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: It is not permissible for a man to forsake his Muslim brother for more than three days, each of them turning away from the other when they meet. The better of them is the one who gives the greeting of Salam first.",
@@ -15551,9 +15551,9 @@
       },
       {
         "query": "search_query: Does a father educating his children come under the heading of knowledge that will benefit him after he dies?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.2,
+        "recall": 0.4,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: The best dinar that a man spends is a dinar that he spends on his dependents, and a dinar that a man spends on his mount (for jihad) in Allah\u2019s cause, and a dinar that he spends on his companions (in jihad) in Allah\u2019s cause.",
@@ -15741,9 +15741,9 @@
       },
       {
         "query": "search_query: The ruling on seeking knowledge with the intention of refuting the specious arguments that are made against Islam",
-        "precision": 0.1,
-        "recall": 0.2,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.4,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: Whoever seeks knowledge in order to argue with the foolish or to show off before the scholars or to attract people\u2019s attention, will be in Hell.",
@@ -16659,9 +16659,9 @@
       },
       {
         "query": "search_query: Ruling on Men Imitating Women",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.3,
+        "recall": 0.75,
+        "matched": 3,
         "ground_truths": [
           [
             "search_document: The Prophet (peace and blessings of Allah be upon him) cursed men who imitate women and women who imitate men, and he said: 'Throw them out of your houses.'",
@@ -17317,9 +17317,9 @@
       },
       {
         "query": "search_query: He hates life and wishes for death",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: No one of you should wish for death because of some harm that befalls him. But if he must do that, then let him say: \u2018O Allah, cause me to live so long as life is good for me, and cause me to die so long as that is good for me.\u2019",
@@ -22379,9 +22379,9 @@
       },
       {
         "query": "search_query: How will those who entered Hell then were brought forth from it enjoy Paradise?",
-        "precision": 0.1,
-        "recall": 0.1111111111111111,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.2222222222222222,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: When the people of Paradise enter Paradise and the people of Hell enter Hell, Allah will say: \u2018Whoever had a mustard-seed\u2019s weight of faith in his heart, bring him out.\u2019 So they will bring him out, and they will come out like burned skeletons, and they will turn into charcoal. They will be thrown into the River of Life, then they will grow like seeds growing in the silt left by a flood.",
@@ -23289,9 +23289,9 @@
       },
       {
         "query": "search_query: Is having false teeth fitted regarded as changing the creation of Allaah?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: May Allaah curse the one who does tattoos and the one who has a tattoo done, the one who plucks eyebrows and the one who has her eyebrows plucked, and those who file teeth for the purpose of beautification, changing the creation of Allaah.",
@@ -27199,9 +27199,9 @@
       },
       {
         "query": "search_query: Definition of al-Mufassal in the Quran, and the long and short soorahs of al-Mufassal",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: I asked the companions of the Messenger of Allah (blessings and peace of Allah upon him) how they divided the Quran. They said, Three and five and seven and nine and eleven and thirteen, and Hizb al-Mufassal.",
@@ -27833,9 +27833,9 @@
       },
       {
         "query": "search_query: Reciting Surat al-Baqarah in the Home",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Do not make your houses into graves, for the Shaytan flees from a house in which Surat al-Baqarah is recited.",
@@ -28371,9 +28371,9 @@
       },
       {
         "query": "search_query: Will he be rewarded for memorizing the Qur\u2019an if he memorizes it from an audio recording?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.25,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The one who is skilled in reciting Qur\u2019an will be with the noble, honourable scribes and the one who recites Qur\u2019an and falters therein, and finds it difficult, will have a double reward.",
@@ -28653,9 +28653,9 @@
       },
       {
         "query": "search_query: Soorat al-Isra\u2019 is also called Soorat Bani Isra\u2019eel",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The Prophet (blessings and peace of Allah be upon him) used not to sleep until he had recited Bani Israa\u2019eel and al-Zumar.",
@@ -29333,9 +29333,9 @@
       },
       {
         "query": "search_query: Meaning of \u2018Qul Huwallahu Ahad\u2019 Being Equivalent to One-Third of the Quran",
-        "precision": 0.1,
-        "recall": 0.3333333333333333,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.6666666666666666,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: By the One in Whose Hand is my soul, it is equivalent to one-third of the Quran.",

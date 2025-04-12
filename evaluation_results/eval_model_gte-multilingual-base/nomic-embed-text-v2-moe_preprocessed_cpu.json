@@ -1,7 +1,7 @@
 {
   "hadith": {
-    "average_recall": 0.021495225694444446,
-    "average_precision": 0.00390625,
+    "average_recall": 0.04042968749999999,
+    "average_precision": 0.009375,
     "detailed_results": [
       {
         "query": "search_query: Can Babies See the Angels?",
@@ -229,9 +229,9 @@
       },
       {
         "query": "search_query: Good dreams are one of the parts of prophethood; what are the other parts?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Good dreams are one of the forty-six parts of prophethood.",
@@ -1823,9 +1823,9 @@
       },
       {
         "query": "search_query: Why Do Muslims Kiss the Black Stone?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Circumambulation of the Ka`bah (tawaf), going between as-Safa and al-Marwah (sa\u2018i), and stoning the Jamarat have only been ordained to establish the remembrance of Allah.",
@@ -4059,9 +4059,9 @@
       },
       {
         "query": "search_query: Advice to a fortune teller who reads coffee cups",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Whoever comes to a fortune-teller or soothsayer and believes him has disbelieved in that which was revealed to Muhammad.",
@@ -4559,9 +4559,9 @@
       },
       {
         "query": "search_query: Islamic rights",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.2,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: A man came to the Prophet (peace and blessings of Allaah be upon him) and said, \u201cO Messenger of Allaah, who is most deserving of my good companionship?\u201d He said, \u201cYour mother.\u201d He said, \u201cThen who?\u201d He said, \u201cYour mother.\u201d He said, \u201cThen who?\u201d He said, \u201cYour mother.\u201d He said, \u201cThen who?\u201d He said, \u201cYour father.\u201d",
@@ -10139,9 +10139,9 @@
       },
       {
         "query": "search_query: Will a person be brought to account for whatever crosses his mind of good or evil?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.2,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Allah decreed good deeds and bad deeds, then He explained that. Whoever thinks of doing a good deed then does not do it, Allah will write it down as one complete good deed. If he thinks of doing a good deed and then does it, Allah [may He be glorified and exalted] will write it down between ten and seven hundred fold, or many more. If he thinks of doing a bad deed then he does not do it, Allah will write it down as one complete good deed, and if he thinks of it then does it, Allah will write it down as one bad deed.",
@@ -10209,9 +10209,9 @@
       },
       {
         "query": "search_query: Is the fasting of Ramadaan only taken up by zakaat al-fitr?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The month of Ramadaan is suspended between heaven and earth and is not taken up to Allaah except by zakaat al-fitr.",
@@ -11335,9 +11335,9 @@
       },
       {
         "query": "search_query: Is the hadeeth \u201cThe Fire was stoked for a thousand years until it turned red\u2026\u201d saheeh?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The Fire was stoked for a thousand years until it turned red, then it was stoked for a thousand years until it turned white, then it was stoked for a thousand years until it turned black, and it is intensely black.",
@@ -11845,9 +11845,9 @@
       },
       {
         "query": "search_query: \u201cPraise be to Allah who has fed me and granted me provision.\u201d?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.2,
+        "recall": 0.5,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: Al-hamdu Lillah illathi at\u2019amana wa saqana wa ja\u2019alana Muslimeen (Praise be to Allah Who has given us food and drink and made us Muslims).",
@@ -12413,9 +12413,9 @@
       },
       {
         "query": "search_query: What Prophet Muhammad Said about Business",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.08333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The Prophet (blessings and peace of Allah be upon him) gave him a Dinar to buy a sacrificial animal or a sheep for him. He bought two sheep and sold one for a Dinar, and he came back with a sheep and a Dinar. He (the Prophet (blessings and peace of Allah be upon him)) prayed for blessing for him in his business dealings, and (after that) if he had bought dust he would have made a profit.",
@@ -13449,9 +13449,9 @@
       },
       {
         "query": "search_query: Oath of allegiance (bay\u2018ah) of \u2018Ali ibn Abi Taalib to Abu Bakr as-Siddeeq (may Allah be pleased with them both)",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: \u2018Ali ibn Abi Taalib recited the Tashahhud, then he said: O Abu Bakr, we acknowledge your virtue and what Allah has given you. We do not envy you for any favour that Allah has bestowed upon you, but you did it without consulting us and we thought that we had the right (to be consulted) because of our kinship with the Messenger of Allah (blessings and peace of Allah be upon him). He kept speaking to Abu Bakr until Abu Bakr\u2019s eyes filled with tears. When Abu Bakr spoke, he said: By the One in Whose hand is my soul, kinship with the Messenger of Allah (blessings and peace of Allah be upon him) is dearer to me than kinship with my own people. As for this dispute that occurred between me and you concerning these properties, I have not deviated from the right path with regard to them, and I have not given up something that I saw the Messenger of Allah (blessings and peace of Allah be upon him) do with them, rather I have done it too.",
@@ -13581,9 +13581,9 @@
       },
       {
         "query": "search_query: Who are Banu Qurayzah? What happened to them?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: There is no god but Allah alone, He granted victory to His troops, supported His slave and defeated the confederates alone, and there is nothing after Him.",
@@ -14777,9 +14777,9 @@
       },
       {
         "query": "search_query: Oath of allegiance (bay\u2018ah) of \u2018Ali ibn Abi Taalib to Abu Bakr as-Siddeeq (may Allah be pleased with them both)",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: \u2018Ali ibn Abi Taalib recited the Tashahhud, then he said: O Abu Bakr, we acknowledge your virtue and what Allah has given you. We do not envy you for any favour that Allah has bestowed upon you, but you did it without consulting us and we thought that we had the right (to be consulted) because of our kinship with the Messenger of Allah (blessings and peace of Allah be upon him). He kept speaking to Abu Bakr until Abu Bakr\u2019s eyes filled with tears. When Abu Bakr spoke, he said: By the One in Whose hand is my soul, kinship with the Messenger of Allah (blessings and peace of Allah be upon him) is dearer to me than kinship with my own people. As for this dispute that occurred between me and you concerning these properties, I have not deviated from the right path with regard to them, and I have not given up something that I saw the Messenger of Allah (blessings and peace of Allah be upon him) do with them, rather I have done it too.",
@@ -15551,9 +15551,9 @@
       },
       {
         "query": "search_query: Does a father educating his children come under the heading of knowledge that will benefit him after he dies?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.2,
+        "recall": 0.4,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: The best dinar that a man spends is a dinar that he spends on his dependents, and a dinar that a man spends on his mount (for jihad) in Allah\u2019s cause, and a dinar that he spends on his companions (in jihad) in Allah\u2019s cause.",
@@ -15741,9 +15741,9 @@
       },
       {
         "query": "search_query: The ruling on seeking knowledge with the intention of refuting the specious arguments that are made against Islam",
-        "precision": 0.1,
-        "recall": 0.2,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.4,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: Whoever seeks knowledge in order to argue with the foolish or to show off before the scholars or to attract people\u2019s attention, will be in Hell.",
@@ -16659,9 +16659,9 @@
       },
       {
         "query": "search_query: Ruling on Men Imitating Women",
-        "precision": 0.1,
-        "recall": 0.25,
-        "matched": 1,
+        "precision": 0.3,
+        "recall": 0.75,
+        "matched": 3,
         "ground_truths": [
           [
             "search_document: The Prophet (peace and blessings of Allah be upon him) cursed men who imitate women and women who imitate men, and he said: 'Throw them out of your houses.'",
@@ -22379,9 +22379,9 @@
       },
       {
         "query": "search_query: How will those who entered Hell then were brought forth from it enjoy Paradise?",
-        "precision": 0.2,
-        "recall": 0.2222222222222222,
-        "matched": 2,
+        "precision": 0.3,
+        "recall": 0.3333333333333333,
+        "matched": 3,
         "ground_truths": [
           [
             "search_document: When the people of Paradise enter Paradise and the people of Hell enter Hell, Allah will say: \u2018Whoever had a mustard-seed\u2019s weight of faith in his heart, bring him out.\u2019 So they will bring him out, and they will come out like burned skeletons, and they will turn into charcoal. They will be thrown into the River of Life, then they will grow like seeds growing in the silt left by a flood.",
@@ -23289,9 +23289,9 @@
       },
       {
         "query": "search_query: Is having false teeth fitted regarded as changing the creation of Allaah?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: May Allaah curse the one who does tattoos and the one who has a tattoo done, the one who plucks eyebrows and the one who has her eyebrows plucked, and those who file teeth for the purpose of beautification, changing the creation of Allaah.",
@@ -24107,9 +24107,9 @@
       },
       {
         "query": "search_query: Is my marriage decreed? Do obedience and sin alter the divine decree?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.16666666666666666,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Know that everyone will be guided to do that for which he was created. Whoever is meant to be one of the people of happiness will be guided to do the deeds of the people of happiness, and whoever is meant to be one of the people of doom will be guided to do the deeds of the people of doom.",
@@ -27199,9 +27199,9 @@
       },
       {
         "query": "search_query: Definition of al-Mufassal in the Quran, and the long and short soorahs of al-Mufassal",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: I asked the companions of the Messenger of Allah (blessings and peace of Allah upon him) how they divided the Quran. They said, Three and five and seven and nine and eleven and thirteen, and Hizb al-Mufassal.",
@@ -27833,9 +27833,9 @@
       },
       {
         "query": "search_query: Reciting Surat al-Baqarah in the Home",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.5,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Do not make your houses into graves, for the Shaytan flees from a house in which Surat al-Baqarah is recited.",
@@ -27999,9 +27999,9 @@
       },
       {
         "query": "search_query: Is it permissible to complete the Qur\u2019an every day? How are we to understand the proven reports which say that the salaf used to complete it in less than three days?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.25,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Read the Qur\u2019an in a month.",
@@ -28371,9 +28371,9 @@
       },
       {
         "query": "search_query: Will he be rewarded for memorizing the Qur\u2019an if he memorizes it from an audio recording?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.25,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The one who is skilled in reciting Qur\u2019an will be with the noble, honourable scribes and the one who recites Qur\u2019an and falters therein, and finds it difficult, will have a double reward.",
@@ -29333,9 +29333,9 @@
       },
       {
         "query": "search_query: Meaning of \u2018Qul Huwallahu Ahad\u2019 Being Equivalent to One-Third of the Quran",
-        "precision": 0.1,
-        "recall": 0.3333333333333333,
-        "matched": 1,
+        "precision": 0.2,
+        "recall": 0.6666666666666666,
+        "matched": 2,
         "ground_truths": [
           [
             "search_document: By the One in Whose Hand is my soul, it is equivalent to one-third of the Quran.",
@@ -29395,9 +29395,9 @@
       },
       {
         "query": "search_query: What is meant by reciting Qur\u2019aan in a melodious voice",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: Allaah never listens to anything as He listens to a Prophet with a beautiful voice reciting the Qur\u2019aan out loud",
@@ -29797,9 +29797,9 @@
       },
       {
         "query": "search_query: Who Wrote the Quran?",
-        "precision": 0.0,
-        "recall": 0.0,
-        "matched": 0,
+        "precision": 0.1,
+        "recall": 0.3333333333333333,
+        "matched": 1,
         "ground_truths": [
           [
             "search_document: The Quran was revealed in seven dialects",
