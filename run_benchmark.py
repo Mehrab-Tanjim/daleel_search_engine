@@ -267,7 +267,7 @@ if __name__ == '__main__':
 
         # for debugging
         # run_benchmark(model_name, doctypes[0], device, benchmark_path, method, eval_model_names[0])
-        
+
         for eval_model_name in eval_model_names:
             with multiprocessing.Pool(processes=2) as pool:
                 tasks = [
