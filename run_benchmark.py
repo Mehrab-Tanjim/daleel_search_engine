@@ -162,7 +162,7 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
         logging.error(f"Search or evaluation failed for query '{query}': {e}")
         return None
 
-def run_benchmark(model_name, doctype, device, benchmark_path, method, eval_model_name, k=5, sim_threshold=0.8, num_rows=None):
+def run_benchmark(model_name, doctype, device, benchmark_path, method, eval_model_name, k=10, sim_threshold=0.85, num_rows=None):
     try:
         benchmark_data = load_benchmark_data(benchmark_path)
 
@@ -261,16 +261,17 @@ if __name__ == '__main__':
     benchmark_path = "datasets/islamqa_references_benchmark.json"
     
     for model_name in model_names:
-        method = "best_match_dedup"
+        method = "best_match"
         doctypes = ["original", "preprocessed"]
-        eval_model_names = ["nomic-ai/nomic-embed-text-v2-moe" , "Alibaba-NLP/gte-multilingual-base"]
+        eval_model_names = ["nomic-ai/nomic-embed-text-v2-moe", "Alibaba-NLP/gte-multilingual-base"]
 
+        # for debugging
         # run_benchmark(model_name, doctypes[0], device, benchmark_path, method, eval_model_names[0])
-
-        with multiprocessing.Pool(processes=4) as pool:
-            tasks = [
-                        (model_name, doctype, device, benchmark_path, method, eval_model_name)
-                        for eval_model_name in eval_model_names
-                        for doctype in doctypes
-                    ]
-            results = pool.map(run_benchmark_wrapper, tasks)
+        
+        for eval_model_name in eval_model_names:
+            with multiprocessing.Pool(processes=2) as pool:
+                tasks = [
+                            (model_name, doctype, device, benchmark_path, method, eval_model_name)
+                            for doctype in doctypes
+                        ]
+                results = pool.map(run_benchmark_wrapper, tasks)
