@@ -248,8 +248,8 @@ def run_benchmark_wrapper(args):
 if __name__ == '__main__':
     model_names = [
         # "nomic-ai/nomic-embed-text-v1",
-        "nomic-ai/nomic-embed-text-v2-moe",
-        # "Alibaba-NLP/gte-multilingual-base",
+        # "nomic-ai/nomic-embed-text-v2-moe",
+        "Alibaba-NLP/gte-multilingual-base",
         # "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
         # "sentence-transformers/all-mpnet-base-v2",
         # "sentence-transformers/LaBSE",
@@ -263,7 +263,7 @@ if __name__ == '__main__':
     for model_name in model_names:
         method = "best_match_dedup"
         doctypes = ["preprocessed", "original"]
-        eval_model_names = ["nomic-ai/nomic-embed-text-v2-moe" , "Alibaba-NLP/gte-multilingual-base"]
+        eval_model_names = ["Alibaba-NLP/gte-multilingual-base", "sentence-transformers/all-mpnet-base-v2"]
 
         # run_benchmark(model_name, doctypes[0], device, benchmark_path, method, eval_model_names[0])
 
