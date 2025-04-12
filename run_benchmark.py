@@ -42,7 +42,7 @@ def batch_semantic_match_score(ref_text, result_embeddings, embed_func):
     similarities = dot_product / (norms + 1e-8)  # Avoid division by zero
     return np.max(similarities)
 
-def evaluate_retrieval(results, ground_truth_refs, result_embeddings=None, matching='exact', eval_embed_func=None, sim_threshold=0.75):
+def evaluate_retrieval(results, ground_truth_refs, result_embeddings=None, matching='exact', eval_embed_func=None, sim_threshold=0.85):
     matched = 0
     retrieved = len(results) if results else 0
     total_refs = len(ground_truth_refs) if ground_truth_refs else 0
@@ -248,7 +248,7 @@ def run_benchmark_wrapper(args):
 if __name__ == '__main__':
     model_names = [
         "nomic-ai/nomic-embed-text-v1",
-        "nomic-ai/nomic-embed-text-v2-moe",
+        "nomic-ai/nomic-embed-text-v2-moe", 
         "Alibaba-NLP/gte-multilingual-base",
         "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
         "sentence-transformers/all-mpnet-base-v2",
@@ -263,7 +263,8 @@ if __name__ == '__main__':
     for model_name in model_names:
         method = "best_match"
         doctypes = ["original", "preprocessed"]
-        eval_model_names = ["nomic-ai/nomic-embed-text-v2-moe", "Alibaba-NLP/gte-multilingual-base"]
+        eval_model_names = ["nomic-ai/nomic-embed-text-v1", "sentence-transformers/all-mpnet-base-v2", "Alibaba-NLP/gte-multilingual-base"]
+        # "nomic-ai/nomic-embed-text-v2-moe" not using this due to dependency of search_document: prefix
 
         # for debugging
         # run_benchmark(model_name, doctypes[0], device, benchmark_path, method, eval_model_names[0])
