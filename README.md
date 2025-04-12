@@ -6,9 +6,21 @@ Please try and leave your feedback: [daleel.streamlit.app](https://daleel.stream
 Belief in the Quranic verses and authenticated sayings of the Prophet (peace be upon him), collectively known as Hadith, is a religious obligation. Moreover, it is incumbent upon every Muslim to seek education about the fundamental aspects of their religion through the Quran and Hadith. The primary aim of this search engine is to facilitate the convenient retrieval of relevant Quranic Ayats or Hadiths in response to queries or questions, thereby making religious education accessible and user-friendly.
 
 #### Technical Details:
+What does the search engine is capable of doing? Given a part of text that we remember to the best of our ability, find the nearest meaning or most similar hadith or quran. 
+
+What does this app is not capable of doing? Given a free form question, given an answer based on the hadith and quran. Or intelligently find what ayats or hadiths might be relevent for answering this. 
+Note this is more challenging problem, as not only does it require a semantic matching but also an understanding or reasoning. This is difficult to achieve without using a powerful model, like LLM. However, since the content of the hadiths and quran is static, what we could do is to generate a bunch of questions from hadith/quran and trying to finetune a model based on it. Now, based on this, IslamQA might seem a good source but we will need to clean the dataset. As sometimes, the answerer choose other hadith or ayat to make a point and then finally quote a relevant ayat and hadith. So, there needs to be some cleaning for this dataset. Currently we have this dataset from Kaggle and Huggingface and extracted the hadith and ayats for every question. But this is noisy for the reasons mentioned earlier. That being said, this dataset can be used for comparative analysis, like which of the processing work better for the same model, or which model might work better for open-ended questions.
+
 Every ayat and hadith has been transformed into sentence embeddings through the ["all-mpnet-base-v2" model](https://huggingface.co/sentence-transformers/all-mpnet-base-v2). Subsequently, these embeddings are stored in a vector database via the [FAISS library](https://python.langchain.com/docs/integrations/vectorstores/faiss). When conducting a search, the query is converted into a sentence embedding using the same model. The MMR algorithm is employed to present search results, emphasizing diversity in the displayed outcomes.
 
+#### Leaderboard
+Currently it seems  "nomic-ai/nomic-embed-text-v2-moe" with proper pretexting (like search_query, search_document) is most competitive based on a quick human study. This model without pretexting seem to perform better for open-ended question (like what questions Allah will ask on the day of Judgment). Then comes "Alibaba-NLP/gte-multilingual-base" which seem to work better for other languanges. 
+
+Moreoever original texts of the Quran (instead of processed) and processed texts of Hadith (instead of original) work better. This is based on the evaluation on IslamQA dataset.
+
 #### Improvment Plan:
+For immediate improvement plan, we can use multiple embedding models and do a cross encoding based on the results. Another immediate improvement plan is to use multiple translations for quran.
+
 This is an initial version (v0) of a basic search engine, and there is significant room for improvement. For instance, consider the query, "What questions will be asked on the Day of Judgment?" It is expected that relevant results, such as Ayat from Surah 102, Verse 7 ("Then, on that Day, you will definitely be questioned about your worldly pleasures"), should be prominently displayed among the top 25 search results. However, the current system does not prioritize these results effectively.
 
 Below are some key observations and proposed improvements:
