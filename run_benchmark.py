@@ -130,21 +130,28 @@ def process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval
                                         doc.metadata['hadith_no']])) 
                               for doc, score in retrieved_docs]
 
-            # Retrieve precomputed evaluation embeddings using document IDs
-            retrieved_ids = [model_faiss_index.db_docstore_id_to_index[doc.id] for i, doc in enumerate([doc for doc, _ in retrieved_docs])]  # Use index as fallback ID
-            retrieved_eval_embeddings = []
-            for doc_id in retrieved_ids:
-                try:
-                    # Assuming eval_faiss_index stores embeddings in the same serial as model_faiss_index
-                    # and that the document IDs are consistent across both indices
-                    doc_vector = eval_faiss_index.db.index.reconstruct(int(doc_id))  # Fetch embedding by ID
-                    retrieved_eval_embeddings.append(doc_vector)
-                except Exception as e:
-                    logging.warning(f"Could not fetch embedding for ID {doc_id}: {e}")
-                    retrieved_eval_embeddings.append(np.zeros(eval_faiss_index.index.d))  # Fallback zero vector
-            
+            # Retrieve precomputed evaluation embeddings using document IDs. 
+            # This is faster than embedding the documents again.
+            # Note: This assumes that the document IDs in eval_faiss_index are consistent with model_faiss_index.
+            try:
+                retrieved_ids = [model_faiss_index.db_docstore_id_to_index[doc.id] for i, doc in enumerate([doc for doc, _ in retrieved_docs])]  # Use index as fallback ID
+                retrieved_eval_embeddings = []
+                for doc_id in retrieved_ids:
+                    try:
+                        # Assuming eval_faiss_index stores embeddings in the same serial as model_faiss_index
+                        # and that the document IDs are consistent across both indices
+                        doc_vector = eval_faiss_index.db.index.reconstruct(int(doc_id))  # Fetch embedding by ID
+                        retrieved_eval_embeddings.append(doc_vector)
+                    except Exception as e:
+                        logging.warning(f"Could not fetch embedding for ID {doc_id}: {e}")
+                        retrieved_eval_embeddings.append(np.zeros(eval_faiss_index.index.d))  # Fallback zero vector
+            except Exception as e:
+                logging.error(f"Failed to retrieve embeddings for documents: {e}")
+                logging.info("Falling back to embedding documents directly")
+                retrieved_eval_embeddings = eval_faiss_index.embeddings.embed_documents([doc.page_content for doc, _ in retrieved_docs])
+                
             retrieved_eval_embeddings = np.array(retrieved_eval_embeddings)
-
+            
             matched, expected, retrieved, precision, recall = evaluate_retrieval(
                 retrieved_texts, references, retrieved_eval_embeddings, matching='cosine', 
                 eval_embed_func=eval_embed_func, sim_threshold=sim_threshold)
@@ -191,32 +198,35 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, eval_mode
     eval_base_path = f"vector_databases/{eval_model_name.split('/')[-1]}_{doctype}_{device}"
     index_paths = {
         name: os.path.join(base_path, name.lower())
-        for name in [ "hadith", "quran"]
+        for name in [ "quran", "hadith"]
     }
     eval_index_paths = {
         name: os.path.join(eval_base_path, name.lower())
-        for name in [ "hadith", "quran"]
+        for name in [ "quran", "hadith"]
     }
 
     all_results = {}
 
     for name, path in index_paths.items():
-        if not os.path.exists(path):
-            logging.warning(f"Index path not found: {path}")
-            continue
-
-        eval_index_path = eval_index_paths.get(name)
-
-        logging.info(f"Running benchmark on index: {name}")
         
         try:
-            model_faiss_index = VectorSearchDeployment(path, model_name, device)
+            if 'openai' in model_name:
+                model_faiss_index = LLMResponseIndex('datasets/openai_references_for_islamqa_benchmark.json', name)
+            else:
+                if not os.path.exists(path):
+                    logging.warning(f"Index path not found: {path}")
+                    continue
+                model_faiss_index = VectorSearchDeployment(path, model_name, device)
+            
+            eval_index_path = eval_index_paths.get(name)
             eval_faiss_index = load_precomputed_embeddings(eval_index_path, eval_model_name, device)
             eval_embed_func = eval_faiss_index.embeddings.embed_query
+        
         except Exception as e:
             logging.error(f"Failed to initialize model or eval index for {name}: {e}")
             continue
-
+        
+        logging.info(f"Running benchmark on index: {name}")
         detailed_results = []
         for entry in tqdm(benchmark_data[:num_rows] if num_rows else benchmark_data, desc=f"Processing {name}"):
             result = process_entry(entry, name, model_faiss_index, method, k, sim_threshold, eval_embed_func, eval_faiss_index)
@@ -247,14 +257,15 @@ def run_benchmark_wrapper(args):
 
 if __name__ == '__main__':
     model_names = [
-        "nomic-ai/nomic-embed-text-v1",
-        "nomic-ai/nomic-embed-text-v2-moe", 
-        "Alibaba-NLP/gte-multilingual-base",
-        "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
-        "sentence-transformers/all-mpnet-base-v2",
-        "sentence-transformers/LaBSE",
-        "intfloat/multilingual-e5-base",
-        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
+        "openai/gpt-4o",
+        # "nomic-ai/nomic-embed-text-v1",
+        # "nomic-ai/nomic-embed-text-v2-moe", 
+        # "Alibaba-NLP/gte-multilingual-base",
+        # "fine_tuned_models/islamqa_fine_tuned_all-mpnet-base-v2",
+        # "sentence-transformers/all-mpnet-base-v2",
+        # "sentence-transformers/LaBSE",
+        # "intfloat/multilingual-e5-base",
+        # 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
     ]
 
     device = "cpu"

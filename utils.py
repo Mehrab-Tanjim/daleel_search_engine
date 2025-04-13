@@ -5,6 +5,47 @@ import math
 from numpy import dot
 from numpy.linalg import norm
 from typing import List
+import json
+class LLMResponseIndex:
+    def __init__(self, llm_output_path, name):
+        with open(llm_output_path, 'r', encoding='utf-8') as f:
+            llm_output = json.load(f)
+
+        self.index = {}
+        self.name = name
+        for d in llm_output:
+            self.index[d['question'].strip()] = [dic for dic in d['openai_response_for_references'] if dic['type'].lower()==self.name.lower()]
+
+    def search(self, method, query, k=10):
+        refs = self.index.get(query.strip(), [])
+        if not refs:
+            return []
+        
+        results = []
+        for ref in refs:
+            text = ref['text']
+            if self.name.lower() == 'quran':
+                reference = ref['reference'].split()[-1].split(':')
+                metadata = {'SurahNo': reference[0], 'AyahNo': reference[1]}
+                
+            elif self.name.lower() == 'hadith':
+                reference = ref['reference'].split()
+                metadata = {'source': ref['reference'].split()[0], 
+                            'chapter_no': '', 
+                            'hadith_no': ref['reference'].split()[-1]}
+            
+            # format like FAISS: (doc, score)
+            # Fake score of 1.0 for all, metadata is minimal   
+            results.append((SimpleDoc(text, metadata), 1.0))
+        
+        return results[:k]  # Return top k results
+        
+class SimpleDoc:
+    def __init__(self, text, metadata):
+        self.page_content = text
+        self.metadata = metadata
+        self.id = None  # Not needed unless you're matching IDs
+
 
 class VectorSearchDeployment:
     def __init__(self, index_path, model_name, device):
