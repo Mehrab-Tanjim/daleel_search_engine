@@ -1,4 +1,5 @@
 streamlit
+FlagEmbedding
 langchain-community
 faiss-cpu
 sentence-transformers
