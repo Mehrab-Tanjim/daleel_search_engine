@@ -1,35 +1,80 @@
-# Grouped questions with graded verse matches
+# Quran search dataset
 
-This dataset groups repeated questions and reviewed equivalent phrasings. All original question wordings and all 5,320 source judgments remaining after exclusion of 23 unresolved citations are preserved. One retained source judgment still lacks a usable verse reference and is recorded under missing_reference_records.
+This dataset connects questions to Quran verses. For each question, it keeps every reviewed verse, the reason it was selected, and how closely it answers the question. It can be used to prepare search training and evaluation data.
 
-## Counts
+## See an example
 
-- 1,709 question groups containing 1,731 wordings.
-- 22 groups contain multiple wordings.
-- 265 groups have direct matches, 1,373 have partial matches, 664 have background matches and 28 have reviewed unrelated matches. These counts overlap.
-- 6,702 distinct group-and-ayah judgments. Verse ranges are expanded to individual ayat with the original reviewed_passage retained as context.
-- 39 group-and-ayah grade conflicts, retained with all source reasons. The highest reviewed grade determines the display tier. Review conflicts before using them as training truth.
+The question **“Who goes to heaven?”** appears once in the dataset, with four verses marked as direct answers.
 
-## Format
+| Question | Ayah | English translation | Match | Review reason |
+| --- | --- | --- | --- | --- |
+| Who goes to heaven? | 40:40 | Whoever does righteousness, whether male or female, while a believer, will enter Paradise. | Direct | Believing men and women who act righteously are promised Paradise. |
+| Who goes to heaven? | 19:60 | Those who repent, believe and do righteousness will enter Paradise. | Direct | Repentance, belief and righteous deeds are linked to Paradise. |
+| Who goes to heaven? | 46:13 | Those who say “Our Lord is Allah” and remain on a right course will have no fear or grief. | Direct | This verse identifies the people described in the next verse. |
+| Who goes to heaven? | 46:14 | Those are the companions of Paradise, abiding there as a reward for their deeds. | Direct | Together with 46:13, it promises Paradise to the steadfast. |
 
-Each line in grouped_queries.jsonl contains one group. queries is an array of all its wordings. ayat contains direct, partial, background and unrelated arrays, in that relevance order. Each ayah has text, numeric grade, source judgments and their reasons. Grades are 3, 2, 1 and 0 respectively. Ayat with the same grade have no reviewed order within their tier.
+Translations in this table are shortened for readability. The data files include the full English translation, original citation and review reason. Verses 46:13 and 46:14 were reviewed **together as a passage**. The original passage reference is retained for both.
 
-The same verse appears only once in a group's tiers, but all original judgments and source IDs are retained underneath it. If source judgments disagree, has_conflicting_grades is true. grouped_conflicts.jsonl lists these cases.
+A person can ask the same question in different words. We keep those alternatives together so they can all be used in training. For example, the dataset groups these two questions:
 
-Reviewed unrelated matches are negative examples. For groups without those matches, random_negative_candidates contains three deterministic random verses, excluding all judged verses and their immediate neighbors. These carry review=random_unjudged and grade=null. Random sampling can select a relevant verse, so these candidates need checking before being treated as confirmed negatives. They are excluded from graded qrels.
+| Question versions kept together | Ayah | English translation | Match | Review reason |
+| --- | --- | --- | --- | --- |
+| Is smoking cigarettes Haraam? · Why is smoking haram? | 4:29 | Do not consume one another’s wealth unjustly, and do not kill yourselves or one another. | Partial | The prohibition on killing oneself is relevant to harm, but the verse does not name cigarettes. |
+| Is smoking cigarettes Haraam? · Why is smoking haram? | 17:26 | Give relatives, the poor and travellers their rights, and do not spend wastefully. | Partial | Wastefulness is relevant to the argument, but tobacco is not named. |
 
-## Grouping decisions
+The dataset records which wording each reason came from. Two questions were grouped only after a reviewer judged that they asked the same thing. A similarity score helped find candidates for review.
 
-Pinned multilingual E5-small query embeddings found 1,755 pairs above cosine 0.90. All candidate pairs received model equivalence decisions, preserved in group_review_0.json through group_review_2.json. Four conservative parent-review overrides are recorded separately. Similar topics with different gender, constraints or subquestions stay separate. Every pair across a proposed merged group must have explicit equivalence approval, preventing transitive similarity chains from merging unrelated questions. Normalization groups case and punctuation variants while preserving both wordings.
+## What the numbers mean
 
-The similarity model is intfloat/multilingual-e5-small at c007d7ef6fd86656326059b28395a7a03a7c5846. The script uses query prefixes, normalized mean-pooled vectors and a 512-token cap. group_questions.json preserves the embedding inputs and similar_question_candidates.json preserves the scores.
+| Count | Plain-language meaning |
+| --- | --- |
+| **1,709 question groups** | The dataset has 1,709 sets of questions. Each set represents one question or a few questions judged to mean the same thing. |
+| **1,731 question wordings** | Counting every different way the questions were written gives 1,731. The smoking example above contributes one group and two wordings. |
+| **22 groups with multiple wordings** | In 22 groups, two or more different wordings were kept together. |
+| **6,702 question–ayah matches** | This counts each ayah matched to each question group. “Who goes to heaven?” contributes four matches. A verse range was counted one ayah at a time. |
 
-## Training and evaluation
+The groups can contain several types of match at once. That is why the following counts overlap.
 
-Use grouped_queries.jsonl for the full ranked lists and reasons. grouped_qrels.jsonl provides group ID, ayah, grade and conflict indicator. source_splits preserves provenance, not a new train/test assignment. Twelve groups span the original source splits, so the earlier direct-only split files should not be used alongside these groups as a leakage-safe partition. Assign complete groups to new splits in the next step. Similar topics below the threshold may still overlap.
+| Review | Meaning | Groups containing at least one |
+| --- | --- | ---: |
+| Direct | The ayah directly addresses the question. | 265 |
+| Partial | The ayah answers part of it or gives a relevant principle. | 1,373 |
+| Background | The ayah supplies context but does not answer it. | 664 |
+| Unrelated | The reviewed ayah does not answer the question. | 28 |
 
-Fifty groups contain more than five direct ayat. It is impossible for all their direct ayat to appear in five result slots. Evaluate recall at an appropriate cutoff as well as graded nDCG. For groups with four direct ayat, recall@5 tests whether all four appear.
+The data gives direct matches grade **3**, partial **2**, background **1**, and unrelated **0**. Verses within the same grade have not been ranked against each other.
 
-These are model-reviewed relevance judgments. Human subject-matter review and verification of reuse rights remain pending. The benchmark has been seen during data review, so it is not an independently blind test.
+## How to read a record
 
-To rebuild, run python datasets/build_grouped_islamqa.py --corpus PATH_TO_AAYATUN_SEARCH_DB. The build refuses to proceed without all similarity decisions. Existing source files and earlier review outputs remain available for audit.
+Each line in [grouped_queries.jsonl](grouped_queries.jsonl) is one question group. Its main fields are:
+
+| Field | Contents |
+| --- | --- |
+| `queries` | Every question wording kept in the group. |
+| `ayat` | Four lists named `direct`, `partial`, `background` and `unrelated`. Each verse includes its text and review reasons. |
+| `judgments` | The original query, source citation, grade and reason for a verse. |
+| `random_negative_candidates` | Random verses supplied when the group has no reviewed unrelated example. |
+| `source_splits` | Whether the original questions came from the earlier training or benchmark file. |
+
+Random candidates have **not been checked for relevance**. They might answer the question, so verify them before using them as negatives. The reviewed unrelated examples have an actual review decision.
+
+## Review decisions needing attention
+
+There are **39 question-and-ayah combinations with conflicting grades**. For instance, two source reviews may grade the same verse differently for a grouped question. The dataset currently displays the highest grade and preserves both reasons. See [grouped_conflicts.jsonl](grouped_conflicts.jsonl) before using these cases for training.
+
+All 5,320 reviewed source citations remain traceable in the groups. The 23 citations marked unresolved were excluded. One remaining record lacks a usable verse reference and is listed in its group’s `missing_reference_records`.
+
+The reviews were made by models. Human subject-matter review, source reuse rights, and checks for similar questions across future data splits remain pending.
+
+## Files and future testing
+
+- [Grouped questions, verses and reasons](grouped_queries.jsonl)
+- [Compact question–ayah grades](grouped_qrels.jsonl)
+- [Conflicting grades](grouped_conflicts.jsonl)
+- [Dataset counts](grouped_summary.json)
+
+The earlier training, validation and benchmark files were created before grouping. **Twelve groups contain questions from more than one of those original splits**, so make new splits by whole group before training or comparing models. The current benchmark has been seen during review and is not an independently blind test.
+
+Fifty questions have more than five direct ayat. A search cannot place all of them in five slots. Measure how many relevant ayat appear at several result counts, and use graded ranking measures alongside that count.
+
+To rebuild the grouped files, run `python datasets/build_grouped_islamqa.py --corpus PATH_TO_AAYATUN_SEARCH_DB`. The script uses the saved question-similarity reviews and checks that every candidate has a decision. Similarity candidates were found with the pinned multilingual E5-small model described in [find_similar_questions.py](../find_similar_questions.py).
