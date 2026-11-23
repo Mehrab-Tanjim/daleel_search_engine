@@ -1,0 +1,2927 @@
+[
+  {
+    "index": 0,
+    "merge": false,
+    "reason": "Adds paternity, child support and marrying the partner; other asks marrying a chaste woman."
+  },
+  {
+    "index": 1,
+    "merge": false,
+    "reason": "Public ideological harm versus zina and later marriage."
+  },
+  {
+    "index": 2,
+    "merge": false,
+    "reason": "Public writing versus restoring stolen money and risk of imprisonment."
+  },
+  {
+    "index": 3,
+    "merge": false,
+    "reason": "Specific public dissemination requires repair beyond generic repentance."
+  },
+  {
+    "index": 4,
+    "merge": false,
+    "reason": "Polygyny consent versus conversion of an existing wife."
+  },
+  {
+    "index": 5,
+    "merge": false,
+    "reason": "Polygyny versus marriage to an agnostic."
+  },
+  {
+    "index": 6,
+    "merge": false,
+    "reason": "Consent and falling in love versus inability to adjust to current wife."
+  },
+  {
+    "index": 7,
+    "merge": false,
+    "reason": "Adds residence abroad and coercive waiver of time rights."
+  },
+  {
+    "index": 8,
+    "merge": false,
+    "reason": "Parental respect and consummation before rukhsati are different questions."
+  },
+  {
+    "index": 9,
+    "merge": false,
+    "reason": "Existing wives and unemployment versus permission to marry again."
+  },
+  {
+    "index": 10,
+    "merge": false,
+    "reason": "First marriage obligations and masturbation versus polygyny."
+  },
+  {
+    "index": 11,
+    "merge": false,
+    "reason": "Adds financial waiver and sexual difficulties with consenting first wife."
+  },
+  {
+    "index": 12,
+    "merge": false,
+    "reason": "General polygyny conditions versus first wife consent and romantic motive."
+  },
+  {
+    "index": 13,
+    "merge": false,
+    "reason": "Concealing an existing marriage differs from obtaining first wife consent."
+  },
+  {
+    "index": 14,
+    "merge": false,
+    "reason": "Divorcing an existing second wife versus entering a second marriage."
+  },
+  {
+    "index": 15,
+    "merge": false,
+    "reason": "Adds waiver of the second wife financial rights."
+  },
+  {
+    "index": 16,
+    "merge": false,
+    "reason": "Relationship to brother-in-law wife versus polygyny."
+  },
+  {
+    "index": 17,
+    "merge": false,
+    "reason": "Insurance employment necessity versus assisting immigration."
+  },
+  {
+    "index": 18,
+    "merge": false,
+    "reason": "Mosque attendance versus combining travel prayers."
+  },
+  {
+    "index": 19,
+    "merge": false,
+    "reason": "Mosque attendance versus surgery conflicting with prayer times."
+  },
+  {
+    "index": 20,
+    "merge": false,
+    "reason": "Attendance versus worldwide timing of Judgment Day."
+  },
+  {
+    "index": 21,
+    "merge": false,
+    "reason": "Attendance versus validity of office Friday congregation."
+  },
+  {
+    "index": 22,
+    "merge": false,
+    "reason": "Religious slaughterer versus eating raw meat."
+  },
+  {
+    "index": 23,
+    "merge": false,
+    "reason": "Identity of slaughterer versus basmala changing meat status."
+  },
+  {
+    "index": 24,
+    "merge": false,
+    "reason": "People of Scripture identity versus known invalid slaughter."
+  },
+  {
+    "index": 25,
+    "merge": false,
+    "reason": "Slaughter validity versus buying from mixed retailers."
+  },
+  {
+    "index": 26,
+    "merge": false,
+    "reason": "Adds fish and basmala as substitute for proper slaughter."
+  },
+  {
+    "index": 27,
+    "merge": false,
+    "reason": "Known preslaughter death and social hospitality are additional constraints."
+  },
+  {
+    "index": 28,
+    "merge": true,
+    "reason": "Both ask cigarette prohibition and its justification."
+  },
+  {
+    "index": 29,
+    "merge": false,
+    "reason": "Entering marriage versus continuing preconversion marriage."
+  },
+  {
+    "index": 30,
+    "merge": false,
+    "reason": "Opposite gender and different religious status."
+  },
+  {
+    "index": 31,
+    "merge": false,
+    "reason": "Gender unspecified and Christian-specific rather than all non-Muslim men."
+  },
+  {
+    "index": 32,
+    "merge": false,
+    "reason": "Marriage versus Thanksgiving celebration."
+  },
+  {
+    "index": 33,
+    "merge": false,
+    "reason": "Marriage versus shaking hands."
+  },
+  {
+    "index": 34,
+    "merge": false,
+    "reason": "Marriage versus prayer for deceased mother."
+  },
+  {
+    "index": 35,
+    "merge": false,
+    "reason": "Partner religion versus past sexual conduct affecting eligibility."
+  },
+  {
+    "index": 36,
+    "merge": false,
+    "reason": "Interfaith marriage versus polygyny."
+  },
+  {
+    "index": 37,
+    "merge": false,
+    "reason": "Interfaith marriage versus remaining unmarried."
+  },
+  {
+    "index": 38,
+    "merge": false,
+    "reason": "Muslim woman with non-Muslim man versus Yazidi woman."
+  },
+  {
+    "index": 39,
+    "merge": false,
+    "reason": "Existing mixed marriage after conversion versus new agnostic marriage."
+  },
+  {
+    "index": 40,
+    "merge": false,
+    "reason": "Existing converted wife versus new Catholic marriage with unspecified gender."
+  },
+  {
+    "index": 41,
+    "merge": false,
+    "reason": "Interfaith continuation versus polygyny time rights."
+  },
+  {
+    "index": 42,
+    "merge": false,
+    "reason": "Same broad case but specifically demands historical precedent rather than ruling."
+  },
+  {
+    "index": 43,
+    "merge": false,
+    "reason": "Husband remaining non-Muslim versus wife apostasy and separation procedures."
+  },
+  {
+    "index": 44,
+    "merge": false,
+    "reason": "Interfaith continuation versus prolonged absence and automatic divorce."
+  },
+  {
+    "index": 45,
+    "merge": false,
+    "reason": "Existing preconversion union versus entering new union and gender asymmetry."
+  },
+  {
+    "index": 46,
+    "merge": false,
+    "reason": "Interfaith continuation versus polygyny financial waiver."
+  },
+  {
+    "index": 47,
+    "merge": false,
+    "reason": "Interfaith continuation versus racial exclusion of converts."
+  },
+  {
+    "index": 48,
+    "merge": false,
+    "reason": "Conversion versus adultery, divorce and potential apostasy."
+  },
+  {
+    "index": 49,
+    "merge": false,
+    "reason": "Adds illness and financial necessity as proposed exceptions."
+  },
+  {
+    "index": 50,
+    "merge": false,
+    "reason": "Conversion of wife versus her extramarital affair and repentance."
+  },
+  {
+    "index": 51,
+    "merge": false,
+    "reason": "Fundraiser commission versus expiation for intercourse while fasting."
+  },
+  {
+    "index": 52,
+    "merge": false,
+    "reason": "Imam fundraising pay versus arrogance and eligibility to lead."
+  },
+  {
+    "index": 53,
+    "merge": false,
+    "reason": "Fundraising remuneration versus salvation and Christian objections."
+  },
+  {
+    "index": 54,
+    "merge": false,
+    "reason": "Imam commission versus recovery of personal loans and books."
+  },
+  {
+    "index": 55,
+    "merge": false,
+    "reason": "Imam remuneration versus marriage, Hajj and deceased father wishes."
+  },
+  {
+    "index": 56,
+    "merge": false,
+    "reason": "Fundraising commission versus arranging interest-bearing car loans."
+  },
+  {
+    "index": 57,
+    "merge": false,
+    "reason": "Fundraising versus number of taraweeh units."
+  },
+  {
+    "index": 58,
+    "merge": false,
+    "reason": "Imam commission versus child schooling and madhhab disagreement."
+  },
+  {
+    "index": 59,
+    "merge": false,
+    "reason": "Fundraising pay versus reciting Fatiha behind imam."
+  },
+  {
+    "index": 60,
+    "merge": false,
+    "reason": "Fundraising pay versus personal suitability to lead prayer."
+  },
+  {
+    "index": 61,
+    "merge": false,
+    "reason": "Fundraiser commission versus reward for installment sales."
+  },
+  {
+    "index": 62,
+    "merge": false,
+    "reason": "Fundraising versus conversion evidence and interfaith marriage."
+  },
+  {
+    "index": 63,
+    "merge": true,
+    "reason": "Same Chinese convert, parents, pork and naming scenario; copyediting only."
+  },
+  {
+    "index": 64,
+    "merge": false,
+    "reason": "Living with non-Muslim in-laws versus attending partner church."
+  },
+  {
+    "index": 65,
+    "merge": false,
+    "reason": "Already converted girlfriend versus refusing conversion for ill mother."
+  },
+  {
+    "index": 66,
+    "merge": false,
+    "reason": "Non-Muslim in-laws versus mother rejecting Muslim bride tribe."
+  },
+  {
+    "index": 67,
+    "merge": false,
+    "reason": "Keeping original name versus replacing paternal lineage with maternal surname."
+  },
+  {
+    "index": 68,
+    "merge": false,
+    "reason": "Living with in-laws versus girlfriend returning to former partner."
+  },
+  {
+    "index": 69,
+    "merge": false,
+    "reason": "Living with pork-eating in-laws versus conversion hesitation about own diet."
+  },
+  {
+    "index": 70,
+    "merge": false,
+    "reason": "In-law cohabitation and name versus marriage after zina and conversion."
+  },
+  {
+    "index": 71,
+    "merge": false,
+    "reason": "In-laws versus university mixed environment and emigration."
+  },
+  {
+    "index": 72,
+    "merge": false,
+    "reason": "Converted girlfriend versus Christian wife, future children and divorce."
+  },
+  {
+    "index": 73,
+    "merge": false,
+    "reason": "In-law household versus multiple prayer and dietary basics."
+  },
+  {
+    "index": 74,
+    "merge": false,
+    "reason": "In-law cohabitation versus racial barriers to marriage."
+  },
+  {
+    "index": 75,
+    "merge": false,
+    "reason": "Parents and naming versus relationship to brother-in-law wife."
+  },
+  {
+    "index": 76,
+    "merge": false,
+    "reason": "Divorce maintenance versus widow mourning restrictions."
+  },
+  {
+    "index": 77,
+    "merge": false,
+    "reason": "Husband residence during iddah versus khul after abandonment."
+  },
+  {
+    "index": 78,
+    "merge": false,
+    "reason": "Postdivorce residence and maintenance versus support during ongoing marriage."
+  },
+  {
+    "index": 79,
+    "merge": false,
+    "reason": "Adds husband departure and duration of financial maintenance."
+  },
+  {
+    "index": 80,
+    "merge": false,
+    "reason": "In-law residence versus church attendance with Christian partner."
+  },
+  {
+    "index": 81,
+    "merge": false,
+    "reason": "Converted fiancee versus nonconverting woman and ill mother."
+  },
+  {
+    "index": 82,
+    "merge": false,
+    "reason": "Non-Muslim parents versus mother opposing bride tribe."
+  },
+  {
+    "index": 83,
+    "merge": false,
+    "reason": "Original given name versus maternal surname and lineage."
+  },
+  {
+    "index": 84,
+    "merge": false,
+    "reason": "Parents and naming versus girlfriend returning to former lover."
+  },
+  {
+    "index": 85,
+    "merge": false,
+    "reason": "Parents household versus prospective convert own pork consumption."
+  },
+  {
+    "index": 86,
+    "merge": false,
+    "reason": "In-law residence versus marriage after zina."
+  },
+  {
+    "index": 87,
+    "merge": false,
+    "reason": "In-law cohabitation versus converting despite inability to practice immediately."
+  },
+  {
+    "index": 88,
+    "merge": false,
+    "reason": "Parents cohabitation versus deciding to convert against family wishes."
+  },
+  {
+    "index": 89,
+    "merge": false,
+    "reason": "In-law cohabitation versus university and emigration."
+  },
+  {
+    "index": 90,
+    "merge": false,
+    "reason": "In-law residence versus Christian spouse and future children."
+  },
+  {
+    "index": 91,
+    "merge": false,
+    "reason": "In-laws and names versus prayer instruction and dietary questions."
+  },
+  {
+    "index": 92,
+    "merge": false,
+    "reason": "Parents and naming versus racial exclusion in marriage."
+  },
+  {
+    "index": 93,
+    "merge": false,
+    "reason": "In-law residence versus relationship to another relative wife."
+  },
+  {
+    "index": 94,
+    "merge": false,
+    "reason": "Biblical prophecy of Muhammad versus prophetic equality and heaven levels."
+  },
+  {
+    "index": 95,
+    "merge": false,
+    "reason": "Biblical prophecy versus numerous doctrine, sect and polygyny objections."
+  },
+  {
+    "index": 96,
+    "merge": false,
+    "reason": "Offensive website versus relative believing reincarnation."
+  },
+  {
+    "index": 97,
+    "merge": true,
+    "reason": "Both request evidence supporting Islam truth."
+  },
+  {
+    "index": 98,
+    "merge": false,
+    "reason": "Praying behind hadith-rejecting father versus forgiveness of past sins."
+  },
+  {
+    "index": 99,
+    "merge": false,
+    "reason": "Praying behind father versus infant circumcision pain."
+  },
+  {
+    "index": 100,
+    "merge": false,
+    "reason": "Praying behind father versus marrying a man with past sexual relationships."
+  },
+  {
+    "index": 101,
+    "merge": false,
+    "reason": "Father as imam versus converting despite practice difficulties."
+  },
+  {
+    "index": 102,
+    "merge": false,
+    "reason": "Hadith-rejecting imam versus following madhhabs and specific purity practices."
+  },
+  {
+    "index": 103,
+    "merge": false,
+    "reason": "Father imam validity versus escaping violent parental abuse."
+  },
+  {
+    "index": 104,
+    "merge": false,
+    "reason": "Prayer leadership versus intercourse during menstruation."
+  },
+  {
+    "index": 105,
+    "merge": false,
+    "reason": "Father imam validity versus Hajj against mother wishes."
+  },
+  {
+    "index": 106,
+    "merge": false,
+    "reason": "Father as imam versus taraweeh unit count."
+  },
+  {
+    "index": 107,
+    "merge": false,
+    "reason": "Father doctrinal rejection versus imam fraud and lying; different disqualifications."
+  },
+  {
+    "index": 108,
+    "merge": false,
+    "reason": "Prayer behind father versus fast supplication answers and divine love."
+  },
+  {
+    "index": 109,
+    "merge": false,
+    "reason": "Prayer leadership versus school choice and madhhabs."
+  },
+  {
+    "index": 110,
+    "merge": false,
+    "reason": "Imam eligibility versus Fatiha recitation by followers."
+  },
+  {
+    "index": 111,
+    "merge": false,
+    "reason": "Prayer behind father versus abusive family conduct."
+  },
+  {
+    "index": 112,
+    "merge": false,
+    "reason": "Prayer behind father versus confronting nonpraying abusive mother."
+  },
+  {
+    "index": 113,
+    "merge": false,
+    "reason": "Father rejecting hadith versus detailed Sufi rites and parental coercion."
+  },
+  {
+    "index": 114,
+    "merge": false,
+    "reason": "Hadith rejection versus amulets and sacrifices to others; materially different imam beliefs."
+  },
+  {
+    "index": 115,
+    "merge": false,
+    "reason": "Prayer behind father versus private execution of hadd punishment."
+  },
+  {
+    "index": 116,
+    "merge": false,
+    "reason": "Father as imam versus convert prayer, diet and repentance basics."
+  },
+  {
+    "index": 117,
+    "merge": false,
+    "reason": "Father as imam versus boyfriend conversion and marriage."
+  },
+  {
+    "index": 118,
+    "merge": false,
+    "reason": "Father imam versus explanation of qibla to non-Muslim relatives."
+  },
+  {
+    "index": 119,
+    "merge": false,
+    "reason": "Prophet birthday versus personal birthdays generally."
+  },
+  {
+    "index": 120,
+    "merge": false,
+    "reason": "General Mawlid ruling versus divine-light, omnipresence and invocation claims."
+  },
+  {
+    "index": 121,
+    "merge": false,
+    "reason": "Prophet birthday versus Christmas and interfaith respect."
+  },
+  {
+    "index": 122,
+    "merge": false,
+    "reason": "Normative dispute about Mawlid versus description of date and customs."
+  },
+  {
+    "index": 123,
+    "merge": false,
+    "reason": "Different numbers of sons and daughters change inheritance shares."
+  },
+  {
+    "index": 124,
+    "merge": false,
+    "reason": "Wife and children versus parents and brothers as heirs."
+  },
+  {
+    "index": 125,
+    "merge": false,
+    "reason": "Second case adds mental illness and risk that contact triggers relocation."
+  },
+  {
+    "index": 126,
+    "merge": false,
+    "reason": "Parental rejection of suitor versus divorce after alleged magic."
+  },
+  {
+    "index": 127,
+    "merge": false,
+    "reason": "Bride father rejecting outside group versus groom mother rejecting tribe."
+  },
+  {
+    "index": 128,
+    "merge": false,
+    "reason": "Bride father objection versus existing violent marriage, conversion and children."
+  },
+  {
+    "index": 129,
+    "merge": false,
+    "reason": "Parental marriage refusal versus violent marital conflict involving stepdaughter."
+  },
+  {
+    "index": 130,
+    "merge": false,
+    "reason": "Ethnic refusal versus disputed acceptance of converted Christian suitor."
+  },
+  {
+    "index": 131,
+    "merge": false,
+    "reason": "Parental refusal versus suitor past zina."
+  },
+  {
+    "index": 132,
+    "merge": false,
+    "reason": "Marriage consent versus severe maternal abuse and curses."
+  },
+  {
+    "index": 133,
+    "merge": false,
+    "reason": "Marriage refusal versus sister conversion and mother hostility."
+  },
+  {
+    "index": 134,
+    "merge": false,
+    "reason": "Father arranged marriage versus mother national-origin rejection and acute despair."
+  },
+  {
+    "index": 135,
+    "merge": false,
+    "reason": "Parental refusal versus online non-mahram relationship by minor."
+  },
+  {
+    "index": 136,
+    "merge": false,
+    "reason": "Parental refusal versus sexual disinterest in existing wife."
+  },
+  {
+    "index": 137,
+    "merge": false,
+    "reason": "Parental refusal versus marriage without witnesses or guardian."
+  },
+  {
+    "index": 138,
+    "merge": false,
+    "reason": "Parental refusal versus sexual frequency and spouse rights."
+  },
+  {
+    "index": 139,
+    "merge": false,
+    "reason": "Marriage refusal versus suspected sexual contact with married woman."
+  },
+  {
+    "index": 140,
+    "merge": false,
+    "reason": "Marriage refusal versus sister socializing with gay classmates."
+  },
+  {
+    "index": 141,
+    "merge": false,
+    "reason": "Parental refusal versus polygyny financial waiver."
+  },
+  {
+    "index": 142,
+    "merge": false,
+    "reason": "Parental refusal versus Christian wife and children religion."
+  },
+  {
+    "index": 143,
+    "merge": false,
+    "reason": "Parental refusal versus non-Muslim boyfriend and revelation evidence."
+  },
+  {
+    "index": 144,
+    "merge": false,
+    "reason": "Masturbation ruling versus declaring a specific person damned."
+  },
+  {
+    "index": 145,
+    "merge": false,
+    "reason": "Masturbation versus menstrual intercourse."
+  },
+  {
+    "index": 146,
+    "merge": false,
+    "reason": "Masturbation versus tampon use."
+  },
+  {
+    "index": 147,
+    "merge": false,
+    "reason": "Prayer in moving car versus traveler Friday exemption."
+  },
+  {
+    "index": 148,
+    "merge": false,
+    "reason": "Prayer in car versus taxi-driver seclusion."
+  },
+  {
+    "index": 149,
+    "merge": false,
+    "reason": "Monotheistic non-Muslims versus people never reached by Islam."
+  },
+  {
+    "index": 150,
+    "merge": false,
+    "reason": "First wife opposition to polygyny versus girlfriend returning to prior partner."
+  },
+  {
+    "index": 151,
+    "merge": false,
+    "reason": "Polygyny refusal versus general marital hostility."
+  },
+  {
+    "index": 152,
+    "merge": false,
+    "reason": "Adds infertility, desire for more children and adoption refusal."
+  },
+  {
+    "index": 153,
+    "merge": false,
+    "reason": "Polygyny refusal versus disrespectful sister-in-law."
+  },
+  {
+    "index": 154,
+    "merge": false,
+    "reason": "Polygyny refusal versus premarital touching and renewing nikah."
+  },
+  {
+    "index": 155,
+    "merge": false,
+    "reason": "First wife refusal versus consenting wife and second wife maintenance waiver."
+  },
+  {
+    "index": 156,
+    "merge": false,
+    "reason": "Polygyny objection versus Muslim woman marrying non-Muslim man."
+  },
+  {
+    "index": 157,
+    "merge": false,
+    "reason": "Adds explicit financial support waiver by prospective second wife."
+  },
+  {
+    "index": 158,
+    "merge": false,
+    "reason": "Polygyny refusal versus fear of anal intercourse."
+  },
+  {
+    "index": 159,
+    "merge": false,
+    "reason": "Circumcision of converts and women versus barber shaving beards."
+  },
+  {
+    "index": 160,
+    "merge": false,
+    "reason": "Adult convert and female circumcision versus infant pain objection."
+  },
+  {
+    "index": 161,
+    "merge": false,
+    "reason": "Circumcision versus hijab before non-Muslim women and haircuts."
+  },
+  {
+    "index": 162,
+    "merge": false,
+    "reason": "Obligation for converts and women versus theological objection to altering creation."
+  },
+  {
+    "index": 163,
+    "merge": false,
+    "reason": "Circumcision versus missionary adoption of Muslim orphans."
+  },
+  {
+    "index": 164,
+    "merge": false,
+    "reason": "Circumcision versus tampons."
+  },
+  {
+    "index": 165,
+    "merge": false,
+    "reason": "Circumcision versus pregnancy termination after rape."
+  },
+  {
+    "index": 166,
+    "merge": false,
+    "reason": "Circumcision versus body hair removal and salons."
+  },
+  {
+    "index": 167,
+    "merge": false,
+    "reason": "Repeated recitation for wishes versus drinking washed Quran writing."
+  },
+  {
+    "index": 168,
+    "merge": false,
+    "reason": "Fixed-count recitation versus reward without understanding."
+  },
+  {
+    "index": 169,
+    "merge": false,
+    "reason": "Fixed counts generally versus dreams as claimed authority for formulas."
+  },
+  {
+    "index": 170,
+    "merge": false,
+    "reason": "Recitation to Allah versus formula invoking Messenger aid."
+  },
+  {
+    "index": 171,
+    "merge": false,
+    "reason": "Beliefs about Jesus versus biographical description; scopes overlap but differ."
+  },
+  {
+    "index": 172,
+    "merge": false,
+    "reason": "General sunnah and madhhab authority versus particular Shafii purity and qunut rules."
+  },
+  {
+    "index": 173,
+    "merge": false,
+    "reason": "Authority of sunnah versus combining daily prayers."
+  },
+  {
+    "index": 174,
+    "merge": false,
+    "reason": "Divine plural pronoun versus experiencing Quran as personal address."
+  },
+  {
+    "index": 175,
+    "merge": false,
+    "reason": "Women rewards in Paradise versus reading without understanding."
+  },
+  {
+    "index": 176,
+    "merge": false,
+    "reason": "Female rewards versus why heavenly partners differ from earthly prohibitions."
+  },
+  {
+    "index": 177,
+    "merge": false,
+    "reason": "Zina repentance and chaste marriage versus girlfriend return to former partner."
+  },
+  {
+    "index": 178,
+    "merge": false,
+    "reason": "Zina repentance versus hesitation to convert."
+  },
+  {
+    "index": 179,
+    "merge": false,
+    "reason": "Zina repentance and marriage versus private curses and repairing harm."
+  },
+  {
+    "index": 180,
+    "merge": false,
+    "reason": "Sexual sin versus theft restitution and imprisonment."
+  },
+  {
+    "index": 181,
+    "merge": false,
+    "reason": "Zina and chaste marriage versus repeated masturbation, Ramadan and parental barriers."
+  },
+  {
+    "index": 182,
+    "merge": false,
+    "reason": "Zina repentance versus nightmares and suspected evil eye."
+  },
+  {
+    "index": 183,
+    "merge": false,
+    "reason": "Zina marriage eligibility versus general forgiveness and reassurance."
+  },
+  {
+    "index": 184,
+    "merge": false,
+    "reason": "Zina repentance versus partner conversion and interfaith marriage."
+  },
+  {
+    "index": 185,
+    "merge": false,
+    "reason": "Specific zina marriage restriction versus generic repentance acceptance."
+  },
+  {
+    "index": 186,
+    "merge": false,
+    "reason": "Chaste-spouse restriction versus claimed total marriage bar after convert sexual sin."
+  },
+  {
+    "index": 187,
+    "merge": false,
+    "reason": "Past zina marriage eligibility versus prospective anal intercourse and clothed contact."
+  },
+  {
+    "index": 188,
+    "merge": false,
+    "reason": "Drinking Quran washwater versus saying sadaqa Allah after recitation."
+  },
+  {
+    "index": 189,
+    "merge": false,
+    "reason": "Drinking written verses versus imam amulets and sacrificial rituals."
+  },
+  {
+    "index": 190,
+    "merge": false,
+    "reason": "Magic and remarriage versus zina child, marriage and workplace prayer."
+  },
+  {
+    "index": 191,
+    "merge": false,
+    "reason": "Alleged magic versus Ramadan intercourse expiation."
+  },
+  {
+    "index": 192,
+    "merge": false,
+    "reason": "Alleged magic divorce versus married man committing adultery."
+  },
+  {
+    "index": 193,
+    "merge": false,
+    "reason": "Alleged magic and divorced spouse family versus lack of attraction to present wife."
+  },
+  {
+    "index": 194,
+    "merge": false,
+    "reason": "Magic and divorce versus witnessless interfaith marriage validity."
+  },
+  {
+    "index": 195,
+    "merge": false,
+    "reason": "Magic and remarriage versus mismatched sexual frequency."
+  },
+  {
+    "index": 196,
+    "merge": false,
+    "reason": "Magic and remarriage versus polygyny and support waiver."
+  },
+  {
+    "index": 197,
+    "merge": false,
+    "reason": "Magic divorce versus Muslim woman non-Muslim marriage."
+  },
+  {
+    "index": 198,
+    "merge": false,
+    "reason": "Quran-only treatment and wife family versus questionable prescription and new wife."
+  },
+  {
+    "index": 199,
+    "merge": false,
+    "reason": "Magic and remarriage versus boyfriend conversion and Quran evidence."
+  },
+  {
+    "index": 200,
+    "merge": false,
+    "reason": "Controlling temper versus repenting curses, disclosure and curse effectiveness."
+  },
+  {
+    "index": 201,
+    "merge": false,
+    "reason": "Anger versus showing off good deeds."
+  },
+  {
+    "index": 202,
+    "merge": false,
+    "reason": "Credit-card liability versus Ramadan intercourse expiation."
+  },
+  {
+    "index": 203,
+    "merge": false,
+    "reason": "Paying credit-card interest versus disposing received bank interest."
+  },
+  {
+    "index": 204,
+    "merge": false,
+    "reason": "Liability for husband card versus tuition necessity for new borrowing."
+  },
+  {
+    "index": 205,
+    "merge": false,
+    "reason": "Credit-card liability versus stealing to punish retailer."
+  },
+  {
+    "index": 206,
+    "merge": false,
+    "reason": "Debt liability versus sexual-frequency conflict."
+  },
+  {
+    "index": 207,
+    "merge": false,
+    "reason": "Agnostic woman versus Catholic spouse with gender unspecified."
+  },
+  {
+    "index": 208,
+    "merge": false,
+    "reason": "Agnostic spouse versus second-wife compatibility."
+  },
+  {
+    "index": 209,
+    "merge": false,
+    "reason": "Interfaith marriage versus handshake."
+  },
+  {
+    "index": 210,
+    "merge": false,
+    "reason": "Interfaith marriage versus charity to non-Muslim beggar."
+  },
+  {
+    "index": 211,
+    "merge": false,
+    "reason": "Agnostic spouse versus marriage after sexual sin."
+  },
+  {
+    "index": 212,
+    "merge": false,
+    "reason": "Muslim man with agnostic woman versus Muslim woman with non-Muslim man."
+  },
+  {
+    "index": 213,
+    "merge": false,
+    "reason": "Agnostic spouse versus masturbation when unable to fulfil marital rights."
+  },
+  {
+    "index": 214,
+    "merge": false,
+    "reason": "Father needing son support versus father demanding bridal payment."
+  },
+  {
+    "index": 215,
+    "merge": false,
+    "reason": "Marriage prevention for sibling support versus niqab against in-law wishes."
+  },
+  {
+    "index": 216,
+    "merge": false,
+    "reason": "Father preventing marriage versus orphan adoption."
+  },
+  {
+    "index": 217,
+    "merge": false,
+    "reason": "Marriage prevention versus marrying sister husband daughter."
+  },
+  {
+    "index": 218,
+    "merge": true,
+    "reason": "Same father preventing son marriage to obtain sibling-care help."
+  },
+  {
+    "index": 219,
+    "merge": false,
+    "reason": "Catholic spouse eligibility versus past sexual sin."
+  },
+  {
+    "index": 220,
+    "merge": false,
+    "reason": "Catholic interfaith marriage versus whether remaining unmarried is prohibited."
+  },
+  {
+    "index": 221,
+    "merge": false,
+    "reason": "Breastfeeding mahram age versus making up missed fasts."
+  },
+  {
+    "index": 222,
+    "merge": false,
+    "reason": "Excluding Muhammad specifically versus love of God including immoral Muslims."
+  },
+  {
+    "index": 223,
+    "merge": false,
+    "reason": "Non-Muslim belief versus illegitimate birth."
+  },
+  {
+    "index": 224,
+    "merge": false,
+    "reason": "Nonpenetrative adultery repentance versus reunion in Paradise."
+  },
+  {
+    "index": 225,
+    "merge": false,
+    "reason": "Married thigh contact and rajm versus unmarried oral sex, virginity and Islam status."
+  },
+  {
+    "index": 226,
+    "merge": false,
+    "reason": "Sexual repentance versus abusive father and protecting sister."
+  },
+  {
+    "index": 227,
+    "merge": false,
+    "reason": "Extramarital nonpenetrative conduct versus marital menstruation intercourse."
+  },
+  {
+    "index": 228,
+    "merge": false,
+    "reason": "Muslim married offender versus offense before conversion."
+  },
+  {
+    "index": 229,
+    "merge": false,
+    "reason": "Married offender and rajm versus engaged couple nikah and renewal."
+  },
+  {
+    "index": 230,
+    "merge": false,
+    "reason": "Declaring a specific individual damned versus whether love of God prevents Hell."
+  },
+  {
+    "index": 231,
+    "merge": false,
+    "reason": "Individual damnation versus attitude toward Aisha and Shia beliefs."
+  },
+  {
+    "index": 232,
+    "merge": false,
+    "reason": "Individual damnation versus imam arrogance."
+  },
+  {
+    "index": 233,
+    "merge": false,
+    "reason": "Individual damnation versus hijab before non-Muslim mother-in-law."
+  },
+  {
+    "index": 234,
+    "merge": false,
+    "reason": "Individual damnation versus consulting jinn for illness."
+  },
+  {
+    "index": 235,
+    "merge": false,
+    "reason": "Individual damnation versus post-recitation formula."
+  },
+  {
+    "index": 236,
+    "merge": false,
+    "reason": "Individual damnation versus reading Gospel."
+  },
+  {
+    "index": 237,
+    "merge": false,
+    "reason": "Judging Hell destination versus layperson takfir for reviling Islam."
+  },
+  {
+    "index": 238,
+    "merge": false,
+    "reason": "Group Yasin around death versus sadaqa Allah formula."
+  },
+  {
+    "index": 239,
+    "merge": false,
+    "reason": "Church attendance versus university environment and emigration."
+  },
+  {
+    "index": 240,
+    "merge": false,
+    "reason": "Christian spouse church request versus parents resisting conversion."
+  },
+  {
+    "index": 241,
+    "merge": false,
+    "reason": "Church attendance versus attraction to current wife."
+  },
+  {
+    "index": 242,
+    "merge": false,
+    "reason": "Church attendance versus children with nonconverting Christian wife."
+  },
+  {
+    "index": 243,
+    "merge": false,
+    "reason": "Reasons for prohibiting three acts versus cards without wagering."
+  },
+  {
+    "index": 244,
+    "merge": false,
+    "reason": "Nonconverting girlfriend versus mother tribal rejection."
+  },
+  {
+    "index": 245,
+    "merge": false,
+    "reason": "Non-Muslim refusing conversion versus illicit boyfriend relationship generally."
+  },
+  {
+    "index": 246,
+    "merge": false,
+    "reason": "Single woman ill mother versus existing violent marriage and daughters."
+  },
+  {
+    "index": 247,
+    "merge": false,
+    "reason": "Woman declining conversion versus Muslim woman and already-converted suitor."
+  },
+  {
+    "index": 248,
+    "merge": false,
+    "reason": "Nonconverting female partner versus converted wife and non-Muslim husband."
+  },
+  {
+    "index": 249,
+    "merge": false,
+    "reason": "Marriage without conversion versus personal decision to convert against family."
+  },
+  {
+    "index": 250,
+    "merge": false,
+    "reason": "Marriage eligibility versus avoiding children with existing Christian wife."
+  },
+  {
+    "index": 251,
+    "merge": false,
+    "reason": "Nonconversion for mother versus habitual sexual sin and parental marriage refusal."
+  },
+  {
+    "index": 252,
+    "merge": false,
+    "reason": "Nonconverting woman versus Muslim students whose parents cite age and finances."
+  },
+  {
+    "index": 253,
+    "merge": false,
+    "reason": "Nonconverting girlfriend versus converted girlfriend and illegal polygyny."
+  },
+  {
+    "index": 254,
+    "merge": false,
+    "reason": "Conversion status versus marriage after zina."
+  },
+  {
+    "index": 255,
+    "merge": false,
+    "reason": "Non-Muslim woman with Muslim man versus Muslim woman with non-Muslim man."
+  },
+  {
+    "index": 256,
+    "merge": false,
+    "reason": "Prospective nonconverting woman versus children and divorce of Christian wife."
+  },
+  {
+    "index": 257,
+    "merge": false,
+    "reason": "Nonconverting woman versus racial rejection of converted male suitor."
+  },
+  {
+    "index": 258,
+    "merge": false,
+    "reason": "Non-Muslim female partner versus Muslim woman seeking partner conversion evidence."
+  },
+  {
+    "index": 259,
+    "merge": false,
+    "reason": "Conversion refusal versus postconversion zina marriage eligibility."
+  },
+  {
+    "index": 260,
+    "merge": false,
+    "reason": "Abusive uncle and false testimony versus violent wife and stepdaughter."
+  },
+  {
+    "index": 261,
+    "merge": false,
+    "reason": "Repeated abusive uncle versus estranged uncle without stated wrongdoing."
+  },
+  {
+    "index": 262,
+    "merge": false,
+    "reason": "Abusive uncle versus abusive father and mother."
+  },
+  {
+    "index": 263,
+    "merge": false,
+    "reason": "Meaning of confinement verse versus penetration threshold and repentance."
+  },
+  {
+    "index": 264,
+    "merge": true,
+    "reason": "Both request a general account of angels including their nature and roles."
+  },
+  {
+    "index": 265,
+    "merge": false,
+    "reason": "General good innovation hadith versus dreams authorizing Sufi formulas."
+  },
+  {
+    "index": 266,
+    "merge": false,
+    "reason": "General good innovation question versus Quran compilation and adhan precedents."
+  },
+  {
+    "index": 267,
+    "merge": false,
+    "reason": "Chicken mild stunning versus unspecified livestock electric collapse; species and severity matter."
+  },
+  {
+    "index": 268,
+    "merge": false,
+    "reason": "Thanksgiving versus handshakes."
+  },
+  {
+    "index": 269,
+    "merge": false,
+    "reason": "Thanksgiving specifically versus participation in Christmas and other festivals."
+  },
+  {
+    "index": 270,
+    "merge": false,
+    "reason": "Love of God including immoral Muslims versus good deeds of non-Muslim adults."
+  },
+  {
+    "index": 271,
+    "merge": false,
+    "reason": "Love of God versus moral non-Muslims, children and birth circumstances."
+  },
+  {
+    "index": 272,
+    "merge": false,
+    "reason": "Definition of creed versus specifying correct creed."
+  },
+  {
+    "index": 273,
+    "merge": true,
+    "reason": "Same request to define aqeedah."
+  },
+  {
+    "index": 274,
+    "merge": false,
+    "reason": "Attitude toward Aisha versus recitation-ending formula."
+  },
+  {
+    "index": 275,
+    "merge": false,
+    "reason": "Ghusl triggers versus making up three years of prayer after ignorance."
+  },
+  {
+    "index": 276,
+    "merge": false,
+    "reason": "Known urinary impurity versus waterproof barrier and nail cutting."
+  },
+  {
+    "index": 277,
+    "merge": false,
+    "reason": "Urinary impurity versus uncovered awra through torn garment."
+  },
+  {
+    "index": 278,
+    "merge": false,
+    "reason": "Pregnancy sneeze leakage and repeated prayers versus prostate postvoid dribble and missed prayers."
+  },
+  {
+    "index": 279,
+    "merge": false,
+    "reason": "Stress leakage versus perceived gases and secretions with suspected jinn."
+  },
+  {
+    "index": 280,
+    "merge": false,
+    "reason": "Incontinence during prayer versus mandatory washing outside prayer times."
+  },
+  {
+    "index": 281,
+    "merge": false,
+    "reason": "Known urine leakage versus uncertain transfer of airplane bathroom impurity."
+  },
+  {
+    "index": 282,
+    "merge": false,
+    "reason": "Known incontinence versus reusing unbroken ablution generally."
+  },
+  {
+    "index": 283,
+    "merge": false,
+    "reason": "Urine-contaminated work clothes versus bedridden person home prayer."
+  },
+  {
+    "index": 284,
+    "merge": false,
+    "reason": "Incontinence versus seated car prayer for workplace convenience."
+  },
+  {
+    "index": 285,
+    "merge": false,
+    "reason": "Urinary leakage versus spoken ablution intention."
+  },
+  {
+    "index": 286,
+    "merge": false,
+    "reason": "Intermediary supplication versus identifying named surahs and formulas."
+  },
+  {
+    "index": 287,
+    "merge": false,
+    "reason": "Tawassul versus authority to derive halal and haram rulings."
+  },
+  {
+    "index": 288,
+    "merge": false,
+    "reason": "Zina marriage and prayer versus late-payment car fees."
+  },
+  {
+    "index": 289,
+    "merge": false,
+    "reason": "Zina child and work prayer versus Ramadan intercourse expiation."
+  },
+  {
+    "index": 290,
+    "merge": false,
+    "reason": "Man marrying child mother versus woman leaving violent husband to convert."
+  },
+  {
+    "index": 291,
+    "merge": false,
+    "reason": "Man marrying child mother versus virgin choosing suitor with past zina."
+  },
+  {
+    "index": 292,
+    "merge": false,
+    "reason": "Marriage and workplace prayer versus personal jihad obligations."
+  },
+  {
+    "index": 293,
+    "merge": false,
+    "reason": "Marriage and prayer versus maternal abuse and curses."
+  },
+  {
+    "index": 294,
+    "merge": false,
+    "reason": "Marriage after zina and work prayer versus daily readings for repentance."
+  },
+  {
+    "index": 295,
+    "merge": false,
+    "reason": "Zina marriage and prayer versus oath against household television."
+  },
+  {
+    "index": 296,
+    "merge": false,
+    "reason": "Marriage and prayer versus legislation and scholarly rulings."
+  },
+  {
+    "index": 297,
+    "merge": false,
+    "reason": "Marriage and prayer versus multiple employment fraud and clothing questions."
+  },
+  {
+    "index": 298,
+    "merge": false,
+    "reason": "Marriage and prayer versus return after apostasy and persistent doubts."
+  },
+  {
+    "index": 299,
+    "merge": false,
+    "reason": "Marriage after zina versus university environment and emigration."
+  },
+  {
+    "index": 300,
+    "merge": false,
+    "reason": "Marriage and prayer versus sister conversion and maternal hostility."
+  },
+  {
+    "index": 301,
+    "merge": false,
+    "reason": "Marriage after zina versus custody after remarriage following annulment."
+  },
+  {
+    "index": 302,
+    "merge": false,
+    "reason": "Marriage and prayer versus intrusive religious thoughts and fear."
+  },
+  {
+    "index": 303,
+    "merge": false,
+    "reason": "Workplace cleanliness uncertainty versus janaba on airplane without purification options."
+  },
+  {
+    "index": 304,
+    "merge": false,
+    "reason": "Marriage after zina versus children with Christian spouse."
+  },
+  {
+    "index": 305,
+    "merge": false,
+    "reason": "Zina marriage and work prayer versus numerous convert practice basics."
+  },
+  {
+    "index": 306,
+    "merge": false,
+    "reason": "Marriage after zina versus racial rejection of convert suitor."
+  },
+  {
+    "index": 307,
+    "merge": false,
+    "reason": "Marriage after zina versus female partner with unconvinced non-Muslim man."
+  },
+  {
+    "index": 308,
+    "merge": false,
+    "reason": "Work prayer and marriage versus explaining qibla to family."
+  },
+  {
+    "index": 309,
+    "merge": false,
+    "reason": "Mother tribal refusal versus fiance past sexual conduct."
+  },
+  {
+    "index": 310,
+    "merge": false,
+    "reason": "Mother tribal refusal versus living with immodestly behaving mother."
+  },
+  {
+    "index": 311,
+    "merge": false,
+    "reason": "Marriage refusal versus mentally ill mother refusing all contact."
+  },
+  {
+    "index": 312,
+    "merge": false,
+    "reason": "Mother tribal refusal versus two existing nikahs and family divorce demands."
+  },
+  {
+    "index": 313,
+    "merge": false,
+    "reason": "Mother marriage objection versus long-term physical abuse and curses."
+  },
+  {
+    "index": 314,
+    "merge": false,
+    "reason": "Mother tribal refusal versus mother apostasy and cremation wishes."
+  },
+  {
+    "index": 315,
+    "merge": false,
+    "reason": "Mother marriage refusal versus sister-in-law disrespect."
+  },
+  {
+    "index": 316,
+    "merge": false,
+    "reason": "Mother marriage refusal versus university environment and migration."
+  },
+  {
+    "index": 317,
+    "merge": false,
+    "reason": "Mother marriage objection versus sister conversion and maternal Islam hostility."
+  },
+  {
+    "index": 318,
+    "merge": false,
+    "reason": "Groom mother rejecting tribe versus bride mother rejecting nationality, plus acute despair."
+  },
+  {
+    "index": 319,
+    "merge": false,
+    "reason": "Mother marriage refusal versus wife apostasy."
+  },
+  {
+    "index": 320,
+    "merge": false,
+    "reason": "Mother tribal refusal versus lack of sexual attraction after marriage."
+  },
+  {
+    "index": 321,
+    "merge": false,
+    "reason": "Mother tribal refusal versus Hajj against mother wishes."
+  },
+  {
+    "index": 322,
+    "merge": false,
+    "reason": "Mother marriage objection versus sister attitudes toward homosexuality."
+  },
+  {
+    "index": 323,
+    "merge": false,
+    "reason": "Mother marriage refusal versus responding to nonpraying mother abuse."
+  },
+  {
+    "index": 324,
+    "merge": false,
+    "reason": "Mother marriage objection versus Christian wife and children religion."
+  },
+  {
+    "index": 325,
+    "merge": false,
+    "reason": "Mother marriage objection versus certainty of repentance acceptance."
+  },
+  {
+    "index": 326,
+    "merge": false,
+    "reason": "Groom mother tribal objection versus bride family racial rejection of convert."
+  },
+  {
+    "index": 327,
+    "merge": false,
+    "reason": "General divine location versus interpretation of specific wherever-you-turn verse."
+  },
+  {
+    "index": 328,
+    "merge": false,
+    "reason": "Food dedicated to saints versus hospitality at naming and Mawlid ceremonies."
+  },
+  {
+    "index": 329,
+    "merge": false,
+    "reason": "Personal birthdays generally versus Mawlid invoking omnipresent Prophet."
+  },
+  {
+    "index": 330,
+    "merge": false,
+    "reason": "Organizing ticketed entertainment and acting versus music, dance and gender exceptions."
+  },
+  {
+    "index": 331,
+    "merge": false,
+    "reason": "Entertainment parties versus Quran gatherings for deceased."
+  },
+  {
+    "index": 332,
+    "merge": false,
+    "reason": "Explicit Mormon upbringing promise versus Christian wife promising Islamic upbringing."
+  },
+  {
+    "index": 333,
+    "merge": false,
+    "reason": "Self-description as Salafi versus Mawlid and invocation beliefs."
+  },
+  {
+    "index": 334,
+    "merge": false,
+    "reason": "Salafi identity versus Fatiha recitation behind imam."
+  },
+  {
+    "index": 335,
+    "merge": false,
+    "reason": "Prayer-count Quran objection versus identifying postprayer formulas."
+  },
+  {
+    "index": 336,
+    "merge": false,
+    "reason": "Quran proof of five prayers versus combining prayers before travel."
+  },
+  {
+    "index": 337,
+    "merge": false,
+    "reason": "Quran proof of fifth prayer versus surgery preventing timely prayer."
+  },
+  {
+    "index": 338,
+    "merge": false,
+    "reason": "Five obligatory prayers versus taraweeh unit count."
+  },
+  {
+    "index": 339,
+    "merge": false,
+    "reason": "Scriptural basis for five versus disbelief status of missing some."
+  },
+  {
+    "index": 340,
+    "merge": false,
+    "reason": "Four times in specific Rum verses versus three Quran times with explicit answer constraint."
+  },
+  {
+    "index": 341,
+    "merge": false,
+    "reason": "Five-prayer proof versus oath-expiation food quantity and cash."
+  },
+  {
+    "index": 342,
+    "merge": false,
+    "reason": "Five-prayer proof versus Fatiha behind imam."
+  },
+  {
+    "index": 343,
+    "merge": false,
+    "reason": "Missing fifth in specific passage versus combining midday and night prayers."
+  },
+  {
+    "index": 344,
+    "merge": false,
+    "reason": "Boyfriend prohibition versus married man repeated adultery."
+  },
+  {
+    "index": 345,
+    "merge": false,
+    "reason": "Existing romantic relationship fear versus minor online-only friendship and marriage timing."
+  },
+  {
+    "index": 346,
+    "merge": false,
+    "reason": "Boyfriend relationship versus reasons for same-sex prohibitions."
+  },
+  {
+    "index": 347,
+    "merge": false,
+    "reason": "Generic boyfriend ruling versus interfaith marriage and evidence of Quran revelation."
+  },
+  {
+    "index": 348,
+    "merge": false,
+    "reason": "Memory in Paradise versus pre-Islamic knowledge of Allah."
+  },
+  {
+    "index": 349,
+    "merge": false,
+    "reason": "Children starting fasts versus pre-dawn imsak cutoff."
+  },
+  {
+    "index": 350,
+    "merge": false,
+    "reason": "Conflicting dawn timetables and precaution versus fixed ten-minute pre-Fajr ban."
+  },
+  {
+    "index": 351,
+    "merge": false,
+    "reason": "Waterproof skin barrier versus torn prayer garment."
+  },
+  {
+    "index": 352,
+    "merge": false,
+    "reason": "Purification barrier versus repeated gas and secretions."
+  },
+  {
+    "index": 353,
+    "merge": false,
+    "reason": "Barrier left on skin versus water-triggered skin condition."
+  },
+  {
+    "index": 354,
+    "merge": false,
+    "reason": "Shaving own beard under harassment and parents pressure versus barber work."
+  },
+  {
+    "index": 355,
+    "merge": false,
+    "reason": "Beard harassment versus abusive father drinking and zina."
+  },
+  {
+    "index": 356,
+    "merge": false,
+    "reason": "Coercion and harassment versus punishment for omitting any sunnah."
+  },
+  {
+    "index": 357,
+    "merge": false,
+    "reason": "Beard pressure versus Hajj against mother wishes."
+  },
+  {
+    "index": 358,
+    "merge": false,
+    "reason": "Beard pressure versus sister homosexuality-related social choices."
+  },
+  {
+    "index": 359,
+    "merge": false,
+    "reason": "Beard harassment versus deceased suicide, repentance and proxy worship."
+  },
+  {
+    "index": 360,
+    "merge": false,
+    "reason": "Beard harassment versus explaining qibla to relatives."
+  },
+  {
+    "index": 361,
+    "merge": false,
+    "reason": "Beard pressure versus restoring personal rights after conversion."
+  },
+  {
+    "index": 362,
+    "merge": false,
+    "reason": "Barber shaving and hairdryer practices versus specifically income from beard shaving."
+  },
+  {
+    "index": 363,
+    "merge": false,
+    "reason": "Barber work versus invoking social custom to defend wrongdoing."
+  },
+  {
+    "index": 364,
+    "merge": false,
+    "reason": "Barber work versus mocking sunnah and inward piety excuse."
+  },
+  {
+    "index": 365,
+    "merge": false,
+    "reason": "Barber work versus fasting exemption for furnace workers."
+  },
+  {
+    "index": 366,
+    "merge": false,
+    "reason": "Barber work versus fidgeting during prayer."
+  },
+  {
+    "index": 367,
+    "merge": false,
+    "reason": "Barber shaving versus dismissing and mocking beard observance."
+  },
+  {
+    "index": 368,
+    "merge": false,
+    "reason": "Mawlid and omnipresence versus Ashura celebration and mourning rites."
+  },
+  {
+    "index": 369,
+    "merge": false,
+    "reason": "Mawlid beliefs versus accepting Qadianis as Muslim group."
+  },
+  {
+    "index": 370,
+    "merge": false,
+    "reason": "Mawlid invocation and divine-light beliefs versus omnipresence proof from witness verses."
+  },
+  {
+    "index": 371,
+    "merge": false,
+    "reason": "Mawlid invocation versus graveside prayer and Urs intercession."
+  },
+  {
+    "index": 372,
+    "merge": false,
+    "reason": "Mawlid beliefs versus greetings to hadith-rejecting relatives."
+  },
+  {
+    "index": 373,
+    "merge": false,
+    "reason": "Mawlid doctrinal claims versus eating naming-ceremony food under pressure."
+  },
+  {
+    "index": 374,
+    "merge": false,
+    "reason": "Mawlid beliefs versus relic blessings and posthumous tawassul."
+  },
+  {
+    "index": 375,
+    "merge": false,
+    "reason": "Mawlid beliefs versus sadaqa Allah recitation formula."
+  },
+  {
+    "index": 376,
+    "merge": false,
+    "reason": "Mawlid beliefs versus blessing formula for Ali."
+  },
+  {
+    "index": 377,
+    "merge": false,
+    "reason": "Astronomical calculation versus demanding personal rather than reported sighting."
+  },
+  {
+    "index": 378,
+    "merge": false,
+    "reason": "Car late-payment fee versus consensual investment return."
+  },
+  {
+    "index": 379,
+    "merge": false,
+    "reason": "Car late fees versus opposite-sex taxi seclusion."
+  },
+  {
+    "index": 380,
+    "merge": false,
+    "reason": "Car late fees versus pig genetics employment."
+  },
+  {
+    "index": 381,
+    "merge": false,
+    "reason": "Own late fee versus brokering third-party interest loans."
+  },
+  {
+    "index": 382,
+    "merge": false,
+    "reason": "Calculations versus scope of accepted geographic moon sighting."
+  },
+  {
+    "index": 383,
+    "merge": false,
+    "reason": "Astronomical calculations versus personal-sighting requirement."
+  },
+  {
+    "index": 384,
+    "merge": false,
+    "reason": "Astronomy-based start versus military fasting hardship."
+  },
+  {
+    "index": 385,
+    "merge": false,
+    "reason": "Geographic scope of sightings versus insisting on seeing moon personally."
+  },
+  {
+    "index": 386,
+    "merge": false,
+    "reason": "Moon-sighting jurisdiction versus Ramadan intercourse expiation."
+  },
+  {
+    "index": 387,
+    "merge": false,
+    "reason": "Ramadan start versus spacing six Shawwal fasts."
+  },
+  {
+    "index": 388,
+    "merge": false,
+    "reason": "Moon-sighting jurisdiction versus taraweeh units."
+  },
+  {
+    "index": 389,
+    "merge": false,
+    "reason": "Moon sightings versus construction hardship and delayed makeup fasts."
+  },
+  {
+    "index": 390,
+    "merge": false,
+    "reason": "Moon sightings versus prospective convert menstruation and declaration."
+  },
+  {
+    "index": 391,
+    "merge": false,
+    "reason": "Own recurrent sin and worship acceptance versus another person repeatedly hurting questioner."
+  },
+  {
+    "index": 392,
+    "merge": false,
+    "reason": "Sinful Muslim deeds versus moral non-Muslim salvation."
+  },
+  {
+    "index": 393,
+    "merge": false,
+    "reason": "Recurrent zina and worship acceptance versus mistreating parents."
+  },
+  {
+    "index": 394,
+    "merge": false,
+    "reason": "Worship acceptance versus asking friends to execute hadd."
+  },
+  {
+    "index": 395,
+    "merge": false,
+    "reason": "Specific persistent zina case versus general acceptance conditions."
+  },
+  {
+    "index": 396,
+    "merge": false,
+    "reason": "Worship despite continuing zina versus acceptance of repentance for secret sins."
+  },
+  {
+    "index": 397,
+    "merge": false,
+    "reason": "Existing Muslim worship acceptance versus new conversion while persisting in sin."
+  },
+  {
+    "index": 398,
+    "merge": false,
+    "reason": "Tawassul and asking dead versus asking relief without changing decree."
+  },
+  {
+    "index": 399,
+    "merge": false,
+    "reason": "Past sins forgiveness versus White Days on Gregorian calendar."
+  },
+  {
+    "index": 400,
+    "merge": false,
+    "reason": "Past sins versus choosing fiance with sexual history."
+  },
+  {
+    "index": 401,
+    "merge": false,
+    "reason": "Past sins versus prospective convert fear of pork."
+  },
+  {
+    "index": 402,
+    "merge": false,
+    "reason": "Generic past sins versus specific daily recitations for reform."
+  },
+  {
+    "index": 403,
+    "merge": false,
+    "reason": "Past sins versus conversion before ability to fulfil obligations."
+  },
+  {
+    "index": 404,
+    "merge": false,
+    "reason": "Past sins versus several prayer and dietary basics."
+  },
+  {
+    "index": 405,
+    "merge": false,
+    "reason": "General past forgiveness versus ongoing severe anxiety and reassurance of acceptance."
+  },
+  {
+    "index": 406,
+    "merge": false,
+    "reason": "Past sins versus interfaith marriage and Quran evidence."
+  },
+  {
+    "index": 407,
+    "merge": false,
+    "reason": "Age and broad marriage allegations versus specific dream-report authentication."
+  },
+  {
+    "index": 408,
+    "merge": false,
+    "reason": "Opposite-sex conversation versus charity to non-Muslims and substance users."
+  },
+  {
+    "index": 409,
+    "merge": false,
+    "reason": "Five purported conversation grounds versus women, ghosts and dating."
+  },
+  {
+    "index": 410,
+    "merge": false,
+    "reason": "Personal moon sighting versus fasting hardship in military."
+  },
+  {
+    "index": 411,
+    "merge": false,
+    "reason": "Personal moon sighting versus fasting exemption for resident combatants."
+  },
+  {
+    "index": 412,
+    "merge": false,
+    "reason": "Female versus male marriage obligation; gender materially affects reasoning."
+  },
+  {
+    "index": 413,
+    "merge": false,
+    "reason": "Woman specifically versus generic abstention from marriage."
+  },
+  {
+    "index": 414,
+    "merge": false,
+    "reason": "Woman obligation versus marrying a woman divorced for questioner."
+  },
+  {
+    "index": 415,
+    "merge": false,
+    "reason": "Intercourse expiation versus voluntary fasting wrong calendar."
+  },
+  {
+    "index": 416,
+    "merge": false,
+    "reason": "Intercourse expiation versus infant circumcision pain."
+  },
+  {
+    "index": 417,
+    "merge": false,
+    "reason": "Intercourse expiation versus prospective spouse past sexual relationships."
+  },
+  {
+    "index": 418,
+    "merge": false,
+    "reason": "Intercourse expiation versus abusive father and protecting sister."
+  },
+  {
+    "index": 419,
+    "merge": false,
+    "reason": "Intercourse expiation versus pregnancy and breastfeeding makeup fasts."
+  },
+  {
+    "index": 420,
+    "merge": false,
+    "reason": "Ramadan expiation versus parents, divorce and consummation before rukhsati."
+  },
+  {
+    "index": 421,
+    "merge": false,
+    "reason": "Ramadan expiation versus deceased father wishes and Hajj priority."
+  },
+  {
+    "index": 422,
+    "merge": false,
+    "reason": "Ramadan expiation versus consecutive Shawwal fasting."
+  },
+  {
+    "index": 423,
+    "merge": false,
+    "reason": "Ramadan expiation versus Shawwal reward before legitimate makeup days."
+  },
+  {
+    "index": 424,
+    "merge": false,
+    "reason": "Ramadan expiation versus sexual attraction difficulty."
+  },
+  {
+    "index": 425,
+    "merge": false,
+    "reason": "Ramadan expiation versus witnessless marriage validity."
+  },
+  {
+    "index": 426,
+    "merge": false,
+    "reason": "Intercourse expiation versus masturbation, relapse and forgiveness reassurance."
+  },
+  {
+    "index": 427,
+    "merge": false,
+    "reason": "Intercourse expiation versus mismatched marital libido."
+  },
+  {
+    "index": 428,
+    "merge": false,
+    "reason": "Intercourse expiation versus oath expiation quantity and cash."
+  },
+  {
+    "index": 429,
+    "merge": false,
+    "reason": "Intercourse expiation versus postpartum makeup fasts and intention."
+  },
+  {
+    "index": 430,
+    "merge": false,
+    "reason": "Intercourse expiation versus missed fasts for construction work."
+  },
+  {
+    "index": 431,
+    "merge": false,
+    "reason": "Intercourse expiation versus coercive household labor and maintenance."
+  },
+  {
+    "index": 432,
+    "merge": false,
+    "reason": "Intercourse expiation versus Christian spouse and future children."
+  },
+  {
+    "index": 433,
+    "merge": false,
+    "reason": "Intercourse expiation versus suspected magic and healer treatment."
+  },
+  {
+    "index": 434,
+    "merge": false,
+    "reason": "Intercourse expiation versus certainty of repentance acceptance."
+  },
+  {
+    "index": 435,
+    "merge": false,
+    "reason": "Intercourse expiation versus racial rejection of convert marriage."
+  },
+  {
+    "index": 436,
+    "merge": false,
+    "reason": "Intercourse expiation versus interfaith marriage and Quran truth."
+  },
+  {
+    "index": 437,
+    "merge": false,
+    "reason": "Intercourse expiation versus prospective convert and menstruation."
+  },
+  {
+    "index": 438,
+    "merge": false,
+    "reason": "Intentional intercourse expiation versus involuntary wet dream and Satan question."
+  },
+  {
+    "index": 439,
+    "merge": false,
+    "reason": "Ramadan expiation versus inability to stay overnight at Muzdalifah."
+  },
+  {
+    "index": 440,
+    "merge": false,
+    "reason": "Prophets sinlessness versus forgiveness after public boasting of sins."
+  },
+  {
+    "index": 441,
+    "merge": false,
+    "reason": "Saying Ya Rasul Allah versus Noah biography."
+  },
+  {
+    "index": 442,
+    "merge": false,
+    "reason": "Saying Ya Rasul Allah versus pre-Islamic Arabs concept of Allah."
+  },
+  {
+    "index": 443,
+    "merge": false,
+    "reason": "Receiving zakah for orphans and debt use versus paying zakah on idle property."
+  },
+  {
+    "index": 444,
+    "merge": false,
+    "reason": "Orphans zakah eligibility versus date harvest and seedling zakah."
+  },
+  {
+    "index": 445,
+    "merge": false,
+    "reason": "Possibility of jinn possession versus seeking jinn aid for illness."
+  },
+  {
+    "index": 446,
+    "merge": false,
+    "reason": "Imam selection arrogance versus blessings through righteous people relics."
+  },
+  {
+    "index": 447,
+    "merge": false,
+    "reason": "Imam eligibility and arrogance versus follower Fatiha recitation."
+  },
+  {
+    "index": 448,
+    "merge": false,
+    "reason": "Imam arrogance versus amulets and sacrificial rites."
+  },
+  {
+    "index": 449,
+    "merge": false,
+    "reason": "Women slaughtering versus stunning animals."
+  },
+  {
+    "index": 450,
+    "merge": false,
+    "reason": "Location and meeting God at Judgment versus seeing God in earthly life."
+  },
+  {
+    "index": 451,
+    "merge": false,
+    "reason": "Conversion blocked by existing husband versus converted suitor rejected by family."
+  },
+  {
+    "index": 452,
+    "merge": false,
+    "reason": "Leaving existing husband versus fiance past sexual relations."
+  },
+  {
+    "index": 453,
+    "merge": false,
+    "reason": "Conversion and separation versus living with immodest Muslim mother."
+  },
+  {
+    "index": 454,
+    "merge": false,
+    "reason": "Leaving non-Muslim marriage versus two existing marriages and parents demands."
+  },
+  {
+    "index": 455,
+    "merge": false,
+    "reason": "Conversion marriage problem versus abusive father and sister housing."
+  },
+  {
+    "index": 456,
+    "merge": false,
+    "reason": "Conversion and divorce versus conditional triple divorce before marriage."
+  },
+  {
+    "index": 457,
+    "merge": false,
+    "reason": "Conversion and Hindu-school children versus custody threats by alcoholic ex-husband."
+  },
+  {
+    "index": 458,
+    "merge": false,
+    "reason": "Existing conversion-blocking husband versus choosing first husband qualities."
+  },
+  {
+    "index": 459,
+    "merge": false,
+    "reason": "Conversion marital crisis versus recovering loans and borrowed books."
+  },
+  {
+    "index": 460,
+    "merge": false,
+    "reason": "Conversion crisis versus married man repeated adultery."
+  },
+  {
+    "index": 461,
+    "merge": false,
+    "reason": "Existing marriage and conversion versus minor online friendship."
+  },
+  {
+    "index": 462,
+    "merge": false,
+    "reason": "Woman seeking conversion versus already-Muslim wife apostasy."
+  },
+  {
+    "index": 463,
+    "merge": false,
+    "reason": "Conversion and divorce versus separate accommodation from in-laws."
+  },
+  {
+    "index": 464,
+    "merge": false,
+    "reason": "Conversion divorce versus lack of attraction in otherwise good marriage."
+  },
+  {
+    "index": 465,
+    "merge": false,
+    "reason": "Conversion and separation versus marriage without witnesses or guardian."
+  },
+  {
+    "index": 466,
+    "merge": false,
+    "reason": "Conversion-blocking spouse versus Muslim parents delaying student marriage."
+  },
+  {
+    "index": 467,
+    "merge": false,
+    "reason": "Conversion and existing children versus custody after annulment and remarriage."
+  },
+  {
+    "index": 468,
+    "merge": false,
+    "reason": "Non-Muslim spouse blocking conversion versus Muslim husband neglect and shisha addiction."
+  },
+  {
+    "index": 469,
+    "merge": false,
+    "reason": "Conversion and divorce versus frequency of marital intercourse."
+  },
+  {
+    "index": 470,
+    "merge": false,
+    "reason": "Conversion divorce versus Quran school and madhhab disagreements."
+  },
+  {
+    "index": 471,
+    "merge": false,
+    "reason": "Conversion marital crisis versus intrusive fears and reduced faith."
+  },
+  {
+    "index": 472,
+    "merge": false,
+    "reason": "Leaving existing husband versus polygamous marriage unrecognized by state."
+  },
+  {
+    "index": 473,
+    "merge": false,
+    "reason": "Conversion marital crisis versus consenting first wife and maintenance waiver."
+  },
+  {
+    "index": 474,
+    "merge": false,
+    "reason": "Woman conversion and non-Muslim husband versus Muslim man Christian wife."
+  },
+  {
+    "index": 475,
+    "merge": false,
+    "reason": "Conversion marital crisis versus anxiety about forgiveness."
+  },
+  {
+    "index": 476,
+    "merge": false,
+    "reason": "Existing husband blocking conversion versus unmarried Muslim woman boyfriend conversion."
+  },
+  {
+    "index": 477,
+    "merge": false,
+    "reason": "Permissible seafood species versus raw meat preparation."
+  },
+  {
+    "index": 478,
+    "merge": false,
+    "reason": "General seafood types versus eating a specific fish organ."
+  },
+  {
+    "index": 479,
+    "merge": false,
+    "reason": "Seafood species versus non-Muslim hospitality and washed utensils."
+  },
+  {
+    "index": 480,
+    "merge": false,
+    "reason": "Seafood types versus non-Muslim restaurants and slaughter/basmala."
+  },
+  {
+    "index": 481,
+    "merge": false,
+    "reason": "Raw meat versus fish eyes."
+  },
+  {
+    "index": 482,
+    "merge": false,
+    "reason": "Raw meat versus invalid slaughter and basmala."
+  },
+  {
+    "index": 483,
+    "merge": false,
+    "reason": "Raw meat versus deliberately retained slaughter blood."
+  },
+  {
+    "index": 484,
+    "merge": false,
+    "reason": "Raw meat versus restaurant slaughter and basmala."
+  },
+  {
+    "index": 485,
+    "merge": false,
+    "reason": "Fish eyes versus invalid slaughter."
+  },
+  {
+    "index": 486,
+    "merge": false,
+    "reason": "Fish eyes versus naming-ceremony food."
+  },
+  {
+    "index": 487,
+    "merge": false,
+    "reason": "Fish eyes versus non-Muslim restaurant slaughter."
+  },
+  {
+    "index": 488,
+    "merge": false,
+    "reason": "Second marriage for incompatibility versus withholding intimacy from nonpraying spouse."
+  },
+  {
+    "index": 489,
+    "merge": false,
+    "reason": "Second wife for incompatibility versus simultaneous marriage to paternal half-sisters."
+  },
+  {
+    "index": 490,
+    "merge": false,
+    "reason": "Permission to take second wife versus selecting which existing wife to divorce when unemployed."
+  },
+  {
+    "index": 491,
+    "merge": false,
+    "reason": "Permission for second wife versus unequal time between existing wives."
+  },
+  {
+    "index": 492,
+    "merge": false,
+    "reason": "Taking second wife versus divorcing blameless second wife."
+  },
+  {
+    "index": 493,
+    "merge": false,
+    "reason": "Entering polygyny versus mandatory schedules among existing wives."
+  },
+  {
+    "index": 494,
+    "merge": false,
+    "reason": "Second wife versus masturbation when unable to fulfil marital rights."
+  },
+  {
+    "index": 495,
+    "merge": false,
+    "reason": "Muhammad status versus Noah biography."
+  },
+  {
+    "index": 496,
+    "merge": false,
+    "reason": "Prophetic rank/status versus life biography."
+  },
+  {
+    "index": 497,
+    "merge": false,
+    "reason": "Muhammad status versus Abraham biography."
+  },
+  {
+    "index": 498,
+    "merge": false,
+    "reason": "Muhammad status generally versus why his statements are legal evidence."
+  },
+  {
+    "index": 499,
+    "merge": false,
+    "reason": "Muhammad status versus method of prayer."
+  },
+  {
+    "index": 500,
+    "merge": false,
+    "reason": "General status versus reasons for supreme love, obedience and veneration."
+  },
+  {
+    "index": 501,
+    "merge": false,
+    "reason": "Qualifications to issue fatwas versus legitimacy of derived halal and haram rules."
+  },
+  {
+    "index": 502,
+    "merge": false,
+    "reason": "Wife and stepdaughter violence versus girlfriend returning to prior lover."
+  },
+  {
+    "index": 503,
+    "merge": false,
+    "reason": "Physical violence and police involvement versus argumentative spouse generally."
+  },
+  {
+    "index": 504,
+    "merge": false,
+    "reason": "Marital violence versus fiance sexual history."
+  },
+  {
+    "index": 505,
+    "merge": false,
+    "reason": "Spouse and stepdaughter assault versus maternal abuse."
+  },
+  {
+    "index": 506,
+    "merge": false,
+    "reason": "Marital violence versus mother apostasy and cremation wishes."
+  },
+  {
+    "index": 507,
+    "merge": false,
+    "reason": "Marital violence versus oath against television and wife boredom."
+  },
+  {
+    "index": 508,
+    "merge": false,
+    "reason": "Marital violence versus mother obstructing sister conversion."
+  },
+  {
+    "index": 509,
+    "merge": false,
+    "reason": "Marital violence versus wife apostasy and marital status."
+  },
+  {
+    "index": 510,
+    "merge": false,
+    "reason": "Violent conflict versus lack of attraction."
+  },
+  {
+    "index": 511,
+    "merge": false,
+    "reason": "Marital violence versus Hajj against mother wishes."
+  },
+  {
+    "index": 512,
+    "merge": false,
+    "reason": "Violent household conflict versus suspected sexual contact with married woman."
+  },
+  {
+    "index": 513,
+    "merge": false,
+    "reason": "Marital violence versus sister socializing with gay friends."
+  },
+  {
+    "index": 514,
+    "merge": false,
+    "reason": "Wife and stepdaughter assault versus abusive father treatment of mother."
+  },
+  {
+    "index": 515,
+    "merge": false,
+    "reason": "Marital violence versus deceased suicide and proxy charity/Hajj."
+  },
+  {
+    "index": 516,
+    "merge": false,
+    "reason": "Violent conflict versus Christian wife and children religion."
+  },
+  {
+    "index": 517,
+    "merge": false,
+    "reason": "Disinheritance and modern People of Book identity versus converts leaving non-Muslim husbands."
+  },
+  {
+    "index": 518,
+    "merge": false,
+    "reason": "Divine plural pronoun versus repeating divine names as remembrance."
+  },
+  {
+    "index": 519,
+    "merge": false,
+    "reason": "Rejecting Quran and Muhammad versus accepting revelation but preferring Torah law."
+  },
+  {
+    "index": 520,
+    "merge": false,
+    "reason": "General Christian apologetics versus boyfriend conversion and whether woman may marry him."
+  },
+  {
+    "index": 521,
+    "merge": false,
+    "reason": "Ghusl during menstruation versus joint bathing, nudity and room lighting."
+  },
+  {
+    "index": 522,
+    "merge": false,
+    "reason": "Menstrual ghusl versus withholding intimacy until spouse prays."
+  },
+  {
+    "index": 523,
+    "merge": false,
+    "reason": "Voluntary fasting on wrong calendar versus postpartum makeup intentions."
+  },
+  {
+    "index": 524,
+    "merge": false,
+    "reason": "Calendar error versus menstruating prospective convert and declaration."
+  },
+  {
+    "index": 525,
+    "merge": false,
+    "reason": "Wrong calendar versus involuntary wet dream."
+  },
+  {
+    "index": 526,
+    "merge": false,
+    "reason": "Brother as guardian generally versus bypassing living refusing father and later approval."
+  },
+  {
+    "index": 527,
+    "merge": false,
+    "reason": "Marriage guardian versus relationship to brother-in-law wife."
+  },
+  {
+    "index": 528,
+    "merge": false,
+    "reason": "Eyebrow shaping versus earnings from beard shaving."
+  },
+  {
+    "index": 529,
+    "merge": false,
+    "reason": "Length of reckoning versus what duties disbelievers are accountable for."
+  },
+  {
+    "index": 530,
+    "merge": false,
+    "reason": "Government-funded mosques versus whether residence conveys religious message."
+  },
+  {
+    "index": 531,
+    "merge": false,
+    "reason": "Preconversion missed prayers versus missing scheduled prayer as Muslim."
+  },
+  {
+    "index": 532,
+    "merge": false,
+    "reason": "Preconversion prayers versus prayers after wet dreams without ghusl through ignorance."
+  },
+  {
+    "index": 533,
+    "merge": false,
+    "reason": "Time-rights waiver for estranged wife versus infertility and desire for children."
+  },
+  {
+    "index": 534,
+    "merge": false,
+    "reason": "Polygyny residence rights versus divorce oath made before marriage."
+  },
+  {
+    "index": 535,
+    "merge": false,
+    "reason": "Polygyny time rights versus advising conversion despite attached non-Muslim husband."
+  },
+  {
+    "index": 536,
+    "merge": false,
+    "reason": "Polygyny time waiver versus parental respect and rukhsati consummation."
+  },
+  {
+    "index": 537,
+    "merge": false,
+    "reason": "Polygyny residence rights versus wife apostasy."
+  },
+  {
+    "index": 538,
+    "merge": false,
+    "reason": "Polygyny time rights versus witnessless marriage validity."
+  },
+  {
+    "index": 539,
+    "merge": false,
+    "reason": "Polygyny time rights versus marital sexual frequency."
+  },
+  {
+    "index": 540,
+    "merge": false,
+    "reason": "Time between wives versus household labor and maintenance."
+  },
+  {
+    "index": 541,
+    "merge": false,
+    "reason": "Coerced time waiver of existing wife versus second wife voluntary support waiver."
+  },
+  {
+    "index": 542,
+    "merge": false,
+    "reason": "Polygyny time allocation versus racial marriage rejection."
+  },
+  {
+    "index": 543,
+    "merge": false,
+    "reason": "Family reunion in Paradise versus heavenly partners and earthly prohibitions."
+  },
+  {
+    "index": 544,
+    "merge": false,
+    "reason": "Reunion of spouses/friends generally versus spouse choice to remain together."
+  },
+  {
+    "index": 545,
+    "merge": false,
+    "reason": "Both already in Paradise versus whether one spouse secures other admission."
+  },
+  {
+    "index": 546,
+    "merge": false,
+    "reason": "Identifying formulas and surahs versus taraweeh units."
+  },
+  {
+    "index": 547,
+    "merge": false,
+    "reason": "Identifying postprayer readings versus reading book during witr."
+  },
+  {
+    "index": 548,
+    "merge": false,
+    "reason": "Identifying formulas versus rapid duaa response and divine love."
+  },
+  {
+    "index": 549,
+    "merge": false,
+    "reason": "Identifying formulas versus intrusive thoughts and weakened faith."
+  },
+  {
+    "index": 550,
+    "merge": false,
+    "reason": "Identifying postprayer formulas versus elaborate prescribed Sufi rites and parental pressure."
+  },
+  {
+    "index": 551,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus choosing fiance with sexual history."
+  },
+  {
+    "index": 552,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus maternal abuse and curses."
+  },
+  {
+    "index": 553,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus converted woman separating from non-Muslim husband."
+  },
+  {
+    "index": 554,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus sister conversion and maternal hostility."
+  },
+  {
+    "index": 555,
+    "merge": false,
+    "reason": "Former girlfriend reversal versus minor online-only relationship."
+  },
+  {
+    "index": 556,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus wife apostasy."
+  },
+  {
+    "index": 557,
+    "merge": false,
+    "reason": "Former girlfriend reversal versus sexual disinterest in wife."
+  },
+  {
+    "index": 558,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus witnessless marriage validity."
+  },
+  {
+    "index": 559,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus suspected adultery and repentance anxiety."
+  },
+  {
+    "index": 560,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus woman marrying non-Muslim and gender distinction."
+  },
+  {
+    "index": 561,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus children and divorce with Christian wife."
+  },
+  {
+    "index": 562,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus reassurance of forgiveness for past sins."
+  },
+  {
+    "index": 563,
+    "merge": false,
+    "reason": "Girlfriend returning to ex versus boyfriend conversion evidence and marriage permissibility."
+  },
+  {
+    "index": 564,
+    "merge": false,
+    "reason": "Repeated harm by another person versus own sins and afterlife punishment."
+  },
+  {
+    "index": 565,
+    "merge": false,
+    "reason": "Repeated personal harm versus why righteous suffer while sinners prosper."
+  },
+  {
+    "index": 566,
+    "merge": false,
+    "reason": "Responding to repeated harm versus privately executing hadd."
+  },
+  {
+    "index": 567,
+    "merge": false,
+    "reason": "Responding to another offender versus acceptance of own repentance."
+  },
+  {
+    "index": 568,
+    "merge": false,
+    "reason": "Family rejecting converted suitor versus converting despite practice difficulty."
+  },
+  {
+    "index": 569,
+    "merge": false,
+    "reason": "Family rejecting converted suitor versus decision to convert against family."
+  },
+  {
+    "index": 570,
+    "merge": false,
+    "reason": "Marriage family disapproval versus Catholic family opposing personal conversion."
+  },
+  {
+    "index": 571,
+    "merge": false,
+    "reason": "Family rejecting converted man versus avoiding children with Christian wife."
+  },
+  {
+    "index": 572,
+    "merge": false,
+    "reason": "Converted suitor rejected by parents versus attending Christian wedding meal with alcohol."
+  },
+  {
+    "index": 573,
+    "merge": false,
+    "reason": "Marriage refusal versus Hajj against mother wishes."
+  },
+  {
+    "index": 574,
+    "merge": false,
+    "reason": "Converted suitor objection versus parents citing youth, study and support concerns."
+  },
+  {
+    "index": 575,
+    "merge": false,
+    "reason": "Converted suitor and parents versus state prohibition of polygyny."
+  },
+  {
+    "index": 576,
+    "merge": false,
+    "reason": "Family opposing converted suitor versus existing Christian wife and future children."
+  },
+  {
+    "index": 577,
+    "merge": false,
+    "reason": "Argumentative spouse versus severe maternal abuse and curses."
+  },
+  {
+    "index": 578,
+    "merge": false,
+    "reason": "General hostility versus specific unaffordable spending demands and prior disclosure."
+  },
+  {
+    "index": 579,
+    "merge": false,
+    "reason": "General marital hostility versus oath against television and wife boredom."
+  },
+  {
+    "index": 580,
+    "merge": false,
+    "reason": "Marital conflict versus sister conversion and mother hostility."
+  },
+  {
+    "index": 581,
+    "merge": false,
+    "reason": "Marital arguments versus lack of sexual attraction."
+  },
+  {
+    "index": 582,
+    "merge": false,
+    "reason": "Husband-wife arguments versus threats and curses from co-wife."
+  },
+  {
+    "index": 583,
+    "merge": false,
+    "reason": "Marital hostility versus intimacy refusal and second-wife support waiver."
+  },
+  {
+    "index": 584,
+    "merge": false,
+    "reason": "Marital arguments versus children religion and Christian wife divorce."
+  }
+]

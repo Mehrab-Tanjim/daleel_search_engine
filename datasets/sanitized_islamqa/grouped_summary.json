@@ -1,0 +1,17 @@
+{
+  "source_pairs": 5343,
+  "excluded_unresolved": 23,
+  "groups": 1709,
+  "query_wordings": 1731,
+  "multi_variant_groups": 22,
+  "judged_query_verse_pairs": 6702,
+  "conflicting_query_verses": 39,
+  "groups_by_tier": {
+    "direct": 265,
+    "partial": 1373,
+    "background": 664,
+    "unrelated": 28
+  },
+  "groups_with_more_than_five_direct_verses": 50,
+  "cross_source_split_groups": 12
+}
