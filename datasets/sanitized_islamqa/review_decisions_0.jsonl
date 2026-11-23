@@ -1,0 +1,290 @@
+{"id": "train:2:0", "relevance": "partial", "reason": "Prayer in janabah is addressed, but uncertain timing and repetition of earlier prayers are not."}
+{"id": "train:33:0", "relevance": "unresolved", "reason": "No usable reference is supplied; the transliterated fragment appears to be from 54:37 and does not explain repentance requirements."}
+{"id": "train:56:0", "relevance": "background", "reason": "Permitted spouses are discussed, without ruling on first-wife consent to another marriage."}
+{"id": "train:56:3", "relevance": "partial", "reason": "Plural marriage and justice are addressed, but first-wife consent is not specified."}
+{"id": "train:60:0", "relevance": "background", "reason": "Trust and provision offer reassurance but do not decide life-insurance employment or necessity."}
+{"id": "train:64:2", "relevance": "partial", "reason": "Establishing prayer and bowing with others supports congregational worship, without defining attendance obligations."}
+{"id": "train:85:0", "relevance": "background", "reason": "Disbelief among People of Scripture does not establish the meat ruling."}
+{"id": "train:85:3", "relevance": "direct", "reason": "Food of the People of Scripture is expressly permitted, directly addressing the core food question."}
+{"id": "train:85:6", "relevance": "direct", "reason": "Food of the People of Scripture is expressly permitted, directly addressing the core food question."}
+{"id": "train:88:1", "relevance": "partial", "reason": "The prohibition of killing oneself is a relevant harm principle; cigarettes are not named."}
+{"id": "train:90:0", "relevance": "partial", "reason": "The quotation identifies believing women as unlawful spouses for disbelieving men; reference can be repaired to 60:10.", "corrected_ayahs": ["60:10"]}
+{"id": "train:92:0", "relevance": "background", "reason": "Lunar timekeeping is described, without supplying the requested Ramadan holiday date."}
+{"id": "train:94:1", "relevance": "background", "reason": "Opposition to God and the Messenger is discussed; cohabiting with peaceful non-Muslim parents is not decided."}
+{"id": "train:99:0", "relevance": "partial", "reason": "The woman\u2019s residence during the waiting period is addressed, but the husband moving out and maintenance duration are not."}
+{"id": "train:113:0", "relevance": "background", "reason": "Marriage and chastity are discussed, without resolving cohabitation with in-laws or retaining a birth name."}
+{"id": "train:115:0", "relevance": "direct", "reason": "The Messenger is said to be described in the Torah and Gospel, directly addressing the question\u2019s premise."}
+{"id": "train:121:0", "relevance": "partial", "reason": "Lawful and wholesome food is a relevant rule, without identifying gelatin, rennet or emulsifiers."}
+{"id": "train:127:0", "relevance": "background", "reason": "Opponents trying to extinguish God\u2019s light is background rather than guidance on responding to a website."}
+{"id": "train:129:0", "relevance": "background", "reason": "Acceptance of Islam is asserted, without furnishing factual evidence for its truth."}
+{"id": "train:136:0", "relevance": "partial", "reason": "Abraham\u2019s respectful response to an opposing father supplies an example of conduct, but does not decide prayer behind this father."}
+{"id": "train:145:0", "relevance": "partial", "reason": "Neglecting prayer is condemned, but this does not give a practical method for persuading the friend."}
+{"id": "train:153:0", "relevance": "partial", "reason": "People of Scripture are addressed as disbelieving, supporting that the category can include disbelief, without fully defining it."}
+{"id": "train:153:3", "relevance": "partial", "reason": "Believing People of Scripture are acknowledged, showing diversity without fully defining the category."}
+{"id": "train:163:4", "relevance": "partial", "reason": "Goodness to parents despite religious disagreement is relevant, but the mother\u2019s refusal of contact is not directly resolved."}
+{"id": "train:164:1", "relevance": "partial", "reason": "The verse supplies the premise linking misfortune with deeds, without identifying which personal trials are punishment."}
+{"id": "train:165:2", "relevance": "background", "reason": "A general warning about liking harmful things does not answer a father preventing marriage."}
+{"id": "train:166:1", "relevance": "partial", "reason": "Chastity for people unable to marry is relevant, but masturbation is not explicitly addressed."}
+{"id": "train:168:1", "relevance": "background", "reason": "Heedlessness in prayer is condemned, without addressing prayer in a moving car."}
+{"id": "train:173:5", "relevance": "background", "reason": "Fear of God according to ability does not address the permissibility of photographs."}
+{"id": "train:182:0", "relevance": "direct", "reason": "Believing men and women who act righteously are explicitly promised Paradise."}
+{"id": "train:187:0", "relevance": "partial", "reason": "Gambling is prohibited, but whether this subscription constitutes gambling requires analysis."}
+{"id": "train:189:0", "relevance": "partial", "reason": "God creating life is explicit; cloning and human biological manipulation are not addressed."}
+{"id": "train:189:3", "relevance": "partial", "reason": "Invoked beings are unable to create a fly; modern cloning is not directly addressed."}
+{"id": "train:190:0", "relevance": "partial", "reason": "Righteous people pray to lead the pious, but suitability of this sinful imam is not decided."}
+{"id": "train:194:0", "relevance": "partial", "reason": "Following Abraham is commanded; circumcision and its obligation are not stated.", "corrected_ayahs": ["16:123"]}
+{"id": "train:198:0", "relevance": "partial", "reason": "Invoking God by His beautiful names is explicit; the specified repetition count is not.", "corrected_ayahs": ["7:180"]}
+{"id": "train:205:2", "relevance": "direct", "reason": "Jesus describes his mission and miracles performed by God\u2019s permission."}
+{"id": "train:215:0", "relevance": "background", "reason": "The verse concerns offensive discourse about revelation, without directly deciding attendance where alcohol is served."}
+{"id": "train:218:2", "relevance": "partial", "reason": "Opposing the Messenger\u2019s command is warned against, supporting obedience but not requiring a specific madhhab."}
+{"id": "train:218:5", "relevance": "partial", "reason": "Obedience to God and the Messenger is commanded; specific madhhab adherence is not decided."}
+{"id": "train:220:2", "relevance": "partial", "reason": "Divine oneness addresses the suggested plurality, without explaining rhetorical plural usage."}
+{"id": "train:222:1", "relevance": "partial", "reason": "Divine justice and reward supply a general answer, without explicitly mentioning women."}
+{"id": "train:222:7", "relevance": "direct", "reason": "Righteous believing men and women are explicitly promised reward, correcting the question\u2019s premise."}
+{"id": "train:230:1", "relevance": "background", "reason": "Pursuing worldly reward is condemned, but falsifying lineage is not addressed."}
+{"id": "train:234:4", "relevance": "background", "reason": "An ornamented person is discussed; male gold-plated jewelry is not ruled on."}
+{"id": "train:239:12", "relevance": "partial", "reason": "Forgiveness when angry is praised, but a practical method for controlling persistent anger is not supplied."}
+{"id": "train:243:0", "relevance": "partial", "reason": "The excerpt is from 5:5 concerning permitted spouses; 4:5 concerns property and is a mistaken source reference.", "corrected_ayahs": ["5:5"]}
+{"id": "train:245:1", "relevance": "partial", "reason": "Marriage to chaste women of Scripture is permitted; an agnostic spouse is not explicitly addressed."}
+{"id": "train:254:0", "relevance": "partial", "reason": "Two years of nursing is stated, but later nursing and milk-kinship exceptions require additional evidence."}
+{"id": "train:257:0", "relevance": "background", "reason": "Abu Lahab is named in condemnation; this does not authorize judging the fate of arbitrary individuals."}
+{"id": "train:260:1", "relevance": "partial", "reason": "Distinct worship and religion are affirmed, without specifying attendance at a partner\u2019s church service."}
+{"id": "train:262:1", "relevance": "partial", "reason": "Pork is expressly forbidden; the reasons for all three listed prohibitions are not explained."}
+{"id": "train:266:0", "relevance": "background", "reason": "Acceptance of Islam is addressed, without deciding this woman\u2019s marriage eligibility."}
+{"id": "train:270:0", "relevance": "background", "reason": "The exchange concerns earlier generations, not the alleged Egyptian criminal-code inconsistency."}
+{"id": "train:274:1", "relevance": "partial", "reason": "Proportionate response and patience provide guidance for family harm, without settling contact boundaries."}
+{"id": "train:276:2", "relevance": "background", "reason": "Nursing duration does not resolve an uncertain number of feeds and marriage prohibition."}
+{"id": "train:286:3", "relevance": "partial", "reason": "The adjacent verse covers punishment and repentance, but does not explain confinement or the promised alternative in 4:15."}
+{"id": "train:287:6", "relevance": "direct", "reason": "Angels as messengers with wings are explicitly described."}
+{"id": "train:287:10", "relevance": "partial", "reason": "The visitors\u2019 refusal to eat and their news to Abraham describe angelic behavior, requiring preceding context to identify them."}
+{"id": "train:287:13", "relevance": "partial", "reason": "Those near God worship tirelessly; identifying them as angels relies on interpretation."}
+{"id": "train:287:20", "relevance": "direct", "reason": "Harut and Marut are explicitly identified as angels and their teaching role is described."}
+{"id": "train:287:25", "relevance": "direct", "reason": "Throne-bearing angels glorify God and ask forgiveness for believers."}
+{"id": "train:292:9", "relevance": "partial", "reason": "Religion\u2019s perfection is relevant to innovation, but the apparent hadith conflict is not explained."}
+{"id": "train:298:0", "relevance": "background", "reason": "Agricultural excess is addressed; colored contact lenses are not."}
+{"id": "train:299:2", "relevance": "background", "reason": "Voluntary remission of bridal gifts does not determine household leadership."}
+{"id": "train:301:1", "relevance": "background", "reason": "Religion\u2019s completion does not directly decide Thanksgiving participation."}
+{"id": "train:302:1", "relevance": "background", "reason": "Devotion despite business distraction does not determine the fate of everyone professing love for God."}
+{"id": "train:303:1", "relevance": "direct", "reason": "Core beliefs in God, angels, books and messengers directly illustrate creed."}
+{"id": "train:306:0", "relevance": "partial", "reason": "Pilgrimage is tied to ability, but feasibility with a foot injury needs assessment."}
+{"id": "train:308:2", "relevance": "partial", "reason": "Judging by revelation is commanded; degrees of disbelief are not distinguished."}
+{"id": "train:308:5", "relevance": "partial", "reason": "Failure to judge by revelation is called disbelief, but major versus minor disbelief is not distinguished."}
+{"id": "train:308:8", "relevance": "partial", "reason": "Judging justly is commanded, without classifying degrees of disbelief."}
+{"id": "train:308:11", "relevance": "partial", "reason": "Judgment of ignorance is rejected, without classifying major or minor disbelief."}
+{"id": "train:308:14", "relevance": "partial", "reason": "Failure to judge by revelation is called disbelief, but major versus minor disbelief is not distinguished."}
+{"id": "train:311:0", "relevance": "partial", "reason": "Absence of hardship is a relevant principle, but incontinence and repeating prayers need further rulings."}
+{"id": "train:313:0", "relevance": "background", "reason": "Increasing guidance offers encouragement without deciding marriage after adultery or combining workday prayers."}
+{"id": "train:313:3", "relevance": "partial", "reason": "The cited range stops before the heedlessness clause; the intended prayer warning requires 107:4-5.", "corrected_ayahs": ["107:4", "107:5"]}
+{"id": "train:316:1", "relevance": "partial", "reason": "Ridicule and insults are prohibited, directly addressing tribal disrespect but not the mother\u2019s authority over marriage."}
+{"id": "train:317:1", "relevance": "partial", "reason": "God is called Most High, but interpreting spatial or nonspatial meaning requires further discussion."}
+{"id": "train:317:4", "relevance": "partial", "reason": "Affairs ascend to God; this is relevant to the question but does not settle its competing interpretations."}
+{"id": "train:317:7", "relevance": "partial", "reason": "Angels ascend to God; interpreting this in relation to place requires further discussion."}
+{"id": "train:317:11", "relevance": "background", "reason": "Pharaoh\u2019s rejection despite conviction does not resolve divine location or transcendence."}
+{"id": "train:320:2", "relevance": "partial", "reason": "The revelation itself uses the name Quran, contradicting naming by a later companion without detailing naming history."}
+{"id": "train:320:5", "relevance": "direct", "reason": "God calls the revelation an Arabic Quran, directly undermining the suggested later human naming."}
+{"id": "train:320:8", "relevance": "partial", "reason": "The revelation uses the name Quran, contradicting naming by a later companion without detailing naming history."}
+{"id": "train:320:11", "relevance": "partial", "reason": "The revelation uses the name Quran, contradicting naming by a later companion without detailing naming history."}
+{"id": "train:320:14", "relevance": "partial", "reason": "The revelation uses the name Quran, contradicting naming by a later companion without detailing naming history."}
+{"id": "train:320:17", "relevance": "partial", "reason": "The revelation uses the name Quran, contradicting naming by a later companion without detailing naming history."}
+{"id": "train:320:20", "relevance": "partial", "reason": "The revelation calls itself Quran, undermining the suggested later naming without explaining the historical first use."}
+{"id": "train:320:23", "relevance": "partial", "reason": "The revelation calls itself Quran, undermining the suggested later naming without explaining the historical first use."}
+{"id": "train:328:0", "relevance": "partial", "reason": "Food dedicated to other than God is prohibited, but application to nonmeat offerings requires interpretation."}
+{"id": "train:330:2", "relevance": "background", "reason": "Following revelation is a broad principle and does not state a birthday ruling."}
+{"id": "train:335:0", "relevance": "partial", "reason": "Paternal attribution is required; affectionate use of a stepfather title without changing lineage is not expressly decided."}
+{"id": "train:339:1", "relevance": "partial", "reason": "Distracting speech used to mislead is condemned, but classifying the described singing events requires interpretation."}
+{"id": "train:351:0", "relevance": "direct", "reason": "The queried verse describes lunar phases and the thin curved crescent image."}
+{"id": "train:352:0", "relevance": "background", "reason": "Inviting to God with insight does not decide use of the label Salafi."}
+{"id": "train:354:0", "relevance": "partial", "reason": "Evening and morning glorification is stated, but the five-prayer count is not explained."}
+{"id": "train:354:3", "relevance": "partial", "reason": "Praise before sunrise and sunset supplies prayer-time evidence but not a complete five-prayer explanation."}
+{"id": "train:354:6", "relevance": "partial", "reason": "Following the Messenger supports taking prayer details from his teaching; the number is not stated."}
+{"id": "train:360:0", "relevance": "background", "reason": "Accountability for hearing and sight is general and does not decide watching a mythological film."}
+{"id": "train:361:2", "relevance": "background", "reason": "An opponents\u2019 allegation about dictated stories is not itself proof that the Prophet could not write."}
+{"id": "train:362:1", "relevance": "direct", "reason": "The verse explicitly contrasts lawful marriage with unlawful sex and taking secret lovers."}
+{"id": "train:366:2", "relevance": "background", "reason": "Alliances with hostile expellers are addressed, without a specific Christmas participation ruling."}
+{"id": "train:368:1", "relevance": "direct", "reason": "Paradise inhabitants remember an earthly companion, directly supporting memory of worldly life."}
+{"id": "train:368:4", "relevance": "direct", "reason": "Paradise contains what souls desire, directly addressing the desire part of the question."}
+{"id": "train:375:0", "relevance": "partial", "reason": "Eating until dawn becomes distinct is explicitly allowed, but inconsistent timetables need local assessment.", "corrected_ayahs": ["2:187"]}
+{"id": "train:403:0", "relevance": "background", "reason": "Trust and provision offer comfort but do not decide shaving a beard under pressure."}
+{"id": "train:414:1", "relevance": "partial", "reason": "The Prophet declares himself human and prohibits associating partners, relevant to the gathering\u2019s premises."}
+{"id": "train:414:4", "relevance": "partial", "reason": "The Prophet is called an illuminating lamp; the metaphor does not establish literal divine light or omnipresence."}
+{"id": "train:414:7", "relevance": "partial", "reason": "Invoking others alongside God is prohibited, relevant to appeals for help but not every birthday practice."}
+{"id": "train:421:0", "relevance": "partial", "reason": "Orphan property must only be used in its best interests, relevant to funding a guardian\u2019s vow."}
+{"id": "train:427:0", "relevance": "partial", "reason": "A debtor in hardship must be given time; the late-fee arrangement needs further classification."}
+{"id": "train:429:2", "relevance": "partial", "reason": "The condemned people acknowledge receiving messengers, relevant to prior warning but not defining every case of ignorance."}
+{"id": "train:431:0", "relevance": "partial", "reason": "New moons mark time, but local versus global sighting is not decided."}
+{"id": "train:441:3", "relevance": "partial", "reason": "Avoiding self-destruction is relevant to harmful fasting, but diabetes management and blood testing are not specified."}
+{"id": "train:455:2", "relevance": "background", "reason": "Following one straight path does not explain differences among particular sects."}
+{"id": "train:461:0", "relevance": "background", "reason": "Quran preservation is stated without establishing the state of Hebrew scriptures."}
+{"id": "train:473:0", "relevance": "partial", "reason": "Noah\u2019s ark is said to remain a sign, but the claim of a modern discovery is not confirmed."}
+{"id": "train:476:0", "relevance": "direct", "reason": "God promises forgiveness to those who repent, believe and act righteously."}
+{"id": "train:480:1", "relevance": "partial", "reason": "Appropriate speech is prescribed for the Prophet\u2019s wives; the asserted exhaustive five-purpose list is not established."}
+{"id": "train:483:2", "relevance": "background", "reason": "God\u2019s unique creation and power do not decide the fate of an unreached individual."}
+{"id": "train:484:0", "relevance": "partial", "reason": "Interest is prohibited and principal may be recovered; the detailed rationale and investment classification need explanation."}
+{"id": "train:485:2", "relevance": "partial", "reason": "Transgressing divine limits is condemned in inheritance context, but lifetime gifts and unequal treatment are not specified."}
+{"id": "train:487:3", "relevance": "partial", "reason": "God\u2019s knowledge of wombs is affirmed; the scope of doctors\u2019 knowledge requires further explanation."}
+{"id": "train:489:0", "relevance": "background", "reason": "The lunar calendar role does not establish star-and-crescent symbolism."}
+{"id": "train:489:3", "relevance": "background", "reason": "Stars guiding travel does not explain a religious flag symbol."}
+{"id": "train:496:0", "relevance": "partial", "reason": "Witnessing Ramadan leads to fasting; calculations versus visual sightings are not resolved."}
+{"id": "train:500:0", "relevance": "background", "reason": "Permission for men to marry does not establish that every woman must marry."}
+{"id": "train:504:0", "relevance": "background", "reason": "Conveying revelation and protection from people does not decide prophetic sinlessness."}
+{"id": "train:504:5", "relevance": "direct", "reason": "Noah expressly asks forgiveness and mercy, contradicting the claim that prophets never needed forgiveness."}
+{"id": "train:504:8", "relevance": "direct", "reason": "Adam and his spouse confess wrongdoing and seek forgiveness."}
+{"id": "train:504:11", "relevance": "direct", "reason": "Moses explicitly asks God to forgive and have mercy, relevant to prophets seeking forgiveness."}
+{"id": "train:511:8", "relevance": "partial", "reason": "Known sacrificial days are mentioned; identifying them with the first ten days and all their merits needs interpretation."}
+{"id": "train:514:0", "relevance": "background", "reason": "Religion\u2019s perfection does not determine high-latitude fasting hours."}
+{"id": "train:514:3", "relevance": "partial", "reason": "Fasting is obligatory in principle, without resolving unusually long days."}
+{"id": "train:516:1", "relevance": "partial", "reason": "God commands supplication to Him, relevant to invocations but not distinguishing every use of a vocative phrase."}
+{"id": "train:516:4", "relevance": "partial", "reason": "The Messenger denies independent power over harm or guidance; permissible forms of address need interpretation."}
+{"id": "train:526:1", "relevance": "partial", "reason": "Human willing is subject to God\u2019s will, relevant to predestination but not spouse selection procedures."}
+{"id": "train:529:0", "relevance": "partial", "reason": "Acceptance of repentance is discussed, but terminal illness and the deathbed boundary need adjacent context."}
+{"id": "train:530:1", "relevance": "partial", "reason": "Adornment and family exceptions supply relevant guidance for gatherings, not a complete visit etiquette."}
+{"id": "train:540:0", "relevance": "partial", "reason": "The image of Satan\u2019s touch is relevant to possession claims, but competing interpretations need assessment."}
+{"id": "train:540:5", "relevance": "background", "reason": "Punishment after a messenger is unrelated to whether jinn enter bodies."}
+{"id": "train:553:0", "relevance": "background", "reason": "Sexual relations during menstruation are addressed, not washing unstained clothing."}
+{"id": "train:555:2", "relevance": "background", "reason": "The angelic creation dialogue is context for the high assembly but does not define the queried term alone."}
+{"id": "train:559:1", "relevance": "background", "reason": "Trust and provision do not decide pork-pizza delivery employment; the quote also extends into 65:3."}
+{"id": "train:570:0", "relevance": "partial", "reason": "Establishment above the Throne addresses the location question, while its interpretation and the meeting question require more."}
+{"id": "train:570:4", "relevance": "partial", "reason": "Return to the Knower of unseen addresses the last-judgment part, without describing divine location."}
+{"id": "train:571:0", "relevance": "partial", "reason": "Pharaoh\u2019s believing wife offers a relevant example of faith under a hostile husband, without resolving every family decision."}
+{"id": "train:572:3", "relevance": "background", "reason": "Avoiding self-destruction can inform food safety but does not identify permissible seafood species."}
+{"id": "train:573:2", "relevance": "background", "reason": "A blessed olive tree is described but is not one of the specifically requested named trees."}
+{"id": "train:573:7", "relevance": "partial", "reason": "The Lote Tree of the Utmost Boundary directly addresses one requested tree, not the full list."}
+{"id": "train:573:17", "relevance": "background", "reason": "Zaqqum is another scriptural tree, rather than evidence for the listed named trees."}
+{"id": "train:573:22", "relevance": "partial", "reason": "Adam\u2019s forbidden tree is mentioned but not identified as the requested Tree of Knowledge."}
+{"id": "train:574:0", "relevance": "partial", "reason": "Avoiding destruction is relevant to unsafe food, but raw meat is not categorically addressed."}
+{"id": "train:577:3", "relevance": "partial", "reason": "Rejecting created gods bears on the alleged pagan deity, without establishing the historical etymology claim."}
+{"id": "train:577:6", "relevance": "partial", "reason": "Abraham rejects idols and worships the Creator, relevant to the allegation but not a history of the crescent symbol."}
+{"id": "train:580:0", "relevance": "partial", "reason": "Paternal attribution is commanded, relevant to changing family names but not all naming practices."}
+{"id": "train:585:1", "relevance": "partial", "reason": "Facing the Sacred Mosque is commanded, without alone explaining the former qiblah\u2019s purpose."}
+{"id": "train:585:4", "relevance": "partial", "reason": "Replacement of revelation supplies a general abrogation principle rather than this qiblah\u2019s specific reason."}
+{"id": "train:585:7", "relevance": "direct", "reason": "The verse explicitly says the former qiblah tested who followed the Messenger."}
+{"id": "train:595:0", "relevance": "partial", "reason": "Earthly provision is created for people, relevant to a presumption of permissibility but not naming underground vegetables."}
+{"id": "train:600:0", "relevance": "direct", "reason": "A party knowingly distorts the divine words, directly addressing scriptural corruption."}
+{"id": "train:600:3", "relevance": "background", "reason": "Quran preservation does not itself identify Torah or Gospel corruption."}
+{"id": "train:601:2", "relevance": "partial", "reason": "A challenge to forbidding lawful provisions is relevant, but fish eyes are not specifically named."}
+{"id": "train:604:0", "relevance": "direct", "reason": "Marriage to multiple wives is expressly permitted subject to justice."}
+{"id": "train:606:2", "relevance": "background", "reason": "Moses being chosen does not establish Muhammad\u2019s authenticity against comparison with Nostradamus."}
+{"id": "train:606:5", "relevance": "partial", "reason": "Modes of divine revelation distinguish prophecy conceptually, but do not demonstrate this person\u2019s prophethood."}
+{"id": "train:606:10", "relevance": "background", "reason": "Moses\u2019s call illustrates prophecy without proving Muhammad\u2019s status against the stated comparison."}
+{"id": "train:612:0", "relevance": "partial", "reason": "Noah\u2019s call to monotheism illustrates a prophet\u2019s guidance function, without fully explaining the need for faith in prophets."}
+{"id": "train:612:3", "relevance": "background", "reason": "Resurrection scales do not explain the importance of prophethood by themselves."}
+{"id": "train:612:7", "relevance": "direct", "reason": "People would object to punishment without a messenger, directly illustrating why messengers are sent."}
+{"id": "train:613:0", "relevance": "partial", "reason": "False attribution of misfortune to Moses is rejected, relevant to omens though the number thirteen is not named."}
+{"id": "train:616:0", "relevance": "partial", "reason": "Good treatment of parents is commanded, without defining all relatives or required contact methods."}
+{"id": "train:619:2", "relevance": "partial", "reason": "This verse forms part of the sermon opening, but the complete wording and transliteration are absent."}
+{"id": "train:628:0", "relevance": "partial", "reason": "Reciprocal marital rights and reconciliation are relevant, without deciding this violent dispute."}
+{"id": "train:630:0", "relevance": "partial", "reason": "Marriage to women of Scripture is allowed, but the full question includes lineage and present-day classification."}
+{"id": "train:631:1", "relevance": "background", "reason": "Singular divine speech is an example, not an explanation of plural rhetoric."}
+{"id": "train:631:5", "relevance": "background", "reason": "Plural divine speech is an example, not an explanation of why it is used."}
+{"id": "train:640:1", "relevance": "partial", "reason": "Religion\u2019s perfection supports authority in broad terms, without fully defining Quranic authority."}
+{"id": "train:641:1", "relevance": "partial", "reason": "The instruction not to grieve over rejection addresses the questioner\u2019s distress, not the requested evidential argument."}
+{"id": "train:644:10", "relevance": "partial", "reason": "New moons establish the calendar principle, but past Gregorian-date fasts and their validity are not decided."}
+{"id": "train:648:0", "relevance": "background", "reason": "Obedience to the Messenger is urged without ranking four legal schools or listing books."}
+{"id": "train:667:0", "relevance": "partial", "reason": "Changing creation is condemned in Satan\u2019s promise; applying this to eyebrow grooming requires interpretation."}
+{"id": "train:683:0", "relevance": "partial", "reason": "The day is difficult for disbelievers, suggesting a difference without quantifying reckoning length."}
+{"id": "train:683:3", "relevance": "partial", "reason": "Paradise inhabitants have a better resting place, but exact reckoning duration is not stated."}
+{"id": "train:695:0", "relevance": "partial", "reason": "Previous disbelief is forgiven upon ceasing, relevant to conversion but not explicitly missed prayers."}
+{"id": "train:701:1", "relevance": "background", "reason": "Seeking refuge before recitation does not determine the legitimacy or origins of a formula after recitation."}
+{"id": "train:707:1", "relevance": "partial", "reason": "Faithful descendants are joined with believers, providing comfort but not instructions for a mother\u2019s prayers."}
+{"id": "train:710:2", "relevance": "partial", "reason": "Entry with companions or spouses supports togetherness, without specifying all friends and relatives."}
+{"id": "train:714:0", "relevance": "partial", "reason": "Marriage involving fornicators is addressed, but this relationship\u2019s changed promises and accusations are not resolved."}
+{"id": "train:721:2", "relevance": "partial", "reason": "Fifty thousand years is stated for the angels\u2019 ascent, but reconciling the other day descriptions needs interpretation."}
+{"id": "train:722:1", "relevance": "direct", "reason": "This passage contains moral commands including an explicit prohibition of unjust killing."}
+{"id": "train:723:14", "relevance": "partial", "reason": "Gog and Magog and the promised barrier collapse are described, without validating precise modern predictions."}
+{"id": "train:723:21", "relevance": "partial", "reason": "Some signs end the benefit of new belief, without specifying places or validating websites."}
+{"id": "train:724:0", "relevance": "partial", "reason": "Continuing admonition is justified as duty and possible benefit, relevant to repeated wrongdoing but not every boundary decision."}
+{"id": "train:729:0", "relevance": "partial", "reason": "Kindness to parents despite religious pressure offers an analogy for relatives, without deciding satellite-dish visits."}
+{"id": "train:734:7", "relevance": "partial", "reason": "Kind marital treatment and patience with dislike are explicit, relevant to this dispute but not a complete intervention."}
+{"id": "train:736:2", "relevance": "partial", "reason": "Necessity exceptions in food law offer a principle, while blood transfusion is not specifically addressed."}
+{"id": "train:739:2", "relevance": "partial", "reason": "Satan and his tribe see humans unseen, providing information relevant to jinn but requiring identification context."}
+{"id": "train:739:8", "relevance": "direct", "reason": "A powerful jinn offers to move a throne, illustrating jinn abilities."}
+{"id": "train:739:14", "relevance": "direct", "reason": "Jinn hear and respond to Quran, directly giving information about them."}
+{"id": "train:744:0", "relevance": "partial", "reason": "Divorce timing and residence are regulated, without deciding triple pronouncement under Shafi\u2018i law."}
+{"id": "train:748:3", "relevance": "direct", "reason": "Women are expressly entitled to bridal gifts, directly answering whether receiving mahr is permitted."}
+{"id": "train:755:6", "relevance": "partial", "reason": "Fabricating lies about God is condemned, but interpersonal honesty and exceptions are broader."}
+{"id": "train:755:12", "relevance": "partial", "reason": "Keeping promises is part of righteousness, supporting honesty without explaining all lying exceptions."}
+{"id": "train:758:0", "relevance": "background", "reason": "A challenge to produce comparable revelation does not specify action against a fake-Quran site or church attendance."}
+{"id": "train:758:3", "relevance": "background", "reason": "The Quranic challenge does not specify action against a fake-Quran site or church attendance."}
+{"id": "train:758:6", "relevance": "background", "reason": "Absence of contradiction supports Quran authenticity but not the practical actions asked."}
+{"id": "train:758:9", "relevance": "partial", "reason": "Inventing revelation is condemned, relevant to falsification but not a response procedure."}
+{"id": "train:758:12", "relevance": "background", "reason": "Divine abrogation is distinct from a person fabricating verses and does not answer the practical questions."}
+{"id": "train:762:0", "relevance": "partial", "reason": "Adornment for worship is commanded, but caps and turbans as Sunnah are not established."}
+{"id": "train:768:0", "relevance": "partial", "reason": "Zakah recipients are enumerated, relevant to whether tax payments meet its purposes."}
+{"id": "train:776:0", "relevance": "partial", "reason": "The widow\u2019s share with children is explicit, while the entire estate distribution requires 4:11 and application."}
+{"id": "train:780:0", "relevance": "partial", "reason": "Moses\u2019s marriage contract includes service for the father, but extending that arrangement to every father\u2019s demand requires interpretation."}
+{"id": "train:782:0", "relevance": "partial", "reason": "Seeking refuge before Quran recitation is explicit, but silent repetition behind an imam and basmalah are not specified."}
+{"id": "train:787:1", "relevance": "partial", "reason": "Forbidding lawful provision is challenged, but voluntary vegan abstention is not directly ruled on."}
+{"id": "train:790:1", "relevance": "partial", "reason": "Chaste spouses and avoidance of secret lovers are explicit, but kissing and touching boundaries are not defined."}
+{"id": "train:791:2", "relevance": "partial", "reason": "Marriage involving fornicators is addressed, but past conduct, repentance and choosing this fianc\u00e9 need further assessment."}
+{"id": "train:800:7", "relevance": "partial", "reason": "Fulfilling vows is praised, but how predestination relates to the cited hadith is not explained."}
+{"id": "train:802:1", "relevance": "partial", "reason": "Necessity can excuse forbidden food, but blood donation and post-donation prayer require separate rulings."}
+{"id": "train:806:0", "relevance": "background", "reason": "Trust and provision encourage reliance on God but do not decide a second marriage in this case."}
+{"id": "train:807:2", "relevance": "background", "reason": "A marriage restriction does not explain repentance or acceptance after past relationships."}
+{"id": "train:809:2", "relevance": "partial", "reason": "Vow fulfilment is commanded, but vow types are not enumerated."}
+{"id": "train:811:2", "relevance": "partial", "reason": "Affliction from below is possible, but specific recent earthquakes cannot be diagnosed from this verse."}
+{"id": "train:811:6", "relevance": "partial", "reason": "Historical communities were punished, but the meaning of particular modern earthquakes is not established."}
+{"id": "train:811:9", "relevance": "partial", "reason": "Unexpected punishment is warned against, without diagnosing particular modern disasters."}
+{"id": "train:811:16", "relevance": "background", "reason": "Trust and provision do not explain the cause or meaning of the cited earthquakes."}
+{"id": "train:812:3", "relevance": "partial", "reason": "God\u2019s mercy and punishment are described, covering some attributes rather than the exhaustive requested definitions."}
+{"id": "train:812:6", "relevance": "partial", "reason": "Divine incomparability is stated, covering one aspect rather than all attributes."}
+{"id": "train:812:9", "relevance": "partial", "reason": "God\u2019s protective guidance is described, covering one attribute rather than all requested meanings."}
+{"id": "train:812:12", "relevance": "partial", "reason": "God\u2019s control and uprightness illustrate attributes, without explaining all requested names and meanings."}
+{"id": "train:812:15", "relevance": "background", "reason": "Truth displacing falsehood is not an explanation of a specific divine attribute."}
+{"id": "train:815:1", "relevance": "background", "reason": "Hypocrites fear exposure by revelation, but personal jihad obligations and preparation are not addressed."}
+{"id": "train:818:1", "relevance": "background", "reason": "Responding to disaster with remembrance does not decide how to live with the mother\u2019s conduct."}
+{"id": "train:820:2", "relevance": "partial", "reason": "Repentance after sexual sin is accepted, but eligibility and procedure for marrying this partner need more evidence."}
+{"id": "train:821:1", "relevance": "partial", "reason": "A widow\u2019s residence and provision are discussed; restrictions on grooming and temporary outings are not fully explained."}
+{"id": "train:822:2", "relevance": "partial", "reason": "Gratitude to parents is commanded, without resolving contact with an estranged mother."}
+{"id": "train:826:2", "relevance": "background", "reason": "The revealed character of the Prophet\u2019s speech does not explain the crooked-rib metaphor."}
+{"id": "train:829:0", "relevance": "partial", "reason": "Avoiding claims of personal purity is relevant to qualifying a profession of faith, without prescribing the exact phrase."}
+{"id": "train:830:2", "relevance": "partial", "reason": "Exclusive communal claims to Paradise are challenged, relevant to the broad salvation discussion."}
+{"id": "train:830:5", "relevance": "partial", "reason": "Forgiveness and reward are promised for faith and righteous deeds, addressing one part of the salvation question."}
+{"id": "train:830:8", "relevance": "partial", "reason": "God\u2019s promise of Paradise does not fail, addressing assurance without resolving all the question\u2019s claims."}
+{"id": "train:830:11", "relevance": "background", "reason": "Hell\u2019s promised punishment does not explain repentance, atonement or access to Islam."}
+{"id": "train:830:14", "relevance": "partial", "reason": "Personal responsibility for burdens directly bears on inherited sin and vicarious atonement, within a broader question."}
+{"id": "train:831:0", "relevance": "background", "reason": "Mosque worship is praised, without deciding whether sewage-watered ground is pure enough for prayer."}
+{"id": "train:833:0", "relevance": "partial", "reason": "Kindness and justice toward peaceful non-Muslims support gifts, but wills and the one-third limit are not specified."}
+{"id": "train:837:0", "relevance": "partial", "reason": "Moses could not see God at the encounter; dreams and the reported Malik experience are not decided."}
+{"id": "train:838:0", "relevance": "partial", "reason": "God responds to distress, but distinctions between asking a living person to pray and invoking others are not explained."}
+{"id": "train:846:0", "relevance": "partial", "reason": "Hajj conduct and God-consciousness address its ethical effect, without covering the full experience."}
+{"id": "train:846:6", "relevance": "background", "reason": "Loss through false worship does not describe the effect of Hajj."}
+{"id": "train:854:0", "relevance": "background", "reason": "Spiritual illumination is described, without a cocaine-specific prohibition or conversion requirement."}
+{"id": "train:856:0", "relevance": "partial", "reason": "Marriage bonds with disbelieving women are addressed, while application to agnosticism and scriptural exceptions needs context."}
+{"id": "train:859:1", "relevance": "background", "reason": "Infant nursing arrangements do not decide a husband drinking breast milk."}
+{"id": "train:868:0", "relevance": "partial", "reason": "Friday prayer attendance is commanded, without specifying the travel exemption."}
+{"id": "train:869:2", "relevance": "direct", "reason": "Zechariah asks for an heir and is answered, directly furnishing a prayer for childlessness."}
+{"id": "train:870:0", "relevance": "partial", "reason": "The questioned verse is identified and its conditions stated, but reconciling broader salvation doctrines needs explanation."}
+{"id": "train:870:3", "relevance": "partial", "reason": "Steadfast believers receive assurance, without explaining the particular Jews-and-Christians verse."}
+{"id": "train:872:0", "relevance": "partial", "reason": "The stated penalties and class of wrongdoing are explicit, while application, gradation and execution details need interpretation."}
+{"id": "train:880:0", "relevance": "background", "reason": "The surah\u2019s opening oath does not establish authenticity of a response after its final verse."}
+{"id": "train:885:1", "relevance": "background", "reason": "Heaven and earth remain by divine command, without supporting a floating sacred rock."}
+{"id": "train:886:0", "relevance": "partial", "reason": "God\u2019s knowledge of pregnancy is affirmed, but the timing of ensoulment is not specified."}
+{"id": "train:891:0", "relevance": "partial", "reason": "Responsibility is for one\u2019s own earnings, relevant to innocence of parentage without explicitly discussing illegitimacy."}
+{"id": "train:892:1", "relevance": "direct", "reason": "Seeking help through patience and prayer supplies a concise Quranic reminder of the requested kind."}
+{"id": "train:892:4", "relevance": "direct", "reason": "Returning trusts and judging justly supplies a Quranic reminder of the requested kind."}
+{"id": "train:892:7", "relevance": "partial", "reason": "The passage contains useful reminders, but its full wording is long and Hajj-specific for the requested short quotes."}
+{"id": "train:892:10", "relevance": "direct", "reason": "Obedience to the Messenger supplies a short Quranic reminder."}
+{"id": "train:892:13", "relevance": "direct", "reason": "Avoiding arrogant walking supplies a short Quranic moral reminder."}
+{"id": "train:892:16", "relevance": "direct", "reason": "Not giving to gain more supplies a short Quranic reminder, with translation context needed."}
+{"id": "train:900:0", "relevance": "partial", "reason": "Male maintenance responsibility bears on neglecting the family, but the full set of personal disputes needs further guidance."}
+{"id": "train:900:3", "relevance": "partial", "reason": "Housing and support obligations are relevant, though the passage is in divorce context and does not decide every allegation."}
+{"id": "train:901:2", "relevance": "partial", "reason": "Kindness with limits to parental obedience is relevant, without deciding safety measures or efficacy of abusive curses."}
+{"id": "train:902:2", "relevance": "partial", "reason": "Housing according to means supports proportionate provision, without resolving every financial demand."}
+{"id": "train:902:16", "relevance": "partial", "reason": "Provision after separation addresses one possible outcome, not a complete resolution of the dispute."}
+{"id": "train:909:0", "relevance": "partial", "reason": "Protecting one\u2019s family is a relevant duty, but visits, persuasion and safe housing arrangements need specific assessment."}
+{"id": "train:912:6", "relevance": "partial", "reason": "God could withdraw revelation, relevant to possibility but not the claimed timing of a final-days event."}
+{"id": "train:918:0", "relevance": "background", "reason": "Contrast between believers and disbelievers does not address falsifying attendance."}
+{"id": "train:923:3", "relevance": "background", "reason": "Worldly knowledge versus afterlife ignorance does not explain Islam\u2019s modern growth."}
+{"id": "train:931:1", "relevance": "partial", "reason": "Reversion to disbelief is condemned, but handling a particular mother\u2019s funeral wishes is not decided."}
+{"id": "train:933:1", "relevance": "direct", "reason": "The prayer explicitly asks forgiveness and steadfastness, supplying a requested devotional reading."}
+{"id": "train:937:0", "relevance": "background", "reason": "Invoking God\u2019s names does not establish reciting al-Fatihah one hundred times or a supporting hadith."}
+{"id": "train:938:2", "relevance": "background", "reason": "Taking souls during sleep does not establish two ascents of Jesus or a return to comfort Mary."}
+{"id": "train:941:2", "relevance": "partial", "reason": "Prayer and good deeds counter misdeeds, relevant to reform but not a practical plan for the repeated behavior."}
+{"id": "train:948:0", "relevance": "partial", "reason": "Meat lacking God\u2019s name is prohibited, but how this interacts with food of Scripture people requires further evidence."}
+{"id": "train:951:1", "relevance": "direct", "reason": "Human diversity is affirmed and honor depends on righteousness, directly rejecting ethnicity as a barrier."}
+{"id": "train:959:2", "relevance": "background", "reason": "Instructions to the Prophet\u2019s wives do not directly determine women\u2019s eligibility for leadership."}
+{"id": "train:962:0", "relevance": "partial", "reason": "Invoked beings themselves seek God, relevant to intermediary claims but not every form of tawassul."}
+{"id": "train:962:3", "relevance": "partial", "reason": "Job appeals to God through His mercy, illustrating direct supplication without classifying all tawassul forms."}
+{"id": "train:962:6", "relevance": "partial", "reason": "Humble private supplication is commanded, but living versus deceased intermediaries is not distinguished."}
+{"id": "train:962:9", "relevance": "partial", "reason": "Invoking another deity is condemned; whether a described request is such invocation requires analysis."}
+{"id": "train:962:12", "relevance": "partial", "reason": "Exclusive appeal to God in danger supports reliance on Him, without settling every intermediary request."}
