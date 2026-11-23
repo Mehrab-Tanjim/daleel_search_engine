@@ -1,7 +1,15 @@
 # Reviewed IslamQA Quran pairs
 
-This is an initial manual review sample, not a fully sanitized dataset. It contains 15 question-and-verse pairs from 13 questions in the training file. Each pair has a reason, a source row, and the original cited reference and excerpt. The verse translation comes from the Aayatun search database and is included to make review easier.
+We have reviewed 53 pairs from 30 training questions. Each record preserves its question, cited reference and excerpt, a verse translation, a relevance decision and a reason.
 
-`direct` means the verse directly addresses an aspect of the question. `partial` means it supplies relevant background or addresses only part of the question. A verse may not answer a legal question on its own. These labels reflect a quick model-assisted reading and need independent review.
+- Direct means the verse answers the question or its main topic.
+- Partial means the verse addresses part of the question or supplies a relevant principle, while the specific answer needs more evidence.
+- Background means the citation alone is insufficient for a positive answer pair.
 
-The other source questions and citations have not been reviewed. They are neither accepted nor rejected. Preserve the original train and benchmark files, and check source permissions and overlap with evaluation questions before reusing the text. Do not treat the sample as a complete set of answers or as an unbiased evaluation dataset.
+The first independent review covered all 15 pairs in the original sample. It changed two decisions to background: the lunar-calendar verse does not provide a requested Ramadan date, and the Safa/Marwa verse does not answer the Black Stone ritual question.
+
+Two source errors were corrected in the added records. The reward for believing men and women quoted as 23:40 belongs to 40:40. The marriage excerpt quoted as 4:5 belongs to 5:5. Original references are preserved alongside corrections.
+
+The reviewed sample file is the audit trail. The direct-candidates file contains only direct pairs for further consideration. Remaining source data still needs review. These model-assisted decisions need human review before use as an authoritative benchmark. Keep benchmark questions separate from index expansion and training. Source reuse permissions remain to be checked.
+
+A separate agent reviewed all 53 pairs. The second round changed two anger-related pairs from direct to partial. Verse 46:14 now includes 46:13 as necessary context. Final counts are 11 direct, 37 partial and 5 background pairs. These are two model reviews, with human review still pending.
