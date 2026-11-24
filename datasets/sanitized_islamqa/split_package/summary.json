@@ -1,0 +1,26 @@
+{
+  "train": {
+    "question_groups": 1110,
+    "grades": 4104,
+    "direct_question_groups": 137
+  },
+  "validation": {
+    "question_groups": 257,
+    "grades": 980,
+    "direct_question_groups": 49
+  },
+  "test": {
+    "question_groups": 342,
+    "grades": 1579,
+    "direct_question_groups": 65
+  },
+  "source_sha256": {
+    "grouped_queries.jsonl": "b938cd745e43154fa80c83478ef9c6d662a0d7c6478b329ad700d5c32a7fd1e8",
+    "similar_question_candidates.json": "d675f11f28e9ec37f84766f30007c831290627abd7833d15a06170be5fdae4af",
+    "grouped_conflicts.jsonl": "8f648cc45ed4d15a034a913e9279796c29c2f2bf9c7b96a12071f4dcd1a19b34"
+  },
+  "similarity_threshold": "> 0.90",
+  "random_seed": 4213,
+  "largest_similarity_component": 673,
+  "excluded_conflicting_grades": 39
+}
