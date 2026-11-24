@@ -84,14 +84,49 @@ def _deduplicate_by_ayah(results):
     return deduped
 
 
+def _boolean(value, name):
+    if isinstance(value, bool):
+        return value
+    normalized = str(value).strip().lower()
+    if normalized not in ('false', 'true'):
+        raise ValueError(f"{name} must be 'false' or 'true'")
+    return normalized == 'true'
+
+
+def _ayah_sort_key(reference):
+    surah, ayah = reference.split(':')
+    return int(surah), int(ayah)
+
+
+def _fuse_by_ayah(candidates_by_field, k, field_priority=('translation', 'ai')):
+    priority = {field: index for index, field in enumerate(field_priority)}
+    best = {}
+    for field, candidates in candidates_by_field.items():
+        if field not in priority:
+            raise ValueError(f'Unknown representation field: {field}')
+        for doc, score in candidates:
+            reference = _ayah_reference(doc)
+            current = best.get(reference)
+            if current is None or score > current[1] or (score == current[1] and priority[field] < current[2]):
+                best[reference] = (doc, score, priority[field])
+    ordered = sorted(
+        best.items(),
+        key=lambda item: (-item[1][1], item[1][2], _ayah_sort_key(item[0]))
+    )
+    return [(doc, score) for _, (doc, score, _) in ordered[:k]]
+
+
 class VectorSearchDeployment:
-    def __init__(self, index_path, model_name, device):
+    def __init__(self, index_path, model_name, device, ai_index_path=None):
         #Load the data from faiss
         st = time.time()
         self.model_name = model_name
         self.retrieval_mode = os.environ.get('RETRIEVAL_MODE', 'similarity')
         self.fetch_k = _positive_int(os.environ.get('FETCH_K', '50'), 'FETCH_K')
         self.mmr_lambda = float(os.environ.get('MMR_LAMBDA', '1.0'))
+        self.semantic_ai = _boolean(os.environ.get('SEMANTIC_AI', 'false'), 'SEMANTIC_AI')
+        if self.semantic_ai and not ai_index_path:
+            raise ValueError('SEMANTIC_AI=true requires ai_index_path')
         if self.retrieval_mode not in ('similarity', 'mmr'):
             raise ValueError("RETRIEVAL_MODE must be 'similarity' or 'mmr'")
         if not math.isfinite(self.mmr_lambda) or not 0 <= self.mmr_lambda <= 1:
@@ -106,11 +141,17 @@ class VectorSearchDeployment:
 
         self.db = FAISS.load_local(index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
         self.db_docstore_id_to_index = dict(zip(self.db.index_to_docstore_id.values(), self.db.index_to_docstore_id.keys()))
+        self.ai_db = None
+        self.ai_db_docstore_id_to_index = {}
+        if ai_index_path:
+            self.ai_db = FAISS.load_local(ai_index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
+            self.ai_db_docstore_id_to_index = dict(zip(self.ai_db.index_to_docstore_id.values(), self.ai_db.index_to_docstore_id.keys()))
         et = time.time() - st
         print(f'Loading database took {et} seconds.')
 
     def search(self, method, query, k=10, return_embeddings=False,
-                retrieval_mode=None, fetch_k=None, mmr_lambda=None):
+                retrieval_mode=None, fetch_k=None, mmr_lambda=None,
+                semantic_ai=None, representation_scope=None):
         if method not in ('best_match', 'best_match_dedup', 'mmr'):
             raise ValueError(f"Unknown search method: {method}")
         if method == 'best_match_dedup':
@@ -132,28 +173,56 @@ class VectorSearchDeployment:
                 raise ValueError('fetch_k must be at least k')
             if not math.isfinite(relevance_weight) or not 0 <= relevance_weight <= 1:
                 raise ValueError('mmr_lambda must be finite and between 0 and 1')
+            ai_enabled = self.semantic_ai if semantic_ai is None else _boolean(semantic_ai, 'semantic_ai')
+            scope = representation_scope or ('translation_ai' if ai_enabled else 'translation')
+            if scope not in ('translation', 'ai', 'translation_ai'):
+                raise ValueError("representation_scope must be 'translation', 'ai', or 'translation_ai'")
+            if scope != 'translation' and not ai_enabled:
+                raise ValueError('AI representation scopes require semantic_ai=true')
+            if scope != 'translation' and self.ai_db is None:
+                raise ValueError('AI representation scope requires an AI index')
+            if scope != 'translation' and mode != 'similarity':
+                raise ValueError('AI representations are only measured with similarity retrieval')
 
             query_embedding = self.embeddings.embed_query(query)
-            if mode == 'similarity':
-                candidates = self.db.similarity_search_with_score_by_vector(
-                    query_embedding,
-                    k=candidate_depth
-                )
+            if scope == 'translation':
+                if mode == 'similarity':
+                    candidates = self.db.similarity_search_with_score_by_vector(
+                        query_embedding,
+                        k=candidate_depth
+                    )
+                else:
+                    candidates = self.db.max_marginal_relevance_search_with_score_by_vector(
+                        query_embedding,
+                        k=k,
+                        fetch_k=candidate_depth,
+                        lambda_mult=relevance_weight
+                    )
+                results = _deduplicate_by_ayah(candidates)[:k]
             else:
-                candidates = self.db.max_marginal_relevance_search_with_score_by_vector(
-                    query_embedding,
-                    k=k,
-                    fetch_k=candidate_depth,
-                    lambda_mult=relevance_weight
-                )
-            results = _deduplicate_by_ayah(candidates)[:k]
+                candidates_by_field = {}
+                if scope in ('translation', 'translation_ai'):
+                    candidates_by_field['translation'] = self.db.similarity_search_with_score_by_vector(
+                        query_embedding, k=candidate_depth
+                    )
+                if scope in ('ai', 'translation_ai'):
+                    candidates_by_field['ai'] = self.ai_db.similarity_search_with_score_by_vector(
+                        query_embedding, k=candidate_depth
+                    )
+                results = _fuse_by_ayah(candidates_by_field, k)[:k]
         
         if return_embeddings:
             # Get embeddings for the results from the index
             result_embeddings = []
             for doc, score in results:
-                # Get the document's embedding from the index
-                doc_embedding = self.db.index.reconstruct(self.db_docstore_id_to_index[doc.id])
+                # Reconstruct from the representation that supplied the winning score.
+                if doc.metadata.get('field') == 'ai':
+                    database = self.ai_db
+                    id_to_index = self.ai_db_docstore_id_to_index
+                else:
+                    database = self.db
+                    id_to_index = self.db_docstore_id_to_index
+                doc_embedding = database.index.reconstruct(id_to_index[doc.id])
                 result_embeddings.append(doc_embedding)
             return results, result_embeddings
         

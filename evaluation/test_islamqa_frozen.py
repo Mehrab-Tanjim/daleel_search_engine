@@ -190,6 +190,50 @@ class ScoringAndReportingTests(unittest.TestCase):
         header = frozen.markdown_leaderboard(summary).splitlines()[0]
         self.assertIn("PR #2 browser | M00 offline E5/FAISS | M01 mmr λ=0.85 k=50", header)
 
+    def test_m02_column_is_appended_after_m01(self):
+        summary = {
+            "runs": {
+                **{
+                    name: {"headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")}}
+                    for name, _ in frozen.RUN_COLUMNS
+                },
+                "m01": {
+                    "leaderboard_label": "M01 similarity λ=1 k=50",
+                    "headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")},
+                },
+                "m02": {
+                    "leaderboard_label": "M02 translation_ai",
+                    "headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")},
+                },
+            }
+        }
+        header = frozen.markdown_leaderboard(summary).splitlines()[0]
+        self.assertIn("M01 similarity λ=1 k=50 | M02 translation_ai", header)
+
+    def test_m02_headline_label_does_not_require_m01_fields(self):
+        cases = [{
+            "id": "q1",
+            "group_id": "g1",
+            "query": "question",
+            "best_settled_label": "direct",
+            "compound_status": "not_flagged",
+            "qrels": {"1:1": 3},
+            "disputed_ayahs": [],
+        }]
+        report = {
+            "engine": "M02",
+            "config": {"semantic_ai": False, "representation_scope": "translation"},
+            "field": "translation",
+            "source_attribution": "per-result winning representation",
+            "runs": {"q1": {"refs": ["1:1"], "ms": 1.0}},
+            "index_bytes": 1,
+            "peak_rss_bytes": 1,
+        }
+        scores = {"q1": {"positive_hit@5": 1.0, "useful_hit@5": 1.0, "ndcg@10": 1.0, "useful_recall@50": None}}
+        with mock.patch.object(frozen, "aggregate", return_value={"queries": 1, "groups": 1, "metrics": {}}):
+            summary = frozen.candidate_headline_summary(report, cases, {"q1": ["1:1"]}, scores, 0, 1)
+        self.assertEqual(summary["leaderboard_label"], "M02 translation")
+
     def test_validation_gate_requires_useful_gain_without_ndcg_loss(self):
         def summary(useful, ndcg):
             return {
@@ -251,6 +295,9 @@ class EntrypointTests(unittest.TestCase):
         self.assertIn("prepare", result.stdout)
         self.assertIn("dense-sweep", result.stdout)
         self.assertIn("m01-report", result.stdout)
+        self.assertIn("m02-export", result.stdout)
+        self.assertIn("m02-sweep", result.stdout)
+        self.assertIn("m02-report", result.stdout)
 
 
 if __name__ == "__main__":

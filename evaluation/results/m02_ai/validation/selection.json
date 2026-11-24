@@ -1,0 +1,2080 @@
+{
+  "profile": "pr2_frozen_v1",
+  "experiment": "M02",
+  "split": "validation",
+  "dataset": {
+    "profile": "pr2_frozen_v1",
+    "dataset_version": "3.0.0",
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "package_manifest_sha256": "65eacf24728ac0ad3415611881aaa2bb660a049add0c50979cb993b918e1802b",
+    "validator": {
+      "valid": true,
+      "train_groups": 1086,
+      "removed": 25,
+      "validation_test_byte_identical": true,
+      "train_source_overlaps": 0,
+      "retained_validation_test_answer_families": 4,
+      "test_blind": false
+    },
+    "split": "validation",
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "counts": {
+      "query_cases": 260,
+      "question_groups": 257,
+      "useful_answerable_cases": 221,
+      "direct_answerable_cases": 40
+    },
+    "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+    "success_definitions": {
+      "relevant_hit@5": "At least one settled grade-1, grade-2, or grade-3 ayah in the first five.",
+      "useful_hit@5": "At least one settled grade-2 or grade-3 ayah in the first five.",
+      "direct_slice_useful_hit@5": "Useful hit@5 among the 40 direct-answer wordings; not direct_hit@5.",
+      "ndcg@10": "Gain 2^grade-1 with logarithmic rank discount, normalized by ideal qrels."
+    },
+    "notes": [
+      "The public test is a regression suite, not a blind holdout.",
+      "Qrels remain group-level; all 260 original wordings are preserved.",
+      "Confidence intervals resample question groups rather than wordings."
+    ]
+  },
+  "frozen_at_utc": "2026-11-24T10:01:46.985059+00:00",
+  "test_accessed": false,
+  "selection_policy": "Promote parent+AI only if validation useful hit@5 increases and validation nDCG@10 does not decrease. AI-only is diagnostic and is not promotion-eligible because translation must be retained.",
+  "candidates": {
+    "parent_translation": {
+      "name": "parent_translation",
+      "config": {
+        "semantic_ai": false,
+        "representation_scope": "translation"
+      },
+      "config_sha256": "c00f46122570430e1743d940a391bfbd2fe3c5f05c76e20b06de349e92856e6b",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 31.615,
+        "p95": 78.84,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1108037632
+    },
+    "ai_only_diagnostic": {
+      "name": "ai_only_diagnostic",
+      "config": {
+        "semantic_ai": true,
+        "representation_scope": "ai"
+      },
+      "config_sha256": "2590b22f36092fd47320d4cebed624614621b93008e23f4639eb82a79d3a3c57",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.15,
+              "ci95": [
+                0.10687,
+                0.196154
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.146154,
+              "ci95": [
+                0.100775,
+                0.192308
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.077086,
+              "ci95": [
+                0.054932,
+                0.100295
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 39,
+            "useful_hit@5": 38
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.171946,
+              "ci95": [
+                0.122727,
+                0.222727
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.171946,
+              "ci95": [
+                0.122727,
+                0.222727
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.084803,
+              "ci95": [
+                0.061891,
+                0.109339
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.222025,
+              "ci95": [
+                0.176481,
+                0.269734
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 38,
+            "useful_hit@5": 38
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.325,
+              "ci95": [
+                0.179487,
+                0.487179
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.325,
+              "ci95": [
+                0.179487,
+                0.487179
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.121689,
+              "ci95": [
+                0.061865,
+                0.188477
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.217954,
+              "ci95": [
+                0.147597,
+                0.300936
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 13,
+            "useful_hit@5": 13
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 29.002,
+        "p95": 68.367,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2524,
+        "settled_judged_results": 76
+      },
+      "index_bytes": 31780333,
+      "peak_rss_bytes": 1112911872
+    },
+    "parent_ai": {
+      "name": "parent_ai",
+      "config": {
+        "semantic_ai": true,
+        "representation_scope": "translation_ai"
+      },
+      "config_sha256": "6535acca328620144519b4c57994929c52ee2a2a77d5fa48bed5159e2705b563",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.180769,
+              "ci95": [
+                0.133588,
+                0.232558
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.176923,
+              "ci95": [
+                0.128405,
+                0.227799
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.088329,
+              "ci95": [
+                0.063597,
+                0.115517
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 47,
+            "useful_hit@5": 46
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.208145,
+              "ci95": [
+                0.155251,
+                0.261468
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.208145,
+              "ci95": [
+                0.155251,
+                0.261468
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.099392,
+              "ci95": [
+                0.072549,
+                0.128699
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.248732,
+              "ci95": [
+                0.200093,
+                0.300816
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 46,
+            "useful_hit@5": 46
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.35,
+              "ci95": [
+                0.205128,
+                0.487805
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.35,
+              "ci95": [
+                0.205128,
+                0.487805
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.113718,
+              "ci95": [
+                0.066111,
+                0.162951
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.237033,
+              "ci95": [
+                0.153152,
+                0.330243
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 14,
+            "useful_hit@5": 14
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 31.181,
+        "p95": 73.046,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2534,
+        "settled_judged_results": 66
+      },
+      "index_bytes": 43041049,
+      "peak_rss_bytes": 1113829376
+    }
+  },
+  "marginal_effects": {
+    "parent_translation": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 0,
+        "losses": 0,
+        "ties": 260,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 0,
+        "losses": 0,
+        "ties": 221,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 0,
+        "losses": 0,
+        "ties": 260,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      }
+    },
+    "ai_only_diagnostic": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 22,
+        "losses": 19,
+        "ties": 219,
+        "delta_mean": 0.011538,
+        "delta_ci95": [
+          -0.03861,
+          0.061538
+        ],
+        "gained_cases": [
+          {
+            "id": "17272452982daab4:q0",
+            "group_id": "17272452982daab4",
+            "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+          },
+          {
+            "id": "1ebd79f2b3faa3aa:q0",
+            "group_id": "1ebd79f2b3faa3aa",
+            "query": "Is it permissible to eat ostrich meat if it is slaughtered properly?"
+          },
+          {
+            "id": "260cf8141315d885:q0",
+            "group_id": "260cf8141315d885",
+            "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+          },
+          {
+            "id": "30a5bbb6356b78d7:q0",
+            "group_id": "30a5bbb6356b78d7",
+            "query": "What is the point of mentioning the dog in the story of the people of the Cave?"
+          },
+          {
+            "id": "51e30958e76797a8:q0",
+            "group_id": "51e30958e76797a8",
+            "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+          },
+          {
+            "id": "617d8545bf4af170:q0",
+            "group_id": "617d8545bf4af170",
+            "query": "In what area of Makkah did the birds (Ababil) throw stones on the army of Abrahah?"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "697877f236bb8b6e:q0",
+            "group_id": "697877f236bb8b6e",
+            "query": "Some people, when they want to pray against a person, say, “O jinn, seize him, O ‘ifreet seize him; may seven (jinn) seize you, may they break your back and suck your blood.” What is the ruling on such words?"
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q0",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "91b0ed2961107a2a:q0",
+            "group_id": "91b0ed2961107a2a",
+            "query": "Is it true that anyone who does not accept that kuffaar are kuffaar is a kaafir himself, even if he prays, believes in the Qur'aan, and the Prophet Muhammad ( )? If so, what is the proof for this? Can a person insist on believing that Jews and Christians can be believers and go to heaven after being shown clear evidence against this, and still be considered a Muslim?"
+          },
+          {
+            "id": "92a945e46b2f9b80:q0",
+            "group_id": "92a945e46b2f9b80",
+            "query": "I am unable to conceive children due to sterility are there any specific dua'a to be said in such a case ?"
+          },
+          {
+            "id": "93ceb62d5bc7a772:q0",
+            "group_id": "93ceb62d5bc7a772",
+            "query": "Assalaamualaikum, I have heard that Noah's ark was found a few years ago using references from the Quraán as opposed to the bible. Is this true?"
+          },
+          {
+            "id": "9ade4603ee996ed7:q0",
+            "group_id": "9ade4603ee996ed7",
+            "query": "Could you give us a brief description of Jesus (peace be upon him)?"
+          },
+          {
+            "id": "9c684b14ea333e64:q0",
+            "group_id": "9c684b14ea333e64",
+            "query": "Bismillah irrahman irraheemAs Salaamu alaykum, Will a husband and wife be together in Jannah if Allah (swt) grants them the reward of paradise? How about other friends and family members from the dunya? Will one be together with them in Jannah if inshAllah they are granted Jannah by Allah (swt)? Jazzak Allahu Khair."
+          },
+          {
+            "id": "a3d0f7a6db5ec591:q0",
+            "group_id": "a3d0f7a6db5ec591",
+            "query": "I have herd from brothers that one gets a parteners (ie wife for men and husband for women) which one deserves,.If one is good he/she will get a pios partener unless it is a test from ALLAH. Unfortunattely i have not come across any hadith on this subject and could you please give me references and advice on this topic so that i can advice the brothere and sisters I Have also been told that if a man does zina it will result in him being punishede by some female member of his family doing zina. Is this true ? Many young muslims go about looking for a partener in the haram way .should i tell them that if they are pios they will definnalely get someones who is equally pios unless they are being tested by ALLAH? because if this is true it may deter many a muslim from commiting haram and it may even make them more entuisianstic about becoming beter muslims."
+          },
+          {
+            "id": "c412a1be7a001ba6:q0",
+            "group_id": "c412a1be7a001ba6",
+            "query": "Are precious stones mentioned in the Qur’aan?"
+          },
+          {
+            "id": "e3de833e8eb60ae8:q0",
+            "group_id": "e3de833e8eb60ae8",
+            "query": "Some people see their Muslim brothers who have been stricken by calamities and disasters, and they do not move or feel motivated to help them, nor do they urge others to do that, on the grounds that what has happened is the will of Allaah and it is not right for us to help them when Allaah is punishing them! Some people, when they are told to do good to the poor and needy, they say, how can we do good to them when Allaah has willed this for them? Allaah has made them poor and you want to make them rich? Or they say, if Allaah wanted to, He could make them rich without our help. What is the Islamic view concerning such comments?"
+          },
+          {
+            "id": "e411e363863a4028:q0",
+            "group_id": "e411e363863a4028",
+            "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f6d6721014324e65:q0",
+            "group_id": "f6d6721014324e65",
+            "query": "For the time being, I do not have the resources to quote the exact Quranic verse, nor can I tell you what sura it has been taken from. However, I believe it is a common verse. I understand little Arabic; hence I found that in English. The verse can be interpretted as such: The godfearing Jews, muslims and christians will not have fear (on that day). I am not exactly sure of the bracketted phrase. Now my question to you: is it mistranliteration? We know that christians and jews in general cannot be hoped to have any sanction in the life hereafter. So, how do we understand the verse?"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "0569f89284cf8286:q0",
+            "group_id": "0569f89284cf8286",
+            "query": "I have sisters who are married and my mother is married to someone other than my father, because my father is deceased. I work in the army and I want to go and see them but my circumstances do not permit it. I am also married and if I go there and leave my family, I would have to stay there for at least three days, during which time I would be worrying about my wife and children. Am I severing the ties of kinship, given that I have not been in touch with them for ten months?."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "264895266de150ed:q0",
+            "group_id": "264895266de150ed",
+            "query": "If a wife asks her husband for a khula and he accepts, how long is the waiting period?Is it irrevocable i.e can they ever re-marry?"
+          },
+          {
+            "id": "2f8b545cd6b3feac:q0",
+            "group_id": "2f8b545cd6b3feac",
+            "query": "When fasting for kafaarat al-yameen (expiation for breaking an oath), do the three days have to be consecutive?."
+          },
+          {
+            "id": "37a9a5f66c3c7016:q0",
+            "group_id": "37a9a5f66c3c7016",
+            "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "5090e5f341709741:q0",
+            "group_id": "5090e5f341709741",
+            "query": "I am deeply in love with a Muslim man and want to marry him. I know that Allah forbids girlfriend-boyfriend relationships, and feel very sorry in my heart for our relationship. I feel that because we have been in this relationship which is abhorred by Allah, he will never marry me because he has lost respect for me. What does the Quran say about having a girlfriend or a boyfriend?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "80ad32c7032eea6c:q0",
+            "group_id": "80ad32c7032eea6c",
+            "query": "What are the virtues of Ayatul Kursi?"
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "bde6067889000112:q0",
+            "group_id": "bde6067889000112",
+            "query": "Is it permissible to breast-feed a child over 2 years old? Until what age does breast-feeding make the child a relative (mahram)? Are there any exceptions to this rule? I am asking because there are many 2 year olds in our area who need families - they need to be \"adopted\" in the Western sense. I would like to help these children, and expand our ummah, but too avoid hardship, I hope that there is a way that they could become relatives of my son."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "dda8dd34ea9a3df1:q0",
+            "group_id": "dda8dd34ea9a3df1",
+            "query": "Could we skip Shalat al-Jumu`ah (Friday prayer) when we are travelling?"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          },
+          {
+            "id": "fb4a89c3e0e92de4:q0",
+            "group_id": "fb4a89c3e0e92de4",
+            "query": "I would like to know more about the meaning of this part of Surah al-Nisa’: \"If any of your women are guilty of lewdness . . . confine them to houses until death do claim them, or Allah ordain for them some (other) way.\" [al-Nisaa’ 4:15] Does this mean to punish a woman who has committed adultery by death, or does it mean to imprison her for the remainder of her life? Also what does \"or Allah make some way for them\" mean? Thank you for you time, I look forward to your response so that I may better understand Islam through the explanation of Muslims as opposed to those of non-Muslims."
+          }
+        ]
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 22,
+        "losses": 19,
+        "ties": 180,
+        "delta_mean": 0.013575,
+        "delta_ci95": [
+          -0.045455,
+          0.072727
+        ],
+        "gained_cases": [
+          {
+            "id": "17272452982daab4:q0",
+            "group_id": "17272452982daab4",
+            "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+          },
+          {
+            "id": "1ebd79f2b3faa3aa:q0",
+            "group_id": "1ebd79f2b3faa3aa",
+            "query": "Is it permissible to eat ostrich meat if it is slaughtered properly?"
+          },
+          {
+            "id": "260cf8141315d885:q0",
+            "group_id": "260cf8141315d885",
+            "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+          },
+          {
+            "id": "30a5bbb6356b78d7:q0",
+            "group_id": "30a5bbb6356b78d7",
+            "query": "What is the point of mentioning the dog in the story of the people of the Cave?"
+          },
+          {
+            "id": "51e30958e76797a8:q0",
+            "group_id": "51e30958e76797a8",
+            "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+          },
+          {
+            "id": "617d8545bf4af170:q0",
+            "group_id": "617d8545bf4af170",
+            "query": "In what area of Makkah did the birds (Ababil) throw stones on the army of Abrahah?"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "697877f236bb8b6e:q0",
+            "group_id": "697877f236bb8b6e",
+            "query": "Some people, when they want to pray against a person, say, “O jinn, seize him, O ‘ifreet seize him; may seven (jinn) seize you, may they break your back and suck your blood.” What is the ruling on such words?"
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q0",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "91b0ed2961107a2a:q0",
+            "group_id": "91b0ed2961107a2a",
+            "query": "Is it true that anyone who does not accept that kuffaar are kuffaar is a kaafir himself, even if he prays, believes in the Qur'aan, and the Prophet Muhammad ( )? If so, what is the proof for this? Can a person insist on believing that Jews and Christians can be believers and go to heaven after being shown clear evidence against this, and still be considered a Muslim?"
+          },
+          {
+            "id": "92a945e46b2f9b80:q0",
+            "group_id": "92a945e46b2f9b80",
+            "query": "I am unable to conceive children due to sterility are there any specific dua'a to be said in such a case ?"
+          },
+          {
+            "id": "93ceb62d5bc7a772:q0",
+            "group_id": "93ceb62d5bc7a772",
+            "query": "Assalaamualaikum, I have heard that Noah's ark was found a few years ago using references from the Quraán as opposed to the bible. Is this true?"
+          },
+          {
+            "id": "9ade4603ee996ed7:q0",
+            "group_id": "9ade4603ee996ed7",
+            "query": "Could you give us a brief description of Jesus (peace be upon him)?"
+          },
+          {
+            "id": "9c684b14ea333e64:q0",
+            "group_id": "9c684b14ea333e64",
+            "query": "Bismillah irrahman irraheemAs Salaamu alaykum, Will a husband and wife be together in Jannah if Allah (swt) grants them the reward of paradise? How about other friends and family members from the dunya? Will one be together with them in Jannah if inshAllah they are granted Jannah by Allah (swt)? Jazzak Allahu Khair."
+          },
+          {
+            "id": "a3d0f7a6db5ec591:q0",
+            "group_id": "a3d0f7a6db5ec591",
+            "query": "I have herd from brothers that one gets a parteners (ie wife for men and husband for women) which one deserves,.If one is good he/she will get a pios partener unless it is a test from ALLAH. Unfortunattely i have not come across any hadith on this subject and could you please give me references and advice on this topic so that i can advice the brothere and sisters I Have also been told that if a man does zina it will result in him being punishede by some female member of his family doing zina. Is this true ? Many young muslims go about looking for a partener in the haram way .should i tell them that if they are pios they will definnalely get someones who is equally pios unless they are being tested by ALLAH? because if this is true it may deter many a muslim from commiting haram and it may even make them more entuisianstic about becoming beter muslims."
+          },
+          {
+            "id": "c412a1be7a001ba6:q0",
+            "group_id": "c412a1be7a001ba6",
+            "query": "Are precious stones mentioned in the Qur’aan?"
+          },
+          {
+            "id": "e3de833e8eb60ae8:q0",
+            "group_id": "e3de833e8eb60ae8",
+            "query": "Some people see their Muslim brothers who have been stricken by calamities and disasters, and they do not move or feel motivated to help them, nor do they urge others to do that, on the grounds that what has happened is the will of Allaah and it is not right for us to help them when Allaah is punishing them! Some people, when they are told to do good to the poor and needy, they say, how can we do good to them when Allaah has willed this for them? Allaah has made them poor and you want to make them rich? Or they say, if Allaah wanted to, He could make them rich without our help. What is the Islamic view concerning such comments?"
+          },
+          {
+            "id": "e411e363863a4028:q0",
+            "group_id": "e411e363863a4028",
+            "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f6d6721014324e65:q0",
+            "group_id": "f6d6721014324e65",
+            "query": "For the time being, I do not have the resources to quote the exact Quranic verse, nor can I tell you what sura it has been taken from. However, I believe it is a common verse. I understand little Arabic; hence I found that in English. The verse can be interpretted as such: The godfearing Jews, muslims and christians will not have fear (on that day). I am not exactly sure of the bracketted phrase. Now my question to you: is it mistranliteration? We know that christians and jews in general cannot be hoped to have any sanction in the life hereafter. So, how do we understand the verse?"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "0569f89284cf8286:q0",
+            "group_id": "0569f89284cf8286",
+            "query": "I have sisters who are married and my mother is married to someone other than my father, because my father is deceased. I work in the army and I want to go and see them but my circumstances do not permit it. I am also married and if I go there and leave my family, I would have to stay there for at least three days, during which time I would be worrying about my wife and children. Am I severing the ties of kinship, given that I have not been in touch with them for ten months?."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "264895266de150ed:q0",
+            "group_id": "264895266de150ed",
+            "query": "If a wife asks her husband for a khula and he accepts, how long is the waiting period?Is it irrevocable i.e can they ever re-marry?"
+          },
+          {
+            "id": "2f8b545cd6b3feac:q0",
+            "group_id": "2f8b545cd6b3feac",
+            "query": "When fasting for kafaarat al-yameen (expiation for breaking an oath), do the three days have to be consecutive?."
+          },
+          {
+            "id": "37a9a5f66c3c7016:q0",
+            "group_id": "37a9a5f66c3c7016",
+            "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "5090e5f341709741:q0",
+            "group_id": "5090e5f341709741",
+            "query": "I am deeply in love with a Muslim man and want to marry him. I know that Allah forbids girlfriend-boyfriend relationships, and feel very sorry in my heart for our relationship. I feel that because we have been in this relationship which is abhorred by Allah, he will never marry me because he has lost respect for me. What does the Quran say about having a girlfriend or a boyfriend?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "80ad32c7032eea6c:q0",
+            "group_id": "80ad32c7032eea6c",
+            "query": "What are the virtues of Ayatul Kursi?"
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "bde6067889000112:q0",
+            "group_id": "bde6067889000112",
+            "query": "Is it permissible to breast-feed a child over 2 years old? Until what age does breast-feeding make the child a relative (mahram)? Are there any exceptions to this rule? I am asking because there are many 2 year olds in our area who need families - they need to be \"adopted\" in the Western sense. I would like to help these children, and expand our ummah, but too avoid hardship, I hope that there is a way that they could become relatives of my son."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "dda8dd34ea9a3df1:q0",
+            "group_id": "dda8dd34ea9a3df1",
+            "query": "Could we skip Shalat al-Jumu`ah (Friday prayer) when we are travelling?"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          },
+          {
+            "id": "fb4a89c3e0e92de4:q0",
+            "group_id": "fb4a89c3e0e92de4",
+            "query": "I would like to know more about the meaning of this part of Surah al-Nisa’: \"If any of your women are guilty of lewdness . . . confine them to houses until death do claim them, or Allah ordain for them some (other) way.\" [al-Nisaa’ 4:15] Does this mean to punish a woman who has committed adultery by death, or does it mean to imprison her for the remainder of her life? Also what does \"or Allah make some way for them\" mean? Thank you for you time, I look forward to your response so that I may better understand Islam through the explanation of Muslims as opposed to those of non-Muslims."
+          }
+        ]
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 44,
+        "losses": 39,
+        "ties": 177,
+        "delta_mean": -0.014554,
+        "delta_ci95": [
+          -0.042212,
+          0.011521
+        ],
+        "gained_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "0d06e2f767470568:q0",
+            "group_id": "0d06e2f767470568",
+            "query": "Is there scholarly consensus on all ten things which nullify Islam that were mentioned by Imam Muhammad ibn ‘Abd al-Wahhaab?"
+          },
+          {
+            "id": "0e495aa8c1673522:q0",
+            "group_id": "0e495aa8c1673522",
+            "query": "I am a Japanese guy (not Muslim). My Japanese friend became a Muslim a few months ago. He wants to go to Mecca (Makkah) to make a pilgrimage in the near future, but he has a big injury on his foot, and needs to use a crutch. Can he go to Makkah? Or can people who are not healthy not make the pilgrimage?"
+          },
+          {
+            "id": "12571529f620438c:q0",
+            "group_id": "12571529f620438c",
+            "query": "Ruling on one who says that the poverty of Muslims is because they have too many children"
+          },
+          {
+            "id": "17272452982daab4:q0",
+            "group_id": "17272452982daab4",
+            "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+          },
+          {
+            "id": "1921883c395f4cb0:q0",
+            "group_id": "1921883c395f4cb0",
+            "query": "I have heard that a kaffir woman id forbidden to look at a muslim woman withpu her hijab. Is this applicable to my mother-inlaw who is an unbeliever"
+          },
+          {
+            "id": "1ebd79f2b3faa3aa:q0",
+            "group_id": "1ebd79f2b3faa3aa",
+            "query": "Is it permissible to eat ostrich meat if it is slaughtered properly?"
+          },
+          {
+            "id": "260cf8141315d885:q0",
+            "group_id": "260cf8141315d885",
+            "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+          },
+          {
+            "id": "30a5bbb6356b78d7:q0",
+            "group_id": "30a5bbb6356b78d7",
+            "query": "What is the point of mentioning the dog in the story of the people of the Cave?"
+          },
+          {
+            "id": "350af697680169f8:q0",
+            "group_id": "350af697680169f8",
+            "query": "Revelation of the Quran: All at Once or Gradually?"
+          },
+          {
+            "id": "3c7ffcc84b08c53f:q0",
+            "group_id": "3c7ffcc84b08c53f",
+            "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+          },
+          {
+            "id": "3f3c62f4196c730e:q0",
+            "group_id": "3f3c62f4196c730e",
+            "query": "Is the doctors knowledge of the fetus in the uterus complete?"
+          },
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "4a93f947614c159c:q0",
+            "group_id": "4a93f947614c159c",
+            "query": "I do hope I am not asking a stupid question. I would like to know how a believer in Islam should imagine Allah to be. I know He is invisible but should I visualize him in a human form or a light. Please help me. Thank you very much beforehand. May Allah's Blessings be always upon you. Wassalam."
+          },
+          {
+            "id": "51e30958e76797a8:q0",
+            "group_id": "51e30958e76797a8",
+            "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+          },
+          {
+            "id": "571794996b9da82f:q0",
+            "group_id": "571794996b9da82f",
+            "query": "Is it allowable for a muslim woman to greet a muslim man by shaking hands?"
+          },
+          {
+            "id": "5787a3319bea5df5:q0",
+            "group_id": "5787a3319bea5df5",
+            "query": "Allah mentions in the Quran that when an evil befalls us it is due to what our own hands have earned. Also our beloved Messenger, Muhammad (peace and blessings of Allah be upon him) said in a hadeeth (report) that the most tried are the Prophets, then those in piety after those. So therefore in our day to day life when things go wrong in our lives, how do we decide whether it is due to our sinfulness or that Allah loves us and therefore sends a trial upon us?"
+          },
+          {
+            "id": "5b98a473569d5bec:q0",
+            "group_id": "5b98a473569d5bec",
+            "query": "If Allah has ordained the \"rizk\" for everyone then why do people die of starvation."
+          },
+          {
+            "id": "617d8545bf4af170:q0",
+            "group_id": "617d8545bf4af170",
+            "query": "In what area of Makkah did the birds (Ababil) throw stones on the army of Abrahah?"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "678c8cf499554ab3:q0",
+            "group_id": "678c8cf499554ab3",
+            "query": "Her father mistreats her and her mother resents her, and this has affected her relationship with her husband"
+          },
+          {
+            "id": "697877f236bb8b6e:q0",
+            "group_id": "697877f236bb8b6e",
+            "query": "Some people, when they want to pray against a person, say, “O jinn, seize him, O ‘ifreet seize him; may seven (jinn) seize you, may they break your back and suck your blood.” What is the ruling on such words?"
+          },
+          {
+            "id": "6d10038a5f5b15c8:q0",
+            "group_id": "6d10038a5f5b15c8",
+            "query": "If the wife do not pray regularly or do not fast or violate other obligatory act, will the husband be responsible for this on the day of judgement, will he be punished for that and what is his responsibility under above situation in this world?"
+          },
+          {
+            "id": "6eaea7f05c849371:q0",
+            "group_id": "6eaea7f05c849371",
+            "query": "What advice can you give Muslim families in regards to family visits and gatherings?"
+          },
+          {
+            "id": "716865c9c486d3e8:q0",
+            "group_id": "716865c9c486d3e8",
+            "query": "What’s So Special about the Month of Safar?"
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q0",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "7a42e75c386d4b2e:q0",
+            "group_id": "7a42e75c386d4b2e",
+            "query": "Since the prophet said \"Begin fasting after sighting the moon\", how can muslims be fasting one on Tuesday in one part of the world and wednesday in another part. We should all begin our fast at the same time regardless of where we live. We are students in the U.S. and Canada, and we face the same problem every year at the beginning of Ramadaan, because the Muslims are split into three groups:A group that fasts when the new moon is sighted in the city in which they live. A group that fasts when fasting starts in Saudi Arabia. A group that fasts when they hear news from the Muslim students’ union in the U.S. and Canada which watches for the new moon in different parts of America, and as soon as the new moon is sighted in one city, they spread the news to different Islamic centres so that the Muslims in America can start fasting on the same day, despite the great distances between the different cities. Which group should we follow? Whose sighting of the moon should we rely on? Please give us a fatwa, may Allaah reward you."
+          },
+          {
+            "id": "844de55854b47f73:q0",
+            "group_id": "844de55854b47f73",
+            "query": "Some people fiddle with their clothes, clean their nails or look at their watches etc whilst praying, especially when the imam is reciting. This often provokes feelings of annoyance among the worshippers standing next to them. What is the ruling on that?"
+          },
+          {
+            "id": "91b0ed2961107a2a:q0",
+            "group_id": "91b0ed2961107a2a",
+            "query": "Is it true that anyone who does not accept that kuffaar are kuffaar is a kaafir himself, even if he prays, believes in the Qur'aan, and the Prophet Muhammad ( )? If so, what is the proof for this? Can a person insist on believing that Jews and Christians can be believers and go to heaven after being shown clear evidence against this, and still be considered a Muslim?"
+          },
+          {
+            "id": "92a945e46b2f9b80:q0",
+            "group_id": "92a945e46b2f9b80",
+            "query": "I am unable to conceive children due to sterility are there any specific dua'a to be said in such a case ?"
+          },
+          {
+            "id": "93ceb62d5bc7a772:q0",
+            "group_id": "93ceb62d5bc7a772",
+            "query": "Assalaamualaikum, I have heard that Noah's ark was found a few years ago using references from the Quraán as opposed to the bible. Is this true?"
+          },
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "9ade4603ee996ed7:q0",
+            "group_id": "9ade4603ee996ed7",
+            "query": "Could you give us a brief description of Jesus (peace be upon him)?"
+          },
+          {
+            "id": "9c684b14ea333e64:q0",
+            "group_id": "9c684b14ea333e64",
+            "query": "Bismillah irrahman irraheemAs Salaamu alaykum, Will a husband and wife be together in Jannah if Allah (swt) grants them the reward of paradise? How about other friends and family members from the dunya? Will one be together with them in Jannah if inshAllah they are granted Jannah by Allah (swt)? Jazzak Allahu Khair."
+          },
+          {
+            "id": "a3d0f7a6db5ec591:q0",
+            "group_id": "a3d0f7a6db5ec591",
+            "query": "I have herd from brothers that one gets a parteners (ie wife for men and husband for women) which one deserves,.If one is good he/she will get a pios partener unless it is a test from ALLAH. Unfortunattely i have not come across any hadith on this subject and could you please give me references and advice on this topic so that i can advice the brothere and sisters I Have also been told that if a man does zina it will result in him being punishede by some female member of his family doing zina. Is this true ? Many young muslims go about looking for a partener in the haram way .should i tell them that if they are pios they will definnalely get someones who is equally pios unless they are being tested by ALLAH? because if this is true it may deter many a muslim from commiting haram and it may even make them more entuisianstic about becoming beter muslims."
+          },
+          {
+            "id": "a692f775446c18a8:q0",
+            "group_id": "a692f775446c18a8",
+            "query": "Can I marry the daughter of my brother-in-law (my sister's husband) but not my sister's child ?"
+          },
+          {
+            "id": "c412a1be7a001ba6:q0",
+            "group_id": "c412a1be7a001ba6",
+            "query": "Are precious stones mentioned in the Qur’aan?"
+          },
+          {
+            "id": "e3de833e8eb60ae8:q0",
+            "group_id": "e3de833e8eb60ae8",
+            "query": "Some people see their Muslim brothers who have been stricken by calamities and disasters, and they do not move or feel motivated to help them, nor do they urge others to do that, on the grounds that what has happened is the will of Allaah and it is not right for us to help them when Allaah is punishing them! Some people, when they are told to do good to the poor and needy, they say, how can we do good to them when Allaah has willed this for them? Allaah has made them poor and you want to make them rich? Or they say, if Allaah wanted to, He could make them rich without our help. What is the Islamic view concerning such comments?"
+          },
+          {
+            "id": "e411e363863a4028:q0",
+            "group_id": "e411e363863a4028",
+            "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f6d6721014324e65:q0",
+            "group_id": "f6d6721014324e65",
+            "query": "For the time being, I do not have the resources to quote the exact Quranic verse, nor can I tell you what sura it has been taken from. However, I believe it is a common verse. I understand little Arabic; hence I found that in English. The verse can be interpretted as such: The godfearing Jews, muslims and christians will not have fear (on that day). I am not exactly sure of the bracketted phrase. Now my question to you: is it mistranliteration? We know that christians and jews in general cannot be hoped to have any sanction in the life hereafter. So, how do we understand the verse?"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "0569f89284cf8286:q0",
+            "group_id": "0569f89284cf8286",
+            "query": "I have sisters who are married and my mother is married to someone other than my father, because my father is deceased. I work in the army and I want to go and see them but my circumstances do not permit it. I am also married and if I go there and leave my family, I would have to stay there for at least three days, during which time I would be worrying about my wife and children. Am I severing the ties of kinship, given that I have not been in touch with them for ten months?."
+          },
+          {
+            "id": "0899e7b8458779ac:q0",
+            "group_id": "0899e7b8458779ac",
+            "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+          },
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "264895266de150ed:q0",
+            "group_id": "264895266de150ed",
+            "query": "If a wife asks her husband for a khula and he accepts, how long is the waiting period?Is it irrevocable i.e can they ever re-marry?"
+          },
+          {
+            "id": "2f8b545cd6b3feac:q0",
+            "group_id": "2f8b545cd6b3feac",
+            "query": "When fasting for kafaarat al-yameen (expiation for breaking an oath), do the three days have to be consecutive?."
+          },
+          {
+            "id": "37a9a5f66c3c7016:q0",
+            "group_id": "37a9a5f66c3c7016",
+            "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "3c7a8fc0d32f4944:q0",
+            "group_id": "3c7a8fc0d32f4944",
+            "query": "Does a daughter have a right in her mother’s property? If yes, what is her share? Please comment."
+          },
+          {
+            "id": "5090e5f341709741:q0",
+            "group_id": "5090e5f341709741",
+            "query": "I am deeply in love with a Muslim man and want to marry him. I know that Allah forbids girlfriend-boyfriend relationships, and feel very sorry in my heart for our relationship. I feel that because we have been in this relationship which is abhorred by Allah, he will never marry me because he has lost respect for me. What does the Quran say about having a girlfriend or a boyfriend?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "57557c8c8604b59e:q0",
+            "group_id": "57557c8c8604b59e",
+            "query": "Family problems because a Muslim woman wants to marry a Christian man"
+          },
+          {
+            "id": "5a12804830aa716b:q0",
+            "group_id": "5a12804830aa716b",
+            "query": "The honour of being connected to the Qur’an"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "61b68f51bad55711:q0",
+            "group_id": "61b68f51bad55711",
+            "query": "Does reciting al-Zalzalah at the time of childbirth make giving birth easier? Are there any du’aa’s or adhkaar that are prescribed when giving birth to make it easier? Will du’aa’s made at the time of childbirth be answered?"
+          },
+          {
+            "id": "748c9b8d8efdf88e:q0",
+            "group_id": "748c9b8d8efdf88e",
+            "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+          },
+          {
+            "id": "80ad32c7032eea6c:q0",
+            "group_id": "80ad32c7032eea6c",
+            "query": "What are the virtues of Ayatul Kursi?"
+          },
+          {
+            "id": "89e39cf9aeb5af4b:q0",
+            "group_id": "89e39cf9aeb5af4b",
+            "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "9bc59643bd877a9a:q0",
+            "group_id": "9bc59643bd877a9a",
+            "query": "Is every practitioner of magic or witchcraft a kaafir?"
+          },
+          {
+            "id": "a71aaa6de681d390:q0",
+            "group_id": "a71aaa6de681d390",
+            "query": "I need to know whether we as Muslims are allowed to eat the eyes of a fish. I was eating at a seafood restaurant with a friend and I was enjoying the head of the fish and then I ate the eye and he was quite disgusted and said that it is not allowed in Islam. Is that true?"
+          },
+          {
+            "id": "a810e50c3b7ceef7:q0",
+            "group_id": "a810e50c3b7ceef7",
+            "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "aef682cbe4d6f23b:q0",
+            "group_id": "aef682cbe4d6f23b",
+            "query": "It is not possible to see the new moon with the naked eye before it is 30 hours old, and in addition to that, it is sometimes not possible to see it at all because of the weather conditions. On this basis, is it permissible to resort to using astronomical information to calculate the likely time for sighting the new moon and the start of Ramadan, or do we have to actually sight the new moon before we start fasting the blessed month of Ramadan?"
+          },
+          {
+            "id": "afa5c0dcc02ce8fc:q0",
+            "group_id": "afa5c0dcc02ce8fc",
+            "query": "I have not got married yet. I know that it is not permissible for the husband to have intercourse with his wife in her back passage, but I do not want to hide from you the fact that my desires always overwhelm me. I try to repent and do what is right, but sometimes I go back to sin. I am afraid that if I get married I will have intercourse with my wife in her back passage, and that the Shaytaan will overpower me. What advice can you give me? My second question is: would it be permissible for me to approach her from behind but over her clothes?."
+          },
+          {
+            "id": "bde6067889000112:q0",
+            "group_id": "bde6067889000112",
+            "query": "Is it permissible to breast-feed a child over 2 years old? Until what age does breast-feeding make the child a relative (mahram)? Are there any exceptions to this rule? I am asking because there are many 2 year olds in our area who need families - they need to be \"adopted\" in the Western sense. I would like to help these children, and expand our ummah, but too avoid hardship, I hope that there is a way that they could become relatives of my son."
+          },
+          {
+            "id": "cfc49b9476fa3e91:q0",
+            "group_id": "cfc49b9476fa3e91",
+            "query": "I work for the military unit and the month of Ramadaan is coming. Is it permissible for me not to fast, knowing that my circumstances do not make it easy to fast?."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "dda8dd34ea9a3df1:q0",
+            "group_id": "dda8dd34ea9a3df1",
+            "query": "Could we skip Shalat al-Jumu`ah (Friday prayer) when we are travelling?"
+          },
+          {
+            "id": "de59443b9815cc31:q0",
+            "group_id": "de59443b9815cc31",
+            "query": "Ruling on a believer who commits some sins"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          },
+          {
+            "id": "f953580b877cfca7:q0",
+            "group_id": "f953580b877cfca7",
+            "query": "The sending down of the Quran began on Laylat al-Qadr in Ramadan, but fasting was not enjoined until the second year AH"
+          },
+          {
+            "id": "fa5e7cfe784b2fd9:q0",
+            "group_id": "fa5e7cfe784b2fd9",
+            "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+          },
+          {
+            "id": "fb4a89c3e0e92de4:q0",
+            "group_id": "fb4a89c3e0e92de4",
+            "query": "I would like to know more about the meaning of this part of Surah al-Nisa’: \"If any of your women are guilty of lewdness . . . confine them to houses until death do claim them, or Allah ordain for them some (other) way.\" [al-Nisaa’ 4:15] Does this mean to punish a woman who has committed adultery by death, or does it mean to imprison her for the remainder of her life? Also what does \"or Allah make some way for them\" mean? Thank you for you time, I look forward to your response so that I may better understand Islam through the explanation of Muslims as opposed to those of non-Muslims."
+          },
+          {
+            "id": "fc548525dcacb9d3:q0",
+            "group_id": "fc548525dcacb9d3",
+            "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this man? If he refuses to become a Muslim, can she continue to live with him?"
+          }
+        ]
+      }
+    },
+    "parent_ai": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 17,
+        "losses": 6,
+        "ties": 237,
+        "delta_mean": 0.042308,
+        "delta_ci95": [
+          0.007634,
+          0.077519
+        ],
+        "gained_cases": [
+          {
+            "id": "17272452982daab4:q0",
+            "group_id": "17272452982daab4",
+            "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+          },
+          {
+            "id": "1ebd79f2b3faa3aa:q0",
+            "group_id": "1ebd79f2b3faa3aa",
+            "query": "Is it permissible to eat ostrich meat if it is slaughtered properly?"
+          },
+          {
+            "id": "260cf8141315d885:q0",
+            "group_id": "260cf8141315d885",
+            "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+          },
+          {
+            "id": "30a5bbb6356b78d7:q0",
+            "group_id": "30a5bbb6356b78d7",
+            "query": "What is the point of mentioning the dog in the story of the people of the Cave?"
+          },
+          {
+            "id": "51e30958e76797a8:q0",
+            "group_id": "51e30958e76797a8",
+            "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+          },
+          {
+            "id": "617d8545bf4af170:q0",
+            "group_id": "617d8545bf4af170",
+            "query": "In what area of Makkah did the birds (Ababil) throw stones on the army of Abrahah?"
+          },
+          {
+            "id": "697877f236bb8b6e:q0",
+            "group_id": "697877f236bb8b6e",
+            "query": "Some people, when they want to pray against a person, say, “O jinn, seize him, O ‘ifreet seize him; may seven (jinn) seize you, may they break your back and suck your blood.” What is the ruling on such words?"
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "91b0ed2961107a2a:q0",
+            "group_id": "91b0ed2961107a2a",
+            "query": "Is it true that anyone who does not accept that kuffaar are kuffaar is a kaafir himself, even if he prays, believes in the Qur'aan, and the Prophet Muhammad ( )? If so, what is the proof for this? Can a person insist on believing that Jews and Christians can be believers and go to heaven after being shown clear evidence against this, and still be considered a Muslim?"
+          },
+          {
+            "id": "93ceb62d5bc7a772:q0",
+            "group_id": "93ceb62d5bc7a772",
+            "query": "Assalaamualaikum, I have heard that Noah's ark was found a few years ago using references from the Quraán as opposed to the bible. Is this true?"
+          },
+          {
+            "id": "9ade4603ee996ed7:q0",
+            "group_id": "9ade4603ee996ed7",
+            "query": "Could you give us a brief description of Jesus (peace be upon him)?"
+          },
+          {
+            "id": "a3d0f7a6db5ec591:q0",
+            "group_id": "a3d0f7a6db5ec591",
+            "query": "I have herd from brothers that one gets a parteners (ie wife for men and husband for women) which one deserves,.If one is good he/she will get a pios partener unless it is a test from ALLAH. Unfortunattely i have not come across any hadith on this subject and could you please give me references and advice on this topic so that i can advice the brothere and sisters I Have also been told that if a man does zina it will result in him being punishede by some female member of his family doing zina. Is this true ? Many young muslims go about looking for a partener in the haram way .should i tell them that if they are pios they will definnalely get someones who is equally pios unless they are being tested by ALLAH? because if this is true it may deter many a muslim from commiting haram and it may even make them more entuisianstic about becoming beter muslims."
+          },
+          {
+            "id": "c412a1be7a001ba6:q0",
+            "group_id": "c412a1be7a001ba6",
+            "query": "Are precious stones mentioned in the Qur’aan?"
+          },
+          {
+            "id": "e3de833e8eb60ae8:q0",
+            "group_id": "e3de833e8eb60ae8",
+            "query": "Some people see their Muslim brothers who have been stricken by calamities and disasters, and they do not move or feel motivated to help them, nor do they urge others to do that, on the grounds that what has happened is the will of Allaah and it is not right for us to help them when Allaah is punishing them! Some people, when they are told to do good to the poor and needy, they say, how can we do good to them when Allaah has willed this for them? Allaah has made them poor and you want to make them rich? Or they say, if Allaah wanted to, He could make them rich without our help. What is the Islamic view concerning such comments?"
+          },
+          {
+            "id": "e411e363863a4028:q0",
+            "group_id": "e411e363863a4028",
+            "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f6d6721014324e65:q0",
+            "group_id": "f6d6721014324e65",
+            "query": "For the time being, I do not have the resources to quote the exact Quranic verse, nor can I tell you what sura it has been taken from. However, I believe it is a common verse. I understand little Arabic; hence I found that in English. The verse can be interpretted as such: The godfearing Jews, muslims and christians will not have fear (on that day). I am not exactly sure of the bracketted phrase. Now my question to you: is it mistranliteration? We know that christians and jews in general cannot be hoped to have any sanction in the life hereafter. So, how do we understand the verse?"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          }
+        ]
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 17,
+        "losses": 6,
+        "ties": 198,
+        "delta_mean": 0.049774,
+        "delta_ci95": [
+          0.009091,
+          0.095455
+        ],
+        "gained_cases": [
+          {
+            "id": "17272452982daab4:q0",
+            "group_id": "17272452982daab4",
+            "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+          },
+          {
+            "id": "1ebd79f2b3faa3aa:q0",
+            "group_id": "1ebd79f2b3faa3aa",
+            "query": "Is it permissible to eat ostrich meat if it is slaughtered properly?"
+          },
+          {
+            "id": "260cf8141315d885:q0",
+            "group_id": "260cf8141315d885",
+            "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+          },
+          {
+            "id": "30a5bbb6356b78d7:q0",
+            "group_id": "30a5bbb6356b78d7",
+            "query": "What is the point of mentioning the dog in the story of the people of the Cave?"
+          },
+          {
+            "id": "51e30958e76797a8:q0",
+            "group_id": "51e30958e76797a8",
+            "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+          },
+          {
+            "id": "617d8545bf4af170:q0",
+            "group_id": "617d8545bf4af170",
+            "query": "In what area of Makkah did the birds (Ababil) throw stones on the army of Abrahah?"
+          },
+          {
+            "id": "697877f236bb8b6e:q0",
+            "group_id": "697877f236bb8b6e",
+            "query": "Some people, when they want to pray against a person, say, “O jinn, seize him, O ‘ifreet seize him; may seven (jinn) seize you, may they break your back and suck your blood.” What is the ruling on such words?"
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "91b0ed2961107a2a:q0",
+            "group_id": "91b0ed2961107a2a",
+            "query": "Is it true that anyone who does not accept that kuffaar are kuffaar is a kaafir himself, even if he prays, believes in the Qur'aan, and the Prophet Muhammad ( )? If so, what is the proof for this? Can a person insist on believing that Jews and Christians can be believers and go to heaven after being shown clear evidence against this, and still be considered a Muslim?"
+          },
+          {
+            "id": "93ceb62d5bc7a772:q0",
+            "group_id": "93ceb62d5bc7a772",
+            "query": "Assalaamualaikum, I have heard that Noah's ark was found a few years ago using references from the Quraán as opposed to the bible. Is this true?"
+          },
+          {
+            "id": "9ade4603ee996ed7:q0",
+            "group_id": "9ade4603ee996ed7",
+            "query": "Could you give us a brief description of Jesus (peace be upon him)?"
+          },
+          {
+            "id": "a3d0f7a6db5ec591:q0",
+            "group_id": "a3d0f7a6db5ec591",
+            "query": "I have herd from brothers that one gets a parteners (ie wife for men and husband for women) which one deserves,.If one is good he/she will get a pios partener unless it is a test from ALLAH. Unfortunattely i have not come across any hadith on this subject and could you please give me references and advice on this topic so that i can advice the brothere and sisters I Have also been told that if a man does zina it will result in him being punishede by some female member of his family doing zina. Is this true ? Many young muslims go about looking for a partener in the haram way .should i tell them that if they are pios they will definnalely get someones who is equally pios unless they are being tested by ALLAH? because if this is true it may deter many a muslim from commiting haram and it may even make them more entuisianstic about becoming beter muslims."
+          },
+          {
+            "id": "c412a1be7a001ba6:q0",
+            "group_id": "c412a1be7a001ba6",
+            "query": "Are precious stones mentioned in the Qur’aan?"
+          },
+          {
+            "id": "e3de833e8eb60ae8:q0",
+            "group_id": "e3de833e8eb60ae8",
+            "query": "Some people see their Muslim brothers who have been stricken by calamities and disasters, and they do not move or feel motivated to help them, nor do they urge others to do that, on the grounds that what has happened is the will of Allaah and it is not right for us to help them when Allaah is punishing them! Some people, when they are told to do good to the poor and needy, they say, how can we do good to them when Allaah has willed this for them? Allaah has made them poor and you want to make them rich? Or they say, if Allaah wanted to, He could make them rich without our help. What is the Islamic view concerning such comments?"
+          },
+          {
+            "id": "e411e363863a4028:q0",
+            "group_id": "e411e363863a4028",
+            "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f6d6721014324e65:q0",
+            "group_id": "f6d6721014324e65",
+            "query": "For the time being, I do not have the resources to quote the exact Quranic verse, nor can I tell you what sura it has been taken from. However, I believe it is a common verse. I understand little Arabic; hence I found that in English. The verse can be interpretted as such: The godfearing Jews, muslims and christians will not have fear (on that day). I am not exactly sure of the bracketted phrase. Now my question to you: is it mistranliteration? We know that christians and jews in general cannot be hoped to have any sanction in the life hereafter. So, how do we understand the verse?"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          }
+        ]
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 24,
+        "losses": 26,
+        "ties": 210,
+        "delta_mean": -0.003311,
+        "delta_ci95": [
+          -0.021686,
+          0.014196
+        ],
+        "gained_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "17272452982daab4:q0",
+            "group_id": "17272452982daab4",
+            "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+          },
+          {
+            "id": "1ebd79f2b3faa3aa:q0",
+            "group_id": "1ebd79f2b3faa3aa",
+            "query": "Is it permissible to eat ostrich meat if it is slaughtered properly?"
+          },
+          {
+            "id": "260cf8141315d885:q0",
+            "group_id": "260cf8141315d885",
+            "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+          },
+          {
+            "id": "30a5bbb6356b78d7:q0",
+            "group_id": "30a5bbb6356b78d7",
+            "query": "What is the point of mentioning the dog in the story of the people of the Cave?"
+          },
+          {
+            "id": "350af697680169f8:q0",
+            "group_id": "350af697680169f8",
+            "query": "Revelation of the Quran: All at Once or Gradually?"
+          },
+          {
+            "id": "51e30958e76797a8:q0",
+            "group_id": "51e30958e76797a8",
+            "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+          },
+          {
+            "id": "617d8545bf4af170:q0",
+            "group_id": "617d8545bf4af170",
+            "query": "In what area of Makkah did the birds (Ababil) throw stones on the army of Abrahah?"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "697877f236bb8b6e:q0",
+            "group_id": "697877f236bb8b6e",
+            "query": "Some people, when they want to pray against a person, say, “O jinn, seize him, O ‘ifreet seize him; may seven (jinn) seize you, may they break your back and suck your blood.” What is the ruling on such words?"
+          },
+          {
+            "id": "716865c9c486d3e8:q0",
+            "group_id": "716865c9c486d3e8",
+            "query": "What’s So Special about the Month of Safar?"
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "844de55854b47f73:q0",
+            "group_id": "844de55854b47f73",
+            "query": "Some people fiddle with their clothes, clean their nails or look at their watches etc whilst praying, especially when the imam is reciting. This often provokes feelings of annoyance among the worshippers standing next to them. What is the ruling on that?"
+          },
+          {
+            "id": "91b0ed2961107a2a:q0",
+            "group_id": "91b0ed2961107a2a",
+            "query": "Is it true that anyone who does not accept that kuffaar are kuffaar is a kaafir himself, even if he prays, believes in the Qur'aan, and the Prophet Muhammad ( )? If so, what is the proof for this? Can a person insist on believing that Jews and Christians can be believers and go to heaven after being shown clear evidence against this, and still be considered a Muslim?"
+          },
+          {
+            "id": "93ceb62d5bc7a772:q0",
+            "group_id": "93ceb62d5bc7a772",
+            "query": "Assalaamualaikum, I have heard that Noah's ark was found a few years ago using references from the Quraán as opposed to the bible. Is this true?"
+          },
+          {
+            "id": "9ade4603ee996ed7:q0",
+            "group_id": "9ade4603ee996ed7",
+            "query": "Could you give us a brief description of Jesus (peace be upon him)?"
+          },
+          {
+            "id": "9c684b14ea333e64:q0",
+            "group_id": "9c684b14ea333e64",
+            "query": "Bismillah irrahman irraheemAs Salaamu alaykum, Will a husband and wife be together in Jannah if Allah (swt) grants them the reward of paradise? How about other friends and family members from the dunya? Will one be together with them in Jannah if inshAllah they are granted Jannah by Allah (swt)? Jazzak Allahu Khair."
+          },
+          {
+            "id": "a3d0f7a6db5ec591:q0",
+            "group_id": "a3d0f7a6db5ec591",
+            "query": "I have herd from brothers that one gets a parteners (ie wife for men and husband for women) which one deserves,.If one is good he/she will get a pios partener unless it is a test from ALLAH. Unfortunattely i have not come across any hadith on this subject and could you please give me references and advice on this topic so that i can advice the brothere and sisters I Have also been told that if a man does zina it will result in him being punishede by some female member of his family doing zina. Is this true ? Many young muslims go about looking for a partener in the haram way .should i tell them that if they are pios they will definnalely get someones who is equally pios unless they are being tested by ALLAH? because if this is true it may deter many a muslim from commiting haram and it may even make them more entuisianstic about becoming beter muslims."
+          },
+          {
+            "id": "aef682cbe4d6f23b:q0",
+            "group_id": "aef682cbe4d6f23b",
+            "query": "It is not possible to see the new moon with the naked eye before it is 30 hours old, and in addition to that, it is sometimes not possible to see it at all because of the weather conditions. On this basis, is it permissible to resort to using astronomical information to calculate the likely time for sighting the new moon and the start of Ramadan, or do we have to actually sight the new moon before we start fasting the blessed month of Ramadan?"
+          },
+          {
+            "id": "c412a1be7a001ba6:q0",
+            "group_id": "c412a1be7a001ba6",
+            "query": "Are precious stones mentioned in the Qur’aan?"
+          },
+          {
+            "id": "e3de833e8eb60ae8:q0",
+            "group_id": "e3de833e8eb60ae8",
+            "query": "Some people see their Muslim brothers who have been stricken by calamities and disasters, and they do not move or feel motivated to help them, nor do they urge others to do that, on the grounds that what has happened is the will of Allaah and it is not right for us to help them when Allaah is punishing them! Some people, when they are told to do good to the poor and needy, they say, how can we do good to them when Allaah has willed this for them? Allaah has made them poor and you want to make them rich? Or they say, if Allaah wanted to, He could make them rich without our help. What is the Islamic view concerning such comments?"
+          },
+          {
+            "id": "e411e363863a4028:q0",
+            "group_id": "e411e363863a4028",
+            "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f6d6721014324e65:q0",
+            "group_id": "f6d6721014324e65",
+            "query": "For the time being, I do not have the resources to quote the exact Quranic verse, nor can I tell you what sura it has been taken from. However, I believe it is a common verse. I understand little Arabic; hence I found that in English. The verse can be interpretted as such: The godfearing Jews, muslims and christians will not have fear (on that day). I am not exactly sure of the bracketted phrase. Now my question to you: is it mistranliteration? We know that christians and jews in general cannot be hoped to have any sanction in the life hereafter. So, how do we understand the verse?"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "0569f89284cf8286:q0",
+            "group_id": "0569f89284cf8286",
+            "query": "I have sisters who are married and my mother is married to someone other than my father, because my father is deceased. I work in the army and I want to go and see them but my circumstances do not permit it. I am also married and if I go there and leave my family, I would have to stay there for at least three days, during which time I would be worrying about my wife and children. Am I severing the ties of kinship, given that I have not been in touch with them for ten months?."
+          },
+          {
+            "id": "0899e7b8458779ac:q0",
+            "group_id": "0899e7b8458779ac",
+            "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+          },
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "264895266de150ed:q0",
+            "group_id": "264895266de150ed",
+            "query": "If a wife asks her husband for a khula and he accepts, how long is the waiting period?Is it irrevocable i.e can they ever re-marry?"
+          },
+          {
+            "id": "37a9a5f66c3c7016:q0",
+            "group_id": "37a9a5f66c3c7016",
+            "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "3c7a8fc0d32f4944:q0",
+            "group_id": "3c7a8fc0d32f4944",
+            "query": "Does a daughter have a right in her mother’s property? If yes, what is her share? Please comment."
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "61b68f51bad55711:q0",
+            "group_id": "61b68f51bad55711",
+            "query": "Does reciting al-Zalzalah at the time of childbirth make giving birth easier? Are there any du’aa’s or adhkaar that are prescribed when giving birth to make it easier? Will du’aa’s made at the time of childbirth be answered?"
+          },
+          {
+            "id": "748c9b8d8efdf88e:q0",
+            "group_id": "748c9b8d8efdf88e",
+            "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "89e39cf9aeb5af4b:q0",
+            "group_id": "89e39cf9aeb5af4b",
+            "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "9bc59643bd877a9a:q0",
+            "group_id": "9bc59643bd877a9a",
+            "query": "Is every practitioner of magic or witchcraft a kaafir?"
+          },
+          {
+            "id": "a71aaa6de681d390:q0",
+            "group_id": "a71aaa6de681d390",
+            "query": "I need to know whether we as Muslims are allowed to eat the eyes of a fish. I was eating at a seafood restaurant with a friend and I was enjoying the head of the fish and then I ate the eye and he was quite disgusted and said that it is not allowed in Islam. Is that true?"
+          },
+          {
+            "id": "a810e50c3b7ceef7:q0",
+            "group_id": "a810e50c3b7ceef7",
+            "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "afa5c0dcc02ce8fc:q0",
+            "group_id": "afa5c0dcc02ce8fc",
+            "query": "I have not got married yet. I know that it is not permissible for the husband to have intercourse with his wife in her back passage, but I do not want to hide from you the fact that my desires always overwhelm me. I try to repent and do what is right, but sometimes I go back to sin. I am afraid that if I get married I will have intercourse with my wife in her back passage, and that the Shaytaan will overpower me. What advice can you give me? My second question is: would it be permissible for me to approach her from behind but over her clothes?."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "f953580b877cfca7:q0",
+            "group_id": "f953580b877cfca7",
+            "query": "The sending down of the Quran began on Laylat al-Qadr in Ramadan, but fasting was not enjoined until the second year AH"
+          },
+          {
+            "id": "fa5e7cfe784b2fd9:q0",
+            "group_id": "fa5e7cfe784b2fd9",
+            "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+          },
+          {
+            "id": "fb4a89c3e0e92de4:q0",
+            "group_id": "fb4a89c3e0e92de4",
+            "query": "I would like to know more about the meaning of this part of Surah al-Nisa’: \"If any of your women are guilty of lewdness . . . confine them to houses until death do claim them, or Allah ordain for them some (other) way.\" [al-Nisaa’ 4:15] Does this mean to punish a woman who has committed adultery by death, or does it mean to imprison her for the remainder of her life? Also what does \"or Allah make some way for them\" mean? Thank you for you time, I look forward to your response so that I may better understand Islam through the explanation of Muslims as opposed to those of non-Muslims."
+          },
+          {
+            "id": "fc548525dcacb9d3:q0",
+            "group_id": "fc548525dcacb9d3",
+            "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this man? If he refuses to become a Muslim, can she continue to live with him?"
+          }
+        ]
+      }
+    }
+  },
+  "selected_name": "parent_translation",
+  "selected_config": {
+    "semantic_ai": false,
+    "representation_scope": "translation"
+  },
+  "selected_config_sha256": "c00f46122570430e1743d940a391bfbd2fe3c5f05c76e20b06de349e92856e6b",
+  "selected_changed": false,
+  "validation_gate_passed": false,
+  "determinism_check": {
+    "queries": 260,
+    "exact_queries": 260,
+    "passed": true
+  },
+  "representation_manifest": {
+    "experiment": "M02",
+    "representation": "ai",
+    "display_field": "translation",
+    "source": {
+      "dataset": "Aayatun existing db/ai_context.db verse_analysis",
+      "source_commit": "23dadd724dd72bed8731ff48c44415934d343381",
+      "exporter_commit": "ace935c95589d03694f83c6c83e1e498c4d3095b",
+      "source_db_sha256": "0a334c0e376ccca777312757d8671ad08fc71803effc8fdd8644999b598ff91e",
+      "source_db_bytes": 31895552,
+      "source_rows": 6236,
+      "content_type": "AI-generated English explanations and word meanings; not scripture",
+      "reuse_status": "Existing Aayatun content; downstream reuse rights remain unresolved."
+    },
+    "flattening": {
+      "fields": [
+        "verse_context",
+        "word",
+        "classical_meaning",
+        "meaning_here",
+        "notable_usage"
+      ],
+      "ignored_fields": [
+        "verse_context_continuation"
+      ],
+      "url_removal": true,
+      "whitespace_normalization": true,
+      "matches_aayatun_docs_ai": true
+    },
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "counts": {
+      "source_rows": 6236,
+      "valid_json": 6235,
+      "exported": 6232,
+      "malformed_json": 1,
+      "overlap_excluded": 3,
+      "missing": 4,
+      "empty_text": 0
+    },
+    "malformed_json_ayahs": [
+      "64:15"
+    ],
+    "empty_text_ayahs": [],
+    "overlap_excluded_rows": [
+      {
+        "ayah": "2:155",
+        "matching_shingles": 1
+      },
+      {
+        "ayah": "2:255",
+        "matching_shingles": 3
+      },
+      {
+        "ayah": "23:86",
+        "matching_shingles": 2
+      }
+    ],
+    "missing_ayahs": [
+      "2:155",
+      "2:255",
+      "23:86",
+      "64:15"
+    ],
+    "characters": 20278680,
+    "token_truncation": {
+      "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+      "max_seq_length": 512,
+      "documents": 6232,
+      "truncated_documents": 5888,
+      "truncated_ayahs_file": "runtime/truncated_ayahs.json",
+      "truncated_ayahs_sha256": "e86913ee0595bb9ccf8e127cb41855d5fcbfdfb4243b0c0016d4494705623a9b",
+      "truncated_ayahs_bytes": 45901,
+      "min": 260,
+      "median": 884.0,
+      "p95": 1361,
+      "max": 2226
+    },
+    "provenance_audit": {
+      "method": "Exact normalized 12-token shingle intersection; no fuzzy or semantic independence claim.",
+      "shingle_size": 12,
+      "source_records_checked": 4206,
+      "source_shingles": 2277941,
+      "overlap_count": 5,
+      "overlaps": [
+        {
+          "source_file": "islamqa_references_train.json",
+          "record_index": 825,
+          "field": "answer",
+          "matching_shingles": 3
+        },
+        {
+          "source_file": "islamqa_references_train.json",
+          "record_index": 2942,
+          "field": "answer",
+          "matching_shingles": 3
+        },
+        {
+          "source_file": "islamqa_references_train.json",
+          "record_index": 3023,
+          "field": "answer",
+          "matching_shingles": 2
+        },
+        {
+          "source_file": "islamqa_references_train.json",
+          "record_index": 3216,
+          "field": "answer",
+          "matching_shingles": 3
+        },
+        {
+          "source_file": "islamqa_references_benchmark.json",
+          "record_index": 322,
+          "field": "answer",
+          "matching_shingles": 1
+        }
+      ],
+      "exclusion_rule": "Exclude an entire AI representation if any exact normalized 12-token span matches an IslamQA question or answer.",
+      "checked_source_fields": [
+        "question",
+        "answer"
+      ],
+      "source_hashes": {
+        "islamqa_references_train.json": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+        "islamqa_references_benchmark.json": "b997c252da60a5b674012d42928d308bc0e2a50cf4f59318d8fb6577fa7cfde4"
+      },
+      "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+      "temporal_evidence": "The pinned AI blob predates the v3 dataset merge; this does not establish when its model inputs were created.",
+      "limitation": "Exact overlap screening and source history do not certify that no model independently produced similar text."
+    },
+    "output": {
+      "file": "ai_docs.jsonl",
+      "sha256": "242cda4e6cd7395842012b27b0f21d2379ad3a2bf2d0140dcd691f7c3aaaa252",
+      "bytes": 22910135
+    }
+  },
+  "representation_manifest_sha256": "f01437560151590fa3648e4e60cb5149b1dd1b93f479c90661344cac058f2796",
+  "ai_index_artifacts": {
+    "index.faiss": {
+      "sha256": "ffd394f7a5f493120033c3b51b4ac22a10757728bf38504ed52fdd20ce03d115",
+      "bytes": 9572397
+    },
+    "index.pkl": {
+      "sha256": "1a05f977440a0c8a477f29ac0631a02410471aebd291a12d8e02f51f4df7dd0c",
+      "bytes": 22207936
+    }
+  },
+  "model": {
+    "name": "intfloat/multilingual-e5-small",
+    "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+    "files": {
+      "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+      "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    }
+  },
+  "prefixes": {
+    "query": "query: ",
+    "passage": "passage: "
+  },
+  "code_sha256": {
+    "evaluation/islamqa_frozen.py": "fe68f62ffe4ff986d9a17fbd99541911231e6ed538840d6f71d95f4ace0d6185",
+    "evaluation/m02_ai.py": "a8d8648d62dc6bf7943f0c69d4361935965ed68054511745573be0c19ee5d219",
+    "evaluation/representations.py": "0de6a2b9df512e6a67505f6b7e0e981ea62a8f497ee8e352b6dbf4aef9827eaa",
+    "evaluation/test_ai_representation.py": "ea4dcaebfb2e73b4e3433e3e835637ee2f7d7f84db8434198a7bb68dfd9f1858",
+    "evaluation/test_retrieval_config.py": "404ee7f8f8dcbfa93922f2eb74b7ad1965cd422155ac638f8458843ef351d37b",
+    "evaluation/test_islamqa_frozen.py": "db3f3a3e54462701081e5d7b4528c733b853f9bb114ca1f832f794a186de9c1c",
+    "utils.py": "bb447bbd2a66e5fee6e07e73bedb86378ee119c0b4b20bfc478973d74de63002",
+    "build_vector_database.py": "d8ad7e3a73aac4f4038b08548898162601863af304e68dd14a4d7c1ba7f7e172"
+  },
+  "validation_ranking_artifacts": {
+    "parent_translation": {
+      "file": "validation_runs\\parent_translation.json",
+      "sha256": "2002e8ac4c3e9608d73d3fc03f974cbe4038f1f2e18d6c7fc82742635168670b"
+    },
+    "ai_only_diagnostic": {
+      "file": "validation_runs\\ai_only_diagnostic.json",
+      "sha256": "afbb08b5e5044f2a748f43556e9fcfce2ff3d9753c4393df3a115bf7c6da156e"
+    },
+    "parent_ai": {
+      "file": "validation_runs\\parent_ai.json",
+      "sha256": "eb2908fd637fa7ee79085b10b0cdc31438cfe3a721abeaa08c24ee160e986f8c"
+    }
+  }
+}

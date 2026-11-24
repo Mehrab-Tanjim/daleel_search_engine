@@ -573,6 +573,8 @@ def markdown_leaderboard(summary: dict[str, Any]) -> str:
     columns = list(RUN_COLUMNS)
     if "m01" in summary["runs"]:
         columns.append(("m01", summary["runs"]["m01"].get("leaderboard_label", "M01 candidate")))
+    if "m02" in summary["runs"]:
+        columns.append(("m02", summary["runs"]["m02"].get("leaderboard_label", "M02 candidate")))
     rows = (
         ("Relevant hit@5, all queries", "positive_hit@5", 345, "all"),
         ("Useful hit@5, answerable queries", "useful_hit@5", 294, "useful"),
@@ -1545,9 +1547,13 @@ def candidate_headline_summary(
         }
         headline[slice_name] = row
     config = report["config"]
+    if "representation_scope" in config:
+        leaderboard_label = f"M02 {config['representation_scope']}"
+    else:
+        leaderboard_label = f"M01 {config['retrieval_mode']} λ={config['mmr_lambda']:g} k={config['fetch_k']}"
     return {
         "engine": report["engine"],
-        "leaderboard_label": f"M01 {config['retrieval_mode']} λ={config['mmr_lambda']:g} k={config['fetch_k']}",
+        "leaderboard_label": leaderboard_label,
         "revision": report.get("model_revision"),
         "field": report["field"],
         "source_attribution": report["source_attribution"],
@@ -1908,6 +1914,12 @@ def main() -> None:
     m01_report_parser.add_argument("--bootstrap", type=int, default=2000)
     m01_report_parser.add_argument("--seed", type=int, default=4213)
     m01_report_parser.set_defaults(func=build_m01_report)
+
+    if __package__:
+        from . import m02_ai
+    else:
+        import m02_ai
+    m02_ai.add_parsers(subparsers)
 
     args = parser.parse_args()
     if hasattr(args, "bootstrap") and args.bootstrap < 0:

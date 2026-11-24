@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "python_executable": "d:\\Personal Projects\\Personal Projects\\Search Engine\\.venv-daleel\\Scripts\\python.exe",
+  "unit_test_command": "python -m unittest discover -s evaluation -p test*.py",
+  "unit_tests_passed": 53,
+  "ai_representation_tests_passed": 17,
+  "retrieval_configuration_tests_passed": 10,
+  "validation_determinism": {
+    "queries": 260,
+    "exact_repeated_rankings_and_source_fields": 260
+  },
+  "test_contract_checks": {
+    "queries": 345,
+    "unique_ayah_ids": 345,
+    "candidate_depth_bound": 345,
+    "translation_source_attribution": 345,
+    "candidate_exact_m01_rankings": 345,
+    "rollback_exact_m01_rankings": 345,
+    "candidate_exact_rollback_rankings": 345
+  },
+  "representation_audit": {
+    "source_rows": 6236,
+    "valid_json": 6235,
+    "exported": 6232,
+    "malformed_json": 1,
+    "overlap_excluded": 3,
+    "missing": 4,
+    "empty_text": 0,
+    "truncated_documents": 5888,
+    "malformed_ayahs": ["64:15"],
+    "overlap_excluded_ayahs": ["2:155", "2:255", "23:86"]
+  },
+  "runtime_measurements": {
+    "candidate_p95_query_ms": 63.701,
+    "rollback_p95_query_ms": 62.229,
+    "candidate_index_bytes": 11260716,
+    "candidate_peak_rss_bytes": 1028915200,
+    "rollback_peak_rss_bytes": 1028517888
+  },
+  "notes": [
+    "Parent+AI was not promoted because validation useful hit@5 increased while validation nDCG@10 decreased.",
+    "The selected default-off translation path was executed in a separate process without loading the AI index.",
+    "The separate translation-only rollback matched the committed M01 ranking for every test wording."
+  ]
+}

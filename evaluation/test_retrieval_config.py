@@ -55,7 +55,10 @@ def deployment_with(candidates):
     deployment.fetch_k = 50
     deployment.mmr_lambda = 1.0
     deployment.embeddings = FakeEmbeddings()
+    deployment.semantic_ai = False
     deployment.db = FakeDatabase(candidates)
+    deployment.ai_db = None
+    deployment.ai_db_docstore_id_to_index = {}
     deployment.db_docstore_id_to_index = dict(
         zip(deployment.db.index_to_docstore_id.values(), deployment.db.index_to_docstore_id.keys())
     )

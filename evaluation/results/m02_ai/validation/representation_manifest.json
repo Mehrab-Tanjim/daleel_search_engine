@@ -1,0 +1,137 @@
+{
+  "experiment": "M02",
+  "representation": "ai",
+  "display_field": "translation",
+  "source": {
+    "dataset": "Aayatun existing db/ai_context.db verse_analysis",
+    "source_commit": "23dadd724dd72bed8731ff48c44415934d343381",
+    "exporter_commit": "ace935c95589d03694f83c6c83e1e498c4d3095b",
+    "source_db_sha256": "0a334c0e376ccca777312757d8671ad08fc71803effc8fdd8644999b598ff91e",
+    "source_db_bytes": 31895552,
+    "source_rows": 6236,
+    "content_type": "AI-generated English explanations and word meanings; not scripture",
+    "reuse_status": "Existing Aayatun content; downstream reuse rights remain unresolved."
+  },
+  "flattening": {
+    "fields": [
+      "verse_context",
+      "word",
+      "classical_meaning",
+      "meaning_here",
+      "notable_usage"
+    ],
+    "ignored_fields": [
+      "verse_context_continuation"
+    ],
+    "url_removal": true,
+    "whitespace_normalization": true,
+    "matches_aayatun_docs_ai": true
+  },
+  "corpus": {
+    "verses": 6236,
+    "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+  },
+  "counts": {
+    "source_rows": 6236,
+    "valid_json": 6235,
+    "exported": 6232,
+    "malformed_json": 1,
+    "overlap_excluded": 3,
+    "missing": 4,
+    "empty_text": 0
+  },
+  "malformed_json_ayahs": [
+    "64:15"
+  ],
+  "empty_text_ayahs": [],
+  "overlap_excluded_rows": [
+    {
+      "ayah": "2:155",
+      "matching_shingles": 1
+    },
+    {
+      "ayah": "2:255",
+      "matching_shingles": 3
+    },
+    {
+      "ayah": "23:86",
+      "matching_shingles": 2
+    }
+  ],
+  "missing_ayahs": [
+    "2:155",
+    "2:255",
+    "23:86",
+    "64:15"
+  ],
+  "characters": 20278680,
+  "token_truncation": {
+    "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+    "max_seq_length": 512,
+    "documents": 6232,
+    "truncated_documents": 5888,
+    "truncated_ayahs_file": "runtime/truncated_ayahs.json",
+    "truncated_ayahs_sha256": "e86913ee0595bb9ccf8e127cb41855d5fcbfdfb4243b0c0016d4494705623a9b",
+    "truncated_ayahs_bytes": 45901,
+    "min": 260,
+    "median": 884.0,
+    "p95": 1361,
+    "max": 2226
+  },
+  "provenance_audit": {
+    "method": "Exact normalized 12-token shingle intersection; no fuzzy or semantic independence claim.",
+    "shingle_size": 12,
+    "source_records_checked": 4206,
+    "source_shingles": 2277941,
+    "overlap_count": 5,
+    "overlaps": [
+      {
+        "source_file": "islamqa_references_train.json",
+        "record_index": 825,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "islamqa_references_train.json",
+        "record_index": 2942,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "islamqa_references_train.json",
+        "record_index": 3023,
+        "field": "answer",
+        "matching_shingles": 2
+      },
+      {
+        "source_file": "islamqa_references_train.json",
+        "record_index": 3216,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "islamqa_references_benchmark.json",
+        "record_index": 322,
+        "field": "answer",
+        "matching_shingles": 1
+      }
+    ],
+    "exclusion_rule": "Exclude an entire AI representation if any exact normalized 12-token span matches an IslamQA question or answer.",
+    "checked_source_fields": [
+      "question",
+      "answer"
+    ],
+    "source_hashes": {
+      "islamqa_references_train.json": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+      "islamqa_references_benchmark.json": "b997c252da60a5b674012d42928d308bc0e2a50cf4f59318d8fb6577fa7cfde4"
+    },
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "temporal_evidence": "The pinned AI blob predates the v3 dataset merge; this does not establish when its model inputs were created.",
+    "limitation": "Exact overlap screening and source history do not certify that no model independently produced similar text."
+  },
+  "output": {
+    "file": "ai_docs.jsonl",
+    "sha256": "242cda4e6cd7395842012b27b0f21d2379ad3a2bf2d0140dcd691f7c3aaaa252",
+    "bytes": 22910135
+  }
+}
