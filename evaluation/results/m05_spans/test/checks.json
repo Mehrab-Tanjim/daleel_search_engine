@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "python_executable": "d:\\Personal Projects\\Personal Projects\\Search Engine\\.venv-daleel\\Scripts\\python.exe",
+  "unit_test_command": "python -m unittest discover -s evaluation -p test_*.py",
+  "unit_tests_passed": 123,
+  "sentence_span_tests_passed": 31,
+  "validation_determinism": {
+    "queries": 260,
+    "exact_repeated_rankings_sources_span_ids_offsets_and_sizes": 260,
+    "passed": true
+  },
+  "validation_promotion_gate": {
+    "parent_useful_hit_at_5": "35/221",
+    "selected_useful_hit_at_5": "36/221",
+    "parent_ndcg_at_10": 0.09164,
+    "selected_ndcg_at_10": 0.095753,
+    "passed": true,
+    "selected_config": "translation_sentences_2"
+  },
+  "representation_audit": {
+    "source_rows": 6236,
+    "whole_documents": 6236,
+    "sentences_1_rows": 15819,
+    "sentences_1_spans": 9583,
+    "sentences_2_rows": 13299,
+    "sentences_2_spans": 7063,
+    "max_span_tokens": 186,
+    "long_document_ayahs": 67,
+    "exact_source_substrings": true,
+    "stable_unique_ids": true,
+    "no_empty_spans": true,
+    "whole_document_retained": true,
+    "test_sources_used": false
+  },
+  "test_contract_checks": {
+    "queries": 345,
+    "unique_ayah_ids": 345,
+    "candidate_depth_bound": 345,
+    "candidate_translation_source_attribution": 345,
+    "rollback_translation_source_attribution": 345,
+    "sentences_1_translation_source_attribution": 345,
+    "sentences_2_translation_source_attribution": 345,
+    "candidate_exact_sentences_2_rankings": 345,
+    "rollback_exact_m04_rankings": 345,
+    "candidate_exact_rollback_rankings": 0,
+    "candidate_queries_with_50_unique_ayahs": 0,
+    "candidate_min_unique_ayahs": 26,
+    "candidate_median_unique_ayahs": 31,
+    "candidate_max_unique_ayahs": 40
+  },
+  "test_headline_comparison": {
+    "parent_relevant_hit_at_5": "42/345",
+    "candidate_relevant_hit_at_5": "42/345",
+    "parent_useful_hit_at_5": "40/294",
+    "candidate_useful_hit_at_5": "40/294",
+    "parent_direct_useful_hit_at_5": "13/54",
+    "candidate_direct_useful_hit_at_5": "15/54",
+    "parent_ndcg_at_10": 0.0721,
+    "candidate_ndcg_at_10": 0.073798,
+    "parent_useful_recall_at_50": 0.2188,
+    "candidate_useful_recall_at_50": null,
+    "headline_regression_gate_passed": true
+  },
+  "runtime_measurements": {
+    "candidate_p95_query_ms": 71.907,
+    "rollback_p95_query_ms": 65.937,
+    "sentences_1_p95_query_ms": 65.618,
+    "sentences_2_diagnostic_p95_query_ms": 63.522,
+    "candidate_index_bytes": 25596404,
+    "rollback_index_bytes": 11260716,
+    "sentences_1_index_bytes": 30123726,
+    "sentences_2_index_bytes": 25596404,
+    "candidate_peak_rss_bytes": 1060749312,
+    "rollback_peak_rss_bytes": 989261824,
+    "sentences_1_peak_rss_bytes": 907902976,
+    "sentences_2_peak_rss_bytes": 1062592512
+  },
+  "fixed_runtime_budgets": {
+    "p95_query_ms_max": 72,
+    "index_bytes_max": 12386788,
+    "peak_rss_bytes_max": 1532057191
+  },
+  "runtime_gate": {
+    "passed": false,
+    "failed_measurements": [
+      "index_bytes"
+    ],
+    "candidate_index_bytes_over_budget": 13209616
+  },
+  "notes": [
+    "The two-sentence candidate passed validation selection and the frozen headline regression gate, but it was not promoted because its active index exceeds the fixed M00 size budget.",
+    "The candidate improved direct-slice useful hit@5 by two wordings and nDCG@10 by 0.001682; relevant and useful hit@5 were unchanged.",
+    "Fetching 50 span documents before per-ayah collapse yields only 26 to 40 unique ayat on the test, so candidate useful recall@50 is unavailable rather than comparable to the 50-result parent.",
+    "The default-off whole-document rollback matched the accepted M04 ranking for every test wording.",
+    "Validation evidence was re-frozen after hardening artifact rehashing, transitive dependency and scorer freezes, and full span-attribution determinism; the selected configuration and retrieval behavior were unchanged, and all test processes were rerun.",
+    "The passed status records successful completion of the targeted infrastructure, attribution, determinism, rollback, and measurement checks; it is not a promotion or relevance-improvement claim."
+  ]
+}

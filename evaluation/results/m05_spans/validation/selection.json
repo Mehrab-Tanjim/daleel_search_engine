@@ -1,0 +1,1737 @@
+{
+  "profile": "pr2_frozen_v1",
+  "experiment": "M05",
+  "split": "validation",
+  "dataset": {
+    "profile": "pr2_frozen_v1",
+    "dataset_version": "3.0.0",
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "package_manifest_sha256": "65eacf24728ac0ad3415611881aaa2bb660a049add0c50979cb993b918e1802b",
+    "validator": {
+      "valid": true,
+      "train_groups": 1086,
+      "removed": 25,
+      "validation_test_byte_identical": true,
+      "train_source_overlaps": 0,
+      "retained_validation_test_answer_families": 4,
+      "test_blind": false
+    },
+    "split": "validation",
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "counts": {
+      "query_cases": 260,
+      "question_groups": 257,
+      "useful_answerable_cases": 221,
+      "direct_answerable_cases": 40
+    },
+    "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+    "success_definitions": {
+      "relevant_hit@5": "At least one settled grade-1, grade-2, or grade-3 ayah in the first five.",
+      "useful_hit@5": "At least one settled grade-2 or grade-3 ayah in the first five.",
+      "direct_slice_useful_hit@5": "Useful hit@5 among the 40 direct-answer wordings; not direct_hit@5.",
+      "ndcg@10": "Gain 2^grade-1 with logarithmic rank discount, normalized by ideal qrels."
+    },
+    "notes": [
+      "The public test is a regression suite, not a blind holdout.",
+      "Qrels remain group-level; all 260 original wordings are preserved.",
+      "Confidence intervals resample question groups rather than wordings."
+    ]
+  },
+  "frozen_at_utc": "2026-11-24T18:46:31.238119+00:00",
+  "test_accessed": false,
+  "selection_policy": "Only one- or two-sentence translation spans are promotion-eligible. Require higher validation useful hit@5 with no validation nDCG@10 decrease; exact ties retain the simpler one-sentence candidate, and no passing candidate retains the whole-document parent.",
+  "candidates": {
+    "parent_translation": {
+      "engine": "M05 offline multilingual E5-small float32 FAISS with optional sentence spans",
+      "leaderboard_label": "M05 whole",
+      "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+      "field": "translation",
+      "source_attribution": "per-result winning representation and source span",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        },
+        "partial": {
+          "queries": 181,
+          "groups": 179,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.087912,
+                0.183333
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.087912,
+                0.183333
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103346,
+              "ci95": [
+                0.069296,
+                0.139676
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.252227,
+              "ci95": [
+                0.194882,
+                0.310939
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 24,
+            "useful_hit@5": 24
+          }
+        },
+        "background": {
+          "queries": 39,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 1,
+            "useful_hit@5": 0
+          }
+        },
+        "long": {
+          "queries": 151,
+          "groups": 151,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.152318,
+              "ci95": [
+                0.099338,
+                0.211921
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.145695,
+              "ci95": [
+                0.092715,
+                0.205298
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.099048,
+              "ci95": [
+                0.064146,
+                0.139361
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 23,
+            "useful_hit@5": 22
+          }
+        },
+        "compound": {
+          "queries": 70,
+          "groups": 70,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.139159,
+              "ci95": [
+                0.076623,
+                0.211319
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 12,
+            "useful_hit@5": 12
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 31.665,
+        "p95": 79.536,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "coverage@50": {
+        "total_results": 13000,
+        "unjudged_results": 12878,
+        "settled_judged_results": 121,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 961048576,
+      "provenance": {
+        "engine": "M05 offline multilingual E5-small float32 FAISS with optional sentence spans",
+        "profile": "pr2_frozen_v1",
+        "experiment": "M05",
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+        "model_files": {
+          "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+          "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+          "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+          "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        },
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "display_field": "translation",
+        "source_attribution": "per-result winning representation and source span",
+        "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+        "corpus": {
+          "verses": 6236,
+          "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+        },
+        "retrieval": {
+          "mode": "similarity",
+          "fetch_k": 50,
+          "mmr_lambda": 1.0
+        },
+        "aggregation": "Fetch 50 per active representation; keep one maximum-scored result per ayah; ties prefer translation, AI, English tafsir, then extra translation, followed by numeric ayah ID.",
+        "index_bytes": 11260716,
+        "index_artifacts": {
+          "parent_translation": {
+            "index.faiss": {
+              "sha256": "689509fe3310db6994b532f4ae80948787edd0a44a95c70867f484ee07f22e87",
+              "bytes": 9578541
+            },
+            "index.pkl": {
+              "sha256": "7a7d3b726d54b449b477b4827ee090728b6bea505127cf5a2adc577c62eb1b46",
+              "bytes": 1682175
+            }
+          }
+        },
+        "active_index": "quran",
+        "peak_rss_bytes": 961048576,
+        "representation_manifest_sha256": "833d6bb2613ba3caa4f1dc38de829c977f7f6c8c4d546d79b92789002b0e4cc7",
+        "parent_commit": "525eb0a3dfafd9c6359d30a7e9c5e970efc80aaf",
+        "config": {
+          "semantic_ai": false,
+          "semantic_en_tafsir": false,
+          "extra_translation_id": "none",
+          "representation_scope": "translation",
+          "span_mode": "whole",
+          "span_sentences": 1
+        },
+        "result_k": 50,
+        "config_sha256": "ae653cfc38804f34ada6a7b52a2d7af9588196ff7ed4781b4ad6b1df901a3517"
+      },
+      "config": {
+        "semantic_ai": false,
+        "semantic_en_tafsir": false,
+        "extra_translation_id": "none",
+        "representation_scope": "translation",
+        "span_mode": "whole",
+        "span_sentences": 1
+      },
+      "config_sha256": "ae653cfc38804f34ada6a7b52a2d7af9588196ff7ed4781b4ad6b1df901a3517",
+      "name": "parent_translation"
+    },
+    "translation_sentences_1": {
+      "engine": "M05 offline multilingual E5-small float32 FAISS with optional sentence spans",
+      "leaderboard_label": "M05 sentences-1",
+      "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+      "field": "translation",
+      "source_attribution": "per-result winning representation and source span",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.142308,
+              "ci95": [
+                0.100386,
+                0.187739
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.182879
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.090952,
+              "ci95": [
+                0.063266,
+                0.121181
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 37,
+            "useful_hit@5": 36
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.162896,
+              "ci95": [
+                0.116592,
+                0.21267
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.162896,
+              "ci95": [
+                0.116592,
+                0.21267
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.102478,
+              "ci95": [
+                0.069445,
+                0.135474
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 36
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.3,
+              "ci95": [
+                0.166667,
+                0.439024
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.3,
+              "ci95": [
+                0.166667,
+                0.439024
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10956,
+              "ci95": [
+                0.051189,
+                0.183419
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 12,
+            "useful_hit@5": 12
+          }
+        },
+        "partial": {
+          "queries": 181,
+          "groups": 179,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.087912,
+                0.183333
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.087912,
+                0.183333
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.100912,
+              "ci95": [
+                0.067379,
+                0.13744
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 24,
+            "useful_hit@5": 24
+          }
+        },
+        "background": {
+          "queries": 39,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 1,
+            "useful_hit@5": 0
+          }
+        },
+        "long": {
+          "queries": 151,
+          "groups": 151,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.15894,
+              "ci95": [
+                0.099338,
+                0.218543
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.152318,
+              "ci95": [
+                0.099338,
+                0.218543
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09874,
+              "ci95": [
+                0.063736,
+                0.139077
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 24,
+            "useful_hit@5": 23
+          }
+        },
+        "compound": {
+          "queries": 70,
+          "groups": 70,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.138832,
+              "ci95": [
+                0.076508,
+                0.210992
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 12,
+            "useful_hit@5": 12
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 31.296,
+        "p95": 73.532,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2540,
+        "settled_judged_results": 59,
+        "disputed_results": 1
+      },
+      "coverage@50": {
+        "total_results": 11592,
+        "unjudged_results": 11482,
+        "settled_judged_results": 109,
+        "disputed_results": 1
+      },
+      "index_bytes": 30123726,
+      "peak_rss_bytes": 966430720,
+      "provenance": {
+        "engine": "M05 offline multilingual E5-small float32 FAISS with optional sentence spans",
+        "profile": "pr2_frozen_v1",
+        "experiment": "M05",
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+        "model_files": {
+          "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+          "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+          "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+          "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        },
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "display_field": "translation",
+        "source_attribution": "per-result winning representation and source span",
+        "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+        "corpus": {
+          "verses": 6236,
+          "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+        },
+        "retrieval": {
+          "mode": "similarity",
+          "fetch_k": 50,
+          "mmr_lambda": 1.0
+        },
+        "aggregation": "Fetch 50 per active representation; keep one maximum-scored result per ayah; ties prefer translation, AI, English tafsir, then extra translation, followed by numeric ayah ID.",
+        "index_bytes": 30123726,
+        "index_artifacts": {
+          "translation_sentences_1": {
+            "index.faiss": {
+              "sha256": "0bd76a589455544f89fa4d3682616167f351ca75638f3479941786c800af1448",
+              "bytes": 24298029
+            },
+            "index.pkl": {
+              "sha256": "901fa53fc1446d6d27b9f79a4e07f9770bdacf07f70953c062e339c5ac39dfb3",
+              "bytes": 5825697
+            }
+          }
+        },
+        "active_index": "quran-sentences-1",
+        "peak_rss_bytes": 966430720,
+        "representation_manifest_sha256": "833d6bb2613ba3caa4f1dc38de829c977f7f6c8c4d546d79b92789002b0e4cc7",
+        "parent_commit": "525eb0a3dfafd9c6359d30a7e9c5e970efc80aaf",
+        "config": {
+          "semantic_ai": false,
+          "semantic_en_tafsir": false,
+          "extra_translation_id": "none",
+          "representation_scope": "translation",
+          "span_mode": "sentences",
+          "span_sentences": 1
+        },
+        "result_k": 50,
+        "config_sha256": "4f30690e16d45001aa3a5fbff44492664ac45a852e6af549a42222f879f7ab82"
+      },
+      "config": {
+        "semantic_ai": false,
+        "semantic_en_tafsir": false,
+        "extra_translation_id": "none",
+        "representation_scope": "translation",
+        "span_mode": "sentences",
+        "span_sentences": 1
+      },
+      "config_sha256": "4f30690e16d45001aa3a5fbff44492664ac45a852e6af549a42222f879f7ab82",
+      "name": "translation_sentences_1"
+    },
+    "translation_sentences_2": {
+      "engine": "M05 offline multilingual E5-small float32 FAISS with optional sentence spans",
+      "leaderboard_label": "M05 sentences-2",
+      "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+      "field": "translation",
+      "source_attribution": "per-result winning representation and source span",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.142308,
+              "ci95": [
+                0.100386,
+                0.186047
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.182171
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.095753,
+              "ci95": [
+                0.068448,
+                0.126643
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 37,
+            "useful_hit@5": 36
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.162896,
+              "ci95": [
+                0.114155,
+                0.213636
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.162896,
+              "ci95": [
+                0.114155,
+                0.213636
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.108125,
+              "ci95": [
+                0.075276,
+                0.141346
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 36
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.25,
+              "ci95": [
+                0.121951,
+                0.384615
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.25,
+              "ci95": [
+                0.121951,
+                0.384615
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.115696,
+              "ci95": [
+                0.049736,
+                0.195551
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 10,
+            "useful_hit@5": 10
+          }
+        },
+        "partial": {
+          "queries": 181,
+          "groups": 179,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.143646,
+              "ci95": [
+                0.094972,
+                0.195531
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.143646,
+              "ci95": [
+                0.094972,
+                0.195531
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.106452,
+              "ci95": [
+                0.072037,
+                0.143374
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 26,
+            "useful_hit@5": 26
+          }
+        },
+        "background": {
+          "queries": 39,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 1,
+            "useful_hit@5": 0
+          }
+        },
+        "long": {
+          "queries": 151,
+          "groups": 151,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.152318,
+              "ci95": [
+                0.099338,
+                0.218543
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.145695,
+              "ci95": [
+                0.092715,
+                0.205298
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10465,
+              "ci95": [
+                0.068626,
+                0.146146
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 23,
+            "useful_hit@5": 22
+          }
+        },
+        "compound": {
+          "queries": 70,
+          "groups": 70,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.138281,
+              "ci95": [
+                0.075925,
+                0.211148
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 12,
+            "useful_hit@5": 12
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 31.533,
+        "p95": 70.698,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2539,
+        "settled_judged_results": 60,
+        "disputed_results": 1
+      },
+      "coverage@50": {
+        "total_results": 8145,
+        "unjudged_results": 8048,
+        "settled_judged_results": 96,
+        "disputed_results": 1
+      },
+      "index_bytes": 25596404,
+      "peak_rss_bytes": 967364608,
+      "provenance": {
+        "engine": "M05 offline multilingual E5-small float32 FAISS with optional sentence spans",
+        "profile": "pr2_frozen_v1",
+        "experiment": "M05",
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+        "model_files": {
+          "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+          "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+          "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+          "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        },
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "display_field": "translation",
+        "source_attribution": "per-result winning representation and source span",
+        "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+        "corpus": {
+          "verses": 6236,
+          "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+        },
+        "retrieval": {
+          "mode": "similarity",
+          "fetch_k": 50,
+          "mmr_lambda": 1.0
+        },
+        "aggregation": "Fetch 50 per active representation; keep one maximum-scored result per ayah; ties prefer translation, AI, English tafsir, then extra translation, followed by numeric ayah ID.",
+        "index_bytes": 25596404,
+        "index_artifacts": {
+          "translation_sentences_2": {
+            "index.faiss": {
+              "sha256": "1664b2fe8cb3ddb017a4dfb16e0a17d563c9ad420752ff0e19205fa4054deb7a",
+              "bytes": 20427309
+            },
+            "index.pkl": {
+              "sha256": "938c90438ab3fa409c5f22ebce6e22b3ed9d40bd2840e035e3850525afb25e11",
+              "bytes": 5169095
+            }
+          }
+        },
+        "active_index": "quran-sentences-2",
+        "peak_rss_bytes": 967364608,
+        "representation_manifest_sha256": "833d6bb2613ba3caa4f1dc38de829c977f7f6c8c4d546d79b92789002b0e4cc7",
+        "parent_commit": "525eb0a3dfafd9c6359d30a7e9c5e970efc80aaf",
+        "config": {
+          "semantic_ai": false,
+          "semantic_en_tafsir": false,
+          "extra_translation_id": "none",
+          "representation_scope": "translation",
+          "span_mode": "sentences",
+          "span_sentences": 2
+        },
+        "result_k": 50,
+        "config_sha256": "3db07bd66b00fd82963c7b1cdab223a63a7cbcc85fa27cf07ba7c4d050a05344"
+      },
+      "config": {
+        "semantic_ai": false,
+        "semantic_en_tafsir": false,
+        "extra_translation_id": "none",
+        "representation_scope": "translation",
+        "span_mode": "sentences",
+        "span_sentences": 2
+      },
+      "config_sha256": "3db07bd66b00fd82963c7b1cdab223a63a7cbcc85fa27cf07ba7c4d050a05344",
+      "name": "translation_sentences_2"
+    }
+  },
+  "candidate_validation_gates": {
+    "translation_sentences_1": false,
+    "translation_sentences_2": true
+  },
+  "marginal_effects": {
+    "parent_translation": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 0,
+        "losses": 0,
+        "ties": 260,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 0,
+        "losses": 0,
+        "ties": 221,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 0,
+        "losses": 0,
+        "ties": 260,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      }
+    },
+    "translation_sentences_1": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 1,
+        "losses": 0,
+        "ties": 259,
+        "delta_mean": 0.003846,
+        "delta_ci95": [
+          0.0,
+          0.011628
+        ],
+        "gained_cases": [
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          }
+        ],
+        "lost_cases": []
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 1,
+        "losses": 0,
+        "ties": 220,
+        "delta_mean": 0.004525,
+        "delta_ci95": [
+          0.0,
+          0.013699
+        ],
+        "gained_cases": [
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          }
+        ],
+        "lost_cases": []
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 3,
+        "losses": 6,
+        "ties": 251,
+        "delta_mean": -0.000688,
+        "delta_ci95": [
+          -0.003172,
+          0.001515
+        ],
+        "gained_cases": [
+          {
+            "id": "350af697680169f8:q0",
+            "group_id": "350af697680169f8",
+            "query": "Revelation of the Quran: All at Once or Gradually?"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "9e205600f1ff9be8:q0",
+            "group_id": "9e205600f1ff9be8",
+            "query": "Shar‘i evidence that the one who is ignorant is excused with regard to issues of shirk and kufr"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "0899e7b8458779ac:q0",
+            "group_id": "0899e7b8458779ac",
+            "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+          },
+          {
+            "id": "3c7ffcc84b08c53f:q0",
+            "group_id": "3c7ffcc84b08c53f",
+            "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+          },
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "9bc59643bd877a9a:q0",
+            "group_id": "9bc59643bd877a9a",
+            "query": "Is every practitioner of magic or witchcraft a kaafir?"
+          },
+          {
+            "id": "a810e50c3b7ceef7:q0",
+            "group_id": "a810e50c3b7ceef7",
+            "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+          }
+        ]
+      }
+    },
+    "translation_sentences_2": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 4,
+        "losses": 3,
+        "ties": 253,
+        "delta_mean": 0.003846,
+        "delta_ci95": [
+          -0.015385,
+          0.023166
+        ],
+        "gained_cases": [
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "9e205600f1ff9be8:q0",
+            "group_id": "9e205600f1ff9be8",
+            "query": "Shar‘i evidence that the one who is ignorant is excused with regard to issues of shirk and kufr"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          }
+        ]
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 4,
+        "losses": 3,
+        "ties": 214,
+        "delta_mean": 0.004525,
+        "delta_ci95": [
+          -0.0181,
+          0.027149
+        ],
+        "gained_cases": [
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "9e205600f1ff9be8:q0",
+            "group_id": "9e205600f1ff9be8",
+            "query": "Shar‘i evidence that the one who is ignorant is excused with regard to issues of shirk and kufr"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          }
+        ]
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 5,
+        "losses": 15,
+        "ties": 240,
+        "delta_mean": 0.004113,
+        "delta_ci95": [
+          -0.002366,
+          0.012075
+        ],
+        "gained_cases": [
+          {
+            "id": "3d8c66b3e1f5de4b:q0",
+            "group_id": "3d8c66b3e1f5de4b",
+            "query": "Trying to avoid being appointed as a judge"
+          },
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "72a9614a29dc28e6:q0",
+            "group_id": "72a9614a29dc28e6",
+            "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+          },
+          {
+            "id": "9e205600f1ff9be8:q0",
+            "group_id": "9e205600f1ff9be8",
+            "query": "Shar‘i evidence that the one who is ignorant is excused with regard to issues of shirk and kufr"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "0899e7b8458779ac:q0",
+            "group_id": "0899e7b8458779ac",
+            "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+          },
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "350af697680169f8:q0",
+            "group_id": "350af697680169f8",
+            "query": "Revelation of the Quran: All at Once or Gradually?"
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "57557c8c8604b59e:q0",
+            "group_id": "57557c8c8604b59e",
+            "query": "Family problems because a Muslim woman wants to marry a Christian man"
+          },
+          {
+            "id": "748c9b8d8efdf88e:q0",
+            "group_id": "748c9b8d8efdf88e",
+            "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q0",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "89e39cf9aeb5af4b:q0",
+            "group_id": "89e39cf9aeb5af4b",
+            "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "de59443b9815cc31:q0",
+            "group_id": "de59443b9815cc31",
+            "query": "Ruling on a believer who commits some sins"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          },
+          {
+            "id": "fa5e7cfe784b2fd9:q0",
+            "group_id": "fa5e7cfe784b2fd9",
+            "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+          }
+        ]
+      }
+    }
+  },
+  "selected_name": "translation_sentences_2",
+  "selected_config": {
+    "semantic_ai": false,
+    "semantic_en_tafsir": false,
+    "extra_translation_id": "none",
+    "representation_scope": "translation",
+    "span_mode": "sentences",
+    "span_sentences": 2
+  },
+  "selected_config_sha256": "3db07bd66b00fd82963c7b1cdab223a63a7cbcc85fa27cf07ba7c4d050a05344",
+  "selected_changed": true,
+  "validation_gate_passed": true,
+  "determinism_check": {
+    "queries": 260,
+    "exact_queries": 260,
+    "passed": true,
+    "selected_runs_sha256": "7f423fb95d2893891a63a66255e0cf41490518ed3237dfbbecf02a0009edcb17",
+    "repeat_runs_sha256": "7f423fb95d2893891a63a66255e0cf41490518ed3237dfbbecf02a0009edcb17"
+  },
+  "representation_manifest": {
+    "experiment": "M05",
+    "representation": "sentence_spans",
+    "display_field": "translation",
+    "segmenter": "deterministic-sentence-spans-v1",
+    "segmenter_sha256": "9d72295fcc51ed04e28f8f0e409847a0941ec424aebb3b22bee6d4577c9fc597",
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "source": {
+      "field": "translation",
+      "source": "saheeh_international",
+      "policy": "Segment the original accepted corpus text; do not use destructive preprocess_text output."
+    },
+    "counts": {
+      "parents": 6236,
+      "whole_documents": 6236,
+      "sentences_1_rows": 15819,
+      "sentences_2_rows": 13299
+    },
+    "outputs": {
+      "whole": {
+        "file": "runtime/translation_whole_docs.jsonl",
+        "sha256": "88ff950ae7194965503d61ffe51c7b418f11f9aff1deca45b91fef9794137bd2",
+        "bytes": 3291981,
+        "rows": 6236,
+        "audit": {
+          "passed": true,
+          "parents": 6236,
+          "exact_source_substrings": true,
+          "stable_unique_ids": true,
+          "no_empty_spans": true
+        }
+      },
+      "sentences_1": {
+        "file": "runtime/translation_sentence_spans_1.jsonl",
+        "sha256": "1f79401113991fc3cb5260c2f3dd05905f8496218375e2a5f2a47642bcbe5d8e",
+        "bytes": 7861221,
+        "rows": 15819,
+        "audit": {
+          "passed": true,
+          "rows": 15819,
+          "parents": 6236,
+          "whole_documents": 6236,
+          "sentence_spans": 9583,
+          "max_span_tokens": 186,
+          "exact_source_substrings": true,
+          "stable_unique_ids": true,
+          "no_empty_spans": true,
+          "whole_document_retained": true,
+          "aggregation": "One maximum-scored result per parent ayah; spans do not add votes."
+        },
+        "tokens": {
+          "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+          "max_span_tokens": 512,
+          "span_documents": 9583,
+          "span_min_tokens": 5,
+          "span_median_tokens": 24,
+          "span_p95_tokens": 54,
+          "span_max_tokens": 186,
+          "spans_over_budget": 0,
+          "whole_documents": 6236,
+          "whole_over_budget": 0,
+          "whole_max_tokens": 335,
+          "long_document_threshold_tokens": 128,
+          "long_document_ayahs": [
+            "2:61",
+            "2:85",
+            "2:102",
+            "2:177",
+            "2:187",
+            "2:196",
+            "2:213",
+            "2:217",
+            "2:229",
+            "2:233",
+            "2:246",
+            "2:249",
+            "2:253",
+            "2:255",
+            "2:259",
+            "2:282",
+            "2:286",
+            "3:7",
+            "3:49",
+            "3:154",
+            "4:6",
+            "4:11",
+            "4:12",
+            "4:23",
+            "4:24",
+            "4:25",
+            "4:34",
+            "4:77",
+            "4:92",
+            "4:102",
+            "4:171",
+            "4:176",
+            "5:2",
+            "5:3",
+            "5:5",
+            "5:6",
+            "5:41",
+            "5:48",
+            "5:64",
+            "5:89",
+            "5:95",
+            "5:106",
+            "5:110",
+            "6:93",
+            "7:150",
+            "9:74",
+            "9:120",
+            "13:31",
+            "22:5",
+            "24:31",
+            "24:33",
+            "24:58",
+            "24:61",
+            "33:37",
+            "33:50",
+            "33:53",
+            "46:15",
+            "47:4",
+            "48:25",
+            "48:29",
+            "58:22",
+            "60:1",
+            "60:4",
+            "60:10",
+            "65:1",
+            "73:20",
+            "74:31"
+          ],
+          "long_documents": 67
+        }
+      },
+      "sentences_2": {
+        "file": "runtime/translation_sentence_spans_2.jsonl",
+        "sha256": "b5b4b880094b9218b8aa3f26aac253040d06872e0a86de464f10874fe394051d",
+        "bytes": 6885933,
+        "rows": 13299,
+        "audit": {
+          "passed": true,
+          "rows": 13299,
+          "parents": 6236,
+          "whole_documents": 6236,
+          "sentence_spans": 7063,
+          "max_span_tokens": 186,
+          "exact_source_substrings": true,
+          "stable_unique_ids": true,
+          "no_empty_spans": true,
+          "whole_document_retained": true,
+          "aggregation": "One maximum-scored result per parent ayah; spans do not add votes."
+        },
+        "tokens": {
+          "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+          "max_span_tokens": 512,
+          "span_documents": 7063,
+          "span_min_tokens": 7,
+          "span_median_tokens": 32,
+          "span_p95_tokens": 72,
+          "span_max_tokens": 186,
+          "spans_over_budget": 0,
+          "whole_documents": 6236,
+          "whole_over_budget": 0,
+          "whole_max_tokens": 335,
+          "long_document_threshold_tokens": 128,
+          "long_document_ayahs": [
+            "2:61",
+            "2:85",
+            "2:102",
+            "2:177",
+            "2:187",
+            "2:196",
+            "2:213",
+            "2:217",
+            "2:229",
+            "2:233",
+            "2:246",
+            "2:249",
+            "2:253",
+            "2:255",
+            "2:259",
+            "2:282",
+            "2:286",
+            "3:7",
+            "3:49",
+            "3:154",
+            "4:6",
+            "4:11",
+            "4:12",
+            "4:23",
+            "4:24",
+            "4:25",
+            "4:34",
+            "4:77",
+            "4:92",
+            "4:102",
+            "4:171",
+            "4:176",
+            "5:2",
+            "5:3",
+            "5:5",
+            "5:6",
+            "5:41",
+            "5:48",
+            "5:64",
+            "5:89",
+            "5:95",
+            "5:106",
+            "5:110",
+            "6:93",
+            "7:150",
+            "9:74",
+            "9:120",
+            "13:31",
+            "22:5",
+            "24:31",
+            "24:33",
+            "24:58",
+            "24:61",
+            "33:37",
+            "33:50",
+            "33:53",
+            "46:15",
+            "47:4",
+            "48:25",
+            "48:29",
+            "58:22",
+            "60:1",
+            "60:4",
+            "60:10",
+            "65:1",
+            "73:20",
+            "74:31"
+          ],
+          "long_documents": 67
+        }
+      }
+    },
+    "selection_sources": {
+      "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+      "test_sources_used": false,
+      "policy": "Representation export is corpus-only; configuration selection uses validation only."
+    }
+  },
+  "representation_manifest_sha256": "833d6bb2613ba3caa4f1dc38de829c977f7f6c8c4d546d79b92789002b0e4cc7",
+  "index_artifacts": {
+    "parent_translation": {
+      "index.faiss": {
+        "sha256": "689509fe3310db6994b532f4ae80948787edd0a44a95c70867f484ee07f22e87",
+        "bytes": 9578541
+      },
+      "index.pkl": {
+        "sha256": "7a7d3b726d54b449b477b4827ee090728b6bea505127cf5a2adc577c62eb1b46",
+        "bytes": 1682175
+      }
+    },
+    "translation_sentences_1": {
+      "index.faiss": {
+        "sha256": "0bd76a589455544f89fa4d3682616167f351ca75638f3479941786c800af1448",
+        "bytes": 24298029
+      },
+      "index.pkl": {
+        "sha256": "901fa53fc1446d6d27b9f79a4e07f9770bdacf07f70953c062e339c5ac39dfb3",
+        "bytes": 5825697
+      }
+    },
+    "translation_sentences_2": {
+      "index.faiss": {
+        "sha256": "1664b2fe8cb3ddb017a4dfb16e0a17d563c9ad420752ff0e19205fa4054deb7a",
+        "bytes": 20427309
+      },
+      "index.pkl": {
+        "sha256": "938c90438ab3fa409c5f22ebce6e22b3ed9d40bd2840e035e3850525afb25e11",
+        "bytes": 5169095
+      }
+    }
+  },
+  "model": {
+    "name": "intfloat/multilingual-e5-small",
+    "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+    "files": {
+      "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+      "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    }
+  },
+  "prefixes": {
+    "query": "query: ",
+    "passage": "passage: "
+  },
+  "parent_commit": "525eb0a3dfafd9c6359d30a7e9c5e970efc80aaf",
+  "parent_report_sha256": "e968685d063dd8ba3cfae4862cb44af180fcaf1dd8062936a89a7ea605bfc13a",
+  "scorer_sha256": "e4319e8df17cd33f7c7a01f07cffd2a9f2ea190ee94506c5b70ba9f63e0c4ced",
+  "code_sha256": {
+    "sentence_spans.py": "9d72295fcc51ed04e28f8f0e409847a0941ec424aebb3b22bee6d4577c9fc597",
+    "utils.py": "bc54ef645d5ef0219f58b0c5fab82e5852f342e46b0a4a22313c8ca8ef8b9e7e",
+    "prepare_documents.py": "cb9c767094cc67fc2fc8b06ff7295ea32d731c3b24099d8be9caaa92f9cb92dc",
+    "build_vector_database.py": "cd71a8af9b3640ad4c29180365a2049b5b2787b85a62b39815df5eca8d98ccd2",
+    "app.py": "6c2277088a640a19a7b62f8dc250a99f646cf8677f9118586e942696a9aa269c",
+    "dev_app.py": "9518eb5694bbfa92f0ea237520a4d11ac16c85b45fc4a1bbbb5e38bedfcbf2ba",
+    "run_benchmark.py": "afc3b81d0cc239a3609d82acc4838c746d39068ecc25210327d502e88ddc18e6",
+    "evaluation/islamqa_frozen.py": "427684d4f6b8b0192a864c39f2e01f2e9e799daa2007b380830ea3976dd36950",
+    "evaluation/m03_tafsir.py": "be8f417c68f16db88bd5fd8a6f1bee2db4e83a67bb864f1ca48f5f6d18deef5d",
+    "evaluation/m04_translation.py": "4e5c88ff3d0752baa1f28d57b244b4168b1b19088b6712a0e178a9f9d502ea65",
+    "evaluation/representations.py": "f46b3ade355303388c65738cbf145d2ddb7ce35f2ca09df88e62e9dbc36a45b5",
+    "evaluation/m05_spans.py": "4241625e2734cc11e74cd8a09432365aa4aabc16b91cff5fbb42570810acc0fa",
+    "evaluation/test_sentence_spans.py": "b2504808e08bc1e9d204b4f1f352f8e2b1dfd3b9615650d2dd721596e12443a3",
+    "evaluation/test_m05_spans.py": "e33da151f518b6937a9769bf0f0532a3ca30a1722a71dae4de10e441fdfa0ce7"
+  },
+  "validation_ranking_artifacts": {
+    "parent_translation": {
+      "file": "validation_runs\\parent_translation.json",
+      "sha256": "cc1e205e24b7ddd0eb449d385fd00106ce390f0c107194de66176928dadde824"
+    },
+    "translation_sentences_1": {
+      "file": "validation_runs\\translation_sentences_1.json",
+      "sha256": "9f4f3c5c09ba0934d6cb3a8ffafaae06502c6a439593fce67442e0870cc9821a"
+    },
+    "translation_sentences_2": {
+      "file": "validation_runs\\translation_sentences_2.json",
+      "sha256": "055681dc42383af9456ec863b7b8e933d33d6b10d39caed563a1868a4bbee8b4"
+    }
+  }
+}

@@ -579,6 +579,8 @@ def markdown_leaderboard(summary: dict[str, Any]) -> str:
         columns.append(("m03", summary["runs"]["m03"].get("leaderboard_label", "M03 candidate")))
     if "m04" in summary["runs"]:
         columns.append(("m04", summary["runs"]["m04"].get("leaderboard_label", "M04 candidate")))
+    if "m05" in summary["runs"]:
+        columns.append(("m05", summary["runs"]["m05"].get("leaderboard_label", "M05 candidate")))
     rows = (
         ("Relevant hit@5, all queries", "positive_hit@5", 345, "all"),
         ("Useful hit@5, answerable queries", "useful_hit@5", 294, "useful"),
@@ -1936,6 +1938,11 @@ def main() -> None:
     else:
         import m04_translation
     m04_translation.add_parsers(subparsers)
+    if __package__:
+        from . import m05_spans
+    else:
+        import m05_spans
+    m05_spans.add_parsers(subparsers)
 
     args = parser.parse_args()
     if hasattr(args, "bootstrap") and args.bootstrap < 0:

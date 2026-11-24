@@ -7,6 +7,7 @@ from numpy import dot
 from numpy.linalg import norm
 from typing import List
 import json
+from sentence_spans import canonical_span_config
 class LLMResponseIndex:
     def __init__(self, llm_output_path, name):
         with open(llm_output_path, 'r', encoding='utf-8') as f:
@@ -75,12 +76,14 @@ def _ayah_reference(doc):
 
 def _deduplicate_by_ayah(results):
     deduped = []
-    seen = set()
+    positions = {}
     for result in results:
         reference = _ayah_reference(result[0])
-        if reference not in seen:
-            seen.add(reference)
+        if reference not in positions:
+            positions[reference] = len(deduped)
             deduped.append(result)
+        elif result[1] > deduped[positions[reference]][1]:
+            deduped[positions[reference]] = result
     return deduped
 
 
@@ -153,6 +156,9 @@ class VectorSearchDeployment:
         self.retrieval_mode = os.environ.get('RETRIEVAL_MODE', 'similarity')
         self.fetch_k = _positive_int(os.environ.get('FETCH_K', '50'), 'FETCH_K')
         self.mmr_lambda = float(os.environ.get('MMR_LAMBDA', '1.0'))
+        self.span_mode, self.span_sentences = canonical_span_config(
+            os.environ.get('SPAN_MODE', 'whole'), os.environ.get('SPAN_SENTENCES', '1')
+        )
         self.semantic_ai = _boolean(os.environ.get('SEMANTIC_AI', 'false'), 'SEMANTIC_AI')
         if self.semantic_ai and not ai_index_path:
             raise ValueError('SEMANTIC_AI=true requires ai_index_path')
@@ -207,9 +213,14 @@ class VectorSearchDeployment:
 
     def search(self, method, query, k=10, return_embeddings=False,
                 retrieval_mode=None, fetch_k=None, mmr_lambda=None,
-                semantic_ai=None, representation_scope=None, semantic_en_tafsir=None, extra_translation_id=None):
+                semantic_ai=None, representation_scope=None, semantic_en_tafsir=None, extra_translation_id=None,
+                span_mode=None, span_sentences=None):
         if method not in ('best_match', 'best_match_dedup', 'mmr'):
             raise ValueError(f"Unknown search method: {method}")
+        active_span_mode, active_span_sentences = canonical_span_config(
+            getattr(self, 'span_mode', 'whole') if span_mode is None else span_mode,
+            getattr(self, 'span_sentences', 1) if span_sentences is None else span_sentences,
+        )
         if method == 'best_match_dedup':
             if retrieval_mode is not None:
                 raise ValueError('best_match_dedup does not accept retrieval_mode')
@@ -287,6 +298,15 @@ class VectorSearchDeployment:
                         query_embedding, k=candidate_depth
                     )
                 results = _fuse_by_ayah(candidates_by_field, k)[:k]
+
+        if active_span_mode == 'whole' and any(doc.metadata.get('span_kind') == 'sentence' for doc, _ in results):
+            raise ValueError('SPAN_MODE=whole cannot return sentence spans')
+        if any(
+            doc.metadata.get('span_kind') == 'sentence'
+            and doc.metadata.get('span_sentences') not in (None, active_span_sentences)
+            for doc, _ in results
+        ):
+            raise ValueError('Retrieved sentence span size does not match SPAN_SENTENCES')
         
         if return_embeddings:
             # Get embeddings for the results from the index
@@ -304,14 +324,14 @@ class VectorSearchDeployment:
     def display_document(self, doc):
         """Return the retained translation for display while preserving retrieval attribution on doc."""
         field = doc.metadata.get('field', 'translation')
-        if field not in ('ai', 'en_tafsir', 'extra_translation'):
+        if field not in ('ai', 'en_tafsir', 'extra_translation') and doc.metadata.get('span_kind') != 'sentence':
             return doc
         reference = _ayah_reference(doc)
         if not hasattr(self, 'translation_docs_by_ayah'):
             self.translation_docs_by_ayah = {}
             for doc_id in self.db.index_to_docstore_id.values():
                 candidate = self.db.docstore.search(doc_id)
-                if candidate is not None:
+                if candidate is not None and candidate.metadata.get('field', 'translation') == 'translation' and candidate.metadata.get('span_kind') in (None, 'whole'):
                     self.translation_docs_by_ayah[_ayah_reference(candidate)] = candidate
         display = self.translation_docs_by_ayah.get(reference)
         if display is None or display.metadata.get('field', 'translation') != 'translation':
