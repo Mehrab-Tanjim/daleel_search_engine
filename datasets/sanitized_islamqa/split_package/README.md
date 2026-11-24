@@ -24,7 +24,7 @@ split_package/
   README.md
 ```
 
-Each line in `questions.jsonl` contains a group, its question versions, full verse text, judges' reasons, source references and potential negatives. Each question appears once in the group's `queries` list. Each verse has a `judge_rationales` list; `query_index` identifies which question in `queries` was reviewed, starting at 0. These files preserve all original judgments, **including the 39 disagreements**.
+Each line in `questions.jsonl` contains a group, its question versions, full verse text, judges' reasons and potential negatives. Each question appears once in the group's `queries` list. Each verse has a `judge_rationales` list containing the review reasons. Source references, the question associated with each review, and the original grades are available in [the grouped audit data](../grouped_queries.jsonl), using the group ID and ayah. The split records flag the 39 disagreements.
 
 For example, a record has this shape (the verse text is shortened here):
 
@@ -37,19 +37,16 @@ For example, a record has this shape (the verse text is shortened here):
       "text": "Whoever does righteousness ... will enter Paradise ...",
       "grade": 3,
       "judge_rationales": [{
-        "query_index": 0,
-        "label": "direct",
-        "reason": "Believing men and women who act righteously are explicitly promised Paradise.",
-        "source_id": "train:182:0",
-        "source_reference": "Surah Al-Mumin 40:40",
-        "reviewed_passage": ["40:40"]
+        "reason": "Believing men and women who act righteously are explicitly promised Paradise."
       }]
     }]
   }
 }
 ```
 
-The full record includes all tiers, other matching verses and every review. A verse can have multiple rationales when it was cited or reviewed more than once. Each rationale retains its source ID and the original reviewed passage, including verse ranges.
+The full record includes all tiers, other matching verses and every review reason. A verse can have multiple rationales when it was cited or reviewed more than once. The grouped audit data retains the source ID, original reviewed passage and associated query for each reason.
+
+`training_eligible` is true when a group has at least one direct, partial or background verse. It is a simple presence check, not a quality certification or an instruction to train on validation or test questions. It does not exclude conflicting grades or verify random negatives.
 
 Each line in `grades.jsonl` contains a `group_id`, `ayah` and numeric `grade`. This is the scoring file. The 39 disputed question–ayah grades are excluded from it. The complete questions file still shows the original conflicting grades and `has_conflicting_grades` flag, so **do not use those disputed grades as settled labels for training**.
 
