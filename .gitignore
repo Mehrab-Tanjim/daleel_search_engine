@@ -4,5 +4,6 @@ fine_tuned_models/
 __pycache__/
 *.pyc
 *.pyo
-evaluation/results/*/runtime/
-evaluation/results/*/*_rankings.json
+evaluation/results/**/runtime/
+evaluation/results/**/validation_runs/
+evaluation/results/**/*_rankings.json

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "unit_test_command": "python -m unittest discover -s evaluation -p test*.py",
+  "unit_tests_passed": 34,
+  "retrieval_configuration_tests_passed": 10,
+  "validation_determinism": {
+    "queries": 260,
+    "exact_repeated_rankings": 260
+  },
+  "test_contract_checks": {
+    "queries": 345,
+    "unique_ayah_ids": 345,
+    "candidate_depth_bound": 345,
+    "candidate_exact_m00_rankings": 345,
+    "rollback_exact_m00_rankings": 345,
+    "candidate_exact_rollback_rankings": 345
+  },
+  "notes": [
+    "Equal-score ordering is covered by a focused unit test and the complete selected validation ranking was repeated exactly.",
+    "The current-code similarity rollback was run separately on all 345 test wordings and matched the committed M00 dense ranking for every query."
+  ]
+}

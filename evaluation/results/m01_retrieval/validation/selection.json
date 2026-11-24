@@ -1,0 +1,1764 @@
+{
+  "profile": "pr2_frozen_v1",
+  "experiment": "M01",
+  "split": "validation",
+  "dataset": {
+    "profile": "pr2_frozen_v1",
+    "dataset_version": "3.0.0",
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "package_manifest_sha256": "65eacf24728ac0ad3415611881aaa2bb660a049add0c50979cb993b918e1802b",
+    "validator": {
+      "valid": true,
+      "train_groups": 1086,
+      "removed": 25,
+      "validation_test_byte_identical": true,
+      "train_source_overlaps": 0,
+      "retained_validation_test_answer_families": 4,
+      "test_blind": false
+    },
+    "split": "validation",
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "counts": {
+      "query_cases": 260,
+      "question_groups": 257,
+      "useful_answerable_cases": 221,
+      "direct_answerable_cases": 40
+    },
+    "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+    "success_definitions": {
+      "relevant_hit@5": "At least one settled grade-1, grade-2, or grade-3 ayah in the first five.",
+      "useful_hit@5": "At least one settled grade-2 or grade-3 ayah in the first five.",
+      "direct_slice_useful_hit@5": "Useful hit@5 among the 40 direct-answer wordings; not direct_hit@5.",
+      "ndcg@10": "Gain 2^grade-1 with logarithmic rank discount, normalized by ideal qrels."
+    },
+    "notes": [
+      "The public test is a regression suite, not a blind holdout.",
+      "Qrels remain group-level; all 260 original wordings are preserved.",
+      "Confidence intervals resample question groups rather than wordings."
+    ]
+  },
+  "frozen_at_utc": "2026-11-24T08:27:10.222828+00:00",
+  "test_accessed": false,
+  "selection_policy": "Higher validation useful hit@5 with no validation nDCG@10 decrease; keep the simpler parent when no candidate passes. Depth follow-ups vary only FETCH_K at the selected lambda.",
+  "stages": [
+    {
+      "name": "parent_and_one_knob_ablations",
+      "candidates": [
+        "similarity_fetch50_parent",
+        "similarity_fetch20",
+        "similarity_fetch100",
+        "mmr_fetch50_lambda1",
+        "mmr_fetch50_lambda085",
+        "mmr_fetch50_lambda07"
+      ],
+      "selected": "similarity_fetch50_parent"
+    }
+  ],
+  "candidates": {
+    "similarity_fetch20": {
+      "name": "similarity_fetch20",
+      "config": {
+        "retrieval_mode": "similarity",
+        "fetch_k": 20,
+        "mmr_lambda": 1.0
+      },
+      "config_sha256": "fbc410dbab3268ac5c88d2706136f65deff00f93e33ea03ea5dcb5d9d7958ad4",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 28.03,
+        "p95": 65.003,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1420169216
+    },
+    "similarity_fetch50_parent": {
+      "name": "similarity_fetch50_parent",
+      "config": {
+        "retrieval_mode": "similarity",
+        "fetch_k": 50,
+        "mmr_lambda": 1.0
+      },
+      "config_sha256": "0cdc1b580700fb5f956d50cc1d4be24e0df92dbf4468c3c9bc6fbe3aa0b288ef",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 27.911,
+        "p95": 63.138,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1423998976
+    },
+    "similarity_fetch100": {
+      "name": "similarity_fetch100",
+      "config": {
+        "retrieval_mode": "similarity",
+        "fetch_k": 100,
+        "mmr_lambda": 1.0
+      },
+      "config_sha256": "070d62c39e14e00f333268e271154f5727946fc678d6884f3a600326c2baf3dd",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 28.891,
+        "p95": 67.601,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1425362944
+    },
+    "mmr_fetch50_lambda1": {
+      "name": "mmr_fetch50_lambda1",
+      "config": {
+        "retrieval_mode": "mmr",
+        "fetch_k": 50,
+        "mmr_lambda": 1.0
+      },
+      "config_sha256": "c46efafdd8d643ebbe75ac15e1c6b68024aff5ae5170b3b49a43d96a12ed291c",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 85.533,
+        "p95": 130.57,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1426280448
+    },
+    "mmr_fetch50_lambda085": {
+      "name": "mmr_fetch50_lambda085",
+      "config": {
+        "retrieval_mode": "mmr",
+        "fetch_k": 50,
+        "mmr_lambda": 0.85
+      },
+      "config_sha256": "4812c44e0dc7f05d7ed6315e100538e135f1909b260fc64f142abe91bf51fa27",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.15,
+              "ci95": [
+                0.10687,
+                0.195402
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.146154,
+              "ci95": [
+                0.103846,
+                0.19084
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.088109,
+              "ci95": [
+                0.061298,
+                0.118381
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 39,
+            "useful_hit@5": 38
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.171946,
+              "ci95": [
+                0.122172,
+                0.220721
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.171946,
+              "ci95": [
+                0.122172,
+                0.220721
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.099133,
+              "ci95": [
+                0.066899,
+                0.131554
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 38,
+            "useful_hit@5": 38
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.25,
+              "ci95": [
+                0.125,
+                0.384615
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.25,
+              "ci95": [
+                0.125,
+                0.384615
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.096199,
+              "ci95": [
+                0.04289,
+                0.16375
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 10,
+            "useful_hit@5": 10
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 85.534,
+        "p95": 121.937,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2543,
+        "settled_judged_results": 56,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1426280448
+    },
+    "mmr_fetch50_lambda07": {
+      "name": "mmr_fetch50_lambda07",
+      "config": {
+        "retrieval_mode": "mmr",
+        "fetch_k": 50,
+        "mmr_lambda": 0.7
+      },
+      "config_sha256": "1ff38374088d7c3c0ebc77ffe84f9ecf833ba3efcd5366e0d89bcfe0157cab9f",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.123077,
+              "ci95": [
+                0.084291,
+                0.164751
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.119231,
+              "ci95": [
+                0.08046,
+                0.160305
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.079548,
+              "ci95": [
+                0.052533,
+                0.110264
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 32,
+            "useful_hit@5": 31
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.140271,
+              "ci95": [
+                0.094595,
+                0.186364
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.140271,
+              "ci95": [
+                0.094595,
+                0.186364
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.089061,
+              "ci95": [
+                0.057522,
+                0.120077
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 31,
+            "useful_hit@5": 31
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.175,
+              "ci95": [
+                0.073171,
+                0.3
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.175,
+              "ci95": [
+                0.073171,
+                0.3
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.072281,
+              "ci95": [
+                0.023994,
+                0.137611
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 7,
+            "useful_hit@5": 7
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 84.937,
+        "p95": 122.665,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2553,
+        "settled_judged_results": 46,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1426280448
+    }
+  },
+  "marginal_effects": {
+    "similarity_fetch20": {
+      "vs_parent": {
+        "positive_hit@5": {
+          "metric": "positive_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "useful_hit@5": {
+          "metric": "useful_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 221,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "ndcg@10": {
+          "metric": "ndcg@10",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        }
+      }
+    },
+    "similarity_fetch50_parent": {
+      "vs_parent": {
+        "positive_hit@5": {
+          "metric": "positive_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "useful_hit@5": {
+          "metric": "useful_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 221,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "ndcg@10": {
+          "metric": "ndcg@10",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        }
+      }
+    },
+    "similarity_fetch100": {
+      "vs_parent": {
+        "positive_hit@5": {
+          "metric": "positive_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "useful_hit@5": {
+          "metric": "useful_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 221,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "ndcg@10": {
+          "metric": "ndcg@10",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        }
+      }
+    },
+    "mmr_fetch50_lambda1": {
+      "vs_parent": {
+        "positive_hit@5": {
+          "metric": "positive_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "useful_hit@5": {
+          "metric": "useful_hit@5",
+          "wins": 0,
+          "losses": 0,
+          "ties": 221,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        },
+        "ndcg@10": {
+          "metric": "ndcg@10",
+          "wins": 0,
+          "losses": 0,
+          "ties": 260,
+          "delta_mean": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "gained_cases": [],
+          "lost_cases": []
+        }
+      }
+    },
+    "mmr_fetch50_lambda085": {
+      "vs_parent": {
+        "positive_hit@5": {
+          "metric": "positive_hit@5",
+          "wins": 7,
+          "losses": 4,
+          "ties": 249,
+          "delta_mean": 0.011538,
+          "delta_ci95": [
+            -0.011673,
+            0.038023
+          ],
+          "gained_cases": [
+            {
+              "id": "0899e7b8458779ac:q0",
+              "group_id": "0899e7b8458779ac",
+              "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+            },
+            {
+              "id": "260cf8141315d885:q0",
+              "group_id": "260cf8141315d885",
+              "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+            },
+            {
+              "id": "51e30958e76797a8:q0",
+              "group_id": "51e30958e76797a8",
+              "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q0",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+            },
+            {
+              "id": "89e39cf9aeb5af4b:q0",
+              "group_id": "89e39cf9aeb5af4b",
+              "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+            },
+            {
+              "id": "ad04f23a3003e994:q0",
+              "group_id": "ad04f23a3003e994",
+              "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+            },
+            {
+              "id": "fa5e7cfe784b2fd9:q0",
+              "group_id": "fa5e7cfe784b2fd9",
+              "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+            }
+          ],
+          "lost_cases": [
+            {
+              "id": "02333be63093d6d3:q0",
+              "group_id": "02333be63093d6d3",
+              "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+            },
+            {
+              "id": "39e2cb8c186e5dfe:q0",
+              "group_id": "39e2cb8c186e5dfe",
+              "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+            },
+            {
+              "id": "3c7ffcc84b08c53f:q0",
+              "group_id": "3c7ffcc84b08c53f",
+              "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+            },
+            {
+              "id": "52f527a1261423f9:q0",
+              "group_id": "52f527a1261423f9",
+              "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+            }
+          ]
+        },
+        "useful_hit@5": {
+          "metric": "useful_hit@5",
+          "wins": 7,
+          "losses": 4,
+          "ties": 210,
+          "delta_mean": 0.013575,
+          "delta_ci95": [
+            -0.013699,
+            0.041096
+          ],
+          "gained_cases": [
+            {
+              "id": "0899e7b8458779ac:q0",
+              "group_id": "0899e7b8458779ac",
+              "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+            },
+            {
+              "id": "260cf8141315d885:q0",
+              "group_id": "260cf8141315d885",
+              "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+            },
+            {
+              "id": "51e30958e76797a8:q0",
+              "group_id": "51e30958e76797a8",
+              "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q0",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+            },
+            {
+              "id": "89e39cf9aeb5af4b:q0",
+              "group_id": "89e39cf9aeb5af4b",
+              "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+            },
+            {
+              "id": "ad04f23a3003e994:q0",
+              "group_id": "ad04f23a3003e994",
+              "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+            },
+            {
+              "id": "fa5e7cfe784b2fd9:q0",
+              "group_id": "fa5e7cfe784b2fd9",
+              "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+            }
+          ],
+          "lost_cases": [
+            {
+              "id": "02333be63093d6d3:q0",
+              "group_id": "02333be63093d6d3",
+              "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+            },
+            {
+              "id": "39e2cb8c186e5dfe:q0",
+              "group_id": "39e2cb8c186e5dfe",
+              "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+            },
+            {
+              "id": "3c7ffcc84b08c53f:q0",
+              "group_id": "3c7ffcc84b08c53f",
+              "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+            },
+            {
+              "id": "52f527a1261423f9:q0",
+              "group_id": "52f527a1261423f9",
+              "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+            }
+          ]
+        },
+        "ndcg@10": {
+          "metric": "ndcg@10",
+          "wins": 13,
+          "losses": 19,
+          "ties": 228,
+          "delta_mean": -0.00353,
+          "delta_ci95": [
+            -0.008635,
+            0.001384
+          ],
+          "gained_cases": [
+            {
+              "id": "0899e7b8458779ac:q0",
+              "group_id": "0899e7b8458779ac",
+              "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+            },
+            {
+              "id": "17272452982daab4:q0",
+              "group_id": "17272452982daab4",
+              "query": "How can we reconcile between the aayahs/verses (interpretation of the meanings): “Verily, you (O Muhammad) guide not whom you like” [al-Qasas 28:56] and “And verily, you (O Muhammad) are indeed guiding (mankind) to the Straight Path” [al-Shooraa 42:52]?"
+            },
+            {
+              "id": "23f79a3af9189bb0:q0",
+              "group_id": "23f79a3af9189bb0",
+              "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+            },
+            {
+              "id": "260cf8141315d885:q0",
+              "group_id": "260cf8141315d885",
+              "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+            },
+            {
+              "id": "41ff10ffb601ae37:q0",
+              "group_id": "41ff10ffb601ae37",
+              "query": "She shows her adornments before her husband’s brothers"
+            },
+            {
+              "id": "51e30958e76797a8:q0",
+              "group_id": "51e30958e76797a8",
+              "query": "What is the Islamic ruling on a woman whose attitude towards wearing Islamic dress is too relaxed and who sits with her brother in law?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q0",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+            },
+            {
+              "id": "7ce86945dda78e82:q0",
+              "group_id": "7ce86945dda78e82",
+              "query": "Dear brother in faith. I start with the name of Allah. I would like to thank you for your prompt response for our previous question which was of a great help to our community (All thanks be to Allah). What is the Islamic point-of-view regarding those who attend Friday prayers in the Masjid and fail to attend any other of the daily prayers? Do you have to attend the prayers at the Masjid if time permits?"
+            },
+            {
+              "id": "89e39cf9aeb5af4b:q0",
+              "group_id": "89e39cf9aeb5af4b",
+              "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+            },
+            {
+              "id": "9bc59643bd877a9a:q0",
+              "group_id": "9bc59643bd877a9a",
+              "query": "Is every practitioner of magic or witchcraft a kaafir?"
+            },
+            {
+              "id": "ad04f23a3003e994:q0",
+              "group_id": "ad04f23a3003e994",
+              "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+            },
+            {
+              "id": "f326aeb1af02e9dc:q0",
+              "group_id": "f326aeb1af02e9dc",
+              "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+            },
+            {
+              "id": "fa5e7cfe784b2fd9:q0",
+              "group_id": "fa5e7cfe784b2fd9",
+              "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+            }
+          ],
+          "lost_cases": [
+            {
+              "id": "02333be63093d6d3:q0",
+              "group_id": "02333be63093d6d3",
+              "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+            },
+            {
+              "id": "0cbd12b72094f724:q0",
+              "group_id": "0cbd12b72094f724",
+              "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+            },
+            {
+              "id": "350af697680169f8:q0",
+              "group_id": "350af697680169f8",
+              "query": "Revelation of the Quran: All at Once or Gradually?"
+            },
+            {
+              "id": "37a9a5f66c3c7016:q0",
+              "group_id": "37a9a5f66c3c7016",
+              "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+            },
+            {
+              "id": "39e2cb8c186e5dfe:q0",
+              "group_id": "39e2cb8c186e5dfe",
+              "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+            },
+            {
+              "id": "3b9a198dd14e1f5a:q0",
+              "group_id": "3b9a198dd14e1f5a",
+              "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+            },
+            {
+              "id": "3c7ffcc84b08c53f:q0",
+              "group_id": "3c7ffcc84b08c53f",
+              "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+            },
+            {
+              "id": "52f527a1261423f9:q0",
+              "group_id": "52f527a1261423f9",
+              "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+            },
+            {
+              "id": "5f1989a38891b81d:q0",
+              "group_id": "5f1989a38891b81d",
+              "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+            },
+            {
+              "id": "61b68f51bad55711:q0",
+              "group_id": "61b68f51bad55711",
+              "query": "Does reciting al-Zalzalah at the time of childbirth make giving birth easier? Are there any du’aa’s or adhkaar that are prescribed when giving birth to make it easier? Will du’aa’s made at the time of childbirth be answered?"
+            },
+            {
+              "id": "748c9b8d8efdf88e:q0",
+              "group_id": "748c9b8d8efdf88e",
+              "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q1",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+            },
+            {
+              "id": "7a42e75c386d4b2e:q0",
+              "group_id": "7a42e75c386d4b2e",
+              "query": "Since the prophet said \"Begin fasting after sighting the moon\", how can muslims be fasting one on Tuesday in one part of the world and wednesday in another part. We should all begin our fast at the same time regardless of where we live. We are students in the U.S. and Canada, and we face the same problem every year at the beginning of Ramadaan, because the Muslims are split into three groups:A group that fasts when the new moon is sighted in the city in which they live. A group that fasts when fasting starts in Saudi Arabia. A group that fasts when they hear news from the Muslim students’ union in the U.S. and Canada which watches for the new moon in different parts of America, and as soon as the new moon is sighted in one city, they spread the news to different Islamic centres so that the Muslims in America can start fasting on the same day, despite the great distances between the different cities. Which group should we follow? Whose sighting of the moon should we rely on? Please give us a fatwa, may Allaah reward you."
+            },
+            {
+              "id": "a71aaa6de681d390:q0",
+              "group_id": "a71aaa6de681d390",
+              "query": "I need to know whether we as Muslims are allowed to eat the eyes of a fish. I was eating at a seafood restaurant with a friend and I was enjoying the head of the fish and then I ate the eye and he was quite disgusted and said that it is not allowed in Islam. Is that true?"
+            },
+            {
+              "id": "a810e50c3b7ceef7:q0",
+              "group_id": "a810e50c3b7ceef7",
+              "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+            },
+            {
+              "id": "aef682cbe4d6f23b:q0",
+              "group_id": "aef682cbe4d6f23b",
+              "query": "It is not possible to see the new moon with the naked eye before it is 30 hours old, and in addition to that, it is sometimes not possible to see it at all because of the weather conditions. On this basis, is it permissible to resort to using astronomical information to calculate the likely time for sighting the new moon and the start of Ramadan, or do we have to actually sight the new moon before we start fasting the blessed month of Ramadan?"
+            },
+            {
+              "id": "de59443b9815cc31:q0",
+              "group_id": "de59443b9815cc31",
+              "query": "Ruling on a believer who commits some sins"
+            },
+            {
+              "id": "f5beaa9fd14c00f4:q0",
+              "group_id": "f5beaa9fd14c00f4",
+              "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+            },
+            {
+              "id": "fc548525dcacb9d3:q0",
+              "group_id": "fc548525dcacb9d3",
+              "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this man? If he refuses to become a Muslim, can she continue to live with him?"
+            }
+          ]
+        }
+      }
+    },
+    "mmr_fetch50_lambda07": {
+      "vs_parent": {
+        "positive_hit@5": {
+          "metric": "positive_hit@5",
+          "wins": 5,
+          "losses": 9,
+          "ties": 246,
+          "delta_mean": -0.015385,
+          "delta_ci95": [
+            -0.042636,
+            0.011583
+          ],
+          "gained_cases": [
+            {
+              "id": "0899e7b8458779ac:q0",
+              "group_id": "0899e7b8458779ac",
+              "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+            },
+            {
+              "id": "260cf8141315d885:q0",
+              "group_id": "260cf8141315d885",
+              "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q0",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+            },
+            {
+              "id": "89e39cf9aeb5af4b:q0",
+              "group_id": "89e39cf9aeb5af4b",
+              "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+            },
+            {
+              "id": "ad04f23a3003e994:q0",
+              "group_id": "ad04f23a3003e994",
+              "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+            }
+          ],
+          "lost_cases": [
+            {
+              "id": "02333be63093d6d3:q0",
+              "group_id": "02333be63093d6d3",
+              "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+            },
+            {
+              "id": "0cbd12b72094f724:q0",
+              "group_id": "0cbd12b72094f724",
+              "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+            },
+            {
+              "id": "23f79a3af9189bb0:q0",
+              "group_id": "23f79a3af9189bb0",
+              "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+            },
+            {
+              "id": "37a9a5f66c3c7016:q0",
+              "group_id": "37a9a5f66c3c7016",
+              "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+            },
+            {
+              "id": "39e2cb8c186e5dfe:q0",
+              "group_id": "39e2cb8c186e5dfe",
+              "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+            },
+            {
+              "id": "3c7ffcc84b08c53f:q0",
+              "group_id": "3c7ffcc84b08c53f",
+              "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+            },
+            {
+              "id": "52f527a1261423f9:q0",
+              "group_id": "52f527a1261423f9",
+              "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+            },
+            {
+              "id": "a692f775446c18a8:q0",
+              "group_id": "a692f775446c18a8",
+              "query": "Can I marry the daughter of my brother-in-law (my sister's husband) but not my sister's child ?"
+            },
+            {
+              "id": "f5beaa9fd14c00f4:q0",
+              "group_id": "f5beaa9fd14c00f4",
+              "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+            }
+          ]
+        },
+        "useful_hit@5": {
+          "metric": "useful_hit@5",
+          "wins": 5,
+          "losses": 9,
+          "ties": 207,
+          "delta_mean": -0.0181,
+          "delta_ci95": [
+            -0.05,
+            0.013636
+          ],
+          "gained_cases": [
+            {
+              "id": "0899e7b8458779ac:q0",
+              "group_id": "0899e7b8458779ac",
+              "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+            },
+            {
+              "id": "260cf8141315d885:q0",
+              "group_id": "260cf8141315d885",
+              "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q0",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+            },
+            {
+              "id": "89e39cf9aeb5af4b:q0",
+              "group_id": "89e39cf9aeb5af4b",
+              "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+            },
+            {
+              "id": "ad04f23a3003e994:q0",
+              "group_id": "ad04f23a3003e994",
+              "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+            }
+          ],
+          "lost_cases": [
+            {
+              "id": "02333be63093d6d3:q0",
+              "group_id": "02333be63093d6d3",
+              "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+            },
+            {
+              "id": "0cbd12b72094f724:q0",
+              "group_id": "0cbd12b72094f724",
+              "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+            },
+            {
+              "id": "23f79a3af9189bb0:q0",
+              "group_id": "23f79a3af9189bb0",
+              "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+            },
+            {
+              "id": "37a9a5f66c3c7016:q0",
+              "group_id": "37a9a5f66c3c7016",
+              "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+            },
+            {
+              "id": "39e2cb8c186e5dfe:q0",
+              "group_id": "39e2cb8c186e5dfe",
+              "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+            },
+            {
+              "id": "3c7ffcc84b08c53f:q0",
+              "group_id": "3c7ffcc84b08c53f",
+              "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+            },
+            {
+              "id": "52f527a1261423f9:q0",
+              "group_id": "52f527a1261423f9",
+              "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+            },
+            {
+              "id": "a692f775446c18a8:q0",
+              "group_id": "a692f775446c18a8",
+              "query": "Can I marry the daughter of my brother-in-law (my sister's husband) but not my sister's child ?"
+            },
+            {
+              "id": "f5beaa9fd14c00f4:q0",
+              "group_id": "f5beaa9fd14c00f4",
+              "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+            }
+          ]
+        },
+        "ndcg@10": {
+          "metric": "ndcg@10",
+          "wins": 11,
+          "losses": 25,
+          "ties": 224,
+          "delta_mean": -0.012092,
+          "delta_ci95": [
+            -0.021945,
+            -0.003848
+          ],
+          "gained_cases": [
+            {
+              "id": "0899e7b8458779ac:q0",
+              "group_id": "0899e7b8458779ac",
+              "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+            },
+            {
+              "id": "260cf8141315d885:q0",
+              "group_id": "260cf8141315d885",
+              "query": "what is the importance of 15 shaban,is it the night in which the fate of every one is decided for the next year? the especial night mentioned in surah Dakan means which night.is it the shaban or Qadar?"
+            },
+            {
+              "id": "41ff10ffb601ae37:q0",
+              "group_id": "41ff10ffb601ae37",
+              "query": "She shows her adornments before her husband’s brothers"
+            },
+            {
+              "id": "6c61cee89085dfb7:q0",
+              "group_id": "6c61cee89085dfb7",
+              "query": "To what extent is Islam concerned with knowledge?"
+            },
+            {
+              "id": "716865c9c486d3e8:q0",
+              "group_id": "716865c9c486d3e8",
+              "query": "What’s So Special about the Month of Safar?"
+            },
+            {
+              "id": "72a9614a29dc28e6:q0",
+              "group_id": "72a9614a29dc28e6",
+              "query": "In a discussion among Muslims, we were trying to arrive at a definition of \"love\" in Islam. Though we are all well aware of the love of Allah and our obligation to love both Him and His Prophet (peace and blessings be upon him), we wondered if there is a clear outline of love between humans (similar to the Christian \"brotherly love\"...NOT the romantic variety). Some posited that \"love\" lies only within the family, all else is but respect/friend- ship/etc. Others questioned whether love is limited to spouses and/or children. Still others questioned if love can be conditional or not. One idea is that \"love\" (as the term is commonly used) may even be an 'innovation' of sorts, based on fairy tales and Christian philosophy. Many of us have looked in various sources to seek out an \"answer\", but no one has found a definitive answer as of yet... Can you help?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q0",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+            },
+            {
+              "id": "89e39cf9aeb5af4b:q0",
+              "group_id": "89e39cf9aeb5af4b",
+              "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+            },
+            {
+              "id": "ad04f23a3003e994:q0",
+              "group_id": "ad04f23a3003e994",
+              "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+            },
+            {
+              "id": "afa5c0dcc02ce8fc:q0",
+              "group_id": "afa5c0dcc02ce8fc",
+              "query": "I have not got married yet. I know that it is not permissible for the husband to have intercourse with his wife in her back passage, but I do not want to hide from you the fact that my desires always overwhelm me. I try to repent and do what is right, but sometimes I go back to sin. I am afraid that if I get married I will have intercourse with my wife in her back passage, and that the Shaytaan will overpower me. What advice can you give me? My second question is: would it be permissible for me to approach her from behind but over her clothes?."
+            },
+            {
+              "id": "e411e363863a4028:q0",
+              "group_id": "e411e363863a4028",
+              "query": "There is another problem that has been worrying me for some time—namely, I committed fornication with a woman. How do I repent? Can I marry her in order to cover up the whole affair? Another man says he committed fornication outside his country, and he knows that the woman conceived and delivered a child. Is this his child? And is it obligatory for him to bear the costs of the child’s upbringing?"
+            }
+          ],
+          "lost_cases": [
+            {
+              "id": "02333be63093d6d3:q0",
+              "group_id": "02333be63093d6d3",
+              "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+            },
+            {
+              "id": "0cbd12b72094f724:q0",
+              "group_id": "0cbd12b72094f724",
+              "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+            },
+            {
+              "id": "23f79a3af9189bb0:q0",
+              "group_id": "23f79a3af9189bb0",
+              "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+            },
+            {
+              "id": "350af697680169f8:q0",
+              "group_id": "350af697680169f8",
+              "query": "Revelation of the Quran: All at Once or Gradually?"
+            },
+            {
+              "id": "37a9a5f66c3c7016:q0",
+              "group_id": "37a9a5f66c3c7016",
+              "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+            },
+            {
+              "id": "39e2cb8c186e5dfe:q0",
+              "group_id": "39e2cb8c186e5dfe",
+              "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+            },
+            {
+              "id": "3b9a198dd14e1f5a:q0",
+              "group_id": "3b9a198dd14e1f5a",
+              "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+            },
+            {
+              "id": "3c7ffcc84b08c53f:q0",
+              "group_id": "3c7ffcc84b08c53f",
+              "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+            },
+            {
+              "id": "52f527a1261423f9:q0",
+              "group_id": "52f527a1261423f9",
+              "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+            },
+            {
+              "id": "5c7e342fdb8cf016:q0",
+              "group_id": "5c7e342fdb8cf016",
+              "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+            },
+            {
+              "id": "5f1989a38891b81d:q0",
+              "group_id": "5f1989a38891b81d",
+              "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+            },
+            {
+              "id": "61b68f51bad55711:q0",
+              "group_id": "61b68f51bad55711",
+              "query": "Does reciting al-Zalzalah at the time of childbirth make giving birth easier? Are there any du’aa’s or adhkaar that are prescribed when giving birth to make it easier? Will du’aa’s made at the time of childbirth be answered?"
+            },
+            {
+              "id": "748c9b8d8efdf88e:q0",
+              "group_id": "748c9b8d8efdf88e",
+              "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+            },
+            {
+              "id": "75b2dd5a7ddbbfa6:q1",
+              "group_id": "75b2dd5a7ddbbfa6",
+              "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+            },
+            {
+              "id": "7a42e75c386d4b2e:q0",
+              "group_id": "7a42e75c386d4b2e",
+              "query": "Since the prophet said \"Begin fasting after sighting the moon\", how can muslims be fasting one on Tuesday in one part of the world and wednesday in another part. We should all begin our fast at the same time regardless of where we live. We are students in the U.S. and Canada, and we face the same problem every year at the beginning of Ramadaan, because the Muslims are split into three groups:A group that fasts when the new moon is sighted in the city in which they live. A group that fasts when fasting starts in Saudi Arabia. A group that fasts when they hear news from the Muslim students’ union in the U.S. and Canada which watches for the new moon in different parts of America, and as soon as the new moon is sighted in one city, they spread the news to different Islamic centres so that the Muslims in America can start fasting on the same day, despite the great distances between the different cities. Which group should we follow? Whose sighting of the moon should we rely on? Please give us a fatwa, may Allaah reward you."
+            },
+            {
+              "id": "9bc59643bd877a9a:q0",
+              "group_id": "9bc59643bd877a9a",
+              "query": "Is every practitioner of magic or witchcraft a kaafir?"
+            },
+            {
+              "id": "a692f775446c18a8:q0",
+              "group_id": "a692f775446c18a8",
+              "query": "Can I marry the daughter of my brother-in-law (my sister's husband) but not my sister's child ?"
+            },
+            {
+              "id": "a71aaa6de681d390:q0",
+              "group_id": "a71aaa6de681d390",
+              "query": "I need to know whether we as Muslims are allowed to eat the eyes of a fish. I was eating at a seafood restaurant with a friend and I was enjoying the head of the fish and then I ate the eye and he was quite disgusted and said that it is not allowed in Islam. Is that true?"
+            },
+            {
+              "id": "a810e50c3b7ceef7:q0",
+              "group_id": "a810e50c3b7ceef7",
+              "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+            },
+            {
+              "id": "aef682cbe4d6f23b:q0",
+              "group_id": "aef682cbe4d6f23b",
+              "query": "It is not possible to see the new moon with the naked eye before it is 30 hours old, and in addition to that, it is sometimes not possible to see it at all because of the weather conditions. On this basis, is it permissible to resort to using astronomical information to calculate the likely time for sighting the new moon and the start of Ramadan, or do we have to actually sight the new moon before we start fasting the blessed month of Ramadan?"
+            },
+            {
+              "id": "de59443b9815cc31:q0",
+              "group_id": "de59443b9815cc31",
+              "query": "Ruling on a believer who commits some sins"
+            },
+            {
+              "id": "f326aeb1af02e9dc:q0",
+              "group_id": "f326aeb1af02e9dc",
+              "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+            },
+            {
+              "id": "f5beaa9fd14c00f4:q0",
+              "group_id": "f5beaa9fd14c00f4",
+              "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+            },
+            {
+              "id": "fa5e7cfe784b2fd9:q0",
+              "group_id": "fa5e7cfe784b2fd9",
+              "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+            },
+            {
+              "id": "fc548525dcacb9d3:q0",
+              "group_id": "fc548525dcacb9d3",
+              "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this man? If he refuses to become a Muslim, can she continue to live with him?"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "selected_name": "similarity_fetch50_parent",
+  "selected_config": {
+    "retrieval_mode": "similarity",
+    "fetch_k": 50,
+    "mmr_lambda": 1.0
+  },
+  "selected_config_sha256": "0cdc1b580700fb5f956d50cc1d4be24e0df92dbf4468c3c9bc6fbe3aa0b288ef",
+  "selected_changed": false,
+  "validation_gate_passed": false,
+  "determinism_check": {
+    "method": "Repeat the complete selected validation ranking in the same process and compare every ayah ID, including any score ties.",
+    "queries": 260,
+    "exact_queries": 260,
+    "passed": true
+  },
+  "model": {
+    "name": "intfloat/multilingual-e5-small",
+    "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+    "files": {
+      "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+      "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    }
+  },
+  "prefixes": {
+    "query": "query: ",
+    "passage": "passage: "
+  },
+  "code_sha256": {
+    "evaluation/islamqa_frozen.py": "3d1484354c629f507527d30d97ec8892fa1675bdc3c4fead90ee81251f100c5e",
+    "utils.py": "15f6640c61cedc6fea1f614b2c18b119a5b298a5d3001e9ab08b1ba9e9c9be18",
+    "evaluation/test_retrieval_config.py": "11a323605480c3933709540e31bacdf7320127a8386da36c9701143a4881f0f6"
+  },
+  "validation_ranking_artifacts": {
+    "similarity_fetch20": {
+      "file": "validation_runs\\similarity_fetch20.json",
+      "sha256": "e5120557de6196b6151963b8bb6e0a096f627fd60f4f99ce392540b7d1f907b7"
+    },
+    "similarity_fetch50_parent": {
+      "file": "validation_runs\\similarity_fetch50_parent.json",
+      "sha256": "8e0016fc27f70574d2ac3f65abae6a2cee884593ecb3ef1b0b64c37c5cf329e1"
+    },
+    "similarity_fetch100": {
+      "file": "validation_runs\\similarity_fetch100.json",
+      "sha256": "c21cc4d01cd13ee7d3a689fe255c04624762c4909167a6cb6dea81f2ab268335"
+    },
+    "mmr_fetch50_lambda1": {
+      "file": "validation_runs\\mmr_fetch50_lambda1.json",
+      "sha256": "d3bf0df2c2fa441fdad7e89d9417c4ce3998ad2b12b3930c46fe1883199a1560"
+    },
+    "mmr_fetch50_lambda085": {
+      "file": "validation_runs\\mmr_fetch50_lambda085.json",
+      "sha256": "3f2277ca50ff35dcf04ebd2dfb2607b32bd9655871dea80f251ab3fba7ba58db"
+    },
+    "mmr_fetch50_lambda07": {
+      "file": "validation_runs\\mmr_fetch50_lambda07.json",
+      "sha256": "6b5b086635798bf8bf2037d0c024499b4db70b259671e5341f21c6601e25eb5a"
+    }
+  }
+}

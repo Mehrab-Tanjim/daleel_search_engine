@@ -2,6 +2,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 import time
 import math
+import os
 from numpy import dot
 from numpy.linalg import norm
 from typing import List
@@ -47,11 +48,54 @@ class SimpleDoc:
         self.id = None  # Not needed unless you're matching IDs
 
 
+def _positive_int(value, name):
+    if isinstance(value, bool):
+        raise ValueError(f"{name} must be a positive integer")
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"{name} must be a positive integer") from exc
+    if isinstance(value, float) and value != parsed:
+        raise ValueError(f"{name} must be a positive integer")
+    if parsed <= 0:
+        raise ValueError(f"{name} must be a positive integer")
+    return parsed
+
+
+def _ayah_reference(doc):
+    try:
+        surah = int(doc.metadata['surah'])
+        ayah = int(doc.metadata['ayah'])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError('Retrieved document is missing a valid ayah ID') from exc
+    if surah <= 0 or ayah <= 0:
+        raise ValueError('Retrieved document is missing a valid ayah ID')
+    return f'{surah}:{ayah}'
+
+
+def _deduplicate_by_ayah(results):
+    deduped = []
+    seen = set()
+    for result in results:
+        reference = _ayah_reference(result[0])
+        if reference not in seen:
+            seen.add(reference)
+            deduped.append(result)
+    return deduped
+
+
 class VectorSearchDeployment:
     def __init__(self, index_path, model_name, device):
         #Load the data from faiss
         st = time.time()
         self.model_name = model_name
+        self.retrieval_mode = os.environ.get('RETRIEVAL_MODE', 'similarity')
+        self.fetch_k = _positive_int(os.environ.get('FETCH_K', '50'), 'FETCH_K')
+        self.mmr_lambda = float(os.environ.get('MMR_LAMBDA', '1.0'))
+        if self.retrieval_mode not in ('similarity', 'mmr'):
+            raise ValueError("RETRIEVAL_MODE must be 'similarity' or 'mmr'")
+        if not math.isfinite(self.mmr_lambda) or not 0 <= self.mmr_lambda <= 1:
+            raise ValueError('MMR_LAMBDA must be finite and between 0 and 1')
         model_kwargs = {'device': device, 'trust_remote_code':True}
         encode_kwargs = {'normalize_embeddings': True, "max_seq_length": 8192}
         self.embeddings = HuggingFaceEmbeddings(
@@ -65,17 +109,44 @@ class VectorSearchDeployment:
         et = time.time() - st
         print(f'Loading database took {et} seconds.')
 
-    def search(self, method, query, k=10, return_embeddings=False): 
-        query_embedding = self.embeddings.embed_query(query)
-        if method == 'best_match':
-            results = self.db.similarity_search_with_score_by_vector(
-                query_embedding,
-                k=k
-            )
-        elif method == 'best_match_dedup':
+    def search(self, method, query, k=10, return_embeddings=False,
+                retrieval_mode=None, fetch_k=None, mmr_lambda=None):
+        if method not in ('best_match', 'best_match_dedup', 'mmr'):
+            raise ValueError(f"Unknown search method: {method}")
+        if method == 'best_match_dedup':
+            if retrieval_mode is not None:
+                raise ValueError('best_match_dedup does not accept retrieval_mode')
             results = self.relevance_search_dedup(query, k)
-        elif method == 'mmr':
-            results = self.db.max_marginal_relevance_search_with_score_by_vector(query_embedding, k=k, fetch_k=k*2)
+        else:
+            k = _positive_int(k, 'k')
+            mode = retrieval_mode or ('mmr' if method == 'mmr' else self.retrieval_mode)
+            candidate_depth = _positive_int(
+                self.fetch_k if fetch_k is None else fetch_k, 'fetch_k'
+            )
+            relevance_weight = float(
+                self.mmr_lambda if mmr_lambda is None else mmr_lambda
+            )
+            if mode not in ('similarity', 'mmr'):
+                raise ValueError("retrieval_mode must be 'similarity' or 'mmr'")
+            if candidate_depth < k:
+                raise ValueError('fetch_k must be at least k')
+            if not math.isfinite(relevance_weight) or not 0 <= relevance_weight <= 1:
+                raise ValueError('mmr_lambda must be finite and between 0 and 1')
+
+            query_embedding = self.embeddings.embed_query(query)
+            if mode == 'similarity':
+                candidates = self.db.similarity_search_with_score_by_vector(
+                    query_embedding,
+                    k=candidate_depth
+                )
+            else:
+                candidates = self.db.max_marginal_relevance_search_with_score_by_vector(
+                    query_embedding,
+                    k=k,
+                    fetch_k=candidate_depth,
+                    lambda_mult=relevance_weight
+                )
+            results = _deduplicate_by_ayah(candidates)[:k]
         
         if return_embeddings:
             # Get embeddings for the results from the index
@@ -89,48 +160,17 @@ class VectorSearchDeployment:
         return results
 
     def relevance_search_dedup(self, query, k=10, similarity_threshold=0.95):
-        """
-        Search for most relevant results with deduplication
-        Args:
-            query (str): Search query
-            k (int): Number of results to return
-            similarity_threshold (float): Cosine similarity threshold for deduplication (0-1)
-        Returns:
-            list: Deduplicated search results with scores
-        """
-        # Get initial results with embeddings using similarity search (more than k to allow for dedup)
-        initial_k = k * 3
-        results, embeddings = self.search(
+        """Return unique ayah IDs; the legacy embedding threshold is not applied."""
+        del similarity_threshold
+        k = _positive_int(k, 'k')
+        return self.search(
             method='best_match',
             query=query,
-            k=initial_k,
-            return_embeddings=True
-        )
-        
-        # Deduplication process
-        deduped_results = []
-        seen_embeddings = []
-        
-        for (doc, score), doc_embedding in zip(results, embeddings):
-            is_duplicate = False
-            
-            # Check similarity with already selected documents
-            for seen_emb in seen_embeddings:
-                # Calculate cosine similarity
-                cos_sim = dot(doc_embedding, seen_emb) / (norm(doc_embedding) * norm(seen_emb))
-                if cos_sim > similarity_threshold:
-                    is_duplicate = True
-                    break
-            
-            if not is_duplicate:
-                deduped_results.append((doc, score))
-                seen_embeddings.append(doc_embedding)
-            
-            # Stop when we have enough unique results
-            if len(deduped_results) >= k:
-                break
-        
-        return deduped_results[:k]
+            k=k,
+            retrieval_mode='similarity',
+            fetch_k=max(k, self.fetch_k)
+        )[:k]
+
 
 def normalize_l2(score):
     return 1 - score/math.sqrt(2)

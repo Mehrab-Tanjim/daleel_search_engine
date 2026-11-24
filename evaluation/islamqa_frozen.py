@@ -32,6 +32,8 @@ DEFAULT_SCORER_PACKAGE = ROOT / "datasets" / "sanitized_islamqa" / "split_packag
 DEFAULT_AAYATUN_REPO = WORKSPACE / "aayatun-research"
 DEFAULT_PR2_EVAL_REPO = WORKSPACE / "aayatun-pr2-eval"
 DEFAULT_OUTPUT = HERE / "results" / "m00_frozen_v1"
+DEFAULT_M01_VALIDATION = HERE / "results" / "m01_retrieval" / "validation"
+DEFAULT_M01_TEST = HERE / "results" / "m01_retrieval" / "test"
 
 DATASET_COMMIT = "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517"
 DEPLOY_REVISION = "d9cff5d3f21dc11423465893fb1839dd6c9251c0"
@@ -42,6 +44,7 @@ E5_REVISION = "c007d7ef6fd86656326059b28395a7a03a7c5846"
 FIXTURE_NAME = "islamqa_v3_test_queries.jsonl"
 MANIFEST_NAME = "islamqa_v3_fixture_manifest.json"
 EXPECTED_FIXTURE_SHA256 = "cb33c2b58d229caac4c8374af7a857cbd93a4578833592fcac1afd4e4ab5ab25"
+EXPECTED_VALIDATION_FIXTURE_SHA256 = "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe"
 EXPECTED_CORPUS_SHA256 = "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
 AYAH_RE = re.compile(r"[1-9]\d*:[1-9]\d*\Z")
 
@@ -195,7 +198,7 @@ def prepare(args: argparse.Namespace) -> None:
         text=True,
         encoding="utf8",
     )
-    cases = load_cases(args.package)
+    cases = load_cases(args.package, args.split)
     corpus = load_corpus(args.corpus_db)
     if len(corpus) != 6236 or corpus_hash(corpus) != EXPECTED_CORPUS_SHA256:
         raise ValueError("Aayatun translation corpus does not match the frozen corpus")
@@ -217,20 +220,32 @@ def prepare(args: argparse.Namespace) -> None:
             case["best_settled_label"] == "direct" for case in cases
         ),
     }
-    expected = {
-        "query_cases": 345,
-        "question_groups": 341,
-        "useful_answerable_cases": 294,
-        "direct_answerable_cases": 54,
-    }
+    expected = (
+        {
+            "query_cases": 345,
+            "question_groups": 341,
+            "useful_answerable_cases": 294,
+            "direct_answerable_cases": 54,
+        }
+        if args.split == "test"
+        else {
+            "query_cases": 260,
+            "question_groups": 257,
+            "useful_answerable_cases": 221,
+            "direct_answerable_cases": 40,
+        }
+    )
     if counts != expected:
         raise ValueError(f"Frozen denominator mismatch: {counts} != {expected}")
     payload = fixture_bytes(cases)
-    if hashlib.sha256(payload).hexdigest() != EXPECTED_FIXTURE_SHA256:
-        raise ValueError("v3 test fixture differs from the historical PR #2 fixture")
+    expected_hash = (
+        EXPECTED_FIXTURE_SHA256 if args.split == "test" else EXPECTED_VALIDATION_FIXTURE_SHA256
+    )
+    if hashlib.sha256(payload).hexdigest() != expected_hash:
+        raise ValueError(f"v3 {args.split} fixture differs from its frozen bytes")
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    fixture_path = args.output_dir / FIXTURE_NAME
+    fixture_path = args.output_dir / f"islamqa_v3_{args.split}_queries.jsonl"
     fixture_path.write_bytes(payload)
     fixture_manifest = {
         "profile": "pr2_frozen_v1",
@@ -238,29 +253,29 @@ def prepare(args: argparse.Namespace) -> None:
         "dataset_commit": DATASET_COMMIT,
         "package_manifest_sha256": sha256_file(args.package / "manifest.json"),
         "validator": json.loads(validator.stdout),
-        "split": "test",
+        "split": args.split,
         "corpus": {"verses": len(corpus), "sha256": corpus_hash(corpus)},
         "counts": counts,
-        "fixture_sha256": EXPECTED_FIXTURE_SHA256,
+        "fixture_sha256": expected_hash,
         "success_definitions": {
             "relevant_hit@5": "At least one settled grade-1, grade-2, or grade-3 ayah in the first five.",
             "useful_hit@5": "At least one settled grade-2 or grade-3 ayah in the first five.",
-            "direct_slice_useful_hit@5": "Useful hit@5 among the 54 direct-answer wordings; not direct_hit@5.",
+            "direct_slice_useful_hit@5": f"Useful hit@5 among the {counts['direct_answerable_cases']} direct-answer wordings; not direct_hit@5.",
             "ndcg@10": "Gain 2^grade-1 with logarithmic rank discount, normalized by ideal qrels.",
         },
         "notes": [
             "The public test is a regression suite, not a blind holdout.",
-            "Qrels remain group-level; all 345 original wordings are preserved.",
+            f"Qrels remain group-level; all {counts['query_cases']} original wordings are preserved.",
             "Confidence intervals resample question groups rather than wordings.",
         ],
     }
-    write_json(args.output_dir / MANIFEST_NAME, fixture_manifest)
+    write_json(args.output_dir / f"islamqa_v3_{args.split}_fixture_manifest.json", fixture_manifest)
     print(json.dumps(fixture_manifest, indent=2))
 
 
-def load_fixture(output_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    fixture_path = output_dir / FIXTURE_NAME
-    manifest_path = output_dir / MANIFEST_NAME
+def load_fixture(output_dir: Path, split: str = "test") -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    fixture_path = output_dir / f"islamqa_v3_{split}_queries.jsonl"
+    manifest_path = output_dir / f"islamqa_v3_{split}_fixture_manifest.json"
     cases = read_jsonl(fixture_path)
     manifest = json.loads(manifest_path.read_text(encoding="utf8"))
     if sha256_file(fixture_path) != manifest["fixture_sha256"]:
@@ -555,6 +570,9 @@ def format_metric(value: float | None, count: int | None, denominator: int) -> s
 
 
 def markdown_leaderboard(summary: dict[str, Any]) -> str:
+    columns = list(RUN_COLUMNS)
+    if "m01" in summary["runs"]:
+        columns.append(("m01", summary["runs"]["m01"].get("leaderboard_label", "M01 candidate")))
     rows = (
         ("Relevant hit@5, all queries", "positive_hit@5", 345, "all"),
         ("Useful hit@5, answerable queries", "useful_hit@5", 294, "useful"),
@@ -563,12 +581,12 @@ def markdown_leaderboard(summary: dict[str, Any]) -> str:
         ("Useful candidate recall@50", "useful_recall@50", 294, "useful"),
     )
     lines = [
-        "| Measure | " + " | ".join(label for _, label in RUN_COLUMNS) + " |",
-        "| --- | " + " | ".join("---:" for _ in RUN_COLUMNS) + " |",
+        "| Measure | " + " | ".join(label for _, label in columns) + " |",
+        "| --- | " + " | ".join("---:" for _ in columns) + " |",
     ]
     for label, metric, denominator, slice_name in rows:
         cells = []
-        for key, _ in RUN_COLUMNS:
+        for key, _ in columns:
             run = summary["runs"][key]["headline"][slice_name]
             value = run["metrics"].get(metric)
             mean = value["mean"] if isinstance(value, dict) else value
@@ -759,7 +777,14 @@ def run_dense(args: argparse.Namespace) -> None:
     runs: dict[str, dict[str, Any]] = {}
     for index, case in enumerate(cases):
         started = time.perf_counter()
-        results = deployment.search("best_match", "query: " + case["query"], k=50)
+        results = deployment.search(
+            "best_match",
+            "query: " + case["query"],
+            k=50,
+            retrieval_mode="similarity",
+            fetch_k=50,
+            mmr_lambda=1.0,
+        )
         elapsed = round((time.perf_counter() - started) * 1000, 3)
         refs = [
             f"{doc.metadata['surah']}:{doc.metadata['ayah']}" for doc, _ in results
@@ -797,6 +822,382 @@ def run_dense(args: argparse.Namespace) -> None:
     }
     write_json(args.output, report)
     print(json.dumps({"output": str(args.output), "queries": len(runs)}, indent=2))
+
+
+def load_or_build_dense_index(args: argparse.Namespace, cases: list[dict[str, Any]], fixture_manifest: dict[str, Any]):
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from langchain_community.embeddings import HuggingFaceEmbeddings
+    from langchain_community.vectorstores import FAISS
+    from langchain_core.documents import Document
+    from utils import VectorSearchDeployment
+
+    corpus = load_corpus(args.corpus_db)
+    if len(corpus) != 6236 or corpus_hash(corpus) != fixture_manifest["corpus"]["sha256"]:
+        raise ValueError("Dense corpus does not match the frozen fixture")
+    snapshot = model_snapshot()
+    embeddings = HuggingFaceEmbeddings(
+        model_name=str(snapshot),
+        model_kwargs={"device": "cpu", "trust_remote_code": True},
+        encode_kwargs={"normalize_embeddings": True, "max_seq_length": 512},
+    )
+    index_path = args.runtime_dir / "e5-small" / "quran"
+    index_path.parent.mkdir(parents=True, exist_ok=True)
+    if not (index_path / "index.faiss").exists():
+        documents = [
+            Document(
+                page_content="passage: " + text,
+                metadata={
+                    "surah": int(ref.split(":")[0]),
+                    "ayah": int(ref.split(":")[1]),
+                    "field": "translation",
+                    "source": "saheeh_international",
+                    "chunk": 0,
+                },
+            )
+            for ref, text in sorted(corpus.items(), key=lambda item: tuple(map(int, item[0].split(":"))))
+        ]
+        database = FAISS.from_documents(
+            documents,
+            embeddings,
+            normalize_L2=True,
+            distance_strategy="MAX_INNER_PRODUCT",
+        )
+        database.save_local(str(index_path))
+    deployment = VectorSearchDeployment(str(index_path), str(snapshot), "cpu")
+    if deployment.db.index.ntotal != len(corpus):
+        raise ValueError("Dense index size does not match the frozen corpus")
+    return deployment, index_path, snapshot
+
+
+def dense_model_files(snapshot: Path) -> dict[str, str]:
+    return {
+        name: sha256_file(snapshot / name)
+        for name in (
+            "config.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "model.safetensors",
+        )
+    }
+
+
+def canonical_config(config: dict[str, Any]) -> dict[str, Any]:
+    mode = config["retrieval_mode"]
+    raw_fetch_k = config["fetch_k"]
+    if isinstance(raw_fetch_k, bool):
+        raise ValueError("fetch_k must be 20, 50, or 100")
+    fetch_k = int(raw_fetch_k)
+    if isinstance(raw_fetch_k, float) and raw_fetch_k != fetch_k:
+        raise ValueError("fetch_k must be 20, 50, or 100")
+    relevance_weight = float(config["mmr_lambda"])
+    if mode not in ("similarity", "mmr"):
+        raise ValueError("retrieval_mode must be similarity or mmr")
+    if fetch_k not in (20, 50, 100):
+        raise ValueError("fetch_k must be 20, 50, or 100")
+    if relevance_weight not in (1.0, 0.85, 0.7):
+        raise ValueError("mmr_lambda must be 1.0, 0.85, or 0.7")
+    return {
+        "retrieval_mode": mode,
+        "fetch_k": fetch_k,
+        "mmr_lambda": relevance_weight,
+    }
+
+
+def config_sha256(config: dict[str, Any]) -> str:
+    payload = json.dumps(canonical_config(config), sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(payload.encode("utf8")).hexdigest()
+
+
+def execute_dense_config(
+    deployment: Any,
+    cases: list[dict[str, Any]],
+    config: dict[str, Any],
+) -> dict[str, Any]:
+    config = canonical_config(config)
+    result_k = min(50, config["fetch_k"])
+    runs: dict[str, dict[str, Any]] = {}
+    for index, case in enumerate(cases):
+        started = time.perf_counter()
+        results = deployment.search(
+            "best_match",
+            "query: " + case["query"],
+            k=result_k,
+            retrieval_mode=config["retrieval_mode"],
+            fetch_k=config["fetch_k"],
+            mmr_lambda=config["mmr_lambda"],
+        )
+        elapsed = round((time.perf_counter() - started) * 1000, 3)
+        refs = [f"{doc.metadata['surah']}:{doc.metadata['ayah']}" for doc, _ in results]
+        if len(refs) != len(set(refs)):
+            raise ValueError(f"Dense retrieval returned duplicate ayah for {case['id']}")
+        if len(refs) > config["fetch_k"] or len(refs) > result_k:
+            raise ValueError(f"Dense retrieval exceeded its depth bound for {case['id']}")
+        runs[case["id"]] = {
+            "refs": refs,
+            "source_fields": [["translation"] for _ in refs],
+            "ms": elapsed,
+        }
+        if index % 50 == 0:
+            print(f"{config['retrieval_mode']}/{config['fetch_k']}/{config['mmr_lambda']}: {index}/{len(cases)}", flush=True)
+    return {"config": config, "result_k": result_k, "runs": runs}
+
+
+def dense_config_report(
+    args: argparse.Namespace,
+    cases: list[dict[str, Any]],
+    fixture_manifest: dict[str, Any],
+    deployment: Any,
+    index_path: Path,
+    snapshot: Path,
+    config: dict[str, Any],
+) -> dict[str, Any]:
+    execution = execute_dense_config(deployment, cases, config)
+    report = {
+        "engine": "M01 offline multilingual E5-small float32 FAISS",
+        "profile": "pr2_frozen_v1",
+        "model": E5_MODEL,
+        "model_revision": E5_REVISION,
+        "model_files": dense_model_files(snapshot),
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "source_attribution": "translation",
+        "fixture_sha256": fixture_manifest["fixture_sha256"],
+        "corpus": {"verses": len(load_corpus(args.corpus_db)), "sha256": fixture_manifest["corpus"]["sha256"]},
+        "index_bytes": sum(path.stat().st_size for path in index_path.rglob("*") if path.is_file()),
+        "peak_rss_bytes": peak_rss_bytes(),
+        **execution,
+    }
+    report["config_sha256"] = config_sha256(report["config"])
+    return report
+
+
+def run_dense_config(args: argparse.Namespace) -> None:
+    cases, fixture_manifest = load_fixture(args.output_dir, args.split)
+    config = canonical_config(
+        {
+            "retrieval_mode": args.retrieval_mode,
+            "fetch_k": args.fetch_k,
+            "mmr_lambda": args.mmr_lambda,
+        }
+    )
+    if args.selection:
+        selection = json.loads(args.selection.read_text(encoding="utf8"))
+        if selection.get("split") != "validation":
+            raise ValueError("M01 selection must be frozen on validation")
+        if canonical_config(selection["selected_config"]) != config:
+            raise ValueError("Requested test configuration does not match the frozen selection")
+        for relative, digest in selection["code_sha256"].items():
+            if sha256_file(ROOT / relative) != digest:
+                raise ValueError(f"Frozen M01 code changed after selection: {relative}")
+    deployment, index_path, snapshot = load_or_build_dense_index(args, cases, fixture_manifest)
+    report = dense_config_report(
+        args, cases, fixture_manifest, deployment, index_path, snapshot, config
+    )
+    if args.selection:
+        report["selection_sha256"] = sha256_file(args.selection)
+        report["selection"] = selection
+    write_json(args.output, report)
+    print(json.dumps({"output": str(args.output), "config": config, "queries": len(cases)}, indent=2))
+
+
+def validation_summary(
+    name: str,
+    report: dict[str, Any],
+    cases: list[dict[str, Any]],
+    corpus_refs: set[str],
+    fixture_manifest: dict[str, Any],
+    score_group: Callable[[list[str], dict[str, int]], dict[str, float]],
+    bootstrap: int,
+    seed: int,
+) -> tuple[dict[str, Any], dict[str, list[str]], dict[str, dict[str, float]]]:
+    rankings = validate_run(cases, report, corpus_refs)
+    scores = score_run(cases, rankings, score_group)
+    useful = [case for case in cases if any(grade >= 2 for grade in case["qrels"].values())]
+    direct = [case for case in cases if case["best_settled_label"] == "direct"]
+    headline = {}
+    for slice_name, selected in (("all", cases), ("useful", useful), ("direct", direct)):
+        row = aggregate(selected, scores, bootstrap, seed)
+        row["counts"] = {
+            metric: sum(scores[case["id"]][metric] > 0 for case in selected)
+            for metric in ("positive_hit@5", "useful_hit@5")
+        }
+        headline[slice_name] = row
+    summary = {
+        "name": name,
+        "config": report["config"],
+        "config_sha256": report["config_sha256"],
+        "headline": headline,
+        "timings_ms": timing_summary(report, cases),
+        "coverage@10": result_coverage(cases, rankings, 10),
+        "index_bytes": report["index_bytes"],
+        "peak_rss_bytes": report["peak_rss_bytes"],
+    }
+    return summary, rankings, scores
+
+
+def validation_gate(parent: dict[str, Any], candidate: dict[str, Any]) -> bool:
+    parent_useful = parent["headline"]["useful"]["counts"]["useful_hit@5"]
+    candidate_useful = candidate["headline"]["useful"]["counts"]["useful_hit@5"]
+    parent_ndcg = parent["headline"]["all"]["metrics"]["ndcg@10"]["mean"]
+    candidate_ndcg = candidate["headline"]["all"]["metrics"]["ndcg@10"]["mean"]
+    return candidate_useful > parent_useful and candidate_ndcg >= parent_ndcg
+
+
+def choose_validation_candidate(parent: dict[str, Any], candidates: list[dict[str, Any]]) -> dict[str, Any]:
+    eligible = [candidate for candidate in candidates if validation_gate(parent, candidate)]
+    if not eligible:
+        return parent
+    return max(
+        eligible,
+        key=lambda candidate: (
+            candidate["headline"]["useful"]["counts"]["useful_hit@5"],
+            candidate["headline"]["all"]["metrics"]["ndcg@10"]["mean"],
+            candidate["headline"]["all"]["counts"]["positive_hit@5"],
+        ),
+    )
+
+
+def run_dense_sweep(args: argparse.Namespace) -> None:
+    from datetime import datetime, timezone
+
+    cases, fixture_manifest = load_fixture(args.output_dir, "validation")
+    corpus = load_corpus(args.corpus_db)
+    corpus_refs = set(corpus)
+    score_group = scorer_module(args.scorer_package)
+    deployment, index_path, snapshot = load_or_build_dense_index(args, cases, fixture_manifest)
+    initial_configs = (
+        ("similarity_fetch20", {"retrieval_mode": "similarity", "fetch_k": 20, "mmr_lambda": 1.0}),
+        ("similarity_fetch50_parent", {"retrieval_mode": "similarity", "fetch_k": 50, "mmr_lambda": 1.0}),
+        ("similarity_fetch100", {"retrieval_mode": "similarity", "fetch_k": 100, "mmr_lambda": 1.0}),
+        ("mmr_fetch50_lambda1", {"retrieval_mode": "mmr", "fetch_k": 50, "mmr_lambda": 1.0}),
+        ("mmr_fetch50_lambda085", {"retrieval_mode": "mmr", "fetch_k": 50, "mmr_lambda": 0.85}),
+        ("mmr_fetch50_lambda07", {"retrieval_mode": "mmr", "fetch_k": 50, "mmr_lambda": 0.7}),
+    )
+    summaries: dict[str, dict[str, Any]] = {}
+    scores_by_name: dict[str, dict[str, dict[str, float]]] = {}
+    artifacts: dict[str, dict[str, Any]] = {}
+
+    def run_configs(configs):
+        for name, config in configs:
+            report = dense_config_report(
+                args, cases, fixture_manifest, deployment, index_path, snapshot, config
+            )
+            path = args.output_dir / "validation_runs" / f"{name}.json"
+            write_json(path, report)
+            summary, _, scores = validation_summary(
+                name, report, cases, corpus_refs, fixture_manifest, score_group,
+                args.bootstrap, args.seed,
+            )
+            summaries[name] = summary
+            scores_by_name[name] = scores
+            artifacts[name] = {"file": str(path.relative_to(args.output_dir)), "sha256": sha256_file(path)}
+
+    run_configs(initial_configs)
+    parent = summaries["similarity_fetch50_parent"]
+    initial_candidates = [summaries[name] for name, _ in initial_configs if name != parent["name"]]
+    selected_before_depth = choose_validation_candidate(parent, initial_candidates)
+    stages = [{
+        "name": "parent_and_one_knob_ablations",
+        "candidates": [parent["name"], *[name for name, _ in initial_configs if name != parent["name"]]],
+        "selected": selected_before_depth["name"],
+    }]
+
+    selected = selected_before_depth
+    selected_config = canonical_config(selected["config"])
+    if selected_config["retrieval_mode"] == "mmr" and selected_config["mmr_lambda"] < 1.0:
+        suffix = str(selected_config["mmr_lambda"]).replace(".", "")
+        followups = (
+            (f"mmr_fetch20_lambda{suffix}", {**selected_config, "fetch_k": 20}),
+            (f"mmr_fetch100_lambda{suffix}", {**selected_config, "fetch_k": 100}),
+        )
+        run_configs(followups)
+        followup_candidates = [summaries[name] for name, _ in followups]
+        selected = choose_validation_candidate(selected_before_depth, followup_candidates)
+        stages.append({
+            "name": "candidate_depth_at_selected_lambda",
+            "parent": selected_before_depth["name"],
+            "candidates": [name for name, _ in followups],
+            "selected": selected["name"],
+        })
+
+    useful = [case for case in cases if any(grade >= 2 for grade in case["qrels"].values())]
+    marginal_effects = {}
+    for name, summary in summaries.items():
+        marginal_effects[name] = {
+            "vs_parent": {
+                "positive_hit@5": paired_details(
+                    cases, scores_by_name[parent["name"]], scores_by_name[name],
+                    "positive_hit@5", args.bootstrap, args.seed,
+                ),
+                "useful_hit@5": paired_details(
+                    useful, scores_by_name[parent["name"]], scores_by_name[name],
+                    "useful_hit@5", args.bootstrap, args.seed,
+                ),
+                "ndcg@10": paired_details(
+                    cases, scores_by_name[parent["name"]], scores_by_name[name],
+                    "ndcg@10", args.bootstrap, args.seed,
+                ),
+            }
+        }
+    repeat = execute_dense_config(deployment, cases, selected["config"])
+    repeat_rankings = {case_id: run["refs"] for case_id, run in repeat["runs"].items()}
+    selected_report_path = args.output_dir / "validation_runs" / f"{selected['name']}.json"
+    selected_report = json.loads(selected_report_path.read_text(encoding="utf8"))
+    selected_rankings = {case_id: run["refs"] for case_id, run in selected_report["runs"].items()}
+    determinism_exact = sum(
+        repeat_rankings[case["id"]] == selected_rankings[case["id"]] for case in cases
+    )
+    if determinism_exact != len(cases):
+        raise ValueError("Selected retrieval configuration is not deterministic on validation")
+    selected_changed = selected["config_sha256"] != parent["config_sha256"]
+    selection = {
+        "profile": "pr2_frozen_v1",
+        "experiment": "M01",
+        "split": "validation",
+        "dataset": fixture_manifest,
+        "frozen_at_utc": datetime.now(timezone.utc).isoformat(),
+        "test_accessed": False,
+        "selection_policy": "Higher validation useful hit@5 with no validation nDCG@10 decrease; keep the simpler parent when no candidate passes. Depth follow-ups vary only FETCH_K at the selected lambda.",
+        "stages": stages,
+        "candidates": summaries,
+        "marginal_effects": marginal_effects,
+        "selected_name": selected["name"],
+        "selected_config": canonical_config(selected["config"]),
+        "selected_config_sha256": selected["config_sha256"],
+        "selected_changed": selected_changed,
+        "validation_gate_passed": selected_changed,
+        "determinism_check": {
+            "method": "Repeat the complete selected validation ranking in the same process and compare every ayah ID, including any score ties.",
+            "queries": len(cases),
+            "exact_queries": determinism_exact,
+            "passed": determinism_exact == len(cases),
+        },
+        "model": {"name": E5_MODEL, "revision": E5_REVISION, "files": dense_model_files(snapshot)},
+        "prefixes": {"query": "query: ", "passage": "passage: "},
+        "code_sha256": {
+            "evaluation/islamqa_frozen.py": sha256_file(HERE / "islamqa_frozen.py"),
+            "utils.py": sha256_file(ROOT / "utils.py"),
+            "evaluation/test_retrieval_config.py": sha256_file(HERE / "test_retrieval_config.py"),
+        },
+        "validation_ranking_artifacts": artifacts,
+    }
+    write_json(args.selection, selection)
+    rows = []
+    for name, summary in summaries.items():
+        rows.append({
+            "name": name,
+            **summary["config"],
+            "relevant_hit@5": summary["headline"]["all"]["counts"]["positive_hit@5"],
+            "useful_hit@5": summary["headline"]["useful"]["counts"]["useful_hit@5"],
+            "direct_useful_hit@5": summary["headline"]["direct"]["counts"]["useful_hit@5"],
+            "ndcg@10": summary["headline"]["all"]["metrics"]["ndcg@10"]["mean"],
+            "p95_ms": summary["timings_ms"]["p95"],
+        })
+    print(json.dumps({"selected": selection["selected_config"], "rows": rows}, indent=2))
 
 
 def run_browser(args: argparse.Namespace) -> None:
@@ -1083,6 +1484,331 @@ def build_report(args: argparse.Namespace) -> None:
     print(json.dumps(report["acceptance"], indent=2))
 
 
+def load_committed_rankings(
+    name: str,
+    baseline_dir: Path,
+    baseline_report: dict[str, Any],
+    cases: list[dict[str, Any]],
+    corpus_refs: set[str],
+) -> tuple[dict[str, list[str]], dict[str, dict[str, Any]]]:
+    artifact = baseline_report["query_ranking_artifacts"][name]
+    path = baseline_dir / artifact["file"]
+    if sha256_file(path) != artifact["sha256"]:
+        raise ValueError(f"Committed baseline ranking hash mismatch: {name}")
+    rows = read_jsonl(path)
+    expected = {case["id"] for case in cases}
+    if len(rows) != len(expected) or {row["id"] for row in rows} != expected:
+        raise ValueError(f"Committed baseline query IDs mismatch: {name}")
+    rankings: dict[str, list[str]] = {}
+    runs: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        refs = row["ranking"]
+        if not isinstance(refs, list) or len(refs) > 50:
+            raise ValueError(f"Invalid committed baseline ranking: {name}/{row['id']}")
+        if any(not isinstance(ref, str) or not AYAH_RE.fullmatch(ref) for ref in refs):
+            raise ValueError(f"Invalid committed baseline ayah: {name}/{row['id']}")
+        if len(refs) != len(set(refs)) or set(refs) - corpus_refs:
+            raise ValueError(f"Duplicate or unknown committed baseline ayah: {name}/{row['id']}")
+        source_fields = row.get("source_fields", [[baseline_report["runs"][name]["field"]] for _ in refs])
+        if len(source_fields) != len(refs):
+            raise ValueError(f"Baseline source attribution mismatch: {name}/{row['id']}")
+        rankings[row["id"]] = refs
+        runs[row["id"]] = {"refs": refs, "source_fields": source_fields}
+    return rankings, runs
+
+
+def candidate_headline_summary(
+    report: dict[str, Any],
+    cases: list[dict[str, Any]],
+    rankings: dict[str, list[str]],
+    scores: dict[str, dict[str, float]],
+    bootstrap: int,
+    seed: int,
+) -> dict[str, Any]:
+    useful = [case for case in cases if any(grade >= 2 for grade in case["qrels"].values())]
+    direct = [case for case in cases if case["best_settled_label"] == "direct"]
+    slices = {
+        "all": cases,
+        "useful": useful,
+        "direct": direct,
+        "partial": [case for case in cases if case["best_settled_label"] == "partial"],
+        "background": [case for case in cases if case["best_settled_label"] == "background"],
+        "long": [case for case in cases if len(case["query"]) >= 120],
+        "compound": [case for case in cases if case["compound_status"] == "review_required"],
+    }
+    headline = {}
+    for slice_name, selected in slices.items():
+        row = aggregate(selected, scores, bootstrap, seed)
+        row["counts"] = {
+            metric: sum(scores[case["id"]][metric] > 0 for case in selected)
+            for metric in ("positive_hit@5", "useful_hit@5")
+        }
+        headline[slice_name] = row
+    config = report["config"]
+    return {
+        "engine": report["engine"],
+        "leaderboard_label": f"M01 {config['retrieval_mode']} λ={config['mmr_lambda']:g} k={config['fetch_k']}",
+        "revision": report.get("model_revision"),
+        "field": report["field"],
+        "source_attribution": report["source_attribution"],
+        "headline": headline,
+        "timings_ms": timing_summary(report, cases),
+        "coverage@10": result_coverage(cases, rankings, 10),
+        "coverage@50": result_coverage(cases, rankings, 50),
+        "index_bytes": report["index_bytes"],
+        "peak_rss_bytes": report["peak_rss_bytes"],
+        "provenance": {key: value for key, value in report.items() if key != "runs"},
+    }
+
+
+def headline_test_counts(summary: dict[str, Any]) -> dict[str, float]:
+    return {
+        "relevant_hit@5": summary["headline"]["all"]["counts"]["positive_hit@5"],
+        "useful_hit@5": summary["headline"]["useful"]["counts"]["useful_hit@5"],
+        "direct_useful_hit@5": summary["headline"]["direct"]["counts"]["useful_hit@5"],
+        "ndcg@10": summary["headline"]["all"]["metrics"]["ndcg@10"]["mean"],
+    }
+
+
+def build_m01_report(args: argparse.Namespace) -> None:
+    cases, fixture_manifest = load_fixture(args.output_dir, "test")
+    corpus = load_corpus(args.corpus_db)
+    corpus_refs = set(corpus)
+    score_group = scorer_module(args.scorer_package)
+    candidate_report, candidate_rankings = load_run(
+        args.candidate, cases, corpus_refs, fixture_manifest
+    )
+    candidate_scores = score_run(cases, candidate_rankings, score_group)
+    parent_report, parent_rankings = load_run(
+        args.parent_candidate, cases, corpus_refs, fixture_manifest
+    )
+    parent_scores = score_run(cases, parent_rankings, score_group)
+    selection = json.loads(args.selection.read_text(encoding="utf8"))
+    baseline_dir = args.baseline_dir
+    baseline_report = json.loads((baseline_dir / "report.json").read_text(encoding="utf8"))
+    if baseline_report.get("outcome") != "accepted":
+        raise ValueError("M01 parent report is not accepted")
+    if baseline_report["dataset"]["fixture_sha256"] != fixture_manifest["fixture_sha256"]:
+        raise ValueError("M01 parent/test fixture mismatch")
+
+    baseline_rankings: dict[str, dict[str, list[str]]] = {}
+    baseline_scores: dict[str, dict[str, dict[str, float]]] = {}
+    baseline_runs: dict[str, dict[str, Any]] = {}
+    for name, _ in RUN_COLUMNS:
+        baseline_rankings[name], baseline_runs[name] = load_committed_rankings(
+            name, baseline_dir, baseline_report, cases, corpus_refs
+        )
+        baseline_scores[name] = score_run(cases, baseline_rankings[name], score_group)
+
+    candidate_summary = candidate_headline_summary(
+        candidate_report, cases, candidate_rankings, candidate_scores, args.bootstrap, args.seed
+    )
+    summary_runs = {**baseline_report["runs"], "m01": candidate_summary}
+    useful = [case for case in cases if any(grade >= 2 for grade in case["qrels"].values())]
+    direct = [case for case in cases if case["best_settled_label"] == "direct"]
+    comparisons = {}
+    for baseline in ("dense", "browser"):
+        comparisons[f"m01_vs_{baseline}"] = {
+            "positive_hit@5": paired_details(
+                cases, baseline_scores[baseline], candidate_scores, "positive_hit@5",
+                args.bootstrap, args.seed,
+            ),
+            "useful_hit@5": paired_details(
+                useful, baseline_scores[baseline], candidate_scores, "useful_hit@5",
+                args.bootstrap, args.seed,
+            ),
+            "ndcg@10": paired_details(
+                cases, baseline_scores[baseline], candidate_scores, "ndcg@10",
+                args.bootstrap, args.seed,
+            ),
+            "positive_rank_regressions@10": rank_regression_details(
+                cases, baseline_rankings[baseline], candidate_rankings, minimum_grade=1
+            ),
+            "useful_rank_regressions@10": rank_regression_details(
+                useful, baseline_rankings[baseline], candidate_rankings, minimum_grade=2
+            ),
+        }
+
+    parent_summary = candidate_headline_summary(
+        parent_report, cases, parent_rankings, parent_scores, args.bootstrap, args.seed
+    )
+    parent_counts = headline_test_counts(parent_summary)
+    candidate_counts = headline_test_counts(candidate_summary)
+    test_gate = all(
+        candidate_counts[key] >= parent_counts[key]
+        for key in ("relevant_hit@5", "useful_hit@5", "direct_useful_hit@5", "ndcg@10")
+    )
+    budget = baseline_report["runtime_budgets"]["runs"]["dense"]
+    runtime_measurements = {
+        "p95_query_ms": candidate_summary["timings_ms"]["p95"],
+        "index_bytes": candidate_summary["index_bytes"],
+        "peak_rss_bytes": candidate_summary["peak_rss_bytes"],
+    }
+    runtime_gate = all(
+        runtime_measurements[key] <= budget[f"{key}_max"]
+        for key in runtime_measurements
+    )
+    selected_config = canonical_config(selection["selected_config"])
+    config_match = canonical_config(candidate_report["config"]) == selected_config
+    selection_hash_match = candidate_report.get("selection_sha256") == sha256_file(args.selection)
+    selection_match = candidate_report.get("selection") == selection
+    selection_contract = (
+        selection.get("split") == "validation"
+        and selection.get("test_accessed") is False
+        and selection["dataset"]["fixture_sha256"] == EXPECTED_VALIDATION_FIXTURE_SHA256
+        and selection["determinism_check"]["passed"]
+    )
+    frozen_code_unchanged = all(
+        sha256_file(ROOT / relative) == digest
+        for relative, digest in selection["code_sha256"].items()
+    )
+    parent_provenance = baseline_report["runs"]["dense"]["provenance"]
+    fixed_contract_keys = (
+        "model", "model_revision", "model_files", "dtype", "distance",
+        "field", "source_attribution", "corpus",
+    )
+    fixed_contract_match = all(
+        candidate_report.get(key) == parent_provenance.get(key) for key in fixed_contract_keys
+    )
+    prefix_match = candidate_report.get("query_prefix") == selection["prefixes"]["query"] and candidate_report.get("passage_prefix") == selection["prefixes"]["passage"]
+    depth_bound = (
+        candidate_report["result_k"] == min(50, candidate_report["config"]["fetch_k"])
+        and all(
+            len(run["refs"]) <= candidate_report["result_k"]
+            for run in candidate_report["runs"].values()
+        )
+    )
+    exact_parent_queries = sum(
+        parent_rankings[case["id"]] == baseline_rankings["dense"][case["id"]]
+        for case in cases
+    )
+    parent_config = canonical_config(parent_report["config"])
+    expected_parent_config = {"retrieval_mode": "similarity", "fetch_k": 50, "mmr_lambda": 1.0}
+    parent_parity = exact_parent_queries == len(cases) and parent_config == expected_parent_config
+    validation_gate_passed = not selection["selected_changed"] or selection["validation_gate_passed"]
+    checks = json.loads(args.checks.read_text(encoding="utf8"))
+    targeted_checks_passed = checks.get("status") == "passed"
+    accepted = all((
+        config_match,
+        selection_hash_match,
+        selection_match,
+        selection_contract,
+        frozen_code_unchanged,
+        fixed_contract_match,
+        prefix_match,
+        depth_bound,
+        test_gate,
+        runtime_gate,
+        parent_parity,
+        validation_gate_passed,
+        targeted_checks_passed,
+    ))
+    report = {
+        "profile": "pr2_frozen_v1",
+        "experiment": "M01",
+        "outcome": "accepted" if accepted else "rejected",
+        "contribution": "Configurable similarity/MMR retrieval with ayah-ID deduplication; relevance gain is claimed only if the frozen candidate changes and passes every gate.",
+        "dataset": fixture_manifest,
+        "selection": selection,
+        "selection_sha256": sha256_file(args.selection),
+        "parent_report_sha256": sha256_file(baseline_dir / "report.json"),
+        "scorer_sha256": text_sha256(args.scorer_package / "evaluate_search.py"),
+        "code_sha256": {
+            "evaluation/islamqa_frozen.py": sha256_file(HERE / "islamqa_frozen.py"),
+            "utils.py": sha256_file(ROOT / "utils.py"),
+            "evaluation/test_retrieval_config.py": sha256_file(HERE / "test_retrieval_config.py"),
+        },
+        "runs": summary_runs,
+        "comparisons": comparisons,
+        "on_off_ablation": {
+            "off": "Current-code similarity rollback: FETCH_K=50, MMR_LAMBDA=1.0; exact M00 parity required.",
+            "on": selected_config,
+            "off_config": parent_config,
+            "off_exact_m00_queries": exact_parent_queries,
+            "off_headline_counts": parent_counts,
+            "off_timings_ms": parent_summary["timings_ms"],
+            "comparison": "m01_vs_dense",
+        },
+        "runtime_budgets": baseline_report["runtime_budgets"],
+        "runtime_budget_check": {
+            "budget": budget,
+            "measurements": runtime_measurements,
+            "passed": runtime_gate,
+        },
+        "acceptance": {
+            "accepted": accepted,
+            "config_matches_frozen_selection": config_match,
+            "selection_hash_matches": selection_hash_match,
+            "embedded_selection_matches": selection_match,
+            "validation_only_selection_contract": selection_contract,
+            "frozen_code_unchanged": frozen_code_unchanged,
+            "fixed_model_corpus_contract_matches": fixed_contract_match,
+            "prefixes_match": prefix_match,
+            "unique_ids_and_depth_bound": depth_bound,
+            "validation_gate_passed": validation_gate_passed,
+            "test_gate_passed": test_gate,
+            "parent_config_matches_rollback": parent_config == expected_parent_config,
+            "parent_headline_counts": parent_counts,
+            "candidate_headline_counts": candidate_counts,
+            "runtime_budget_passed": runtime_gate,
+            "targeted_checks_passed": targeted_checks_passed,
+            "similarity_parent_exact_queries": exact_parent_queries,
+            "similarity_rollback_parity": parent_parity,
+        },
+        "targeted_checks": checks,
+        "source_ranking_artifacts": {
+            **{
+                name: {
+                    "file": f"{name}_query_rankings.jsonl",
+                    "sha256": baseline_report["query_ranking_artifacts"][name]["sha256"],
+                    "source": "M00 committed query rankings",
+                }
+                for name, _ in RUN_COLUMNS
+            },
+            "m01": {"file": args.candidate.name,
+                "sha256": sha256_file(args.candidate),
+                "bytes": args.candidate.stat().st_size,
+            },
+            "m01_parent": {
+                "file": args.parent_candidate.name,
+                "sha256": sha256_file(args.parent_candidate),
+                "bytes": args.parent_candidate.stat().st_size,
+            },
+        },
+        "limitations": [
+            *fixture_manifest["notes"],
+            "The English IslamQA score does not establish Arabic/Bengali semantic quality.",
+            "Runtime budgets are machine-specific and remain fixed from M00.",
+        ],
+    }
+    write_jsonl(
+        args.output_dir / "m01_query_rankings.jsonl",
+        (
+            {
+                "id": case["id"],
+                "group_id": case["group_id"],
+                "query": case["query"],
+                "ranking": candidate_rankings[case["id"]],
+                "source_fields": candidate_report["runs"][case["id"]]["source_fields"],
+            }
+            for case in cases
+        ),
+    )
+    report["query_ranking_artifacts"] = {
+        "m01": {
+            "file": "m01_query_rankings.jsonl",
+            "sha256": sha256_file(args.output_dir / "m01_query_rankings.jsonl"),
+            "bytes": (args.output_dir / "m01_query_rankings.jsonl").stat().st_size,
+        }
+    }
+    table = markdown_leaderboard(report)
+    (args.output_dir / "leaderboard.md").write_text(table + "\n", encoding="utf8")
+    write_json(args.output_dir / "report.json", report)
+    print(table)
+    print()
+    print(json.dumps(report["acceptance"], indent=2))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -1093,6 +1819,7 @@ def main() -> None:
         "--corpus-db", type=Path, default=DEFAULT_AAYATUN_REPO / "db" / "en_quran.db"
     )
     prepare_parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    prepare_parser.add_argument("--split", choices=("test", "validation"), default="test")
     prepare_parser.set_defaults(func=prepare)
 
     lexical_parser = subparsers.add_parser("lexical", help="Run a pinned Aayatun lexical revision")
@@ -1119,6 +1846,32 @@ def main() -> None:
     dense_parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT / "dense_rankings.json")
     dense_parser.set_defaults(func=run_dense)
 
+    dense_config_parser = subparsers.add_parser("dense-config", help="Run one frozen dense retrieval configuration")
+    dense_config_parser.add_argument(
+        "--corpus-db", type=Path, default=DEFAULT_AAYATUN_REPO / "db" / "en_quran.db"
+    )
+    dense_config_parser.add_argument("--output-dir", type=Path, default=DEFAULT_M01_TEST)
+    dense_config_parser.add_argument("--runtime-dir", type=Path, default=DEFAULT_M01_TEST / "runtime")
+    dense_config_parser.add_argument("--output", type=Path, default=DEFAULT_M01_TEST / "m01_rankings.json")
+    dense_config_parser.add_argument("--split", choices=("test", "validation"), default="test")
+    dense_config_parser.add_argument("--retrieval-mode", choices=("similarity", "mmr"), required=True)
+    dense_config_parser.add_argument("--fetch-k", type=int, choices=(20, 50, 100), required=True)
+    dense_config_parser.add_argument("--mmr-lambda", type=float, choices=(1.0, 0.85, 0.7), required=True)
+    dense_config_parser.add_argument("--selection", type=Path)
+    dense_config_parser.set_defaults(func=run_dense_config)
+
+    dense_sweep_parser = subparsers.add_parser("dense-sweep", help="Select M01 settings on validation only")
+    dense_sweep_parser.add_argument(
+        "--corpus-db", type=Path, default=DEFAULT_AAYATUN_REPO / "db" / "en_quran.db"
+    )
+    dense_sweep_parser.add_argument("--scorer-package", type=Path, default=DEFAULT_SCORER_PACKAGE)
+    dense_sweep_parser.add_argument("--output-dir", type=Path, default=DEFAULT_M01_VALIDATION)
+    dense_sweep_parser.add_argument("--runtime-dir", type=Path, default=DEFAULT_M01_VALIDATION / "runtime")
+    dense_sweep_parser.add_argument("--selection", type=Path, default=DEFAULT_M01_VALIDATION / "selection.json")
+    dense_sweep_parser.add_argument("--bootstrap", type=int, default=2000)
+    dense_sweep_parser.add_argument("--seed", type=int, default=4213)
+    dense_sweep_parser.set_defaults(func=run_dense_sweep)
+
     browser_parser = subparsers.add_parser("browser", help="Reproduce the pinned PR #2 browser worker")
     browser_parser.add_argument("--aayatun-repo", type=Path, default=DEFAULT_AAYATUN_REPO)
     browser_parser.add_argument("--pr2-eval-repo", type=Path, default=DEFAULT_PR2_EVAL_REPO)
@@ -1140,6 +1893,21 @@ def main() -> None:
     report_parser.add_argument("--bootstrap", type=int, default=2000)
     report_parser.add_argument("--seed", type=int, default=4213)
     report_parser.set_defaults(func=build_report)
+
+    m01_report_parser = subparsers.add_parser("m01-report", help="Score the frozen M01 test and append its leaderboard column")
+    m01_report_parser.add_argument(
+        "--corpus-db", type=Path, default=DEFAULT_AAYATUN_REPO / "db" / "en_quran.db"
+    )
+    m01_report_parser.add_argument("--scorer-package", type=Path, default=DEFAULT_SCORER_PACKAGE)
+    m01_report_parser.add_argument("--output-dir", type=Path, default=DEFAULT_M01_TEST)
+    m01_report_parser.add_argument("--candidate", type=Path, default=DEFAULT_M01_TEST / "m01_rankings.json")
+    m01_report_parser.add_argument("--parent-candidate", type=Path, default=DEFAULT_M01_TEST / "m01_parent_rankings.json")
+    m01_report_parser.add_argument("--selection", type=Path, default=DEFAULT_M01_VALIDATION / "selection.json")
+    m01_report_parser.add_argument("--baseline-dir", type=Path, default=DEFAULT_OUTPUT)
+    m01_report_parser.add_argument("--checks", type=Path, default=DEFAULT_M01_TEST / "checks.json")
+    m01_report_parser.add_argument("--bootstrap", type=int, default=2000)
+    m01_report_parser.add_argument("--seed", type=int, default=4213)
+    m01_report_parser.set_defaults(func=build_m01_report)
 
     args = parser.parse_args()
     if hasattr(args, "bootstrap") and args.bootstrap < 0:
