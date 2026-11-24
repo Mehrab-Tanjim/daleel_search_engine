@@ -1,0 +1,490 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Mehrab-Tanjim/daleel_search_engine/datasets/sanitized_islamqa/split_package/schema.json",
+  "title": "IslamQA Quran Search Split Package v2",
+  "description": "Readable, nested records for provisional question-ayah relevance data. Package-wide metadata lives in manifest.json.",
+  "oneOf": [
+    {"$ref": "#/$defs/question"},
+    {"$ref": "#/$defs/qrel"},
+    {"$ref": "#/$defs/candidate"},
+    {"$ref": "#/$defs/conflict"},
+    {"$ref": "#/$defs/component"},
+    {"$ref": "#/$defs/similarityAudit"},
+    {"$ref": "#/$defs/exclusion"},
+    {"$ref": "#/$defs/reviewPool"},
+    {"$ref": "#/$defs/ranking"}
+  ],
+  "$defs": {
+    "ayah": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*:[1-9][0-9]*$",
+      "description": "One-based surah:ayah reference."
+    },
+    "split": {
+      "enum": ["train", "validation", "test"]
+    },
+    "group_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{16}$"
+    },
+    "component_id": {
+      "type": "string",
+      "pattern": "^cmp_[0-9a-f]{16}$"
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query_id", "text", "language", "source_ids", "stats"],
+      "properties": {
+        "query_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{16}:q[0-9]+$"
+        },
+        "text": {"type": "string", "minLength": 1},
+        "language": {"enum": ["en", "ar", "mixed", "und"]},
+        "source_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "stats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["char_length", "question_mark_count", "compound_status"],
+          "properties": {
+            "char_length": {"type": "integer", "minimum": 0},
+            "question_mark_count": {"type": "integer", "minimum": 0},
+            "compound_status": {
+              "enum": ["not_flagged", "review_required"]
+            }
+          }
+        }
+      }
+    },
+    "judgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "query_id",
+        "query",
+        "source_reference",
+        "reviewed_passage",
+        "assessment"
+      ],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "query_id": {"type": "string", "pattern": "^[0-9a-f]{16}:q[0-9]+$"},
+        "query": {"type": "string", "minLength": 1},
+        "source_reference": {"type": "string"},
+        "reviewed_passage": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/ayah"},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["label", "grade", "reason"],
+          "properties": {
+            "label": {
+              "enum": ["direct", "partial", "background", "unrelated"]
+            },
+            "grade": {"type": "integer", "enum": [0, 1, 2, 3]},
+            "reason": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "evidenceStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label_status"],
+      "properties": {
+        "label_status": {
+          "enum": ["settled_model_review", "disputed"]
+        },
+        "provisional_grade": {
+          "type": "integer",
+          "enum": [0, 1, 2, 3],
+          "description": "Present only for disputed evidence; not an authoritative training label."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"label_status": {"const": "disputed"}},
+            "required": ["label_status"]
+          },
+          "then": {"required": ["provisional_grade"]},
+          "else": {"not": {"required": ["provisional_grade"]}}
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ayah", "text", "grade", "status", "judgments"],
+      "properties": {
+        "ayah": {"$ref": "#/$defs/ayah"},
+        "text": {"type": "string", "minLength": 1},
+        "grade": {
+          "oneOf": [
+            {"type": "integer", "enum": [0, 1, 2, 3]},
+            {"type": "null"}
+          ]
+        },
+        "status": {"$ref": "#/$defs/evidenceStatus"},
+        "judgments": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/judgment"},
+          "minItems": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "properties": {"label_status": {"const": "disputed"}},
+                "required": ["label_status"]
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {"grade": {"type": "null"}}
+          },
+          "else": {
+            "properties": {
+              "grade": {"type": "integer", "enum": [0, 1, 2, 3]}
+            }
+          }
+        }
+      ]
+    },
+    "evidenceTiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["direct", "partial", "background", "unrelated"],
+      "properties": {
+        "direct": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "partial": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "background": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "unrelated": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin_splits", "missing_reference_records"],
+      "properties": {
+        "origin_splits": {
+          "type": "array",
+          "items": {"enum": ["train", "benchmark"]},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "missing_reference_records": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    },
+    "labelSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["best_settled_label"],
+      "properties": {
+        "best_settled_label": {
+          "enum": ["direct", "partial", "background", "none"],
+          "description": "Highest settled evidence tier in the group; none means no settled positive."
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "group_id",
+        "component_id",
+        "provenance",
+        "queries",
+        "evidence",
+        "label_summary"
+      ],
+      "properties": {
+        "group_id": {"$ref": "#/$defs/group_id"},
+        "component_id": {"$ref": "#/$defs/component_id"},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "queries": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/query"},
+          "minItems": 1
+        },
+        "evidence": {"$ref": "#/$defs/evidenceTiers"},
+        "label_summary": {"$ref": "#/$defs/labelSummary"}
+      }
+    },
+    "qrel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["group_id", "ayah", "label", "grade"],
+      "properties": {
+        "group_id": {"$ref": "#/$defs/group_id"},
+        "ayah": {"$ref": "#/$defs/ayah"},
+        "label": {
+          "enum": ["direct", "partial", "background", "unrelated"]
+        },
+        "grade": {"type": "integer", "enum": [0, 1, 2, 3]}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["group_id", "ayah", "text"],
+      "properties": {
+        "group_id": {"$ref": "#/$defs/group_id"},
+        "ayah": {"$ref": "#/$defs/ayah"},
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    "conflictLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "grade"],
+      "properties": {
+        "label": {
+          "enum": ["direct", "partial", "background", "unrelated"]
+        },
+        "grade": {"type": "integer", "enum": [0, 1, 2, 3]}
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "split",
+        "group_id",
+        "ayah",
+        "labels",
+        "provisional_grade"
+      ],
+      "properties": {
+        "split": {"$ref": "#/$defs/split"},
+        "group_id": {"$ref": "#/$defs/group_id"},
+        "ayah": {"$ref": "#/$defs/ayah"},
+        "labels": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/conflictLabel"},
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "provisional_grade": {"type": "integer", "enum": [0, 1, 2, 3]}
+      }
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component_id", "split", "group_ids", "reason"],
+      "properties": {
+        "component_id": {"$ref": "#/$defs/component_id"},
+        "split": {"$ref": "#/$defs/split"},
+        "group_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/group_id"},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "reason": {
+          "enum": [
+            "balanced_stratified_allocation",
+            "contains_group_without_settled_positive"
+          ]
+        }
+      }
+    },
+    "similarityAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_index", "pair", "similarity", "review", "split_check"],
+      "properties": {
+        "candidate_index": {"type": "integer", "minimum": 0},
+        "pair": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["question_a", "question_b", "group_a", "group_b"],
+          "properties": {
+            "question_a": {"type": "string", "minLength": 1},
+            "question_b": {"type": "string", "minLength": 1},
+            "group_a": {"$ref": "#/$defs/group_id"},
+            "group_b": {"$ref": "#/$defs/group_id"}
+          }
+        },
+        "similarity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cosine"],
+          "properties": {
+            "cosine": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["approved_equivalence", "reason"],
+          "properties": {
+            "approved_equivalence": {"type": "boolean"},
+            "reason": {"type": "string", "minLength": 1}
+          }
+        },
+        "split_check": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["same_component", "cross_split"],
+          "properties": {
+            "same_component": {"type": "boolean"},
+            "cross_split": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "origin_split",
+        "group_id",
+        "split",
+        "question",
+        "source",
+        "reasons"
+      ],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "origin_split": {"enum": ["train", "benchmark"]},
+        "group_id": {
+          "oneOf": [
+            {"$ref": "#/$defs/group_id"},
+            {"type": "null"}
+          ]
+        },
+        "split": {
+          "oneOf": [
+            {"$ref": "#/$defs/split"},
+            {"type": "null"}
+          ]
+        },
+        "question": {"type": "string", "minLength": 1},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reference", "quoted_text", "review_reason"],
+          "properties": {
+            "reference": {
+              "oneOf": [
+                {"type": "string"},
+                {"type": "null"}
+              ]
+            },
+            "quoted_text": {
+              "oneOf": [
+                {"type": "string"},
+                {"type": "null"}
+              ]
+            },
+            "review_reason": {
+              "oneOf": [
+                {"type": "string"},
+                {"type": "null"}
+              ]
+            }
+          }
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "enum": ["unresolved_review", "missing_verified_reference"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "queryReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query_id", "text"],
+      "properties": {
+        "query_id": {"type": "string", "pattern": "^[0-9a-f]{16}:q[0-9]+$"},
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    "reviewPool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "split",
+        "group_id",
+        "queries",
+        "ayah",
+        "text",
+        "sources"
+      ],
+      "properties": {
+        "split": {"$ref": "#/$defs/split"},
+        "group_id": {"$ref": "#/$defs/group_id"},
+        "queries": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/queryReference"},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "ayah": {"$ref": "#/$defs/ayah"},
+        "text": {"type": "string", "minLength": 1},
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["run", "rank"],
+            "properties": {
+              "run": {"type": "string", "minLength": 1},
+              "rank": {"type": "integer", "minimum": 1}
+            }
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "ranking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["group_id", "ranking"],
+      "properties": {
+        "group_id": {"$ref": "#/$defs/group_id"},
+        "ranking": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/ayah"},
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
