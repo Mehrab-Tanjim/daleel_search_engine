@@ -1,5 +1,7 @@
+import os
 import pickle
 import re
+from sentence_spans import canonical_span_config, sentence_ranges
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from langchain.docstore.document import Document
 from functools import lru_cache
@@ -57,13 +59,24 @@ def summarize_if_needed(text: str, threshold=100) -> str:
             return ""
     return ""
 
-def preprocess_documents(docs, source='hadith'):
+def preprocess_documents(docs, source='hadith', span_mode=None, span_sentences=None):
     prepared = []
+    mode, count = canonical_span_config(
+        os.environ.get('SPAN_MODE', 'whole') if span_mode is None else span_mode,
+        os.environ.get('SPAN_SENTENCES', '1') if span_sentences is None else span_sentences,
+    )
     for doc in tqdm(docs):
         original = doc.page_content
         cleaned = preprocess_text(original)
         summary_text = "" #summarize_if_needed(original) if source == "hadith" else ""
-        new_doc = Document(page_content=cleaned, metadata={**doc.metadata, "original_text": original, "summary_text": summary_text})
+        metadata = {**doc.metadata, "original_text": original, "summary_text": summary_text}
+        if source == 'quran' and mode == 'sentences':
+            metadata['sentence_ranges'] = [
+                {'start': start, 'end': end, 'text': original[start:end]}
+                for start, end in sentence_ranges(original)
+            ]
+            metadata['span_sentences'] = count
+        new_doc = Document(page_content=cleaned, metadata=metadata)
         prepared.append(new_doc)
     return prepared
 

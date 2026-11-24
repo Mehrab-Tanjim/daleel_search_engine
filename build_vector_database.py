@@ -4,6 +4,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.docstore.document import Document
 import os
+from sentence_spans import canonical_span_config, expand_documents, quran_index_directory
 
 def save_vectorstore(documents, embeddings, base_path):
 
@@ -22,9 +23,14 @@ def build_vd(embedding_model_name, device):
         model_kwargs={"device": device, "trust_remote_code": True},
         encode_kwargs={"normalize_embeddings": True, "max_seq_length": 8192}  # Reduced batch size
     )
+    span_mode, span_sentences = canonical_span_config(
+        os.environ.get('SPAN_MODE', 'whole'), os.environ.get('SPAN_SENTENCES', '1')
+    )
+    passage_prefix = 'search_document: ' if embedding_model_name == 'nomic-ai/nomic-embed-text-v2-moe' else ''
+    quran_directory = quran_index_directory(span_mode, span_sentences)
 
     for doctype in ['original', 'preprocessed']:
-        
+
         model_path = f"{embedding_model_name.split('/')[-1]}_{doctype}_{device}"
         os.makedirs(f"vector_databases/{model_path}/", exist_ok=True)
 
@@ -34,14 +40,21 @@ def build_vd(embedding_model_name, device):
         with open(f"datasets/{doctype}_hadith_docs.pkl", "rb") as f:
             hadith_docs = pickle.load(f)
 
-        if embedding_model_name == "nomic-ai/nomic-embed-text-v2-moe":
-            # Add "search_document: " prefix to each document's text
+        if span_mode == 'sentences':
+            tokenizer = getattr(getattr(embeddings, 'client', None), 'tokenizer', None)
+            if tokenizer is None:
+                raise ValueError('Sentence-span indexing requires the embedding tokenizer')
+            quran_docs = expand_documents(
+                quran_docs, span_sentences, tokenizer, max_tokens=512, prefix=passage_prefix
+            )
+        elif passage_prefix:
             for doc in quran_docs:
-                doc.page_content = f"search_document: {doc.page_content}"
+                doc.page_content = f"{passage_prefix}{doc.page_content}"
+        if passage_prefix:
             for doc in hadith_docs:
-                doc.page_content = f"search_document: {doc.page_content}"
-                
-        save_vectorstore(quran_docs, embeddings, f"vector_databases/{model_path}/quran")
+                doc.page_content = f"{passage_prefix}{doc.page_content}"
+
+        save_vectorstore(quran_docs, embeddings, f"vector_databases/{model_path}/{quran_directory}")
         save_vectorstore(hadith_docs, embeddings, f"vector_databases/{model_path}/hadith")
         # save_vectorstore(quran_docs + hadith_docs, embeddings, f"vector_databases/{model_path}/all")
 

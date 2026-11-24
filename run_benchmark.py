@@ -20,6 +20,7 @@ from functools import partial
 import multiprocessing
 from build_vector_database import build_vd
 from utils import VectorSearchDeployment
+from sentence_spans import canonical_span_config, quran_index_directory
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -203,12 +204,14 @@ def run_benchmark(model_name, doctype, device, benchmark_path, method, eval_mode
 
     base_path = f"vector_databases/{model_name.split('/')[-1]}_{doctype}_{device}"
     eval_base_path = f"vector_databases/{eval_model_name.split('/')[-1]}_{doctype}_{device}"
+    span_mode, span_sentences = canonical_span_config(os.environ.get('SPAN_MODE', 'whole'), os.environ.get('SPAN_SENTENCES', '1'))
+    quran_directory = quran_index_directory(span_mode, span_sentences)
     index_paths = {
-        name: os.path.join(base_path, name.lower())
+        name: os.path.join(base_path, quran_directory if name == 'quran' else name.lower())
         for name in [ "quran", "hadith"]
     }
     eval_index_paths = {
-        name: os.path.join(eval_base_path, name.lower())
+        name: os.path.join(eval_base_path, quran_directory if name == 'quran' else name.lower())
         for name in [ "quran", "hadith"]
     }
 

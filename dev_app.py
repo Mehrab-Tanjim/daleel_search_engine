@@ -2,6 +2,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 import streamlit as st
 from utils import *
+from sentence_spans import canonical_span_config, quran_index_directory
 
 @st.cache_resource
 def get_model(index_path, model_name, selected_device):
@@ -28,7 +29,9 @@ selected_device = st.selectbox("Select a device:", ['cpu', 'cuda'])
 selected_doctype = st.selectbox("Select a device:", ['preprocessed', 'original'])
 
 model_path = f"{selected_model.split('/')[-1]}_{selected_doctype}_{selected_device}"
-index_dicts = {"Quran": f'vector_databases/{model_path}/quran', 'Hadith': f'vector_databases/{model_path}/hadith', 'Both': f'vector_databases/{model_path}/all'}
+span_mode, span_sentences = canonical_span_config(os.environ.get('SPAN_MODE', 'whole'), os.environ.get('SPAN_SENTENCES', '1'))
+quran_directory = quran_index_directory(span_mode, span_sentences)
+index_dicts = {"Quran": f'vector_databases/{model_path}/{quran_directory}', 'Hadith': f'vector_databases/{model_path}/hadith', 'Both': f'vector_databases/{model_path}/all'}
 
 index_path = index_dicts[selected_option]
 

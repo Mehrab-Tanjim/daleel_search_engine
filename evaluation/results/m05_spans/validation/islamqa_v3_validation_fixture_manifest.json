@@ -1,0 +1,38 @@
+{
+  "profile": "pr2_frozen_v1",
+  "dataset_version": "3.0.0",
+  "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+  "package_manifest_sha256": "65eacf24728ac0ad3415611881aaa2bb660a049add0c50979cb993b918e1802b",
+  "validator": {
+    "valid": true,
+    "train_groups": 1086,
+    "removed": 25,
+    "validation_test_byte_identical": true,
+    "train_source_overlaps": 0,
+    "retained_validation_test_answer_families": 4,
+    "test_blind": false
+  },
+  "split": "validation",
+  "corpus": {
+    "verses": 6236,
+    "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+  },
+  "counts": {
+    "query_cases": 260,
+    "question_groups": 257,
+    "useful_answerable_cases": 221,
+    "direct_answerable_cases": 40
+  },
+  "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+  "success_definitions": {
+    "relevant_hit@5": "At least one settled grade-1, grade-2, or grade-3 ayah in the first five.",
+    "useful_hit@5": "At least one settled grade-2 or grade-3 ayah in the first five.",
+    "direct_slice_useful_hit@5": "Useful hit@5 among the 40 direct-answer wordings; not direct_hit@5.",
+    "ndcg@10": "Gain 2^grade-1 with logarithmic rank discount, normalized by ideal qrels."
+  },
+  "notes": [
+    "The public test is a regression suite, not a blind holdout.",
+    "Qrels remain group-level; all 260 original wordings are preserved.",
+    "Confidence intervals resample question groups rather than wordings."
+  ]
+}
