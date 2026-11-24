@@ -1,5 +1,12 @@
 import json
 import os
+
+if __name__ == '__main__' and os.environ.get('EVAL_PROFILE') == 'pr2_frozen_v1':
+    from evaluation.islamqa_frozen import main as frozen_main
+
+    frozen_main()
+    raise SystemExit(0)
+
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from utils import *  # Assuming VectorSearchDeployment is defined here

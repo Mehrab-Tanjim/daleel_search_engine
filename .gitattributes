@@ -1,0 +1,2 @@
+evaluation/results/**/*.json text eol=lf
+evaluation/results/**/*.jsonl text eol=lf
