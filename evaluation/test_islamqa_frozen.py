@@ -48,6 +48,20 @@ class FrozenDatasetTests(unittest.TestCase):
         digest = hashlib.sha256(frozen.fixture_bytes(self.cases)).hexdigest()
         self.assertEqual(digest, frozen.EXPECTED_FIXTURE_SHA256)
 
+    def test_validation_fixture_is_frozen_with_its_own_denominators(self):
+        cases = frozen.load_cases(frozen.DEFAULT_PACKAGE, "validation")
+        counts = {
+            "queries": len(cases),
+            "groups": len({case["group_id"] for case in cases}),
+            "useful": sum(any(grade >= 2 for grade in case["qrels"].values()) for case in cases),
+            "direct": sum(case["best_settled_label"] == "direct" for case in cases),
+        }
+        self.assertEqual(counts, {"queries": 260, "groups": 257, "useful": 221, "direct": 40})
+        self.assertEqual(
+            hashlib.sha256(frozen.fixture_bytes(cases)).hexdigest(),
+            frozen.EXPECTED_VALIDATION_FIXTURE_SHA256,
+        )
+
 
 class RankingValidationTests(unittest.TestCase):
     def setUp(self):
@@ -160,6 +174,45 @@ class ScoringAndReportingTests(unittest.TestCase):
             self.assertIn(label, table.splitlines()[0])
         self.assertIn("Useful hit@5, direct-answer queries", table)
 
+    def test_m01_column_is_appended_without_replacing_baselines(self):
+        summary = {
+            "runs": {
+                **{
+                    name: {"headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")}}
+                    for name, _ in frozen.RUN_COLUMNS
+                },
+                "m01": {
+                    "leaderboard_label": "M01 mmr λ=0.85 k=50",
+                    "headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")},
+                },
+            }
+        }
+        header = frozen.markdown_leaderboard(summary).splitlines()[0]
+        self.assertIn("PR #2 browser | M00 offline E5/FAISS | M01 mmr λ=0.85 k=50", header)
+
+    def test_validation_gate_requires_useful_gain_without_ndcg_loss(self):
+        def summary(useful, ndcg):
+            return {
+                "headline": {
+                    "useful": {"counts": {"useful_hit@5": useful}},
+                    "all": {"metrics": {"ndcg@10": {"mean": ndcg}}},
+                }
+            }
+
+        parent = summary(10, 0.1)
+        self.assertFalse(frozen.validation_gate(parent, summary(10, 0.2)))
+        self.assertFalse(frozen.validation_gate(parent, summary(11, 0.09)))
+        self.assertTrue(frozen.validation_gate(parent, summary(11, 0.1)))
+        self.assertIs(frozen.choose_validation_candidate(parent, [summary(10, 0.2)]), parent)
+
+    def test_config_hash_is_stable_and_rejects_unrecorded_values(self):
+        config = {"retrieval_mode": "mmr", "fetch_k": 50, "mmr_lambda": 0.85}
+        self.assertEqual(frozen.config_sha256(config), frozen.config_sha256(dict(reversed(list(config.items())))))
+        with self.assertRaisesRegex(ValueError, "fetch_k"):
+            frozen.canonical_config({**config, "fetch_k": 40})
+        with self.assertRaisesRegex(ValueError, "mmr_lambda"):
+            frozen.canonical_config({**config, "mmr_lambda": 0.8})
+
     def test_runtime_budgets_are_fixed_from_measured_baseline(self):
         budgets = frozen.runtime_budgets(
             {
@@ -196,6 +249,8 @@ class EntrypointTests(unittest.TestCase):
         )
         self.assertIn("Frozen IslamQA v3 evaluation contract", result.stdout)
         self.assertIn("prepare", result.stdout)
+        self.assertIn("dense-sweep", result.stdout)
+        self.assertIn("m01-report", result.stdout)
 
 
 if __name__ == "__main__":
