@@ -69,11 +69,19 @@ def main():
     ratios = {'train': .65, 'validation': .15, 'test': .20}
     splits = {name: [] for name in ratios}
     targets = {name: len(groups) * ratio for name, ratio in ratios.items()}
+    excluded = {(row['group_id'], row['ayah']) for row in conflicts}
+    def has_scored_positive(group):
+        return any((group['id'], verse['ayah']) not in excluded
+                   for tier in ('direct', 'partial', 'background') for verse in group['ayat'][tier])
+
+    # Keep connected questions together, including those without a positive scoring label.
     for component in components:
-        name = max(splits, key=lambda item: (targets[item] - len(splits[item])) / targets[item])
+        if any(not has_scored_positive(group) for group in component):
+            name = 'train'
+        else:
+            name = max(splits, key=lambda item: (targets[item] - len(splits[item])) / targets[item])
         splits[name].extend(component)
 
-    excluded = {(row['group_id'], row['ayah']) for row in conflicts}
     ownership = {}
     summary = {}
     for name, items in splits.items():
@@ -91,6 +99,7 @@ def main():
     assert len(ownership) == len(groups)
     for component in components:
         assert len({ownership[group['id']] for group in component}) == 1
+    assert all(has_scored_positive(group) for name in ('validation', 'test') for group in splits[name])
     write_lines(PACKAGE / 'conflicts_excluded_from_grades.jsonl', conflicts)
     summary['source_sha256'] = {name: hashlib.sha256((DATA / name).read_bytes()).hexdigest() for name in
                                 ['grouped_queries.jsonl', 'similar_question_candidates.json', 'grouped_conflicts.jsonl']}

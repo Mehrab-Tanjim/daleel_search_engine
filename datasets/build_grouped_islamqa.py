@@ -96,8 +96,7 @@ def build(database):
                        for ref in rng.sample(options, min(3,len(options)))]
         output.append({'id': group_id, 'queries': variants, 'source_splits': sorted({r['split'] for r in source}),
                        'relevance_order': ['direct','partial','background'], 'ayat': tiers,
-                       'random_negative_candidates': sampled, 'missing_reference_records': dropped,
-                       'training_eligible': any(tiers[label] for label in ('direct','partial','background'))})
+                       'random_negative_candidates': sampled, 'missing_reference_records': dropped})
     write_lines(ROOT / 'grouped_queries.jsonl', output)
     write_lines(ROOT / 'grouped_qrels.jsonl', qrels)
     write_lines(ROOT / 'grouped_conflicts.jsonl', conflicts)

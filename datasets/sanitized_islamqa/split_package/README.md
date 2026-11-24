@@ -4,9 +4,9 @@ This folder contains the current **provisional** training, validation and test s
 
 | Split | Question groups | Share | Groups with at least one direct match | Scored question–ayah pairs |
 | --- | ---: | ---: | ---: | ---: |
-| Training | 1,110 | 64.95% | 137 | 4,104 |
-| Validation | 257 | 15.04% | 49 | 980 |
-| Test | 342 | 20.01% | 65 | 1,579 |
+| Training | 1,110 | 64.95% | 138 | 4,115 |
+| Validation | 257 | 15.04% | 50 | 1,052 |
+| Test | 342 | 20.01% | 63 | 1,496 |
 | **Total** | **1,709** | **100%** | **251** | **6,663** |
 
 A question group holds one question or several versions judged to mean the same thing. A question can have many relevant ayat, so there are more question–ayah pairs than question groups. Groups can have partial or background matches without any direct match.
@@ -46,7 +46,6 @@ For example, a record has this shape (the verse text is shortened here):
 
 The full record includes all tiers, other matching verses and every review reason. A verse can have multiple rationales when it was cited or reviewed more than once. The grouped audit data retains the source ID, original reviewed passage and associated query for each reason.
 
-`training_eligible` is true when a group has at least one direct, partial or background verse. It is a simple presence check, not a quality certification or an instruction to train on validation or test questions. It does not exclude conflicting grades or verify random negatives.
 
 Each line in `grades.jsonl` contains a `group_id`, `ayah` and numeric `grade`. This is the scoring file. The 39 disputed question–ayah grades are excluded from it. The complete questions file still shows the original conflicting grades and `has_conflicting_grades` flag, so **do not use those disputed grades as settled labels for training**.
 
@@ -101,9 +100,11 @@ The initial reviews were model-assisted. Another model reviewed the first 53 pai
 
 The target is **65% training, 15% validation and 20% test**, measured by question group. The goal is to use training questions to develop search improvements, validation questions to choose settings, and test questions for the final comparison.
 
-All versions within a question group stay together. To reduce leakage further, question pairs with multilingual E5-small cosine similarity above 0.90 were connected. All questions connected by these links, including through chains, were assigned to the same split. The components were shuffled with seed **4213**, sorted by size and assigned toward the target proportions. `create_splits.py` reproduces the files and `summary.json` records input hashes.
+All versions within a question group stay together. To reduce leakage further, question pairs with multilingual E5-small cosine similarity above 0.90 were connected. All questions connected by these links, including through chains, were assigned to the same split. Components containing any question without an undisputed positive grade are assigned to training. This ensures that every validation and test question has at least one direct, partial or background grade in its scoring file. The other components were shuffled with seed **4213**, sorted by size and assigned toward the target proportions. `create_splits.py` reproduces the files and `summary.json` records input hashes.
 
 This rule keeps all recorded above-threshold links inside a split. Similar questions below 0.90 can still cross splits, and a similarity link can connect questions that are only broadly related. The largest connected component contains **673 groups**. The current split is therefore a practical starting point, not proof of complete topic separation.
+
+The training split contains 18 groups without an undisputed positive scoring grade. Those groups cannot supply a confirmed positive for a training example unless their labels are reviewed. They remain in training to keep connected question groups together.
 
 The test questions have already been seen during the model review, so this is a held-out set rather than an independently blind test. Questions and verse labels came from the IslamQA-derived collection and model review. A human subject-matter review, source reuse rights, and an independent review of near-duplicates remain pending.
 
