@@ -1,0 +1,24 @@
+{
+  "source_sha256": {
+    "train": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+    "benchmark": "b997c252da60a5b674012d42928d308bc0e2a50cf4f59318d8fb6577fa7cfde4"
+  },
+  "total_quran_pairs": 5343,
+  "reviewed_pairs": 5343,
+  "decisions": {
+    "partial": 3379,
+    "unresolved": 23,
+    "background": 1151,
+    "direct": 761,
+    "unrelated": 29
+  },
+  "accepted": {
+    "train": 458,
+    "validation": 107,
+    "benchmark": 169
+  },
+  "exclusions": {
+    "The review did not judge this a direct answer.": 4582,
+    "Duplicate question and verse references within this split.": 27
+  }
+}

@@ -1,0 +1,6 @@
+[
+  {"index": 758, "merge": false, "reason": "The first case adds prior disclosure before marriage and imminent separation. Keep its contextual judgments separate from a general question about costly clothing demands."},
+  {"index": 845, "merge": false, "reason": "The second question adds legal compulsion and collecting passengers from venues. Those constraints can change which evidence answers the question."},
+  {"index": 952, "merge": false, "reason": "The first question additionally asks about someone voluntarily stepping back and disputes the strength of a hadith. Preserve that extra intent."},
+  {"index": 1040, "merge": false, "reason": "The first question asks what remedy someone should perform after making this oath in ignorance. The second asks permissibility and does not request the remedy."}
+]
