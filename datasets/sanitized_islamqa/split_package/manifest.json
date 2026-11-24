@@ -1,0 +1,240 @@
+{
+  "schema_version": 2,
+  "dataset_version": "2.0.0",
+  "release_status": "provisional",
+  "benchmark_grade": false,
+  "generated_at": "2026-11-24T01:42:47.157904+00:00",
+  "generator": {
+    "path": "create_splits.py",
+    "sha256": "bfab0d809d159133bdd5da7d23e17813a638f29a9f68f73760fe031248da8152",
+    "python_version": "3.12.10",
+    "source_commit": "41db735461844dbb53776af7e65b35a7e5b28ae6"
+  },
+  "hash_policy": {
+    "algorithm": "sha256",
+    "source_inputs": "parsed canonical JSON with sorted keys and LF record separators",
+    "outputs": "raw UTF-8 bytes with LF line endings"
+  },
+  "source_inputs": {
+    "grouped_queries.jsonl": "cacb429e7486852987989a53157e92318efd19b9198fa4834f9003e2037d62a7",
+    "group_questions.json": "c49412d419152ddcf2aa7f0feb5bc68969f53ccc075b605a3e2d3d82dd5f820a",
+    "similar_question_candidates.json": "155cdfd52b801ac012fd1fd4eb22fe330bbcb9f413a4ef6f18abc0537104114d",
+    "grouped_conflicts.jsonl": "f2eeb8cc247d751bdccea39f88609434e35fde8563fd06ca7db383d369cf726b",
+    "all_pairs_reviewed.jsonl": "39e3d24b9ca037b716bab2015a138886371aa4341ddeb2a6c93719f0a1282fa7",
+    "group_review_0.json": "30da181bb9ccf9a240938a8316875c4af1fdc9da1f844759c97c707b66ea8d05",
+    "group_review_1.json": "09781c212c288e5117481246790e8ce933e2127bdd5051f523a4b4796b27a1be",
+    "group_review_2.json": "702f8e5722a53b495fbd788ad22fbcd8f6f4db02c40d742a3bb1c1d734f1bb68",
+    "group_review_overrides.json": "6e7e27453276955c31709839dbe60ba2d898a1becd3c2aac9d15f07c54fa005d"
+  },
+  "outputs": {
+    "train/questions.jsonl": {
+      "sha256": "b42842ab1b5f80d179cf5982987e978517b8f7792315042e4196dcae2a9574a0",
+      "bytes": 4840776,
+      "records": 1111
+    },
+    "train/grades.jsonl": {
+      "sha256": "a7e8903c0411eeb47d16e0326b1e1eb75674ed09a020b2ca423247416221b17b",
+      "bytes": 344458,
+      "records": 4192
+    },
+    "train/unjudged_candidates.jsonl": {
+      "sha256": "50b2690878d0cb0d9c5205cdc5c0990068d3c14a76befd2bd3578900521ae5b3",
+      "bytes": 651085,
+      "records": 3267
+    },
+    "validation/questions.jsonl": {
+      "sha256": "0ba8ca4c119959f68730dc634ca30aacbeb5b36ed50387ecb4ee3f541153266d",
+      "bytes": 1163589,
+      "records": 257
+    },
+    "validation/grades.jsonl": {
+      "sha256": "d8dfe6c27db6670d1abc530a06bca5dba07830bf98f6dd7362593a402d3e7735",
+      "bytes": 88767,
+      "records": 1082
+    },
+    "validation/unjudged_candidates.jsonl": {
+      "sha256": "75c1affc1508f8fdc6f881299d74312364afe06cb0657e4935fa977273c4dd13",
+      "bytes": 149920,
+      "records": 765
+    },
+    "test/questions.jsonl": {
+      "sha256": "04e67403449008f75f6740482548e8117167e75775a92de7ff47dcb41ac0ab2b",
+      "bytes": 1572301,
+      "records": 341
+    },
+    "test/grades.jsonl": {
+      "sha256": "f028b8d18576c9ee6383f993d4c9fc13adfeb0e91cabf246df8668aee392eaf3",
+      "bytes": 113894,
+      "records": 1389
+    },
+    "test/unjudged_candidates.jsonl": {
+      "sha256": "99ffb59f0e5518cc67380abf3a9b4f69d907f31818e7fa2b3ee4fd41bd4b5a2c",
+      "bytes": 204318,
+      "records": 1011
+    },
+    "conflicts_excluded_from_grades.jsonl": {
+      "sha256": "6d38ee1150aa41e43d919474b9a18fb299717078179eeb228715da3f19d6776b",
+      "bytes": 6704,
+      "records": 39
+    },
+    "split_components.jsonl": {
+      "sha256": "f797c41e3bc2edabdfd65f1b8e2ad3b4845f3d675547fbeb2758f30fc403d981",
+      "bytes": 236948,
+      "records": 1709
+    },
+    "similarity_audit.jsonl": {
+      "sha256": "d2d36ddc466ab825d9db2750661040cfd031cb4dac94b41445ea4f403d6a6d61",
+      "bytes": 2863860,
+      "records": 1755
+    },
+    "exclusions.jsonl": {
+      "sha256": "49addaa92e643754df2f210fe4bc662bb52f546972b59b4a1d586807b6a658b0",
+      "bytes": 16370,
+      "records": 24
+    }
+  },
+  "counts": {
+    "question_groups": 1709,
+    "normalized_query_wordings": 1729,
+    "multi_query_groups": 20,
+    "judged_pairs": 6702,
+    "scored_pairs": 6663,
+    "disputed_pairs": 39,
+    "unjudged_candidates": 5043,
+    "components": 1709,
+    "similarity_candidates": 1755,
+    "approved_equivalence_edges": 20,
+    "cross_split_rejected_candidates": 820,
+    "exclusions": 24
+  },
+  "splits": {
+    "train": {
+      "question_groups": 1111,
+      "query_wordings": 1124,
+      "judged_pairs": 4222,
+      "scored_pairs": 4192,
+      "disputed_pairs": 30,
+      "unjudged_candidates": 3267,
+      "direct_question_groups": 161,
+      "positive_question_groups": 1093,
+      "groups_by_label_stratum": {
+        "background": 164,
+        "partial": 768,
+        "direct": 161,
+        "none": 18
+      },
+      "groups_by_origin_profile": {
+        "train": 815,
+        "benchmark": 288,
+        "mixed": 8
+      },
+      "compound_query_groups": 250
+    },
+    "validation": {
+      "question_groups": 257,
+      "query_wordings": 260,
+      "judged_pairs": 1085,
+      "scored_pairs": 1082,
+      "disputed_pairs": 3,
+      "unjudged_candidates": 765,
+      "direct_question_groups": 39,
+      "positive_question_groups": 257,
+      "groups_by_label_stratum": {
+        "direct": 39,
+        "partial": 179,
+        "background": 39
+      },
+      "groups_by_origin_profile": {
+        "train": 187,
+        "benchmark": 68,
+        "mixed": 2
+      },
+      "compound_query_groups": 70
+    },
+    "test": {
+      "question_groups": 341,
+      "query_wordings": 345,
+      "judged_pairs": 1395,
+      "scored_pairs": 1389,
+      "disputed_pairs": 6,
+      "unjudged_candidates": 1011,
+      "direct_question_groups": 51,
+      "positive_question_groups": 341,
+      "groups_by_label_stratum": {
+        "partial": 239,
+        "background": 51,
+        "direct": 51
+      },
+      "groups_by_origin_profile": {
+        "benchmark": 89,
+        "train": 250,
+        "mixed": 2
+      },
+      "compound_query_groups": 76
+    }
+  },
+  "grade_distribution": {
+    "0": 31,
+    "1": 1359,
+    "2": 4136,
+    "3": 1137
+  },
+  "class_weights_balanced": {
+    "0": 53.733871,
+    "1": 1.225717,
+    "2": 0.402744,
+    "3": 1.46504
+  },
+  "component_size_distribution": {
+    "1": 1709
+  },
+  "split_policy": {
+    "ratios": {
+      "train": 0.65,
+      "validation": 0.15,
+      "test": 0.2
+    },
+    "random_seed": 4213,
+    "constraints": [
+      "existing_question_groups_are_indivisible",
+      "approved_equivalence_edges_are_kept_together",
+      "normalized_exact_duplicate_questions_are_kept_together",
+      "components_containing_a_group_without_a_settled_positive_go_to_train"
+    ],
+    "stratification": [
+      "origin_profile",
+      "best_settled_label"
+    ],
+    "allocation": "largest_first_largest_normalized_remaining_deficit",
+    "similarity_candidates_are_diagnostic_only": true
+  },
+  "similarity_model": {
+    "name": "intfloat/multilingual-e5-small",
+    "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+    "candidate_threshold": 0.9
+  },
+  "translation": {
+    "id": "Aayatun English Quran translation",
+    "source_table": "verses(sura, ayah, text)",
+    "corpus_path": "en_quran.db",
+    "corpus_sha256": "f65ccbc94be1174fef65f63c6393f89a999add5d9aaf27cd3895b3394da3c788",
+    "verse_count": 6236,
+    "text_policy": "raw_corpus_text"
+  },
+  "annotation": {
+    "extraction_model": "gpt-4o",
+    "review_method": "model_assisted",
+    "review_model_revision": null,
+    "human_verified": false,
+    "test_set_blind": false
+  },
+  "release_blockers": [
+    "independent_human_or_scholarly_review_pending",
+    "citation_corrections_not_independently_verified",
+    "test_questions_seen_during_model_review",
+    "pooled_relevance_judgments_incomplete",
+    "source_reuse_rights_and_license_unresolved",
+    "compound_queries_not_atomically_reviewed",
+    "english_only_evaluation_scope"
+  ]
+}
