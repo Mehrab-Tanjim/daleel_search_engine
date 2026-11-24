@@ -1,39 +1,39 @@
-{"group_id": "50bcd72e999f77ad", "ayah": "5:5", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "50bcd72e999f77ad", "ayah": "58:22", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "23e42b19104643e0", "ayah": "5:89", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "1f1dc061cbce5678", "ayah": "6:152", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "2138e26c2cbe62ae", "ayah": "7:155", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "fe32e1f1b778e3c9", "ayah": "51:56", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "fe32e1f1b778e3c9", "ayah": "72:1", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "0738ed3c799e3ad2", "ayah": "49:13", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "540234863d0f02ae", "ayah": "15:9", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "540234863d0f02ae", "ayah": "41:41", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "540234863d0f02ae", "ayah": "41:42", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "5f0558ed1c17683c", "ayah": "11:83", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "96ac6a8c85d952fe", "ayah": "2:138", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "e30f885cac20ee07", "ayah": "20:66", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "e30f885cac20ee07", "ayah": "2:102", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "660a13943977b6a5", "ayah": "98:5", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "d7de6d1174a5bb8c", "ayah": "5:95", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "9a1f6f30fa454232", "ayah": "4:36", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "bf323afc71d58459", "ayah": "17:23", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "3c0596b3590ad68d", "ayah": "2:9", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "9d325755a255a203", "ayah": "39:10", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "fc3cc09f519a2738", "ayah": "4:145", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "dd4e00807dfaf07e", "ayah": "4:140", "labels": ["background", "partial"], "chosen": "partial"}
-{"group_id": "d536bc0922514678", "ayah": "65:4", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "785edcec0d54a8ac", "ayah": "2:282", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "9c210efb8e4b34cb", "ayah": "4:25", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "6462f2326989ebf2", "ayah": "2:131", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "2a4fbcbf52d12ca7", "ayah": "17:23", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "2a4fbcbf52d12ca7", "ayah": "17:24", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "dff98bc4cdea3f2b", "ayah": "4:11", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "999599da82e4bef4", "ayah": "2:30", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "4b58e13bc1847f37", "ayah": "5:3", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "afd1b62b1300d336", "ayah": "10:62", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "39e34bd36ae5381e", "ayah": "9:65", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "39e34bd36ae5381e", "ayah": "9:66", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "45d1dcaf86e2517a", "ayah": "19:13", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "3e199809bd86e577", "ayah": "49:12", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "061c58f93b6a6274", "ayah": "24:26", "labels": ["direct", "partial"], "chosen": "direct"}
-{"group_id": "955642c798e5a096", "ayah": "9:128", "labels": ["background", "partial"], "chosen": "partial"}
+{"split": "train", "group_id": "50bcd72e999f77ad", "ayah": "5:5", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "50bcd72e999f77ad", "ayah": "58:22", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "test", "group_id": "23e42b19104643e0", "ayah": "5:89", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "1f1dc061cbce5678", "ayah": "6:152", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "2138e26c2cbe62ae", "ayah": "7:155", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "test", "group_id": "fe32e1f1b778e3c9", "ayah": "51:56", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "test", "group_id": "fe32e1f1b778e3c9", "ayah": "72:1", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "0738ed3c799e3ad2", "ayah": "49:13", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "540234863d0f02ae", "ayah": "15:9", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "540234863d0f02ae", "ayah": "41:41", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "540234863d0f02ae", "ayah": "41:42", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "5f0558ed1c17683c", "ayah": "11:83", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "96ac6a8c85d952fe", "ayah": "2:138", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "e30f885cac20ee07", "ayah": "20:66", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "e30f885cac20ee07", "ayah": "2:102", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "660a13943977b6a5", "ayah": "98:5", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "test", "group_id": "d7de6d1174a5bb8c", "ayah": "5:95", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "9a1f6f30fa454232", "ayah": "4:36", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "bf323afc71d58459", "ayah": "17:23", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "3c0596b3590ad68d", "ayah": "2:9", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "9d325755a255a203", "ayah": "39:10", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "test", "group_id": "fc3cc09f519a2738", "ayah": "4:145", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "dd4e00807dfaf07e", "ayah": "4:140", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
+{"split": "train", "group_id": "d536bc0922514678", "ayah": "65:4", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "test", "group_id": "785edcec0d54a8ac", "ayah": "2:282", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "9c210efb8e4b34cb", "ayah": "4:25", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "6462f2326989ebf2", "ayah": "2:131", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "2a4fbcbf52d12ca7", "ayah": "17:23", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "2a4fbcbf52d12ca7", "ayah": "17:24", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "dff98bc4cdea3f2b", "ayah": "4:11", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "999599da82e4bef4", "ayah": "2:30", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "4b58e13bc1847f37", "ayah": "5:3", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "validation", "group_id": "afd1b62b1300d336", "ayah": "10:62", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "39e34bd36ae5381e", "ayah": "9:65", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "39e34bd36ae5381e", "ayah": "9:66", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "45d1dcaf86e2517a", "ayah": "19:13", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "train", "group_id": "3e199809bd86e577", "ayah": "49:12", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "validation", "group_id": "061c58f93b6a6274", "ayah": "24:26", "labels": [{"label": "direct", "grade": 3}, {"label": "partial", "grade": 2}], "provisional_grade": 3}
+{"split": "validation", "group_id": "955642c798e5a096", "ayah": "9:128", "labels": [{"label": "partial", "grade": 2}, {"label": "background", "grade": 1}], "provisional_grade": 2}
