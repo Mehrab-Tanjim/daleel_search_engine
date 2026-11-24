@@ -93,6 +93,13 @@ def _boolean(value, name):
     return normalized == 'true'
 
 
+def _translation_id(value, name='EXTRA_TRANSLATION_ID'):
+    normalized = str(value).strip().lower()
+    if normalized not in ('none', 'pickthall_1930'):
+        raise ValueError(f"{name} must be 'none' or 'pickthall_1930'")
+    return normalized
+
+
 def _ayah_sort_key(reference):
     surah, ayah = reference.split(':')
     return int(surah), int(ayah)
@@ -107,7 +114,17 @@ REPRESENTATION_SCOPES = {
     'ai_en_tafsir': ('ai', 'en_tafsir'),
     'translation_ai_en_tafsir': ('translation', 'ai', 'en_tafsir'),
 }
-REPRESENTATION_PRIORITY = ('translation', 'ai', 'en_tafsir')
+EXTRA_TRANSLATION_SCOPES = {
+    'extra_translation': ('extra_translation',),
+    'translation_extra_translation': ('translation', 'extra_translation'),
+    'ai_extra_translation': ('ai', 'extra_translation'),
+    'en_tafsir_extra_translation': ('en_tafsir', 'extra_translation'),
+    'translation_ai_extra_translation': ('translation', 'ai', 'extra_translation'),
+    'translation_en_tafsir_extra_translation': ('translation', 'en_tafsir', 'extra_translation'),
+    'ai_en_tafsir_extra_translation': ('ai', 'en_tafsir', 'extra_translation'),
+    'translation_ai_en_tafsir_extra_translation': ('translation', 'ai', 'en_tafsir', 'extra_translation'),
+}
+REPRESENTATION_PRIORITY = ('translation', 'ai', 'en_tafsir', 'extra_translation')
 
 
 def _fuse_by_ayah(candidates_by_field, k, field_priority=REPRESENTATION_PRIORITY):
@@ -129,7 +146,7 @@ def _fuse_by_ayah(candidates_by_field, k, field_priority=REPRESENTATION_PRIORITY
 
 
 class VectorSearchDeployment:
-    def __init__(self, index_path, model_name, device, ai_index_path=None, en_tafsir_index_path=None):
+    def __init__(self, index_path, model_name, device, ai_index_path=None, en_tafsir_index_path=None, extra_translation_index_path=None):
         #Load the data from faiss
         st = time.time()
         self.model_name = model_name
@@ -142,6 +159,9 @@ class VectorSearchDeployment:
         self.semantic_en_tafsir = _boolean(os.environ.get('SEMANTIC_EN_TAFSIR', 'false'), 'SEMANTIC_EN_TAFSIR')
         if self.semantic_en_tafsir and not en_tafsir_index_path:
             raise ValueError('SEMANTIC_EN_TAFSIR=true requires en_tafsir_index_path')
+        self.extra_translation_id = _translation_id(os.environ.get('EXTRA_TRANSLATION_ID', 'none'))
+        if self.extra_translation_id != 'none' and not extra_translation_index_path:
+            raise ValueError('EXTRA_TRANSLATION_ID=pickthall_1930 requires extra_translation_index_path')
         if self.retrieval_mode not in ('similarity', 'mmr'):
             raise ValueError("RETRIEVAL_MODE must be 'similarity' or 'mmr'")
         if not math.isfinite(self.mmr_lambda) or not 0 <= self.mmr_lambda <= 1:
@@ -160,12 +180,17 @@ class VectorSearchDeployment:
         self.ai_db_docstore_id_to_index = {}
         self.en_tafsir_db = None
         self.en_tafsir_db_docstore_id_to_index = {}
+        self.extra_translation_db = None
+        self.extra_translation_db_docstore_id_to_index = {}
         if ai_index_path:
             self.ai_db = FAISS.load_local(ai_index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
             self.ai_db_docstore_id_to_index = dict(zip(self.ai_db.index_to_docstore_id.values(), self.ai_db.index_to_docstore_id.keys()))
         if en_tafsir_index_path:
             self.en_tafsir_db = FAISS.load_local(en_tafsir_index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
             self.en_tafsir_db_docstore_id_to_index = dict(zip(self.en_tafsir_db.index_to_docstore_id.values(), self.en_tafsir_db.index_to_docstore_id.keys()))
+        if extra_translation_index_path:
+            self.extra_translation_db = FAISS.load_local(extra_translation_index_path, self.embeddings, normalize_L2=True, allow_dangerous_deserialization=True)
+            self.extra_translation_db_docstore_id_to_index = dict(zip(self.extra_translation_db.index_to_docstore_id.values(), self.extra_translation_db.index_to_docstore_id.keys()))
         et = time.time() - st
         print(f'Loading database took {et} seconds.')
 
@@ -176,11 +201,13 @@ class VectorSearchDeployment:
             return self.ai_db, self.ai_db_docstore_id_to_index
         if field == 'en_tafsir':
             return self.en_tafsir_db, self.en_tafsir_db_docstore_id_to_index
+        if field == 'extra_translation':
+            return getattr(self, 'extra_translation_db', None), getattr(self, 'extra_translation_db_docstore_id_to_index', {})
         raise ValueError(f'Unknown representation field: {field}')
 
     def search(self, method, query, k=10, return_embeddings=False,
                 retrieval_mode=None, fetch_k=None, mmr_lambda=None,
-                semantic_ai=None, representation_scope=None, semantic_en_tafsir=None):
+                semantic_ai=None, representation_scope=None, semantic_en_tafsir=None, extra_translation_id=None):
         if method not in ('best_match', 'best_match_dedup', 'mmr'):
             raise ValueError(f"Unknown search method: {method}")
         if method == 'best_match_dedup':
@@ -207,19 +234,30 @@ class VectorSearchDeployment:
                 getattr(self, 'semantic_en_tafsir', False)
                 if semantic_en_tafsir is None else _boolean(semantic_en_tafsir, 'semantic_en_tafsir')
             )
+            extra_id = (
+                getattr(self, 'extra_translation_id', 'none')
+                if extra_translation_id is None else _translation_id(extra_translation_id, 'extra_translation_id')
+            )
             default_fields = ['translation']
             if ai_enabled:
                 default_fields.append('ai')
             if tafsir_enabled:
                 default_fields.append('en_tafsir')
+            if extra_id != 'none':
+                default_fields.append('extra_translation')
             scope = representation_scope or '_'.join(default_fields)
-            if scope not in REPRESENTATION_SCOPES:
+            if scope in REPRESENTATION_SCOPES:
+                fields = REPRESENTATION_SCOPES[scope]
+            elif scope in EXTRA_TRANSLATION_SCOPES:
+                fields = EXTRA_TRANSLATION_SCOPES[scope]
+            else:
                 raise ValueError('Unknown representation_scope')
-            fields = REPRESENTATION_SCOPES[scope]
             if 'ai' in fields and not ai_enabled:
                 raise ValueError('AI representation scopes require semantic_ai=true')
             if 'en_tafsir' in fields and not tafsir_enabled:
                 raise ValueError('Tafsir representation scopes require semantic_en_tafsir=true')
+            if 'extra_translation' in fields and extra_id == 'none':
+                raise ValueError('Extra translation scopes require extra_translation_id=pickthall_1930')
             for field in fields:
                 if self._representation_store(field)[0] is None:
                     raise ValueError(f'{field} representation scope requires a {field} index')
@@ -262,6 +300,23 @@ class VectorSearchDeployment:
             return results, result_embeddings
         
         return results
+
+    def display_document(self, doc):
+        """Return the retained translation for display while preserving retrieval attribution on doc."""
+        field = doc.metadata.get('field', 'translation')
+        if field not in ('ai', 'en_tafsir', 'extra_translation'):
+            return doc
+        reference = _ayah_reference(doc)
+        if not hasattr(self, 'translation_docs_by_ayah'):
+            self.translation_docs_by_ayah = {}
+            for doc_id in self.db.index_to_docstore_id.values():
+                candidate = self.db.docstore.search(doc_id)
+                if candidate is not None:
+                    self.translation_docs_by_ayah[_ayah_reference(candidate)] = candidate
+        display = self.translation_docs_by_ayah.get(reference)
+        if display is None or display.metadata.get('field', 'translation') != 'translation':
+            raise ValueError(f'Retained display translation is missing for ayah: {reference}')
+        return display
 
     def relevance_search_dedup(self, query, k=10, similarity_threshold=0.95):
         """Return unique ayah IDs; the legacy embedding threshold is not applied."""

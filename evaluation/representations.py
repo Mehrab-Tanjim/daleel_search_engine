@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from contextlib import closing
+import csv
 import hashlib
 import html
 import json
@@ -21,6 +22,12 @@ AI_EXPORTER_COMMIT = "ace935c95589d03694f83c6c83e1e498c4d3095b"
 TAFSIR_DB_SHA256 = "5e8cf990f9e6face2e57fcad7a1ed556408c073fe81b10f6d97020080f2523c1"
 TAFSIR_SOURCE_COMMIT = "9889612a6cff0bdfba2aec3f0268df7d7afd81c1"
 TAFSIR_EXPORTER_COMMIT = "92dad40bcfedc8ba4302627994f3b53f80a66c25"
+EXTRA_TRANSLATION_ID = "pickthall_1930"
+EXTRA_TRANSLATION_FIELD = "extra_translation"
+EXTRA_TRANSLATION_SOURCE = "pickthall_1930"
+EXTRA_TRANSLATION_CSV_SHA256 = "b1389af90c3596ccbc9d067497d0ca295875f2eba25bb4f06f15b4dfec498d39"
+EXTRA_TRANSLATION_SOURCE_URL = "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)"
+EXTRA_TRANSLATION_LICENSE_URL = "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)"
 DATASET_COMMIT = "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517"
 TAG_RE = re.compile(r"<[^>]+>")
 URL_RE = re.compile(r"https?://\S+")
@@ -75,6 +82,10 @@ def flatten_tafsir_content(raw: str) -> str:
 
 def normalized_tokens(text: str) -> list[str]:
     return TOKEN_RE.findall(text.casefold())
+
+
+def normalized_text(text: str) -> str:
+    return " ".join(normalized_tokens(text))
 
 
 def shingle_digest(tokens: list[str], size: int) -> bytes:
@@ -447,6 +458,175 @@ def export_tafsir_representation(
             "dataset_commit": DATASET_COMMIT,
             "temporal_evidence": "The pinned commentary blob predates the v3 dataset merge; source history does not certify semantic independence.",
             "limitation": "Exact long-span screening does not certify that no similar commentary appears in source answers.",
+        },
+        "output": {"file": output.name, "sha256": sha256_file(output), "bytes": output.stat().st_size},
+    }
+    write_json(output.with_suffix(".manifest.json"), manifest)
+    return manifest
+
+
+def export_extra_translation_representation(
+    translation_csv: Path,
+    corpus: dict[str, str],
+    output: Path,
+    source_paths: list[Path],
+    tokenizer: Any | None = None,
+    max_tokens: int = 512,
+) -> dict[str, Any]:
+    if sha256_file(translation_csv) != EXTRA_TRANSLATION_CSV_SHA256:
+        raise ValueError("Extra translation CSV does not match the pinned Pickthall source")
+    rows: list[dict[str, Any]] = []
+    empty: list[str] = []
+    seen: set[str] = set()
+    source_refs: list[str] = []
+    with translation_csv.open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        expected_columns = ["Name", "Surah", "Ayat", "Verse", "Tafseer"]
+        if reader.fieldnames != expected_columns:
+            raise ValueError(f"Unexpected extra translation CSV columns: {reader.fieldnames}")
+        source_rows = list(reader)
+    for row_number, row in enumerate(source_rows, start=2):
+        try:
+            surah = int(row["Surah"])
+            ayah = int(row["Ayat"])
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"Invalid extra translation ayah at CSV row {row_number}") from exc
+        if surah <= 0 or ayah <= 0 or str(surah) != row["Surah"].strip() or str(ayah) != row["Ayat"].strip():
+            raise ValueError(f"Non-canonical extra translation ayah at CSV row {row_number}")
+        ref = f"{surah}:{ayah}"
+        if ref in seen:
+            raise ValueError(f"Extra translation source contains duplicate ayah: {ref}")
+        seen.add(ref)
+        source_refs.append(ref)
+        if ref not in corpus:
+            raise ValueError(f"Extra translation source references unknown ayah: {ref}")
+        raw = row["Verse"]
+        text = WHITESPACE_RE.sub(" ", raw or "").strip()
+        if not text:
+            empty.append(ref)
+            continue
+        rows.append({
+            "ayah": ref,
+            "text": text,
+            "field": EXTRA_TRANSLATION_FIELD,
+            "source": EXTRA_TRANSLATION_SOURCE,
+            "translation_id": EXTRA_TRANSLATION_ID,
+            "source_csv_sha256": EXTRA_TRANSLATION_CSV_SHA256,
+        })
+    canonical_refs = sorted(corpus, key=ayah_sort_key)
+    per_surah_counts: dict[str, int] = defaultdict(int)
+    for ref in source_refs:
+        per_surah_counts[ref.split(":")[0]] += 1
+    mapping = {
+        "source_rows": len(source_rows),
+        "unique_source_refs": len(seen),
+        "corpus_verses": len(corpus),
+        "exact_reference_set": set(source_refs) == set(corpus),
+        "canonical_order": source_refs == canonical_refs,
+        "per_surah_counts_match": all(
+            per_surah_counts[str(surah)] == sum(ref.startswith(f"{surah}:") for ref in corpus)
+            for surah in range(1, max(map(lambda ref: int(ref.split(":")[0]), corpus)) + 1)
+        ),
+        "missing_source_ayahs": sorted(set(corpus) - seen, key=ayah_sort_key),
+        "unknown_source_ayahs": sorted(seen - set(corpus), key=ayah_sort_key),
+        "numbering_policy": "Surah and Ayat are parsed as positive canonical integers; duplicates, unknown references, and non-canonical numbering are rejected.",
+    }
+    current_duplicates = [
+        row for row in rows
+        if normalized_text(row["text"]) == normalized_text(corpus[row["ayah"]])
+    ]
+    duplicate_refs = {row["ayah"] for row in current_duplicates}
+    rows = [row for row in rows if row["ayah"] not in duplicate_refs]
+    repeated_all, _ = repeated_block_audit(rows)
+    overlap = audit_source_overlap(rows, source_paths, shingle_size=50, representation_field=EXTRA_TRANSLATION_FIELD)
+    overlap_detected = overlap.pop("excluded_rows")
+    overlap.pop("included_rows", None)
+    overlap["included_row_count"] = len(rows)
+    overlap["excluded_rows"] = []
+    overlap["overlap_detected_rows"] = overlap_detected
+    overlap["exclusion_rule"] = "Record exact normalized 50-token source matches without excluding rows: the pinned 1930 translation predates IslamQA, and complete mapping with explicit duplicate fallback is retained."
+    repeated_exported, repeated_sidecar = repeated_block_audit(rows)
+    repeated_payload = json.dumps(repeated_sidecar, ensure_ascii=False, separators=(",", ":")).encode("utf8")
+    repeated_path = output.with_name("repeated_blocks.json")
+    repeated_path.write_bytes(repeated_payload)
+    repeated_exported.update({
+        "sidecar_file": repeated_path.name,
+        "sidecar_sha256": hashlib.sha256(repeated_payload).hexdigest(),
+        "sidecar_bytes": len(repeated_payload),
+    })
+    indexed = {row["ayah"] for row in rows}
+    missing = sorted(set(corpus) - indexed, key=ayah_sort_key)
+    write_jsonl(output, rows)
+    valid_pairs = [row for row in rows + current_duplicates]
+    jaccard = []
+    for row in valid_pairs:
+        extra_tokens = set(normalized_tokens(row["text"]))
+        current_tokens = set(normalized_tokens(corpus[row["ayah"]]))
+        jaccard.append(len(extra_tokens & current_tokens) / max(1, len(extra_tokens | current_tokens)))
+    examples = []
+    for ref in ("1:1", "2:255", "112:1"):
+        if ref in corpus:
+            extra = next((row["text"] for row in valid_pairs if row["ayah"] == ref), "")
+            examples.append({"ayah": ref, "retained_translation": corpus[ref], "extra_translation": extra})
+    manifest = {
+        "experiment": "M04",
+        "representation": EXTRA_TRANSLATION_FIELD,
+        "display_field": "translation",
+        "source": {
+            "translation_id": EXTRA_TRANSLATION_ID,
+            "title": "The Meaning of the Glorious Koran",
+            "author": "Marmaduke Pickthall",
+            "publication_year": 1930,
+            "local_file": translation_csv.name,
+            "local_path": str(translation_csv.resolve()),
+            "source_csv_sha256": EXTRA_TRANSLATION_CSV_SHA256,
+            "source_csv_bytes": translation_csv.stat().st_size,
+            "source_git_commit": None,
+            "source_url": EXTRA_TRANSLATION_SOURCE_URL,
+            "license_url": EXTRA_TRANSLATION_LICENSE_URL,
+            "reuse_status": "Public domain in the United States because published before January 1, 1931; users outside the United States must assess local rights.",
+            "content_type": "English Quran translation; only the Verse column is used",
+        },
+        "flattening": {
+            "method": "CSV parsing with quoted-field support followed by whitespace normalization",
+            "used_columns": ["Surah", "Ayat", "Verse"],
+            "ignored_columns": ["Name", "Tafseer"],
+        },
+        "corpus": {"verses": len(corpus), "sha256": hashlib.sha256(json.dumps(corpus, ensure_ascii=False, sort_keys=True).encode("utf8")).hexdigest()},
+        "mapping": mapping,
+        "counts": {
+            "source_rows": len(source_rows),
+            "valid_text": len(valid_pairs),
+            "exported": len(rows),
+            "malformed_text": 0,
+            "current_translation_duplicates_excluded": len(current_duplicates),
+            "overlap_excluded": 0,
+            "missing": len(missing),
+            "empty_text": len(empty),
+        },
+        "current_translation_duplicate_ayahs": [row["ayah"] for row in current_duplicates],
+        "empty_text_ayahs": empty,
+        "missing_ayahs": missing,
+        "missing_verse_fallback": "Combined translation+extra scope falls back to the retained translation for missing optional rows; extra-only scope cannot return those ayat.",
+        "translation_independence": {
+            "method": "Exact normalized equality and per-ayah token-set Jaccard against the retained Saheeh International translation; no semantic independence claim.",
+            "exact_normalized_duplicates": len(current_duplicates),
+            "different_ayahs": len(valid_pairs) - len(current_duplicates),
+            "unique_extra_texts": len({row["text"] for row in valid_pairs}),
+            "median_token_jaccard": statistics.median(jaccard) if jaccard else None,
+            "mean_token_jaccard": statistics.mean(jaccard) if jaccard else None,
+            "examples": examples,
+            "duplicate_policy": "Exact normalized duplicates of the retained translation are excluded from the optional index so they cannot act as a second independent candidate; combined retrieval uses the retained translation instead.",
+        },
+        "characters": sum(len(row["text"]) for row in rows),
+        "token_truncation": token_truncation_summary(rows, output, tokenizer, max_tokens),
+        "repeated_text": {"all_exportable": repeated_all, "exported": repeated_exported},
+        "provenance_audit": {
+            **overlap,
+            "source_hashes": {path.name: sha256_file(path) for path in source_paths},
+            "dataset_commit": DATASET_COMMIT,
+            "test_sources_used": False,
+            "limitation": "Exact long-span screening does not certify semantic independence from source answers; overlap is recorded rather than selectively excluded.",
         },
         "output": {"file": output.name, "sha256": sha256_file(output), "bytes": output.stat().st_size},
     }

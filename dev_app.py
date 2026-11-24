@@ -63,7 +63,7 @@ if search_button:
         
         with col2:
         # Display the text
-            clean_text = result.page_content.replace('`', '')
+            clean_text = deployment.display_document(result).page_content.replace('`', '')
             st.write(f'**{clean_text}**')
             st.markdown(f'Relevance Score: **{results[i][1]*100:.2f}**%') #normalize_l2(results[i][1]) if using IndexFlatL2 instead
 
