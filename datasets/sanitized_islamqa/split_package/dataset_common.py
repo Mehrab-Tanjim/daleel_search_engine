@@ -104,6 +104,11 @@ def file_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def text_sha256(path: Path) -> str:
+    """Hash UTF-8 text independently of platform line endings."""
+    return hashlib.sha256(path.read_text(encoding="utf8").encode("utf8")).hexdigest()
+
+
 def semantic_sha256(path: Path) -> str:
     """Hash parsed JSON content independently of whitespace and line endings."""
     if path.suffix == ".jsonl":

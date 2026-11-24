@@ -30,6 +30,7 @@ from dataset_common import (
     read_jsonl,
     semantic_sha256,
     stable_id,
+    text_sha256,
     write_json,
     write_jsonl,
 )
@@ -630,7 +631,7 @@ def build_manifest(
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "generator": {
             "path": "create_splits.py",
-            "sha256": file_sha256(Path(__file__)),
+            "sha256": text_sha256(Path(__file__)),
             "python_version": platform.python_version(),
             "source_commit": source_commit(),
         },
@@ -638,6 +639,7 @@ def build_manifest(
             "algorithm": "sha256",
             "source_inputs": "parsed canonical JSON with sorted keys and LF record separators",
             "outputs": "raw UTF-8 bytes with LF line endings",
+            "generator": "UTF-8 text with normalized LF line endings",
         },
         "source_inputs": {
             name: semantic_sha256(DATA / name) for name in SOURCE_INPUTS

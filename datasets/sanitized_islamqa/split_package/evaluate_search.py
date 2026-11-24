@@ -77,7 +77,7 @@ def score_group(ranking: list[str], qrels: dict[str, int]) -> dict[str, float]:
 def load_ranking(path: Path, valid_group_ids: set[str]) -> dict[str, list[str]]:
     rankings: dict[str, list[str]] = {}
     for line_number, row in enumerate(read_jsonl(path), start=1):
-        if set(row) != {"group_id", "ranking"}:
+        if not isinstance(row, dict) or set(row) != {"group_id", "ranking"}:
             raise ValueError(f"{path}:{line_number}: expected group_id and ranking only")
         group_id = row["group_id"]
         if group_id not in valid_group_ids:
@@ -87,6 +87,8 @@ def load_ranking(path: Path, valid_group_ids: set[str]) -> dict[str, list[str]]:
         ranking = row["ranking"]
         if not isinstance(ranking, list):
             raise ValueError(f"{path}:{line_number}: ranking must be an array")
+        if any(not isinstance(ayah, str) for ayah in ranking):
+            raise ValueError(f"{path}:{line_number}: ranking entries must be ayah strings")
         if len(set(ranking)) != len(ranking):
             raise ValueError(f"{path}:{line_number}: duplicate ayah in ranking")
         for ayah in ranking:
@@ -139,6 +141,8 @@ def bootstrap_intervals(
 ) -> dict[str, list[float]]:
     if samples == 0:
         return {}
+    if samples < 0:
+        raise ValueError("Bootstrap sample count must be non-negative")
     group_ids = list(group_scores)
     rng = random.Random(seed)
     draws: dict[str, list[float]] = {metric: [] for metric in METRICS}
@@ -263,6 +267,8 @@ def paired_comparison(
     tolerance = 1e-12
     interval = None
     if bootstrap_samples:
+        if bootstrap_samples < 0:
+            raise ValueError("Bootstrap sample count must be non-negative")
         rng = random.Random(seed)
         means = [
             statistics.fmean(rng.choice(deltas) for _ in common)

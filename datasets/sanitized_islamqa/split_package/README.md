@@ -1,125 +1,368 @@
-# Quran search dataset splits
+# IslamQA Quran search split package v2
 
-This folder contains the current **provisional** training, validation and test sets for evaluating and improving Aayatun’s Search by meaning. Each question includes the Quran verses reviewers found relevant, with their review reasons.
+This package contains provisional question–ayah relevance data for training and evaluating Aayatun's Quran search. It is designed to be readable, strictly validated, and reproducible.
 
-| Split | Question groups | Share | Groups with at least one direct match | Scored question–ayah pairs |
-| --- | ---: | ---: | ---: | ---: |
-| Training | 1,110 | 64.95% | 138 | 4,115 |
-| Validation | 257 | 15.04% | 50 | 1,052 |
-| Test | 342 | 20.01% | 63 | 1,496 |
-| **Total** | **1,709** | **100%** | **251** | **6,663** |
+> **Not release-grade.** The labels are model-assisted, citation corrections are not independently verified, the test questions were seen during review, pooled judgments are incomplete, compound queries were not atomically reviewed, the evaluation scope is English-only, and source reuse rights remain unresolved. See [Release blockers](#release-blockers).
 
-A question group holds one question or several versions judged to mean the same thing. A question can have many relevant ayat, so there are more question–ayah pairs than question groups. Groups can have partial or background matches without any direct match.
+## Current package
+
+| Split | Question groups | Query wordings | Scored pairs | Direct groups | Positive groups |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Train | 1,111 | 1,124 | 4,192 | 161 | 1,093 |
+| Validation | 257 | 260 | 1,082 | 39 | 257 |
+| Test | 341 | 345 | 1,389 | 51 | 341 |
+| **Total** | **1,709** | **1,729** | **6,663** | **251** | **1,691** |
+
+The package also contains 6,702 judged question–ayah pairs, including 39 disputed pairs excluded from authoritative qrels, and 5,043 unjudged candidates stored separately. There are 20 approved equivalence edges. All currently fall inside existing question groups, so the package has 1,709 components. The similarity audit records 820 rejected near-duplicate candidates that cross splits; they are visible for review but do not constrain allocation.
 
 ## Folder guide
 
 ```text
 split_package/
-  train/       questions.jsonl   grades.jsonl
-  validation/  questions.jsonl   grades.jsonl
-  test/        questions.jsonl   grades.jsonl
+  train/
+    questions.jsonl
+    grades.jsonl
+    unjudged_candidates.jsonl
+  validation/
+    questions.jsonl
+    grades.jsonl
+    unjudged_candidates.jsonl
+  test/
+    questions.jsonl
+    grades.jsonl
+    unjudged_candidates.jsonl
   conflicts_excluded_from_grades.jsonl
+  split_components.jsonl
+  similarity_audit.jsonl
+  exclusions.jsonl
+  manifest.json
+  schema.json
+  .gitattributes
+  dataset_common.py
   create_splits.py
-  summary.json
+  validate_dataset.py
+  load_dataset.py
+  evaluate_search.py
+  build_review_pool.py
+  test_split_package.py
   README.md
 ```
 
-Each line in `questions.jsonl` contains a group, its question versions, full verse text, judges' reasons and potential negatives. Each question appears once in the group's `queries` list. Each verse has a `judge_rationales` list containing the review reasons. Source references, the question associated with each review, and the original grades are available in [the grouped audit data](../grouped_queries.jsonl), using the group ID and ayah. The split records flag the 39 disagreements.
+Each JSONL file contains one complete record per line. JSONL remains compact for tooling; the schema and the example below show the same structure in indented form.
 
-For example, a record has this shape (the verse text is shortened here):
+## Schema design
+
+The v2 schema follows four rules:
+
+1. **Identity first.** Stable IDs appear before descriptive content.
+2. **Related fields are nested.** Provenance, query statistics, evidence status, judgments, and labels have clear sections.
+3. **Constants live once.** Package-wide values such as the schema version live in `manifest.json`. A record's split comes from its directory. Tier order comes from the schema and this README, not a repeated `relevance_order` field.
+4. **Derived values are not duplicated.** For example, `label_summary.best_settled_label` replaces separate positive/direct booleans, and component membership replaces a repeated component count.
+
+The strict Draft 2020-12 schema is [schema.json](schema.json). It disallows unknown properties and distinguishes settled, disputed, and unjudged data.
+
+### Question records
+
+`<split>/questions.jsonl` contains one question group per line:
+
+| Field | Meaning |
+| --- | --- |
+| `group_id` | Stable 16-character hexadecimal question-group ID. |
+| `component_id` | Split component that owns the group. |
+| `provenance.origin_splits` | Original source splits: `train`, `benchmark`, or both. |
+| `provenance.missing_reference_records` | Source IDs whose verified reference is missing; also listed in `exclusions.jsonl`. |
+| `queries` | Deduplicated normalized wordings with stable query IDs, language, source IDs, and statistics. |
+| `evidence` | Ayat grouped into `direct`, `partial`, `background`, and `unrelated` tiers. |
+| `label_summary.best_settled_label` | Highest settled tier in the group, or `none`. |
+
+A query has this shape:
 
 ```json
 {
-  "queries": ["Who goes to heaven?"],
-  "ayat": {
-    "direct": [{
-      "ayah": "40:40",
-      "text": "Whoever does righteousness ... will enter Paradise ...",
-      "grade": 3,
-      "judge_rationales": [{
-        "reason": "Believing men and women who act righteously are explicitly promised Paradise."
-      }]
-    }]
+  "query_id": "0123456789abcdef:q0",
+  "text": "Who will enter Paradise?",
+  "language": "en",
+  "source_ids": ["train:42:0"],
+  "stats": {
+    "char_length": 24,
+    "question_mark_count": 1,
+    "compound_status": "not_flagged"
   }
 }
 ```
 
-The full record includes all tiers, other matching verses and every review reason. A verse can have multiple rationales when it was cited or reviewed more than once. The grouped audit data retains the source ID, original reviewed passage and associated query for each reason.
+`compound_status` is `review_required` when the wording has more than one question mark or exceeds 1,000 characters. This is a review flag, not an automatic split into atomic questions.
 
+Evidence is organized by tier:
 
-Each line in `grades.jsonl` contains a `group_id`, `ayah` and numeric `grade`. This is the scoring file. The 39 disputed question–ayah grades are excluded from it. The complete questions file still shows the original conflicting grades and `has_conflicting_grades` flag, so **do not use those disputed grades as settled labels for training**.
+```json
+{
+  "evidence": {
+    "direct": [],
+    "partial": [],
+    "background": [],
+    "unrelated": []
+  }
+}
+```
 
-| Grade | Review meaning |
+The surrounding tier is the evidence label; it is not repeated inside each verse. A settled verse has an integer `grade` and `status.label_status: "settled_model_review"`. A disputed verse has `grade: null`, `status.label_status: "disputed"`, and a non-authoritative `status.provisional_grade`.
+
+Each judgment preserves its source ID, query ID, original query wording, source reference, reviewed passage, assessment, and reason. This retains the context needed to inspect or correct a label.
+
+### Authoritative qrels
+
+`<split>/grades.jsonl` is the scoring file. It contains settled labels only:
+
+```json
+{
+  "group_id": "0123456789abcdef",
+  "ayah": "1:1",
+  "label": "direct",
+  "grade": 3
+}
+```
+
+The join key is `(group_id, ayah)`. Disputed evidence is absent from qrels even though it remains in the question record and conflict file.
+
+| Grade | Label | Meaning |
+| ---: | --- | --- |
+| 3 | `direct` | Directly addresses the question. |
+| 2 | `partial` | Answers part of the question or supplies a relevant principle. |
+| 1 | `background` | Provides topical context without answering the question. |
+| 0 | `unrelated` | Reviewed as unrelated. |
+
+These are ordinal relevance labels, not probabilities. Verses within a tier are not ranked against one another.
+
+### Disputed and unjudged data
+
+[conflicts_excluded_from_grades.jsonl](conflicts_excluded_from_grades.jsonl) lists all 39 disputed pairs with their competing labels and provisional maximum grade. A conflict is not a settled training label.
+
+`<split>/unjudged_candidates.jsonl` contains random candidates that were not reviewed:
+
+```json
+{
+  "group_id": "0123456789abcdef",
+  "ayah": "2:1",
+  "text": "Alif, Lam, Mim."
+}
+```
+
+The filename and schema define these records as unjudged, so constant `status` and `grade: null` fields are omitted. These candidates never appear in qrels and never overlap judged evidence. Absence from qrels means **unjudged for this evaluation**, not irrelevant.
+
+[exclusions.jsonl](exclusions.jsonl) records 24 unresolved citations or missing verified references, including the original question, source details, reasons, and assigned split when known.
+
+### Components and similarity audit
+
+[split_components.jsonl](split_components.jsonl) maps each component to its split and member group IDs:
+
+```json
+{
+  "component_id": "cmp_0123456789abcdef",
+  "split": "train",
+  "group_ids": ["0123456789abcdef"],
+  "reason": "balanced_stratified_allocation"
+}
+```
+
+The alternative reason is `contains_group_without_settled_positive`; those components are always assigned to training.
+
+[similarity_audit.jsonl](similarity_audit.jsonl) groups each candidate into `pair`, `similarity`, `review`, and `split_check` sections. Only `review.approved_equivalence: true` edges constrain splits. Rejected candidates remain diagnostic data, including when they cross splits.
+
+### Complete valid example
+
+The following indented question record and qrel are schema-valid. The text is illustrative; generated package records are checked against the translation corpus.
+
+```json
+{
+  "group_id": "0123456789abcdef",
+  "component_id": "cmp_0123456789abcdef",
+  "provenance": {
+    "origin_splits": ["train"],
+    "missing_reference_records": []
+  },
+  "queries": [
+    {
+      "query_id": "0123456789abcdef:q0",
+      "text": "Who will enter Paradise?",
+      "language": "en",
+      "source_ids": ["train:42:0"],
+      "stats": {
+        "char_length": 24,
+        "question_mark_count": 1,
+        "compound_status": "not_flagged"
+      }
+    }
+  ],
+  "evidence": {
+    "direct": [
+      {
+        "ayah": "1:1",
+        "text": "Illustrative verse text.",
+        "grade": 3,
+        "status": {
+          "label_status": "settled_model_review"
+        },
+        "judgments": [
+          {
+            "source_id": "train:42:0",
+            "query_id": "0123456789abcdef:q0",
+            "query": "Who will enter Paradise?",
+            "source_reference": "1:1",
+            "reviewed_passage": ["1:1"],
+            "assessment": {
+              "label": "direct",
+              "grade": 3,
+              "reason": "Illustrative direct relevance judgment."
+            }
+          }
+        ]
+      }
+    ],
+    "partial": [],
+    "background": [],
+    "unrelated": []
+  },
+  "label_summary": {
+    "best_settled_label": "direct"
+  }
+}
+```
+
+Matching qrel:
+
+```json
+{
+  "group_id": "0123456789abcdef",
+  "ayah": "1:1",
+  "label": "direct",
+  "grade": 3
+}
+```
+
+## Split policy
+
+The target is **65% training, 15% validation, and 20% test**, measured by question group.
+
+- Existing question groups are indivisible.
+- Exact normalized duplicate questions are kept together.
+- Only approved review decisions create equivalence edges between groups.
+- Rejected embedding-similarity candidates do not constrain allocation.
+- Components containing a group without a settled positive are assigned to training.
+- Remaining components are allocated largest-first with seed `4213`, balancing origin profile and best settled label using the largest normalized remaining deficit.
+
+The multilingual E5-small candidate model and revision are pinned in `manifest.json`. The audit file makes both approved and rejected near-duplicates inspectable without reconstructing the graph.
+
+The 18 training groups without a settled positive remain available for inspection but cannot provide a confirmed positive training example until reviewed. Every validation and test group has at least one settled positive.
+
+The test split is **held out but not blind**: its questions were visible during model-assisted review. Freeze a method on validation before examining test results.
+
+## Manifest and reproducibility
+
+[manifest.json](manifest.json) records:
+
+- dataset and schema versions;
+- provisional release status;
+- generator hash, Python version, source commit, and generation time;
+- semantic hashes for every source input;
+- output hashes, byte sizes, and record counts;
+- split, grade, origin, label, and component-size statistics;
+- balanced class weights;
+- pinned similarity model and revision;
+- translation corpus hash and verse count;
+- split policy and allocation seed;
+- annotation status and release blockers.
+
+Source JSON/JSONL hashes are computed from parsed canonical JSON, so whitespace and CRLF/LF differences do not change them. Generator hashes use UTF-8 text with normalized LF line endings, so Windows CRLF checkouts validate identically. Output hashes use raw UTF-8 bytes generated with LF line endings, and `.gitattributes` requests LF for JSON, JSONL, Python, and Markdown files. Regenerate with the recorded Python version when exact output hashes are required; `generated_at` is expected to change on every rebuild.
+
+## Validation and loading
+
+Run from the repository root. Replace `<en_quran.db>` with the Aayatun SQLite corpus containing `verses(sura, ayah, text)`.
+
+```powershell
+python datasets/sanitized_islamqa/split_package/create_splits.py --corpus "<en_quran.db>"
+python datasets/sanitized_islamqa/split_package/validate_dataset.py --check --corpus "<en_quran.db>"
+python datasets/sanitized_islamqa/split_package/load_dataset.py
+python -m unittest discover -s datasets/sanitized_islamqa/split_package -p "test_*.py" -v
+```
+
+The validator checks schema conformance, unique IDs, split ownership, component integrity, query statistics, judgment/query consistency, reviewed passages, grade/tier consistency, disputed null grades, exact qrel/evidence equality, conflict coverage, candidate separation, similarity audits, exclusions, manifest counts/statistics/hashes, and optional corpus text equality.
+
+The loader exposes validated questions, numeric qrels, candidates, conflicts, components, split ownership, and judged-pair sets:
+
+```python
+from load_dataset import Dataset
+
+dataset = Dataset.load()
+validation = dataset.splits["validation"]
+question = validation.questions["0123456789abcdef"]
+grades = validation.qrels["0123456789abcdef"]
+judged = dataset.judged_pairs_for("0123456789abcdef")
+```
+
+## Ranking evaluation
+
+A ranking file is JSONL with one record per evaluated group:
+
+```json
+{
+  "group_id": "0123456789abcdef",
+  "ranking": ["1:1", "2:255", "3:104"]
+}
+```
+
+Ayah references must be unique within a ranking. One file represents one named run.
+
+```powershell
+python datasets/sanitized_islamqa/split_package/evaluate_search.py `
+  --split validation `
+  --run baseline=baseline_rankings.jsonl `
+  --run candidate=candidate_rankings.jsonl `
+  --compare baseline candidate `
+  --paired-metric ndcg@10 `
+  --bootstrap 2000 `
+  --output evaluation_results.json
+```
+
+Evaluation includes only groups with at least one settled positive. Missing rankings are treated as empty result lists and reported explicitly. Unjudged and disputed results occupy rank positions but earn no gain.
+
+| Metric | Definition |
 | --- | --- |
-| 3 | Directly addresses the question |
-| 2 | Answers part of it or gives a relevant principle |
-| 1 | Provides background |
-| 0 | Reviewed as unrelated |
+| `direct_hit@5` | At least one grade-3 ayah in the first five results. |
+| `useful_hit@5` | At least one grade-2-or-3 ayah in the first five results. |
+| `positive_hit@5` | At least one grade-1-or-higher ayah in the first five results. |
+| `recall@5`, `recall@10` | Retrieved settled positives divided by all settled positives for the group. |
+| `mrr@10` | Reciprocal rank of the first settled positive within ten results. |
+| `ndcg@10` | DCG with gain `2^grade - 1`, divided by the ideal DCG from settled qrels. |
 
-For example, “Who goes to heaven?” has four direct ayat in the source dataset, including 40:40 and 19:60. The first promises Paradise to believing men and women who do righteousness. The second says those who repent, believe and do righteousness will enter Paradise. Each match has its own stored reason.
+Reports contain macro averages, 95% percentile bootstrap confidence intervals from group resampling, per-stratum results, ranked/missing group counts, and result coverage split into settled-judged, disputed, and unjudged results. The default bootstrap uses 2,000 samples and seed `4213`.
 
-For a full readable example of questions, verse text and reasons, see [the grouped dataset guide](../GROUPED_DATASET.md).
+Paired comparison reports per-group wins, losses, ties, mean delta, and a paired bootstrap confidence interval for the selected metric. A tie uses a `1e-12` tolerance.
 
-## How the questions were collected
+## Human review pool
 
-The original Daleel collection used IslamQA question-and-answer material from two sources. The reference-extraction script loads the Hugging Face `minhalvp/islamqa` training data and local Kaggle IslamQA files. It removes Kaggle questions that match a training question after trimming and lowercasing. It writes separate original training and benchmark reference files. The present splits were made later from their reviewed contents. [Reference-extraction script](../../extract_daleel_from_islamqa.py)
+Merge top-k results from multiple runs into a deduplicated queue:
 
-The repository also contains an earlier IslamQA scraping script. It requests topic pages, follows pagination, collects question IDs and attempts to fetch answer pages. Its intended output includes the page ID, URL, title, question, answer summary and full answer. The checked-in script builds answer URLs from the loop index rather than the collected question ID. Its comments and output filename also do not establish which topic range was actually captured. These details limit what can be concluded about the completeness and provenance of the saved scrape. We have not established that every item in the two reference files came from that script. [Scraping script](../../scrap_islamqa_dataset.py)
+```powershell
+python datasets/sanitized_islamqa/split_package/build_review_pool.py `
+  --split validation `
+  --run baseline=baseline_rankings.jsonl `
+  --run candidate=candidate_rankings.jsonl `
+  --top-k 10 `
+  --corpus "<en_quran.db>" `
+  --output review_pool.jsonl
+```
 
-The extraction script sends each question and answer to `gpt-4o`, asking it to extract quoted Quran verses and hadith references. It saves the question, answer and extracted citations. A citation shows what the answer cited. It does not by itself establish that the verse answers the reader's particular question. The script can also return an empty citation list on an error or when its expected JSON format is absent. The saved files are therefore not a complete inventory of every verse that may be relevant.
+Each queue record contains the split, group ID, all query IDs and texts, ayah, corpus text, and every contributing `(run, rank)` source. Already judged pairs are excluded, including disputed pairs. Duplicate candidates across runs become one record with multiple sources.
 
-## How we reviewed and organized the pairs
+Human adjudication must be recorded and applied before pooled judgments can be treated as settled qrels. Building a queue does not make the benchmark release-grade.
 
-We started with the two saved reference files and selected the **5,343 citations labeled Quran**. Reviewers compared each question and citation with the English verse text in the Aayatun search database and recorded a decision and reason. Where the cited number was missing or contradicted the quoted text, reviewers recorded corrections when they could identify the reference. The original reference remains in the data. For example, one citation labeled 23:40 quoted a passage from 40:40. Citation corrections still need independent verification.
+## Release blockers
 
-| First review decision | Citations | Why it was assigned |
-| --- | ---: | --- |
-| Direct | 761 | The cited verse or passage addresses the question or its main topic. |
-| Partial | 3,379 | It addresses part of the question or offers a relevant principle, while the specific answer needs more context. |
-| Background | 1,151 | It relates to the topic but does not answer the question. |
-| Unrelated | 29 | The reviewer found no useful connection to the question. |
-| Unresolved | 23 | The question or reference could not be judged reliably. |
-
-These are initial citation counts, before expanding ranges into individual ayat or combining question variants. The 23 unresolved citations were omitted from the grouped dataset. The full review decisions are saved in [the audit file](../all_pairs_reviewed.jsonl).
-
-We kept all different question wordings. Exact normalized matches were grouped, and multilingual E5-small was used to find question pairs with cosine similarity above 0.90. Model reviewers then checked those candidate pairs for equivalent intent. Similarity alone did not cause a merge. Every pair across a merged group required approval, avoiding automatic merges through a chain of merely similar questions. The [grouped dataset guide](../GROUPED_DATASET.md) describes the saved decisions and conservative overrides.
-
-For each group, the data keeps its direct, partial, background and unrelated ayat together with the original review reasons. Verse ranges are expanded into individual ayat for ranking, while `reviewed_passage` retains the original range. A grade assigned to a passage can depend on its surrounding ayat, so interpret an individual verse alongside that retained context.
-
-## Why the grades have this order
-
-The ranking reflects how useful a verse is for answering the reader's question. A **direct** answer should rank ahead of a verse that answers only part of the question. A **partial** answer should rank ahead of background that merely concerns the same topic. An explicitly reviewed **unrelated** verse receives grade 0 and can serve as a negative example.
-
-For example, 40:40 was graded direct for “Who goes to heaven?” because it explicitly promises Paradise to believing men and women who do righteous deeds. For a question asking the travel distance required to shorten prayer, 4:101 was graded partial. It addresses shortening prayer during travel, but does not state a minimum distance. For a question asking the Ramadan holiday date, 2:189 was graded background. It discusses the new moons as markers of time, but does not give the requested date.
-
-The numbers **3, 2, 1 and 0** encode that order for training and evaluation. They are ordinal labels, not measured probabilities or an assertion that one verse is exactly three times as useful as another. Verses within the same grade were not ordered against each other. Reviewers can disagree, especially when a question asks for a legal ruling and a verse supplies a general principle. The 39 disputed grades are excluded from the scoring files until resolved.
-
-The initial reviews were model-assisted. Another model reviewed the first 53 pairs and direct candidates in two review groups, and several decisions were changed after that check. This is not an independent human or scholarly review. The dataset retains the reasons and original evidence so a reader can inspect or correct the decisions.
-
-## How the split was made
-
-The target is **65% training, 15% validation and 20% test**, measured by question group. The goal is to use training questions to develop search improvements, validation questions to choose settings, and test questions for the final comparison.
-
-All versions within a question group stay together. To reduce leakage further, question pairs with multilingual E5-small cosine similarity above 0.90 were connected. All questions connected by these links, including through chains, were assigned to the same split. Components containing any question without an undisputed positive grade are assigned to training. This ensures that every validation and test question has at least one direct, partial or background grade in its scoring file. The other components were shuffled with seed **4213**, sorted by size and assigned toward the target proportions. `create_splits.py` reproduces the files and `summary.json` records input hashes.
-
-This rule keeps all recorded above-threshold links inside a split. Similar questions below 0.90 can still cross splits, and a similarity link can connect questions that are only broadly related. The largest connected component contains **673 groups**. The current split is therefore a practical starting point, not proof of complete topic separation.
-
-The training split contains 18 groups without an undisputed positive scoring grade. Those groups cannot supply a confirmed positive for a training example unless their labels are reviewed. They remain in training to keep connected question groups together.
-
-The test questions have already been seen during the model review, so this is a held-out set rather than an independently blind test. Questions and verse labels came from the IslamQA-derived collection and model review. A human subject-matter review, source reuse rights, and an independent review of near-duplicates remain pending.
-
-## Negatives and conflicts
-
-Reviewed unrelated verses are labeled grade 0. Some questions also contain randomly selected candidate negatives. Those candidates are **unreviewed** and could be relevant. They are included for inspection in the questions files, carry a null grade, and are absent from the scoring files.
-
-[conflicts_excluded_from_grades.jsonl](conflicts_excluded_from_grades.jsonl) lists the 39 cases where reviews disagree. Resolve them before restoring their grades. Absence from a scoring file means unjudged for this evaluation, not irrelevant. The dataset is not an exhaustive list of every relevant ayah.
-
-## Compare search versions
-
-Use training data to build an improvement and validation data to select settings. Freeze the chosen approach before testing it on the test set. Compare the existing browser search and the candidate on the same questions and verse corpus. Report the number of questions evaluated and per-question wins and losses.
-
-Measure how many directly relevant ayat appear in the first five and ten results, along with a graded ranking measure that gives direct matches more weight than partial and background matches. Some questions have more than five direct ayat, so a top-five list cannot contain every direct answer. Treat unjudged verses separately when interpreting scores.
-
-## Rebuild
-
-From the repository root run `python datasets/sanitized_islamqa/split_package/create_splits.py`. It reads the grouped data and saved similarity candidates in the parent folder, rebuilds all three splits and checks that each group and every connected component stays in a single split. `summary.json` contains SHA-256 hashes of the inputs. Run it with the same Python version when exact byte-for-byte reproduction is required.
+- Independent human or scholarly relevance review is pending.
+- Citation corrections are not independently verified.
+- Test questions were seen during model review.
+- Pooled relevance judgments are incomplete.
+- Source reuse rights and licensing are unresolved.
+- Compound queries were not atomically reviewed.
+- Evaluation scope is English-only.

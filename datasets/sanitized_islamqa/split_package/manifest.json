@@ -3,17 +3,18 @@
   "dataset_version": "2.0.0",
   "release_status": "provisional",
   "benchmark_grade": false,
-  "generated_at": "2026-11-24T01:42:47.157904+00:00",
+  "generated_at": "2026-11-24T01:51:19.520415+00:00",
   "generator": {
     "path": "create_splits.py",
-    "sha256": "bfab0d809d159133bdd5da7d23e17813a638f29a9f68f73760fe031248da8152",
+    "sha256": "f6f9f00d53fc307903ae7fa23736e6359ec613c140d0ef90a115bf26fa4d2654",
     "python_version": "3.12.10",
-    "source_commit": "41db735461844dbb53776af7e65b35a7e5b28ae6"
+    "source_commit": "06356263ccd9e7ce564d6f661c43063e74f6ff87"
   },
   "hash_policy": {
     "algorithm": "sha256",
     "source_inputs": "parsed canonical JSON with sorted keys and LF record separators",
-    "outputs": "raw UTF-8 bytes with LF line endings"
+    "outputs": "raw UTF-8 bytes with LF line endings",
+    "generator": "UTF-8 text with normalized LF line endings"
   },
   "source_inputs": {
     "grouped_queries.jsonl": "cacb429e7486852987989a53157e92318efd19b9198fa4834f9003e2037d62a7",

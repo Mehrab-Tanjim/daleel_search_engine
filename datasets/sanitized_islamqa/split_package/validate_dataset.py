@@ -23,6 +23,7 @@ from dataset_common import (
     read_json,
     read_jsonl,
     semantic_sha256,
+    text_sha256,
 )
 
 
@@ -512,7 +513,7 @@ def validate_package(
                     errors.append(f"Manifest output record count mismatch: {relative}")
         generator = package / manifest.get("generator", {}).get("path", "create_splits.py")
         if generator.is_file():
-            if file_sha256(generator) != manifest.get("generator", {}).get("sha256"):
+            if text_sha256(generator) != manifest.get("generator", {}).get("sha256"):
                 errors.append("Manifest generator hash mismatch")
         else:
             errors.append("Manifest generator file is missing")
