@@ -1,0 +1,59 @@
+{
+  "dataset_version": "3.0.0",
+  "schema_version": 2,
+  "parent_dataset_version": "2.0.0",
+  "parent_manifest_sha256": "916dfe70eb9f3d4a5aed0a88d7896a0697330f30563e6c662338568d715ba104",
+  "generator_sha256": "24ce3bf84b36c4409d9793a947a86500eac6a690a3864c6f4941dafeb1e2d8bb",
+  "policy": "remove whole train families touching unchanged validation/test; no reassignment or relabeling",
+  "removed_train_groups": 25,
+  "train_groups": 1086,
+  "test_set_blind": false,
+  "validation_test_source_overlap_remaining": true,
+  "limitations": [
+    "Public test is a historical regression benchmark, not blind.",
+    "Validation/test source overlap is retained to preserve both splits.",
+    "Semantic shared-intent review and historical checkpoint provenance remain outstanding."
+  ],
+  "outputs": {
+    "removed_training_groups.jsonl": {
+      "sha256": "8ea5625a7c1245cdb0e4018d0bfb5793388cf1eae6da9beca320c47566d6773f",
+      "records": 25
+    },
+    "test/grades.jsonl": {
+      "sha256": "f028b8d18576c9ee6383f993d4c9fc13adfeb0e91cabf246df8668aee392eaf3",
+      "records": 1389
+    },
+    "test/questions.jsonl": {
+      "sha256": "972562e6647737b69e44dd4eaf66a29cac36b3d1dd92b1652cc6b7bd58e85ebd",
+      "records": 341
+    },
+    "test/unjudged_candidates.jsonl": {
+      "sha256": "99ffb59f0e5518cc67380abf3a9b4f69d907f31818e7fa2b3ee4fd41bd4b5a2c",
+      "records": 1011
+    },
+    "train/grades.jsonl": {
+      "sha256": "8107d68d9dd6d042812fbe9c3b41219ef9b6f64f9533d48043de8e022c05e58c",
+      "records": 4072
+    },
+    "train/questions.jsonl": {
+      "sha256": "0d8956ba2eae1b8510994305bb2df294decb0523044178d87417ff985cbae47c",
+      "records": 1086
+    },
+    "train/unjudged_candidates.jsonl": {
+      "sha256": "ab9fa7d18da12ac3b175fd8c1b212aea20c6544a13cfe3a09cd6b66483be75e7",
+      "records": 3192
+    },
+    "validation/grades.jsonl": {
+      "sha256": "d8dfe6c27db6670d1abc530a06bca5dba07830bf98f6dd7362593a402d3e7735",
+      "records": 1082
+    },
+    "validation/questions.jsonl": {
+      "sha256": "a64681bafa984e7bf30576403894bcc45b86a18e8dda8015c3680fe4753fe694",
+      "records": 257
+    },
+    "validation/unjudged_candidates.jsonl": {
+      "sha256": "75c1affc1508f8fdc6f881299d74312364afe06cb0657e4935fa977273c4dd13",
+      "records": 765
+    }
+  }
+}
