@@ -1,0 +1,619 @@
+{
+  "structural_source_checks_pass": false,
+  "cross_split_identity_counts": {
+    "group_id": 0,
+    "component_id": 0,
+    "query_id": 0,
+    "normalized_question": 0,
+    "source_reference_id": 0,
+    "source_article_row": 0
+  },
+  "cross_split_identity_details": {
+    "group_id": [],
+    "component_id": [],
+    "query_id": [],
+    "normalized_question": [],
+    "source_reference_id": [],
+    "source_article_row": []
+  },
+  "source_answer_overlap_count": 29,
+  "byte_identical_answer_overlap_count": 29,
+  "source_answer_overlap_by_splits": {
+    "test|train": 14,
+    "test|validation": 4,
+    "train|validation": 11
+  },
+  "affected_groups_by_split": {
+    "test": 18,
+    "train": 25,
+    "validation": 15
+  },
+  "source_answer_overlaps": [
+    {
+      "normalized_answer_sha256": "06b45f15e0945db35c93c163479368c43ee7019f1619a0fdd02ad5957474c5a5",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "71b11306c3c5b6f4",
+        "fb4a89c3e0e92de4"
+      ],
+      "articles": [
+        "benchmark:849",
+        "train:286"
+      ],
+      "raw_answer_hashes": [
+        "4bf21f2f61e406f96d9791810a49692b3a56e5ca419b2ca3d0659ff49e70bc76"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "167c3fb6c2a2d0342e6b05efa5fa37a2d54f52ab64e1d9552d22734723814b6a",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "47397e4b826003dd",
+        "48663320373f3723"
+      ],
+      "articles": [
+        "benchmark:107",
+        "train:2764"
+      ],
+      "raw_answer_hashes": [
+        "77b0e3549e84e064d82209bc92fe6538434e8500647d93e82a7119138815374e"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "262fe3053ce222edc0eeb31c01ff2221a51d0b3322f8abe496ff6c7029bf74da",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "359fee25a5ee6f99",
+        "83f6957c397cbc6c"
+      ],
+      "articles": [
+        "benchmark:820",
+        "train:2121"
+      ],
+      "raw_answer_hashes": [
+        "140227061c493bb731b879a2de96da81fac0583d573f0ccb1a1e3b645930ba06"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "28cb7701202afd9c247fc05eff4a822edc7d93f1d147f34a41c00b213e0e8fff",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "3afee563d66aaa6f",
+        "f41c8b1298afb0cf"
+      ],
+      "articles": [
+        "benchmark:242",
+        "train:235"
+      ],
+      "raw_answer_hashes": [
+        "c00cd68423c938f9526a122cdc9a5c0d0cc0e57ccb2f1b6eb34a8c590dd38db7"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "5b004fb92c222aec90f6c1f08e7580f42ef8ce77da746f1a1b6d47a0b09f2615",
+      "splits": [
+        "test",
+        "validation"
+      ],
+      "groups": [
+        "3ded7f3c7fb481ac",
+        "9dba0ee546575342"
+      ],
+      "articles": [
+        "benchmark:845",
+        "train:722"
+      ],
+      "raw_answer_hashes": [
+        "8796d418ab4f262710cfe1b5baa79a0d1e21cde824d439600d71dd0f097763af"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "5dd59ebe44ab4d153dd87f05f80c205801227183d1f8a221c4558bdfe6437d96",
+      "splits": [
+        "test",
+        "validation"
+      ],
+      "groups": [
+        "c8aa35aae47a9f67",
+        "cf2f6eb0bcd4f461"
+      ],
+      "articles": [
+        "benchmark:711",
+        "train:1340"
+      ],
+      "raw_answer_hashes": [
+        "89286659f518f87cafc714fe059176303a8a52182c2f4ea72495af8c31b0d100"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "5ee7e917b734f555af74e300e7a9e3d1b588335133f9b5cab25997bf953e49c5",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "1af901f5a9508348",
+        "b4b2776309ae50c5"
+      ],
+      "articles": [
+        "benchmark:216",
+        "train:1275"
+      ],
+      "raw_answer_hashes": [
+        "aee727f034f3fce4fe8613f41ad9f18e53a5529002cc6b7db973d7a0ca4a34d1"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "5f0086505474d189b913563f28cd46bd7627a21405b47fcff0c71a63bc22a1fb",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "3ff5fc51bde33f0c",
+        "a92fc56d6ab5b36b"
+      ],
+      "articles": [
+        "benchmark:110",
+        "train:2478"
+      ],
+      "raw_answer_hashes": [
+        "a6fa31cb8d6744589b54f773bd737ff09ab2b62bec7d149feb5ba1fcf0aeec7c"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "639207707a82d9d710b32ce28a4fdf5fd90e62b084013b25c73c600dbf0cf86f",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "27fa53b6b83b7422",
+        "eed50eec1429eedd"
+      ],
+      "articles": [
+        "benchmark:708",
+        "train:1590"
+      ],
+      "raw_answer_hashes": [
+        "90f7ce69829524c1b1fc262d32d4b103db44069bcea4cb0f7a60d46e820c52e7"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "70e17a3e20ea2f382ed53e4bd6480ca712757b9675c559402d7c6a399f70cd28",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "3bffb3556ed565de",
+        "b0ae0f4b070733af"
+      ],
+      "articles": [
+        "benchmark:199",
+        "train:2067"
+      ],
+      "raw_answer_hashes": [
+        "d593eaed0423985bbfe846fc12a9406eb1f71fbe51993294c3183a9eb3d7edd0"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "72746a6a3adb0c7ee99416713a659b7b97403a789197b8314850b4521bdce1a2",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "9b7ecef122ce51bb",
+        "fcebc84b0d826a77"
+      ],
+      "articles": [
+        "benchmark:712",
+        "train:1426"
+      ],
+      "raw_answer_hashes": [
+        "700bb73d5ec1b09cf6aedd0d7c39d3b093456c294883f3eb220046e3c3f2053d"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "7d543ad9db0ee668a109cc85ebd74ee4f24d0d7ec2f494b35df1cf738299bdb3",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "5ecfca02012e803a",
+        "ae1e081ad0c8ecf9"
+      ],
+      "articles": [
+        "benchmark:194",
+        "train:3048"
+      ],
+      "raw_answer_hashes": [
+        "25154a085fb29e4c6fad52317fe2241bb5e393a299d60744b54ac4a5eeb260f1"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "8796560d71273ee370e12e0766e8d9879c72d3f645d8f6ebf071e63533df7976",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "9234b46fa7fc4149",
+        "afa5c0dcc02ce8fc"
+      ],
+      "articles": [
+        "benchmark:657",
+        "train:3318"
+      ],
+      "raw_answer_hashes": [
+        "8dbb58510b83e4a55ad1e71b4c2bb19527976abc8f1d179bb0721c3aa940de39"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "a11aeeaf2869d318866de5e3258163915c5c42158613fe9be8d655009deefac3",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "5a08583a438d297a",
+        "ccee604cc96a33d5"
+      ],
+      "articles": [
+        "benchmark:209",
+        "train:1732"
+      ],
+      "raw_answer_hashes": [
+        "296629ea780423dc4625ec56f702f1cff4296e85582cc0f91c06d4cbd78eeda3"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "ab6294cdbbb7bca754f388f46ee531c4c7b051025013fb625352e2c66c64835e",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "add056d72eaae8dc",
+        "ecc031d63340bb80"
+      ],
+      "articles": [
+        "benchmark:229",
+        "train:316"
+      ],
+      "raw_answer_hashes": [
+        "49a506e65ecb4cfbb3338dd098cb123afa6bdecc91cb4c8378ddb6a244ff5388"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "abd611837d6231d5b9ffc7a200da8fce7decc3f9101e8754418e1e2038919731",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "cff8024a0a2f954f",
+        "de59443b9815cc31"
+      ],
+      "articles": [
+        "benchmark:100",
+        "train:2092"
+      ],
+      "raw_answer_hashes": [
+        "70b0f5870740b8d26c229324b00dc1fada7c3f3f31bf3a60e416b3d73bbfa7af"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "b1478d3deaa0cbc384cae2e4f2821eee280f620ca91f2d14bb0a2ec7f3d58342",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "311ebc39dff58994",
+        "6f1774e43a7a39a5"
+      ],
+      "articles": [
+        "benchmark:850",
+        "train:270"
+      ],
+      "raw_answer_hashes": [
+        "7831fc94c6233e711fca96e0ef81eada681c592a9279e513d2c1a7b9268d358d"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "b23a8650715b6cad4aec614385978d4d2b0641cc5df5ff0f32011cd3a5ac0516",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "72a68813bf5ec429",
+        "89ef55fcd501657c"
+      ],
+      "articles": [
+        "benchmark:474",
+        "train:2026"
+      ],
+      "raw_answer_hashes": [
+        "4850f8814dabbc9db58e45781f3a1a58cbe077045c3aaa1786dbf437e471c640"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "b6aaffa7088661dc975ec3c0c1e7e22badbb55a613ed0ce3def010c400ec400c",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "94392ffb235d27a2",
+        "e52655961055b5cb"
+      ],
+      "articles": [
+        "benchmark:225",
+        "train:836"
+      ],
+      "raw_answer_hashes": [
+        "de4a3c67a0c1dbe9568b2664017bfc239494dd5c95532f370899f543a64645d1"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "b9735220b6589c5fb7293fa203febc5d587f275bf2fb320e65b37c412c4b05f6",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "1562e19480ab368a",
+        "65f6956115ae0159"
+      ],
+      "articles": [
+        "benchmark:701",
+        "train:1681"
+      ],
+      "raw_answer_hashes": [
+        "153b0a17436667b5efe30981a7f957c2f856531b2afaa4f4952c40e541abea10"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "bdc1830712cfe2884610cd1653d53032df6aca6b480d026f88ba23ac13b6ba3c",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "c915549a689570dc",
+        "dfc7f469bc13613b"
+      ],
+      "articles": [
+        "benchmark:197",
+        "train:1834"
+      ],
+      "raw_answer_hashes": [
+        "e4310b7702bdf143695574e15eaa800973756a4f37b66d9478edbe49f77f1a29"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "c16b2929579a6aeebc6489b43869bf7ccac132f4f4545dfdfe37db1f9ccb6d34",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "a8882d29c47c3bba",
+        "ffeee27cbfe15279"
+      ],
+      "articles": [
+        "benchmark:380",
+        "train:885"
+      ],
+      "raw_answer_hashes": [
+        "dff94d2ca0016ababf17ae3d6d9b655d2d6ef06b6515fb71d68cb148187a196c"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "c54510d4fae6748c7d54e4e9028503601204b8deb0dddd7e3233ac768cf404d8",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "0cbd12b72094f724",
+        "c62075ee8ffb0136"
+      ],
+      "articles": [
+        "benchmark:848",
+        "train:320"
+      ],
+      "raw_answer_hashes": [
+        "077b71cc61fd8bd6ab3146e31f2768e6d0159aa4c3eba995f452055b3c6df411"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "d603981ebe225692dc6a3d69ca1641b69411b89eb561949426438e25bb78b205",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "72e899bcea06327f",
+        "94f7fff563f2eed1"
+      ],
+      "articles": [
+        "benchmark:314",
+        "train:2971"
+      ],
+      "raw_answer_hashes": [
+        "c0a92a0f4e870e451e39febd677fdc63a6154857da13e4c4452ea4b2e00476cd"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "dde1281d2a8a81ef70ae9f0edcb3956c363477663de3f745d415b1c46c2e7b3d",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "4aacb4523ae46f00",
+        "d09dc46a2d51a57d"
+      ],
+      "articles": [
+        "benchmark:717",
+        "train:941"
+      ],
+      "raw_answer_hashes": [
+        "d8bceced813b17c6d1ef508de5ee1613ec0a9c6fe158f877ad090e0c495a0cc9"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "e44a56ca48a5b338f0a3b46d4ea65cdd632aafdefb853986fb835538c96a9df9",
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "groups": [
+        "2097c183aeb6c907",
+        "57557c8c8604b59e"
+      ],
+      "articles": [
+        "benchmark:718",
+        "train:726"
+      ],
+      "raw_answer_hashes": [
+        "ba4fea6b88f25aab20fcf526a5f30f0e32f29e4bb5bfd11cd796742c54752ca0"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "e5fa0f54caa2f1ca92be776ba0737f7ebfb6f4048800128e4c2bf4cc2a818208",
+      "splits": [
+        "test",
+        "validation"
+      ],
+      "groups": [
+        "929180227e916735",
+        "9c1c997592eb54ea"
+      ],
+      "articles": [
+        "benchmark:207",
+        "train:2921"
+      ],
+      "raw_answer_hashes": [
+        "c0d29caadc0c8ce80020a91f4c195397ec0ed46eac4ab271dd50f3c8c816878e"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "efcbc53843d6e3e5516034b0619d5368ebacd25dde48067ecd444b041eb5dfd7",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "groups": [
+        "2e5ac31edf9fd2ae",
+        "e75d3d377c36be5d"
+      ],
+      "articles": [
+        "benchmark:214",
+        "train:1661"
+      ],
+      "raw_answer_hashes": [
+        "1524bdb460fd3267c701a1f28d5bfdf148ff559b81e34d65493f693081391a86"
+      ],
+      "raw_answers_identical": true
+    },
+    {
+      "normalized_answer_sha256": "ffc6a74b62809f0eb4d4f974e402ada8368747871d473e1192cad48fba33333c",
+      "splits": [
+        "test",
+        "validation"
+      ],
+      "groups": [
+        "2324c1a876aac4ac",
+        "928b0302b7230a7e"
+      ],
+      "articles": [
+        "benchmark:115",
+        "train:188"
+      ],
+      "raw_answer_hashes": [
+        "32b4019c47a4f5b16dcbf94d7a40fb76ed4232b9cbcc3f2825ab131df8a4edc7"
+      ],
+      "raw_answers_identical": true
+    }
+  ],
+  "invalid_provenance": [],
+  "legacy_source_question_matches_by_group": {
+    "train": {
+      "train": 823,
+      "validation": 189,
+      "test": 252
+    },
+    "benchmark": {
+      "train": 296,
+      "validation": 70,
+      "test": 91
+    }
+  },
+  "legacy_exposure_note": "Source membership is not proof that any particular checkpoint was trained on it. Audit checkpoint lineage separately.",
+  "blindness": {
+    "manifest_claim": false,
+    "certified": false,
+    "status": "not_blind",
+    "reason": "A manifest flag or lack of exact overlap cannot establish hidden custody, no prior exposure, or no pretraining contamination."
+  },
+  "limits": [
+    "Source row IDs are local to each original input; exact full-answer fingerprints catch duplicate articles under different rows/titles.",
+    "Source URL lineage, near duplicates and compound/shared-intent families need additional review.",
+    "The same target ayah across splits is expected for fixed-corpus retrieval and is not itself leakage.",
+    "This report contains public source identifiers/hashes, not question or answer text."
+  ],
+  "input_sha256": {
+    "manifest.json": "916dfe70eb9f3d4a5aed0a88d7896a0697330f30563e6c662338568d715ba104",
+    "train\\questions.jsonl": "9c680400667b59d288901d54d35d545ee8334f73a0da59fb0ba6bc1fbd2ac3ef",
+    "validation\\questions.jsonl": "a64681bafa984e7bf30576403894bcc45b86a18e8dda8015c3680fe4753fe694",
+    "test\\questions.jsonl": "972562e6647737b69e44dd4eaf66a29cac36b3d1dd92b1652cc6b7bd58e85ebd",
+    "islamqa_references_train.json": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+    "islamqa_references_benchmark.json": "b997c252da60a5b674012d42928d308bc0e2a50cf4f59318d8fb6577fa7cfde4"
+  },
+  "gate_pass": false
+}
