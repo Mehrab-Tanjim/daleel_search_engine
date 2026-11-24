@@ -575,6 +575,8 @@ def markdown_leaderboard(summary: dict[str, Any]) -> str:
         columns.append(("m01", summary["runs"]["m01"].get("leaderboard_label", "M01 candidate")))
     if "m02" in summary["runs"]:
         columns.append(("m02", summary["runs"]["m02"].get("leaderboard_label", "M02 candidate")))
+    if "m03" in summary["runs"]:
+        columns.append(("m03", summary["runs"]["m03"].get("leaderboard_label", "M03 candidate")))
     rows = (
         ("Relevant hit@5, all queries", "positive_hit@5", 345, "all"),
         ("Useful hit@5, answerable queries", "useful_hit@5", 294, "useful"),
@@ -1547,7 +1549,9 @@ def candidate_headline_summary(
         }
         headline[slice_name] = row
     config = report["config"]
-    if "representation_scope" in config:
+    if report.get("experiment") == "M03":
+        leaderboard_label = f"M03 {config['representation_scope']}"
+    elif "representation_scope" in config:
         leaderboard_label = f"M02 {config['representation_scope']}"
     else:
         leaderboard_label = f"M01 {config['retrieval_mode']} λ={config['mmr_lambda']:g} k={config['fetch_k']}"
@@ -1920,6 +1924,11 @@ def main() -> None:
     else:
         import m02_ai
     m02_ai.add_parsers(subparsers)
+    if __package__:
+        from . import m03_tafsir
+    else:
+        import m03_tafsir
+    m03_tafsir.add_parsers(subparsers)
 
     args = parser.parse_args()
     if hasattr(args, "bootstrap") and args.bootstrap < 0:

@@ -27,7 +27,11 @@ class FakeDocument:
             "surah": surah,
             "ayah": ayah,
             "field": field,
-            "source": "saheeh_international" if field == "translation" else "aayatun_ai_generated",
+            "source": {
+                "translation": "saheeh_international",
+                "ai": "aayatun_ai_generated",
+                "en_tafsir": "ibn_kathir_english",
+            }[field],
         }
         self.page_content = text
         self.id = score_id or f"{field}:{surah}:{ayah}"
@@ -68,12 +72,13 @@ class FakeDatabase:
         return self.candidates[:k]
 
 
-def deployment_with(translation=(), ai=()):
+def deployment_with(translation=(), ai=(), en_tafsir=()):
     deployment = object.__new__(utils.VectorSearchDeployment)
     deployment.retrieval_mode = "similarity"
     deployment.fetch_k = 50
     deployment.mmr_lambda = 1.0
     deployment.semantic_ai = False
+    deployment.semantic_en_tafsir = False
     deployment.embeddings = FakeEmbeddings()
     deployment.db = FakeDatabase(list(translation))
     deployment.ai_db = FakeDatabase(list(ai)) if ai else None
@@ -83,6 +88,12 @@ def deployment_with(translation=(), ai=()):
     deployment.ai_db_docstore_id_to_index = (
         dict(zip(deployment.ai_db.index_to_docstore_id.values(), deployment.ai_db.index_to_docstore_id.keys()))
         if deployment.ai_db is not None
+        else {}
+    )
+    deployment.en_tafsir_db = FakeDatabase(list(en_tafsir)) if en_tafsir else None
+    deployment.en_tafsir_db_docstore_id_to_index = (
+        dict(zip(deployment.en_tafsir_db.index_to_docstore_id.values(), deployment.en_tafsir_db.index_to_docstore_id.keys()))
+        if deployment.en_tafsir_db is not None
         else {}
     )
     return deployment

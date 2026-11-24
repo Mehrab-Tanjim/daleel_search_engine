@@ -234,6 +234,48 @@ class ScoringAndReportingTests(unittest.TestCase):
             summary = frozen.candidate_headline_summary(report, cases, {"q1": ["1:1"]}, scores, 0, 1)
         self.assertEqual(summary["leaderboard_label"], "M02 translation")
 
+    def test_m03_column_is_appended_after_m02(self):
+        summary = {
+            "runs": {
+                **{
+                    name: {"headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")}}
+                    for name, _ in frozen.RUN_COLUMNS
+                },
+                "m01": {
+                    "leaderboard_label": "M01 similarity λ=1 k=50",
+                    "headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")},
+                },
+                "m02": {
+                    "leaderboard_label": "M02 translation",
+                    "headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")},
+                },
+                "m03": {
+                    "leaderboard_label": "M03 translation_en_tafsir",
+                    "headline": {slice_name: {"metrics": {}, "counts": {}} for slice_name in ("all", "useful", "direct")},
+                },
+            }
+        }
+        header = frozen.markdown_leaderboard(summary).splitlines()[0]
+        self.assertIn("M02 translation | M03 translation_en_tafsir", header)
+
+    def test_m03_headline_label_uses_its_experiment(self):
+        cases = [{
+            "id": "q1", "group_id": "g1", "query": "question",
+            "best_settled_label": "direct", "compound_status": "not_flagged",
+            "qrels": {"1:1": 3}, "disputed_ayahs": [],
+        }]
+        report = {
+            "engine": "M03", "experiment": "M03",
+            "config": {"semantic_ai": False, "semantic_en_tafsir": True, "representation_scope": "translation_en_tafsir"},
+            "field": "translation", "source_attribution": "per-result winning representation",
+            "runs": {"q1": {"refs": ["1:1"], "ms": 1.0}},
+            "index_bytes": 1, "peak_rss_bytes": 1,
+        }
+        scores = {"q1": {"positive_hit@5": 1.0, "useful_hit@5": 1.0, "ndcg@10": 1.0, "useful_recall@50": None}}
+        with mock.patch.object(frozen, "aggregate", return_value={"queries": 1, "groups": 1, "metrics": {}}):
+            summary = frozen.candidate_headline_summary(report, cases, {"q1": ["1:1"]}, scores, 0, 1)
+        self.assertEqual(summary["leaderboard_label"], "M03 translation_en_tafsir")
+
     def test_validation_gate_requires_useful_gain_without_ndcg_loss(self):
         def summary(useful, ndcg):
             return {

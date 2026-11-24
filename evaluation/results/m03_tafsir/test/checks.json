@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "python_executable": "d:\\Personal Projects\\Personal Projects\\Search Engine\\.venv-daleel\\Scripts\\python.exe",
+  "unit_test_command": "python -m unittest discover -s evaluation -p test*.py",
+  "unit_tests_passed": 74,
+  "tafsir_representation_tests_passed": 19,
+  "retrieval_configuration_tests_passed": 10,
+  "validation_determinism": {
+    "queries": 260,
+    "exact_repeated_rankings_and_source_fields": 260,
+    "passed": true
+  },
+  "test_contract_checks": {
+    "queries": 345,
+    "unique_ayah_ids": 345,
+    "candidate_depth_bound": 345,
+    "translation_source_attribution": 345,
+    "candidate_exact_m02_rankings": 345,
+    "rollback_exact_m02_rankings": 345,
+    "candidate_exact_rollback_rankings": 345
+  },
+  "representation_audit": {
+    "source_rows": 6233,
+    "valid_text": 6233,
+    "exported": 6158,
+    "malformed_text": 0,
+    "overlap_excluded": 32,
+    "missing": 78,
+    "empty_text": 43,
+    "truncated_documents": 1981,
+    "overlap_span_tokens": 50,
+    "test_sources_used": false
+  },
+  "runtime_measurements": {
+    "candidate_p95_query_ms": 59.335,
+    "rollback_p95_query_ms": 64.736,
+    "candidate_index_bytes": 11260716,
+    "candidate_peak_rss_bytes": 1015050240,
+    "rollback_index_bytes": 11260716,
+    "rollback_peak_rss_bytes": 1016320000
+  },
+  "fixed_runtime_budgets": {
+    "p95_query_ms_max": 72,
+    "index_bytes_max": 12386788,
+    "peak_rss_bytes_max": 1532057191
+  },
+  "notes": [
+    "Parent+English tafsir was not promoted because validation useful hit@5 increased while validation nDCG@10 decreased.",
+    "The selected default-off translation path was executed without loading either optional index.",
+    "A separate translation-only rollback process matched the committed M02 ranking for every test wording.",
+    "The passed status records successful verification of the infrastructure and rollback contract; it is not a relevance-improvement claim."
+  ]
+}

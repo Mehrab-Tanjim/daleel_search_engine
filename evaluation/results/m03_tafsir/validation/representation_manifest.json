@@ -1,0 +1,729 @@
+{
+  "experiment": "M03",
+  "representation": "en_tafsir",
+  "display_field": "translation",
+  "source": {
+    "dataset": "Aayatun existing db/en_kathir.db tafsir_kathir",
+    "source_commit": "9889612a6cff0bdfba2aec3f0268df7d7afd81c1",
+    "exporter_commit": "92dad40bcfedc8ba4302627994f3b53f80a66c25",
+    "source_db_sha256": "5e8cf990f9e6face2e57fcad7a1ed556408c073fe81b10f6d97020080f2523c1",
+    "source_db_bytes": 12650496,
+    "source_rows": 6233,
+    "content_type": "Existing English Ibn Kathir commentary; explanatory content, not scripture",
+    "reuse_status": "Existing Aayatun content; downstream translation/commentary reuse rights remain unresolved."
+  },
+  "flattening": {
+    "method": "Strip HTML-like tags, unescape entities, normalize whitespace",
+    "url_removal": false,
+    "matches_aayatun_docs_en_tafsir": true
+  },
+  "corpus": {
+    "verses": 6236,
+    "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+  },
+  "counts": {
+    "source_rows": 6233,
+    "valid_text": 6233,
+    "exported": 6158,
+    "malformed_text": 0,
+    "overlap_excluded": 32,
+    "missing": 78,
+    "empty_text": 43
+  },
+  "malformed_text_ayahs": [],
+  "empty_text_ayahs": [
+    "7:125",
+    "9:76",
+    "10:50",
+    "10:77",
+    "10:96",
+    "16:54",
+    "17:73",
+    "17:74",
+    "20:38",
+    "20:68",
+    "21:62",
+    "22:43",
+    "23:109",
+    "26:108",
+    "26:117",
+    "26:157",
+    "27:51",
+    "30:44",
+    "30:59",
+    "34:4",
+    "35:21",
+    "36:34",
+    "37:4",
+    "37:104",
+    "39:14",
+    "40:73",
+    "43:27",
+    "43:37",
+    "43:60",
+    "44:6",
+    "44:25",
+    "51:33",
+    "52:15",
+    "56:68",
+    "56:86",
+    "70:10",
+    "70:14",
+    "70:38",
+    "72:16",
+    "72:26",
+    "74:55",
+    "89:27",
+    "90:13"
+  ],
+  "overlap_excluded_rows": [
+    {
+      "ayah": "2:27",
+      "matching_shingles": 20
+    },
+    {
+      "ayah": "2:29",
+      "matching_shingles": 5
+    },
+    {
+      "ayah": "2:65",
+      "matching_shingles": 12
+    },
+    {
+      "ayah": "2:116",
+      "matching_shingles": 34
+    },
+    {
+      "ayah": "2:166",
+      "matching_shingles": 11
+    },
+    {
+      "ayah": "2:186",
+      "matching_shingles": 3
+    },
+    {
+      "ayah": "2:214",
+      "matching_shingles": 6
+    },
+    {
+      "ayah": "2:267",
+      "matching_shingles": 5
+    },
+    {
+      "ayah": "4:23",
+      "matching_shingles": 7
+    },
+    {
+      "ayah": "7:54",
+      "matching_shingles": 35
+    },
+    {
+      "ayah": "7:116",
+      "matching_shingles": 14
+    },
+    {
+      "ayah": "10:64",
+      "matching_shingles": 5
+    },
+    {
+      "ayah": "10:80",
+      "matching_shingles": 13
+    },
+    {
+      "ayah": "11:16",
+      "matching_shingles": 13
+    },
+    {
+      "ayah": "11:48",
+      "matching_shingles": 6
+    },
+    {
+      "ayah": "12:107",
+      "matching_shingles": 20
+    },
+    {
+      "ayah": "14:17",
+      "matching_shingles": 4
+    },
+    {
+      "ayah": "17:15",
+      "matching_shingles": 23
+    },
+    {
+      "ayah": "21:104",
+      "matching_shingles": 1
+    },
+    {
+      "ayah": "22:30",
+      "matching_shingles": 2
+    },
+    {
+      "ayah": "25:17",
+      "matching_shingles": 29
+    },
+    {
+      "ayah": "26:44",
+      "matching_shingles": 32
+    },
+    {
+      "ayah": "29:2",
+      "matching_shingles": 10
+    },
+    {
+      "ayah": "29:8",
+      "matching_shingles": 2
+    },
+    {
+      "ayah": "33:22",
+      "matching_shingles": 10
+    },
+    {
+      "ayah": "34:23",
+      "matching_shingles": 27
+    },
+    {
+      "ayah": "37:105",
+      "matching_shingles": 2
+    },
+    {
+      "ayah": "38:44",
+      "matching_shingles": 2
+    },
+    {
+      "ayah": "40:72",
+      "matching_shingles": 20
+    },
+    {
+      "ayah": "50:27",
+      "matching_shingles": 6
+    },
+    {
+      "ayah": "57:4",
+      "matching_shingles": 4
+    },
+    {
+      "ayah": "58:22",
+      "matching_shingles": 18
+    }
+  ],
+  "missing_ayahs": [
+    "2:27",
+    "2:29",
+    "2:65",
+    "2:116",
+    "2:166",
+    "2:186",
+    "2:214",
+    "2:267",
+    "4:23",
+    "4:170",
+    "7:54",
+    "7:116",
+    "7:125",
+    "9:76",
+    "10:50",
+    "10:64",
+    "10:77",
+    "10:80",
+    "10:96",
+    "11:16",
+    "11:48",
+    "12:107",
+    "14:17",
+    "16:54",
+    "17:15",
+    "17:73",
+    "17:74",
+    "20:38",
+    "20:68",
+    "21:62",
+    "21:104",
+    "22:30",
+    "22:43",
+    "23:109",
+    "25:17",
+    "26:44",
+    "26:108",
+    "26:117",
+    "26:157",
+    "27:51",
+    "29:2",
+    "29:8",
+    "30:44",
+    "30:59",
+    "33:22",
+    "34:4",
+    "34:23",
+    "35:21",
+    "36:34",
+    "37:4",
+    "37:104",
+    "37:105",
+    "38:44",
+    "39:14",
+    "40:72",
+    "40:73",
+    "43:27",
+    "43:37",
+    "43:60",
+    "44:6",
+    "44:25",
+    "45:37",
+    "50:27",
+    "51:33",
+    "52:15",
+    "56:68",
+    "56:86",
+    "57:4",
+    "58:22",
+    "70:10",
+    "70:14",
+    "70:38",
+    "72:16",
+    "72:26",
+    "74:55",
+    "89:27",
+    "90:13",
+    "104:9"
+  ],
+  "characters": 8874197,
+  "token_truncation": {
+    "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+    "max_seq_length": 512,
+    "documents": 6158,
+    "truncated_documents": 1981,
+    "truncated_ayahs_file": "runtime/truncated_ayahs.json",
+    "truncated_ayahs_sha256": "c308d611496251ecb2ce4403181a7ca4c6cdc86c15c82579ba3acf89d0280589",
+    "truncated_ayahs_bytes": 15255,
+    "min": 7,
+    "median": 304.0,
+    "p95": 1746,
+    "max": 19856
+  },
+  "repeated_commentary": {
+    "all_valid_text": {
+      "method": "Exact normalized 50-token spans shared by distinct ayat; overlapping windows are counted.",
+      "shingle_size": 50,
+      "documents": 6190,
+      "documents_with_repeated_spans": 1128,
+      "unique_repeated_spans": 18137,
+      "max_references_per_span": 14,
+      "exact_duplicate_text_groups": 11,
+      "documents_in_exact_duplicate_groups": 31,
+      "exact_duplicate_examples": [
+        [
+          "26:121",
+          "26:139",
+          "26:174",
+          "26:190"
+        ],
+        [
+          "26:126",
+          "26:143",
+          "26:162",
+          "26:177"
+        ],
+        [
+          "26:127",
+          "26:144",
+          "26:163",
+          "26:178"
+        ],
+        [
+          "77:14",
+          "77:18",
+          "77:23",
+          "77:39"
+        ],
+        [
+          "26:125",
+          "26:142",
+          "26:161"
+        ],
+        [
+          "26:122",
+          "26:159"
+        ],
+        [
+          "26:170",
+          "37:134"
+        ],
+        [
+          "37:110",
+          "37:131"
+        ],
+        [
+          "54:21",
+          "54:39"
+        ],
+        [
+          "55:30",
+          "55:61"
+        ],
+        [
+          "7:121",
+          "26:47"
+        ]
+      ],
+      "voting_control": "One document per ayah and one maximum-scored result per ayah; repeated spans do not add votes."
+    },
+    "exported": {
+      "method": "Exact normalized 50-token spans shared by distinct ayat; overlapping windows are counted.",
+      "shingle_size": 50,
+      "documents": 6158,
+      "documents_with_repeated_spans": 1090,
+      "unique_repeated_spans": 16495,
+      "max_references_per_span": 14,
+      "exact_duplicate_text_groups": 11,
+      "documents_in_exact_duplicate_groups": 31,
+      "exact_duplicate_examples": [
+        [
+          "26:121",
+          "26:139",
+          "26:174",
+          "26:190"
+        ],
+        [
+          "26:126",
+          "26:143",
+          "26:162",
+          "26:177"
+        ],
+        [
+          "26:127",
+          "26:144",
+          "26:163",
+          "26:178"
+        ],
+        [
+          "77:14",
+          "77:18",
+          "77:23",
+          "77:39"
+        ],
+        [
+          "26:125",
+          "26:142",
+          "26:161"
+        ],
+        [
+          "26:122",
+          "26:159"
+        ],
+        [
+          "26:170",
+          "37:134"
+        ],
+        [
+          "37:110",
+          "37:131"
+        ],
+        [
+          "54:21",
+          "54:39"
+        ],
+        [
+          "55:30",
+          "55:61"
+        ],
+        [
+          "7:121",
+          "26:47"
+        ]
+      ],
+      "voting_control": "One document per ayah and one maximum-scored result per ayah; repeated spans do not add votes.",
+      "sidecar_file": "runtime/repeated_blocks.json",
+      "sidecar_sha256": "b2f9485d12c75188a54b847803e544abb73a759dd854c4914203b42b801b898b",
+      "sidecar_bytes": 1305950
+    }
+  },
+  "provenance_audit": {
+    "method": "Exact normalized 50-token shingle intersection; no fuzzy or semantic independence claim.",
+    "shingle_size": 50,
+    "source_records_checked": 3615,
+    "source_shingles": 1507804,
+    "overlap_count": 41,
+    "overlaps": [
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 147,
+        "field": "answer",
+        "matching_shingles": 18
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 287,
+        "field": "answer",
+        "matching_shingles": 23
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 573,
+        "field": "answer",
+        "matching_shingles": 20
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 722,
+        "field": "answer",
+        "matching_shingles": 2
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 811,
+        "field": "answer",
+        "matching_shingles": 20
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1151,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1178,
+        "field": "answer",
+        "matching_shingles": 18
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1184,
+        "field": "answer",
+        "matching_shingles": 35
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1197,
+        "field": "answer",
+        "matching_shingles": 20
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1274,
+        "field": "answer",
+        "matching_shingles": 7
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1276,
+        "field": "answer",
+        "matching_shingles": 14
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1314,
+        "field": "answer",
+        "matching_shingles": 2
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1409,
+        "field": "answer",
+        "matching_shingles": 14
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1420,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1741,
+        "field": "answer",
+        "matching_shingles": 27
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1844,
+        "field": "answer",
+        "matching_shingles": 5
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 1916,
+        "field": "answer",
+        "matching_shingles": 6
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2002,
+        "field": "answer",
+        "matching_shingles": 31
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2011,
+        "field": "answer",
+        "matching_shingles": 14
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2039,
+        "field": "answer",
+        "matching_shingles": 1
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2115,
+        "field": "answer",
+        "matching_shingles": 2
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2160,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2234,
+        "field": "answer",
+        "matching_shingles": 2
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2245,
+        "field": "answer",
+        "matching_shingles": 4
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2259,
+        "field": "answer",
+        "matching_shingles": 63
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2321,
+        "field": "answer",
+        "matching_shingles": 6
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2328,
+        "field": "answer",
+        "matching_shingles": 5
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2506,
+        "field": "answer",
+        "matching_shingles": 11
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2529,
+        "field": "answer",
+        "matching_shingles": 3
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2731,
+        "field": "answer",
+        "matching_shingles": 6
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2851,
+        "field": "answer",
+        "matching_shingles": 29
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2855,
+        "field": "answer",
+        "matching_shingles": 14
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2912,
+        "field": "answer",
+        "matching_shingles": 10
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2942,
+        "field": "answer",
+        "matching_shingles": 32
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 2970,
+        "field": "answer",
+        "matching_shingles": 6
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 3001,
+        "field": "answer",
+        "matching_shingles": 11
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 3134,
+        "field": "answer",
+        "matching_shingles": 5
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 3152,
+        "field": "answer",
+        "matching_shingles": 2
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 3251,
+        "field": "answer",
+        "matching_shingles": 12
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 3280,
+        "field": "answer",
+        "matching_shingles": 13
+      },
+      {
+        "source_file": "train_validation_sources.json",
+        "record_index": 3296,
+        "field": "answer",
+        "matching_shingles": 2
+      }
+    ],
+    "exclusion_rule": "Exclude an entire en_tafsir representation if any exact normalized 50-token span matches an IslamQA question or answer.",
+    "checked_source_fields": [
+      "question",
+      "answer"
+    ],
+    "source_hashes": {
+      "train_validation_sources.json": "249763744ac9bcc92b3f06dd0fe99eba136d66a89f4716aac696fc48143f2c77"
+    },
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "temporal_evidence": "The pinned commentary blob predates the v3 dataset merge; source history does not certify semantic independence.",
+    "limitation": "Exact long-span screening does not certify that no similar commentary appears in source answers."
+  },
+  "output": {
+    "file": "en_tafsir_docs.jsonl",
+    "sha256": "abab8d5000c15550b9c427032e2b3840c051867ebc62504d3638d716045c9e31",
+    "bytes": 11833063
+  },
+  "selection_sources": {
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "train_sources": {
+      "file": "islamqa_references_train.json",
+      "sha256": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+      "records": 3355
+    },
+    "validation_questions": {
+      "file": "questions.jsonl",
+      "sha256": "a64681bafa984e7bf30576403894bcc45b86a18e8dda8015c3680fe4753fe694",
+      "groups": 257,
+      "wordings": 260
+    },
+    "combined_audit_file": "runtime/train_validation_sources.json",
+    "combined_audit_sha256": "249763744ac9bcc92b3f06dd0fe99eba136d66a89f4716aac696fc48143f2c77",
+    "test_sources_used": false,
+    "limitation": "The legacy train file has historical validation/test exposure; no public test source was used for M03 export or selection."
+  }
+}
