@@ -55,7 +55,7 @@ if search_button:
         
         with col2:
         # Display the text
-            clean_text = result.page_content.replace('`', '') if selected_option == 'Quran' else result.metadata['original_text'].replace('`', '')
+            clean_text = deployment.display_document(result).page_content.replace('`', '') if selected_option == 'Quran' else result.metadata['original_text'].replace('`', '')
             clean_text = clean_text.replace('search_document: ', '')
             st.write(f'**{clean_text}**')
             st.markdown(f'Relevance Score: **{results[i][1]*100:.2f}**%') #normalize_l2(results[i][1]) if using IndexFlatL2 instead

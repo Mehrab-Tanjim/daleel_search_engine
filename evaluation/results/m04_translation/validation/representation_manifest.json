@@ -1,0 +1,517 @@
+{
+  "experiment": "M04",
+  "representation": "extra_translation",
+  "display_field": "translation",
+  "source": {
+    "translation_id": "pickthall_1930",
+    "title": "The Meaning of the Glorious Koran",
+    "author": "Marmaduke Pickthall",
+    "publication_year": 1930,
+    "local_file": "Quran_English_with_Tafseer.csv",
+    "local_path": "D:\\Personal Projects\\Personal Projects\\Search Engine\\Daleel\\daleel_database_create\\temp\\Quran_English_with_Tafseer\\Quran_English_with_Tafseer.csv",
+    "source_csv_sha256": "b1389af90c3596ccbc9d067497d0ca295875f2eba25bb4f06f15b4dfec498d39",
+    "source_csv_bytes": 3124762,
+    "source_git_commit": null,
+    "source_url": "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)",
+    "license_url": "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)",
+    "reuse_status": "Public domain in the United States because published before January 1, 1931; users outside the United States must assess local rights.",
+    "content_type": "English Quran translation; only the Verse column is used"
+  },
+  "flattening": {
+    "method": "CSV parsing with quoted-field support followed by whitespace normalization",
+    "used_columns": [
+      "Surah",
+      "Ayat",
+      "Verse"
+    ],
+    "ignored_columns": [
+      "Name",
+      "Tafseer"
+    ]
+  },
+  "corpus": {
+    "verses": 6236,
+    "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+  },
+  "mapping": {
+    "source_rows": 6236,
+    "unique_source_refs": 6236,
+    "corpus_verses": 6236,
+    "exact_reference_set": true,
+    "canonical_order": true,
+    "per_surah_counts_match": true,
+    "missing_source_ayahs": [],
+    "unknown_source_ayahs": [],
+    "numbering_policy": "Surah and Ayat are parsed as positive canonical integers; duplicates, unknown references, and non-canonical numbering are rejected."
+  },
+  "counts": {
+    "source_rows": 6236,
+    "valid_text": 6236,
+    "exported": 6205,
+    "malformed_text": 0,
+    "current_translation_duplicates_excluded": 31,
+    "overlap_excluded": 0,
+    "missing": 31,
+    "empty_text": 0
+  },
+  "current_translation_duplicate_ayahs": [
+    "3:150",
+    "7:122",
+    "20:1",
+    "20:30",
+    "20:32",
+    "21:53",
+    "26:48",
+    "26:221",
+    "36:2",
+    "36:4",
+    "37:136",
+    "51:17",
+    "52:1",
+    "56:36",
+    "69:43",
+    "74:2",
+    "74:51",
+    "77:10",
+    "78:34",
+    "79:30",
+    "80:35",
+    "80:36",
+    "80:39",
+    "85:2",
+    "89:1",
+    "90:9",
+    "95:1",
+    "109:1",
+    "113:2",
+    "114:1",
+    "114:3"
+  ],
+  "empty_text_ayahs": [],
+  "missing_ayahs": [
+    "3:150",
+    "7:122",
+    "20:1",
+    "20:30",
+    "20:32",
+    "21:53",
+    "26:48",
+    "26:221",
+    "36:2",
+    "36:4",
+    "37:136",
+    "51:17",
+    "52:1",
+    "56:36",
+    "69:43",
+    "74:2",
+    "74:51",
+    "77:10",
+    "78:34",
+    "79:30",
+    "80:35",
+    "80:36",
+    "80:39",
+    "85:2",
+    "89:1",
+    "90:9",
+    "95:1",
+    "109:1",
+    "113:2",
+    "114:1",
+    "114:3"
+  ],
+  "missing_verse_fallback": "Combined translation+extra scope falls back to the retained translation for missing optional rows; extra-only scope cannot return those ayat.",
+  "translation_independence": {
+    "method": "Exact normalized equality and per-ayah token-set Jaccard against the retained Saheeh International translation; no semantic independence claim.",
+    "exact_normalized_duplicates": 31,
+    "different_ayahs": 6205,
+    "unique_extra_texts": 6139,
+    "median_token_jaccard": 0.4090909090909091,
+    "mean_token_jaccard": 0.41710849409657536,
+    "examples": [
+      {
+        "ayah": "1:1",
+        "retained_translation": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+        "extra_translation": "In the name of Allah, the Beneficent, the Merciful."
+      },
+      {
+        "ayah": "2:255",
+        "retained_translation": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+        "extra_translation": "Allah! There is no God save Him, the Alive, the Eternal. Neither slumber nor sleep overtaketh Him. Unto Him belongeth whatsoever is in the heavens and whatsoever is in the earth. Who is he that intercedeth with Him save by His leave ? He knoweth that which is in front of them and that which is behind them, while they encompass nothing of His knowledge save what He will. His throne includeth the heavens and the earth, and He is never weary of preserving them. He is the Sublime, the Tremendous."
+      },
+      {
+        "ayah": "112:1",
+        "retained_translation": "Say, \"He is Allah, [who is] One,",
+        "extra_translation": "Say: He is Allah, the One!"
+      }
+    ],
+    "duplicate_policy": "Exact normalized duplicates of the retained translation are excluded from the optional index so they cannot act as a second independent candidate; combined retrieval uses the retained translation instead."
+  },
+  "characters": 822131,
+  "token_truncation": {
+    "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+    "max_seq_length": 512,
+    "documents": 6205,
+    "truncated_documents": 0,
+    "truncated_ayahs_file": "runtime/truncated_ayahs.json",
+    "truncated_ayahs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "truncated_ayahs_bytes": 2,
+    "min": 7,
+    "median": 33,
+    "p95": 89,
+    "max": 376
+  },
+  "repeated_text": {
+    "all_exportable": {
+      "method": "Exact normalized 50-token spans shared by distinct ayat; overlapping windows are counted.",
+      "shingle_size": 50,
+      "documents": 6205,
+      "documents_with_repeated_spans": 0,
+      "unique_repeated_spans": 0,
+      "max_references_per_span": 0,
+      "exact_duplicate_text_groups": 38,
+      "documents_in_exact_duplicate_groups": 134,
+      "exact_duplicate_examples": [
+        [
+          "55:13",
+          "55:16",
+          "55:18",
+          "55:21",
+          "55:23",
+          "55:25",
+          "55:28",
+          "55:30",
+          "55:32",
+          "55:34",
+          "55:36",
+          "55:40",
+          "55:42",
+          "55:45",
+          "55:47",
+          "55:49",
+          "55:51",
+          "55:53",
+          "55:55",
+          "55:57",
+          "55:59",
+          "55:61",
+          "55:63",
+          "55:65",
+          "55:67",
+          "55:69",
+          "55:75",
+          "55:77"
+        ],
+        [
+          "77:15",
+          "77:19",
+          "77:24",
+          "77:28",
+          "77:34",
+          "77:37",
+          "77:40",
+          "77:45",
+          "77:47",
+          "77:49",
+          "83:10"
+        ],
+        [
+          "40:1",
+          "41:1",
+          "42:1",
+          "43:1",
+          "44:1",
+          "45:1",
+          "46:1"
+        ],
+        [
+          "26:107",
+          "26:125",
+          "26:143",
+          "26:162",
+          "26:178"
+        ],
+        [
+          "2:1",
+          "3:1",
+          "29:1",
+          "30:1",
+          "31:1"
+        ],
+        [
+          "26:109",
+          "26:127",
+          "26:145",
+          "26:164"
+        ],
+        [
+          "26:126",
+          "26:144",
+          "26:163",
+          "26:179"
+        ],
+        [
+          "54:17",
+          "54:22",
+          "54:32",
+          "54:40"
+        ],
+        [
+          "26:67",
+          "26:121",
+          "26:174"
+        ],
+        [
+          "26:9",
+          "26:159",
+          "26:191"
+        ],
+        [
+          "37:74",
+          "37:128",
+          "37:160"
+        ],
+        [
+          "37:80",
+          "37:121",
+          "37:131"
+        ],
+        [
+          "54:16",
+          "54:21",
+          "54:30"
+        ],
+        [
+          "55:38",
+          "55:71",
+          "55:73"
+        ],
+        [
+          "102:3",
+          "102:4"
+        ],
+        [
+          "10:48",
+          "36:48"
+        ],
+        [
+          "11:96",
+          "40:23"
+        ],
+        [
+          "15:36",
+          "38:79"
+        ],
+        [
+          "18:72",
+          "18:75"
+        ],
+        [
+          "18:89",
+          "18:92"
+        ]
+      ],
+      "voting_control": "One document per ayah and one maximum-scored result per ayah; repeated spans do not add votes."
+    },
+    "exported": {
+      "method": "Exact normalized 50-token spans shared by distinct ayat; overlapping windows are counted.",
+      "shingle_size": 50,
+      "documents": 6205,
+      "documents_with_repeated_spans": 0,
+      "unique_repeated_spans": 0,
+      "max_references_per_span": 0,
+      "exact_duplicate_text_groups": 38,
+      "documents_in_exact_duplicate_groups": 134,
+      "exact_duplicate_examples": [
+        [
+          "55:13",
+          "55:16",
+          "55:18",
+          "55:21",
+          "55:23",
+          "55:25",
+          "55:28",
+          "55:30",
+          "55:32",
+          "55:34",
+          "55:36",
+          "55:40",
+          "55:42",
+          "55:45",
+          "55:47",
+          "55:49",
+          "55:51",
+          "55:53",
+          "55:55",
+          "55:57",
+          "55:59",
+          "55:61",
+          "55:63",
+          "55:65",
+          "55:67",
+          "55:69",
+          "55:75",
+          "55:77"
+        ],
+        [
+          "77:15",
+          "77:19",
+          "77:24",
+          "77:28",
+          "77:34",
+          "77:37",
+          "77:40",
+          "77:45",
+          "77:47",
+          "77:49",
+          "83:10"
+        ],
+        [
+          "40:1",
+          "41:1",
+          "42:1",
+          "43:1",
+          "44:1",
+          "45:1",
+          "46:1"
+        ],
+        [
+          "26:107",
+          "26:125",
+          "26:143",
+          "26:162",
+          "26:178"
+        ],
+        [
+          "2:1",
+          "3:1",
+          "29:1",
+          "30:1",
+          "31:1"
+        ],
+        [
+          "26:109",
+          "26:127",
+          "26:145",
+          "26:164"
+        ],
+        [
+          "26:126",
+          "26:144",
+          "26:163",
+          "26:179"
+        ],
+        [
+          "54:17",
+          "54:22",
+          "54:32",
+          "54:40"
+        ],
+        [
+          "26:67",
+          "26:121",
+          "26:174"
+        ],
+        [
+          "26:9",
+          "26:159",
+          "26:191"
+        ],
+        [
+          "37:74",
+          "37:128",
+          "37:160"
+        ],
+        [
+          "37:80",
+          "37:121",
+          "37:131"
+        ],
+        [
+          "54:16",
+          "54:21",
+          "54:30"
+        ],
+        [
+          "55:38",
+          "55:71",
+          "55:73"
+        ],
+        [
+          "102:3",
+          "102:4"
+        ],
+        [
+          "10:48",
+          "36:48"
+        ],
+        [
+          "11:96",
+          "40:23"
+        ],
+        [
+          "15:36",
+          "38:79"
+        ],
+        [
+          "18:72",
+          "18:75"
+        ],
+        [
+          "18:89",
+          "18:92"
+        ]
+      ],
+      "voting_control": "One document per ayah and one maximum-scored result per ayah; repeated spans do not add votes.",
+      "sidecar_file": "runtime/repeated_blocks.json",
+      "sidecar_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "sidecar_bytes": 2
+    }
+  },
+  "provenance_audit": {
+    "method": "Exact normalized 50-token shingle intersection; no fuzzy or semantic independence claim.",
+    "shingle_size": 50,
+    "source_records_checked": 3615,
+    "source_shingles": 1507804,
+    "overlap_count": 0,
+    "overlaps": [],
+    "exclusion_rule": "Record exact normalized 50-token source matches without excluding rows: the pinned 1930 translation predates IslamQA, and complete mapping with explicit duplicate fallback is retained.",
+    "checked_source_fields": [
+      "question",
+      "answer"
+    ],
+    "included_row_count": 6205,
+    "excluded_rows": [],
+    "overlap_detected_rows": [],
+    "source_hashes": {
+      "train_validation_sources.json": "249763744ac9bcc92b3f06dd0fe99eba136d66a89f4716aac696fc48143f2c77"
+    },
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "test_sources_used": false,
+    "limitation": "Exact long-span screening does not certify semantic independence from source answers; overlap is recorded rather than selectively excluded."
+  },
+  "output": {
+    "file": "extra_translation_docs.jsonl",
+    "sha256": "5a198096c5ce7cee5c9054bd005f11cae441c648edbe38b7e0d9096302b86296",
+    "bytes": 2081456
+  },
+  "selection_sources": {
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "train_sources": {
+      "file": "islamqa_references_train.json",
+      "sha256": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+      "records": 3355
+    },
+    "validation_questions": {
+      "file": "questions.jsonl",
+      "sha256": "a64681bafa984e7bf30576403894bcc45b86a18e8dda8015c3680fe4753fe694",
+      "groups": 257,
+      "wordings": 260
+    },
+    "combined_audit_file": "runtime/train_validation_sources.json",
+    "combined_audit_sha256": "249763744ac9bcc92b3f06dd0fe99eba136d66a89f4716aac696fc48143f2c77",
+    "test_sources_used": false,
+    "limitation": "The legacy train file has historical validation/test exposure; no public test source was used for M04 export or selection."
+  }
+}

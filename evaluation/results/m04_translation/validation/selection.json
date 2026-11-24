@@ -1,0 +1,2574 @@
+{
+  "profile": "pr2_frozen_v1",
+  "experiment": "M04",
+  "split": "validation",
+  "dataset": {
+    "profile": "pr2_frozen_v1",
+    "dataset_version": "3.0.0",
+    "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+    "package_manifest_sha256": "65eacf24728ac0ad3415611881aaa2bb660a049add0c50979cb993b918e1802b",
+    "validator": {
+      "valid": true,
+      "train_groups": 1086,
+      "removed": 25,
+      "validation_test_byte_identical": true,
+      "train_source_overlaps": 0,
+      "retained_validation_test_answer_families": 4,
+      "test_blind": false
+    },
+    "split": "validation",
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "counts": {
+      "query_cases": 260,
+      "question_groups": 257,
+      "useful_answerable_cases": 221,
+      "direct_answerable_cases": 40
+    },
+    "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+    "success_definitions": {
+      "relevant_hit@5": "At least one settled grade-1, grade-2, or grade-3 ayah in the first five.",
+      "useful_hit@5": "At least one settled grade-2 or grade-3 ayah in the first five.",
+      "direct_slice_useful_hit@5": "Useful hit@5 among the 40 direct-answer wordings; not direct_hit@5.",
+      "ndcg@10": "Gain 2^grade-1 with logarithmic rank discount, normalized by ideal qrels."
+    },
+    "notes": [
+      "The public test is a regression suite, not a blind holdout.",
+      "Qrels remain group-level; all 260 original wordings are preserved.",
+      "Confidence intervals resample question groups rather than wordings."
+    ]
+  },
+  "frozen_at_utc": "2026-11-24T16:50:16.435692+00:00",
+  "test_accessed": false,
+  "selection_policy": "Only parent+Pickthall with AI and tafsir off is promotion-eligible. Require higher validation useful hit@5 with no validation nDCG@10 decrease; Pickthall-only is diagnostic because the retained translation must remain available.",
+  "candidates": {
+    "parent_translation": {
+      "engine": "M04 offline multilingual E5-small float32 FAISS with optional Pickthall translation",
+      "leaderboard_label": "M04 translation",
+      "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+      "field": "translation",
+      "source_attribution": "per-result winning representation",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138462,
+              "ci95": [
+                0.096525,
+                0.183908
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.093023,
+                0.178295
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.09164,
+              "ci95": [
+                0.063689,
+                0.121727
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 36,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.112108,
+                0.208145
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103287,
+              "ci95": [
+                0.07114,
+                0.135854
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.236153,
+              "ci95": [
+                0.183413,
+                0.289725
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.275,
+              "ci95": [
+                0.146341,
+                0.425
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.10302,
+              "ci95": [
+                0.046993,
+                0.174039
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.163419,
+              "ci95": [
+                0.096119,
+                0.245935
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 11,
+            "useful_hit@5": 11
+          }
+        },
+        "partial": {
+          "queries": 181,
+          "groups": 179,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.087912,
+                0.183333
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.087912,
+                0.183333
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.103346,
+              "ci95": [
+                0.069296,
+                0.139676
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.252227,
+              "ci95": [
+                0.194882,
+                0.310939
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 24,
+            "useful_hit@5": 24
+          }
+        },
+        "background": {
+          "queries": 39,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.025641,
+              "ci95": [
+                0.0,
+                0.076923
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 1,
+            "useful_hit@5": 0
+          }
+        },
+        "long": {
+          "queries": 151,
+          "groups": 151,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.152318,
+              "ci95": [
+                0.099338,
+                0.211921
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.145695,
+              "ci95": [
+                0.092715,
+                0.205298
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.099048,
+              "ci95": [
+                0.064146,
+                0.139361
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 23,
+            "useful_hit@5": 22
+          }
+        },
+        "compound": {
+          "queries": 70,
+          "groups": 70,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.171429,
+              "ci95": [
+                0.085714,
+                0.257143
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.139159,
+              "ci95": [
+                0.076623,
+                0.211319
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 12,
+            "useful_hit@5": 12
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 28.275,
+        "p95": 61.708,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2541,
+        "settled_judged_results": 58,
+        "disputed_results": 1
+      },
+      "coverage@50": {
+        "total_results": 13000,
+        "unjudged_results": 12878,
+        "settled_judged_results": 121,
+        "disputed_results": 1
+      },
+      "index_bytes": 11260716,
+      "peak_rss_bytes": 1454952448,
+      "provenance": {
+        "engine": "M04 offline multilingual E5-small float32 FAISS with optional Pickthall translation",
+        "profile": "pr2_frozen_v1",
+        "experiment": "M04",
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+        "model_files": {
+          "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+          "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+          "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+          "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        },
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "display_field": "translation",
+        "source_attribution": "per-result winning representation",
+        "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+        "corpus": {
+          "verses": 6236,
+          "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+        },
+        "retrieval": {
+          "mode": "similarity",
+          "fetch_k": 50,
+          "mmr_lambda": 1.0
+        },
+        "aggregation": "Fetch 50 per active representation; keep one maximum-scored result per ayah; ties prefer translation, AI, English tafsir, then extra translation, followed by numeric ayah ID.",
+        "index_bytes": 11260716,
+        "index_artifacts": {
+          "translation": {
+            "index.faiss": {
+              "sha256": "689509fe3310db6994b532f4ae80948787edd0a44a95c70867f484ee07f22e87",
+              "bytes": 9578541
+            },
+            "index.pkl": {
+              "sha256": "38ea89fe70370f3c9e05adeb72e8fb7baae09ceb76b082801892c9b8d96a9d9e",
+              "bytes": 1682175
+            }
+          },
+          "extra_translation": {
+            "index.faiss": {
+              "sha256": "d97a2f0fed532720bf544a4aa1b026e276da026660009a20575aecca1cad414f",
+              "bytes": 9530925
+            },
+            "index.pkl": {
+              "sha256": "2cb7676c108bccbaa1d3ad92c7f98dc10750b5eda8b378f6c48500c872a32966",
+              "bytes": 1562318
+            }
+          }
+        },
+        "active_representations": [
+          "quran"
+        ],
+        "peak_rss_bytes": 1454952448,
+        "extra_translation_representation_manifest_sha256": "7e1fca1549b1783e0cf4268499b15377c97b5e14a585897f594276984dcecd7d",
+        "parent_commit": "02b71be4c1c6488c92ea230afe258682f89395dc",
+        "config": {
+          "semantic_ai": false,
+          "semantic_en_tafsir": false,
+          "extra_translation_id": "none",
+          "representation_scope": "translation"
+        },
+        "result_k": 50,
+        "config_sha256": "c8532707814cb9509f390303496b9dfef1c423d1013406b2a8ae871354c0d662"
+      },
+      "config": {
+        "semantic_ai": false,
+        "semantic_en_tafsir": false,
+        "extra_translation_id": "none",
+        "representation_scope": "translation"
+      },
+      "config_sha256": "c8532707814cb9509f390303496b9dfef1c423d1013406b2a8ae871354c0d662",
+      "name": "parent_translation"
+    },
+    "pickthall_only_diagnostic": {
+      "engine": "M04 offline multilingual E5-small float32 FAISS with optional Pickthall translation",
+      "leaderboard_label": "M04 extra_translation",
+      "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+      "field": "translation",
+      "source_attribution": "per-result winning representation",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.126923,
+              "ci95": [
+                0.085603,
+                0.167939
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.115385,
+              "ci95": [
+                0.076336,
+                0.156489
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.072686,
+              "ci95": [
+                0.0492,
+                0.09752
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 33,
+            "useful_hit@5": 30
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.140271,
+              "ci95": [
+                0.094595,
+                0.1875
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.135747,
+              "ci95": [
+                0.090909,
+                0.183036
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.081774,
+              "ci95": [
+                0.056232,
+                0.109976
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.214697,
+              "ci95": [
+                0.1633,
+                0.267809
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 31,
+            "useful_hit@5": 30
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.15,
+              "ci95": [
+                0.05,
+                0.275
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.15,
+              "ci95": [
+                0.05,
+                0.275
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.08047,
+              "ci95": [
+                0.030463,
+                0.147713
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.153415,
+              "ci95": [
+                0.079838,
+                0.246222
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 6,
+            "useful_hit@5": 6
+          }
+        },
+        "partial": {
+          "queries": 181,
+          "groups": 179,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.138122,
+              "ci95": [
+                0.089385,
+                0.189944
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.132597,
+              "ci95": [
+                0.083799,
+                0.183333
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.082063,
+              "ci95": [
+                0.052803,
+                0.113693
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.22824,
+              "ci95": [
+                0.17047,
+                0.285762
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 25,
+            "useful_hit@5": 24
+          }
+        },
+        "background": {
+          "queries": 39,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.051282,
+              "ci95": [
+                0.0,
+                0.128205
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.021183,
+              "ci95": [
+                0.0,
+                0.062385
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 2,
+            "useful_hit@5": 0
+          }
+        },
+        "long": {
+          "queries": 151,
+          "groups": 151,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.13245,
+              "ci95": [
+                0.07947,
+                0.192053
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.112583,
+              "ci95": [
+                0.066225,
+                0.165563
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.07833,
+              "ci95": [
+                0.047622,
+                0.112364
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 20,
+            "useful_hit@5": 17
+          }
+        },
+        "compound": {
+          "queries": 70,
+          "groups": 70,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.142857,
+              "ci95": [
+                0.071429,
+                0.228571
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.128571,
+              "ci95": [
+                0.057143,
+                0.214286
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.100232,
+              "ci95": [
+                0.047938,
+                0.158712
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 10,
+            "useful_hit@5": 9
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 32.689,
+        "p95": 75.2,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2546,
+        "settled_judged_results": 53,
+        "disputed_results": 1
+      },
+      "coverage@50": {
+        "total_results": 13000,
+        "unjudged_results": 12885,
+        "settled_judged_results": 114,
+        "disputed_results": 1
+      },
+      "index_bytes": 11093243,
+      "peak_rss_bytes": 1454952448,
+      "provenance": {
+        "engine": "M04 offline multilingual E5-small float32 FAISS with optional Pickthall translation",
+        "profile": "pr2_frozen_v1",
+        "experiment": "M04",
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+        "model_files": {
+          "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+          "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+          "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+          "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        },
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "display_field": "translation",
+        "source_attribution": "per-result winning representation",
+        "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+        "corpus": {
+          "verses": 6236,
+          "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+        },
+        "retrieval": {
+          "mode": "similarity",
+          "fetch_k": 50,
+          "mmr_lambda": 1.0
+        },
+        "aggregation": "Fetch 50 per active representation; keep one maximum-scored result per ayah; ties prefer translation, AI, English tafsir, then extra translation, followed by numeric ayah ID.",
+        "index_bytes": 11093243,
+        "index_artifacts": {
+          "translation": {
+            "index.faiss": {
+              "sha256": "689509fe3310db6994b532f4ae80948787edd0a44a95c70867f484ee07f22e87",
+              "bytes": 9578541
+            },
+            "index.pkl": {
+              "sha256": "38ea89fe70370f3c9e05adeb72e8fb7baae09ceb76b082801892c9b8d96a9d9e",
+              "bytes": 1682175
+            }
+          },
+          "extra_translation": {
+            "index.faiss": {
+              "sha256": "d97a2f0fed532720bf544a4aa1b026e276da026660009a20575aecca1cad414f",
+              "bytes": 9530925
+            },
+            "index.pkl": {
+              "sha256": "2cb7676c108bccbaa1d3ad92c7f98dc10750b5eda8b378f6c48500c872a32966",
+              "bytes": 1562318
+            }
+          }
+        },
+        "active_representations": [
+          "quran-extra-translation"
+        ],
+        "peak_rss_bytes": 1454952448,
+        "extra_translation_representation_manifest_sha256": "7e1fca1549b1783e0cf4268499b15377c97b5e14a585897f594276984dcecd7d",
+        "parent_commit": "02b71be4c1c6488c92ea230afe258682f89395dc",
+        "config": {
+          "semantic_ai": false,
+          "semantic_en_tafsir": false,
+          "extra_translation_id": "pickthall_1930",
+          "representation_scope": "extra_translation"
+        },
+        "result_k": 50,
+        "config_sha256": "e93d7747890f67cc8fc61102ee7370eb2c6001ce27ef0d7e22af4f9f69fe625c"
+      },
+      "config": {
+        "semantic_ai": false,
+        "semantic_en_tafsir": false,
+        "extra_translation_id": "pickthall_1930",
+        "representation_scope": "extra_translation"
+      },
+      "config_sha256": "e93d7747890f67cc8fc61102ee7370eb2c6001ce27ef0d7e22af4f9f69fe625c",
+      "name": "pickthall_only_diagnostic"
+    },
+    "parent_pickthall": {
+      "engine": "M04 offline multilingual E5-small float32 FAISS with optional Pickthall translation",
+      "leaderboard_label": "M04 translation_extra_translation",
+      "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+      "field": "translation",
+      "source_attribution": "per-result winning representation",
+      "headline": {
+        "all": {
+          "queries": 260,
+          "groups": 257,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.142308,
+              "ci95": [
+                0.100775,
+                0.187739
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.134615,
+              "ci95": [
+                0.092664,
+                0.179389
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.091434,
+              "ci95": [
+                0.06398,
+                0.121173
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 37,
+            "useful_hit@5": 35
+          }
+        },
+        "useful": {
+          "queries": 221,
+          "groups": 218,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.108597,
+                0.207207
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.158371,
+              "ci95": [
+                0.108597,
+                0.207207
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.102362,
+              "ci95": [
+                0.071212,
+                0.135585
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.239068,
+              "ci95": [
+                0.185284,
+                0.29329
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 35,
+            "useful_hit@5": 35
+          }
+        },
+        "direct": {
+          "queries": 40,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.175,
+              "ci95": [
+                0.071429,
+                0.307692
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.175,
+              "ci95": [
+                0.071429,
+                0.307692
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.091246,
+              "ci95": [
+                0.037841,
+                0.158398
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.15877,
+              "ci95": [
+                0.08974,
+                0.242778
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 7,
+            "useful_hit@5": 7
+          }
+        },
+        "partial": {
+          "queries": 181,
+          "groups": 179,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.154696,
+              "ci95": [
+                0.104972,
+                0.208791
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.154696,
+              "ci95": [
+                0.104972,
+                0.208791
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.104818,
+              "ci95": [
+                0.071085,
+                0.141847
+              ]
+            },
+            "useful_recall@50": {
+              "mean": 0.256814,
+              "ci95": [
+                0.195856,
+                0.318519
+              ]
+            }
+          },
+          "counts": {
+            "positive_hit@5": 28,
+            "useful_hit@5": 28
+          }
+        },
+        "background": {
+          "queries": 39,
+          "groups": 39,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.051282,
+              "ci95": [
+                0.0,
+                0.128205
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.029513,
+              "ci95": [
+                0.0,
+                0.084668
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 2,
+            "useful_hit@5": 0
+          }
+        },
+        "long": {
+          "queries": 151,
+          "groups": 151,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.165563,
+              "ci95": [
+                0.10596,
+                0.231788
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.152318,
+              "ci95": [
+                0.099338,
+                0.218543
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.097672,
+              "ci95": [
+                0.062897,
+                0.13693
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 25,
+            "useful_hit@5": 23
+          }
+        },
+        "compound": {
+          "queries": 70,
+          "groups": 70,
+          "metrics": {
+            "positive_hit@5": {
+              "mean": 0.185714,
+              "ci95": [
+                0.1,
+                0.285714
+              ]
+            },
+            "useful_hit@5": {
+              "mean": 0.185714,
+              "ci95": [
+                0.1,
+                0.285714
+              ]
+            },
+            "ndcg@10": {
+              "mean": 0.12845,
+              "ci95": [
+                0.068358,
+                0.198939
+              ]
+            },
+            "useful_recall@50": null
+          },
+          "counts": {
+            "positive_hit@5": 13,
+            "useful_hit@5": 13
+          }
+        }
+      },
+      "timings_ms": {
+        "p50": 31.585,
+        "p95": 76.155,
+        "queries": 260
+      },
+      "coverage@10": {
+        "total_results": 2600,
+        "unjudged_results": 2540,
+        "settled_judged_results": 59,
+        "disputed_results": 1
+      },
+      "coverage@50": {
+        "total_results": 13000,
+        "unjudged_results": 12877,
+        "settled_judged_results": 122,
+        "disputed_results": 1
+      },
+      "index_bytes": 22353959,
+      "peak_rss_bytes": 1454952448,
+      "provenance": {
+        "engine": "M04 offline multilingual E5-small float32 FAISS with optional Pickthall translation",
+        "profile": "pr2_frozen_v1",
+        "experiment": "M04",
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+        "model_files": {
+          "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+          "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+          "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+          "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        },
+        "dtype": "float32",
+        "distance": "max_inner_product",
+        "query_prefix": "query: ",
+        "passage_prefix": "passage: ",
+        "field": "translation",
+        "display_field": "translation",
+        "source_attribution": "per-result winning representation",
+        "fixture_sha256": "1ae65f7cca2e2aa811b0b62e331d43fc98c78f62a7d23546ffa5109eab0a6cfe",
+        "corpus": {
+          "verses": 6236,
+          "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+        },
+        "retrieval": {
+          "mode": "similarity",
+          "fetch_k": 50,
+          "mmr_lambda": 1.0
+        },
+        "aggregation": "Fetch 50 per active representation; keep one maximum-scored result per ayah; ties prefer translation, AI, English tafsir, then extra translation, followed by numeric ayah ID.",
+        "index_bytes": 22353959,
+        "index_artifacts": {
+          "translation": {
+            "index.faiss": {
+              "sha256": "689509fe3310db6994b532f4ae80948787edd0a44a95c70867f484ee07f22e87",
+              "bytes": 9578541
+            },
+            "index.pkl": {
+              "sha256": "38ea89fe70370f3c9e05adeb72e8fb7baae09ceb76b082801892c9b8d96a9d9e",
+              "bytes": 1682175
+            }
+          },
+          "extra_translation": {
+            "index.faiss": {
+              "sha256": "d97a2f0fed532720bf544a4aa1b026e276da026660009a20575aecca1cad414f",
+              "bytes": 9530925
+            },
+            "index.pkl": {
+              "sha256": "2cb7676c108bccbaa1d3ad92c7f98dc10750b5eda8b378f6c48500c872a32966",
+              "bytes": 1562318
+            }
+          }
+        },
+        "active_representations": [
+          "quran",
+          "quran-extra-translation"
+        ],
+        "peak_rss_bytes": 1454952448,
+        "extra_translation_representation_manifest_sha256": "7e1fca1549b1783e0cf4268499b15377c97b5e14a585897f594276984dcecd7d",
+        "parent_commit": "02b71be4c1c6488c92ea230afe258682f89395dc",
+        "config": {
+          "semantic_ai": false,
+          "semantic_en_tafsir": false,
+          "extra_translation_id": "pickthall_1930",
+          "representation_scope": "translation_extra_translation"
+        },
+        "result_k": 50,
+        "config_sha256": "eb8e1b1290306e4f3d178e5b9b4d3572577c0d65c83cd452cf381f3bdf1512be"
+      },
+      "config": {
+        "semantic_ai": false,
+        "semantic_en_tafsir": false,
+        "extra_translation_id": "pickthall_1930",
+        "representation_scope": "translation_extra_translation"
+      },
+      "config_sha256": "eb8e1b1290306e4f3d178e5b9b4d3572577c0d65c83cd452cf381f3bdf1512be",
+      "name": "parent_pickthall"
+    }
+  },
+  "marginal_effects": {
+    "parent_translation": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 0,
+        "losses": 0,
+        "ties": 260,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 0,
+        "losses": 0,
+        "ties": 221,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 0,
+        "losses": 0,
+        "ties": 260,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "gained_cases": [],
+        "lost_cases": []
+      }
+    },
+    "pickthall_only_diagnostic": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 10,
+        "losses": 13,
+        "ties": 237,
+        "delta_mean": -0.011538,
+        "delta_ci95": [
+          -0.049618,
+          0.023256
+        ],
+        "gained_cases": [
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "6c5cf4b42348fd28:q0",
+            "group_id": "6c5cf4b42348fd28",
+            "query": "My husband and I have been married for nearly 6 months. We are having re-occuring problems regarding how much sex we have. My husband has strong needs in this area, which he has told me about many times. I have tried hard to meet his needs, but find myself unable to keep up with him for more than a week or so. I become very tired, and feel physically unable to do this. My husband now finds the situation hard to deal with, and often separates from me - within the home. I understand that it is my obligation to respond to his needs, but what are our rights to each other in the case that one finds it hard to keep up with the other, even though their intention is to please them. Is my husband allowed to separate from me in this way? Also is he allowed to come to me for such relations when we have had an argument and have not been speaking to each other? We are, alhumdulillah, very happy together otherwise and love and respect each other very much, and would like to find an Islamic resolution to remove this problem from our marriage."
+          },
+          {
+            "id": "716865c9c486d3e8:q0",
+            "group_id": "716865c9c486d3e8",
+            "query": "What’s So Special about the Month of Safar?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "a64b05eeb2b676e0:q0",
+            "group_id": "a64b05eeb2b676e0",
+            "query": "Is it permissable for a man to be unfair to his wife if he has two wives or one of his wives by not splitting up up the time properly . he sometimes leaves the second wife house two or three hours late causing the first wife to be upset because of his lateness ."
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "b2e79f1edfa8938e:q0",
+            "group_id": "b2e79f1edfa8938e",
+            "query": "One of the characteristics of Makkan verses is that they are addressed to all of mankind"
+          },
+          {
+            "id": "de6441ccd9f7504b:q0",
+            "group_id": "de6441ccd9f7504b",
+            "query": "What is the ruling of Islamic sharee’ah on the situation of workers who work in exhausting jobs, especially in the summer months. I can give you an example of those who work with furnaces for smelting metals. Is it permissible for them not to fast in Ramadaan?."
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "3c7ffcc84b08c53f:q0",
+            "group_id": "3c7ffcc84b08c53f",
+            "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "80ad32c7032eea6c:q0",
+            "group_id": "80ad32c7032eea6c",
+            "query": "What are the virtues of Ayatul Kursi?"
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "dda8dd34ea9a3df1:q0",
+            "group_id": "dda8dd34ea9a3df1",
+            "query": "Could we skip Shalat al-Jumu`ah (Friday prayer) when we are travelling?"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          }
+        ]
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 8,
+        "losses": 13,
+        "ties": 200,
+        "delta_mean": -0.022624,
+        "delta_ci95": [
+          -0.063636,
+          0.018018
+        ],
+        "gained_cases": [
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "716865c9c486d3e8:q0",
+            "group_id": "716865c9c486d3e8",
+            "query": "What’s So Special about the Month of Safar?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "a64b05eeb2b676e0:q0",
+            "group_id": "a64b05eeb2b676e0",
+            "query": "Is it permissable for a man to be unfair to his wife if he has two wives or one of his wives by not splitting up up the time properly . he sometimes leaves the second wife house two or three hours late causing the first wife to be upset because of his lateness ."
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "b2e79f1edfa8938e:q0",
+            "group_id": "b2e79f1edfa8938e",
+            "query": "One of the characteristics of Makkan verses is that they are addressed to all of mankind"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "3c7ffcc84b08c53f:q0",
+            "group_id": "3c7ffcc84b08c53f",
+            "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "80ad32c7032eea6c:q0",
+            "group_id": "80ad32c7032eea6c",
+            "query": "What are the virtues of Ayatul Kursi?"
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "dda8dd34ea9a3df1:q0",
+            "group_id": "dda8dd34ea9a3df1",
+            "query": "Could we skip Shalat al-Jumu`ah (Friday prayer) when we are travelling?"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          }
+        ]
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 19,
+        "losses": 32,
+        "ties": 209,
+        "delta_mean": -0.018954,
+        "delta_ci95": [
+          -0.038805,
+          -0.001196
+        ],
+        "gained_cases": [
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "350af697680169f8:q0",
+            "group_id": "350af697680169f8",
+            "query": "Revelation of the Quran: All at Once or Gradually?"
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "3d8c66b3e1f5de4b:q0",
+            "group_id": "3d8c66b3e1f5de4b",
+            "query": "Trying to avoid being appointed as a judge"
+          },
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "5787a3319bea5df5:q0",
+            "group_id": "5787a3319bea5df5",
+            "query": "Allah mentions in the Quran that when an evil befalls us it is due to what our own hands have earned. Also our beloved Messenger, Muhammad (peace and blessings of Allah be upon him) said in a hadeeth (report) that the most tried are the Prophets, then those in piety after those. So therefore in our day to day life when things go wrong in our lives, how do we decide whether it is due to our sinfulness or that Allah loves us and therefore sends a trial upon us?"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "6c5cf4b42348fd28:q0",
+            "group_id": "6c5cf4b42348fd28",
+            "query": "My husband and I have been married for nearly 6 months. We are having re-occuring problems regarding how much sex we have. My husband has strong needs in this area, which he has told me about many times. I have tried hard to meet his needs, but find myself unable to keep up with him for more than a week or so. I become very tired, and feel physically unable to do this. My husband now finds the situation hard to deal with, and often separates from me - within the home. I understand that it is my obligation to respond to his needs, but what are our rights to each other in the case that one finds it hard to keep up with the other, even though their intention is to please them. Is my husband allowed to separate from me in this way? Also is he allowed to come to me for such relations when we have had an argument and have not been speaking to each other? We are, alhumdulillah, very happy together otherwise and love and respect each other very much, and would like to find an Islamic resolution to remove this problem from our marriage."
+          },
+          {
+            "id": "6eaea7f05c849371:q0",
+            "group_id": "6eaea7f05c849371",
+            "query": "What advice can you give Muslim families in regards to family visits and gatherings?"
+          },
+          {
+            "id": "716865c9c486d3e8:q0",
+            "group_id": "716865c9c486d3e8",
+            "query": "What’s So Special about the Month of Safar?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "7a42e75c386d4b2e:q0",
+            "group_id": "7a42e75c386d4b2e",
+            "query": "Since the prophet said \"Begin fasting after sighting the moon\", how can muslims be fasting one on Tuesday in one part of the world and wednesday in another part. We should all begin our fast at the same time regardless of where we live. We are students in the U.S. and Canada, and we face the same problem every year at the beginning of Ramadaan, because the Muslims are split into three groups:A group that fasts when the new moon is sighted in the city in which they live. A group that fasts when fasting starts in Saudi Arabia. A group that fasts when they hear news from the Muslim students’ union in the U.S. and Canada which watches for the new moon in different parts of America, and as soon as the new moon is sighted in one city, they spread the news to different Islamic centres so that the Muslims in America can start fasting on the same day, despite the great distances between the different cities. Which group should we follow? Whose sighting of the moon should we rely on? Please give us a fatwa, may Allaah reward you."
+          },
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "a5652bdaeb389890:q0",
+            "group_id": "a5652bdaeb389890",
+            "query": "What does belief in the angels mean?"
+          },
+          {
+            "id": "a64b05eeb2b676e0:q0",
+            "group_id": "a64b05eeb2b676e0",
+            "query": "Is it permissable for a man to be unfair to his wife if he has two wives or one of his wives by not splitting up up the time properly . he sometimes leaves the second wife house two or three hours late causing the first wife to be upset because of his lateness ."
+          },
+          {
+            "id": "a71aaa6de681d390:q0",
+            "group_id": "a71aaa6de681d390",
+            "query": "I need to know whether we as Muslims are allowed to eat the eyes of a fish. I was eating at a seafood restaurant with a friend and I was enjoying the head of the fish and then I ate the eye and he was quite disgusted and said that it is not allowed in Islam. Is that true?"
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "b2e79f1edfa8938e:q0",
+            "group_id": "b2e79f1edfa8938e",
+            "query": "One of the characteristics of Makkan verses is that they are addressed to all of mankind"
+          },
+          {
+            "id": "de6441ccd9f7504b:q0",
+            "group_id": "de6441ccd9f7504b",
+            "query": "What is the ruling of Islamic sharee’ah on the situation of workers who work in exhausting jobs, especially in the summer months. I can give you an example of those who work with furnaces for smelting metals. Is it permissible for them not to fast in Ramadaan?."
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "0899e7b8458779ac:q0",
+            "group_id": "0899e7b8458779ac",
+            "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "264895266de150ed:q0",
+            "group_id": "264895266de150ed",
+            "query": "If a wife asks her husband for a khula and he accepts, how long is the waiting period?Is it irrevocable i.e can they ever re-marry?"
+          },
+          {
+            "id": "37a9a5f66c3c7016:q0",
+            "group_id": "37a9a5f66c3c7016",
+            "query": "well i want to make a little inquiry plz kindly inform with the correct info I have heard that you are not supposed to have sex on tuesdays....and there is some thing that comes that night which then curses all those who are doing it...and they suffer some how later...then plz reply me and inform me with the correct info...from hadiths or Quran.."
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "3c7a8fc0d32f4944:q0",
+            "group_id": "3c7a8fc0d32f4944",
+            "query": "Does a daughter have a right in her mother’s property? If yes, what is her share? Please comment."
+          },
+          {
+            "id": "3c7ffcc84b08c53f:q0",
+            "group_id": "3c7ffcc84b08c53f",
+            "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "4b7d90400a343015:q0",
+            "group_id": "4b7d90400a343015",
+            "query": "I put some money in my young children’s name into shares of an investment company. Should I put it all together when calculating zakaat, or should I work it out individually, knowing that if I do not put it all together, the individual amounts will not reach the level of nisaab?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "61b68f51bad55711:q0",
+            "group_id": "61b68f51bad55711",
+            "query": "Does reciting al-Zalzalah at the time of childbirth make giving birth easier? Are there any du’aa’s or adhkaar that are prescribed when giving birth to make it easier? Will du’aa’s made at the time of childbirth be answered?"
+          },
+          {
+            "id": "748c9b8d8efdf88e:q0",
+            "group_id": "748c9b8d8efdf88e",
+            "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q0",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+          },
+          {
+            "id": "80ad32c7032eea6c:q0",
+            "group_id": "80ad32c7032eea6c",
+            "query": "What are the virtues of Ayatul Kursi?"
+          },
+          {
+            "id": "89e39cf9aeb5af4b:q0",
+            "group_id": "89e39cf9aeb5af4b",
+            "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "9bc59643bd877a9a:q0",
+            "group_id": "9bc59643bd877a9a",
+            "query": "Is every practitioner of magic or witchcraft a kaafir?"
+          },
+          {
+            "id": "a810e50c3b7ceef7:q0",
+            "group_id": "a810e50c3b7ceef7",
+            "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+          },
+          {
+            "id": "aef682cbe4d6f23b:q0",
+            "group_id": "aef682cbe4d6f23b",
+            "query": "It is not possible to see the new moon with the naked eye before it is 30 hours old, and in addition to that, it is sometimes not possible to see it at all because of the weather conditions. On this basis, is it permissible to resort to using astronomical information to calculate the likely time for sighting the new moon and the start of Ramadan, or do we have to actually sight the new moon before we start fasting the blessed month of Ramadan?"
+          },
+          {
+            "id": "afa5c0dcc02ce8fc:q0",
+            "group_id": "afa5c0dcc02ce8fc",
+            "query": "I have not got married yet. I know that it is not permissible for the husband to have intercourse with his wife in her back passage, but I do not want to hide from you the fact that my desires always overwhelm me. I try to repent and do what is right, but sometimes I go back to sin. I am afraid that if I get married I will have intercourse with my wife in her back passage, and that the Shaytaan will overpower me. What advice can you give me? My second question is: would it be permissible for me to approach her from behind but over her clothes?."
+          },
+          {
+            "id": "d93dd6bd1abd291e:q0",
+            "group_id": "d93dd6bd1abd291e",
+            "query": "First of all I must make clear that I have read your articles related to this topic. Although I have heard other evidences to suggest that the FACE veil is optional, due to the following: (1)When the ayah was revealed commanding the believing women to cover (24:31) only the wives of the prophet covered themselves with a facial veil. The other Muslim women did not take steps to veil their faces. (2)When some of the sahabah intended to propose to a women they would go and look at her without her knowledge. And of course if she had worn a facial veil they would not have been able to see her? This topic is causing me much confusion please clarify the importance of the niqaab, I only want to do the correct thing for the sake of Allah."
+          },
+          {
+            "id": "dca17299a99878c9:q0",
+            "group_id": "dca17299a99878c9",
+            "query": "Assalmu Alikum,I have a question regarding the punishments described inSurah 5, in particular verse 33. It states that the punishment for anti-Islamic war mongers is that they are to be a) killed OR b) crucified OR c) have their hands and feet on alternate sides cut-off OR d) exile from the landAre these punishments that apply today, or is the Quranrefering to a particular people from history? If this is Islamic law, under what circumstances do each apply?There are several alternatives, of lessening sevarity...does this imply levels of punishments depending on the sevarity of the crimes being inflicted by the criminal? Also, is this \"crucifiction\" mentioned the same kind of crucifiction the Romans did to their criminals, i.e. nailing people to a cross, or is this different? I've tried finding historical accounts of Muslims practicing this, but the prefered method of execution of criminals seems to have always been beheading by a sword. I think it's law, as in the next verse, 5:34, Allah states to have mercy on those who repent after they fall into the power of the Believers. But I ceartainly am in no position to give this opinion any wieght, which is why I'm sending this letter.Anyhow, I would like clarification on this in particular with respect to a) Using crucifiction as a means to punish - is this the same as nailing or tying people to a cross and having them die over a period of time?c) to whom exactly do they apply d) does the punishment hold today, or were there revelations which canceled this punishment systeme) any other background information you think is relevant May Allah guide me to the Truth. May Allah bless you for this wonderful service you are offering."
+          },
+          {
+            "id": "dda8dd34ea9a3df1:q0",
+            "group_id": "dda8dd34ea9a3df1",
+            "query": "Could we skip Shalat al-Jumu`ah (Friday prayer) when we are travelling?"
+          },
+          {
+            "id": "de59443b9815cc31:q0",
+            "group_id": "de59443b9815cc31",
+            "query": "Ruling on a believer who commits some sins"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          },
+          {
+            "id": "f953580b877cfca7:q0",
+            "group_id": "f953580b877cfca7",
+            "query": "The sending down of the Quran began on Laylat al-Qadr in Ramadan, but fasting was not enjoined until the second year AH"
+          },
+          {
+            "id": "fc548525dcacb9d3:q0",
+            "group_id": "fc548525dcacb9d3",
+            "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this man? If he refuses to become a Muslim, can she continue to live with him?"
+          }
+        ]
+      }
+    },
+    "parent_pickthall": {
+      "positive_hit@5": {
+        "metric": "positive_hit@5",
+        "wins": 5,
+        "losses": 4,
+        "ties": 251,
+        "delta_mean": 0.003846,
+        "delta_ci95": [
+          -0.019157,
+          0.027027
+        ],
+        "gained_cases": [
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "a64b05eeb2b676e0:q0",
+            "group_id": "a64b05eeb2b676e0",
+            "query": "Is it permissable for a man to be unfair to his wife if he has two wives or one of his wives by not splitting up up the time properly . he sometimes leaves the second wife house two or three hours late causing the first wife to be upset because of his lateness ."
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "b2e79f1edfa8938e:q0",
+            "group_id": "b2e79f1edfa8938e",
+            "query": "One of the characteristics of Makkan verses is that they are addressed to all of mankind"
+          },
+          {
+            "id": "de6441ccd9f7504b:q0",
+            "group_id": "de6441ccd9f7504b",
+            "query": "What is the ruling of Islamic sharee’ah on the situation of workers who work in exhausting jobs, especially in the summer months. I can give you an example of those who work with furnaces for smelting metals. Is it permissible for them not to fast in Ramadaan?."
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          }
+        ]
+      },
+      "useful_hit@5": {
+        "metric": "useful_hit@5",
+        "wins": 4,
+        "losses": 4,
+        "ties": 213,
+        "delta_mean": 0.0,
+        "delta_ci95": [
+          -0.022936,
+          0.022831
+        ],
+        "gained_cases": [
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "a64b05eeb2b676e0:q0",
+            "group_id": "a64b05eeb2b676e0",
+            "query": "Is it permissable for a man to be unfair to his wife if he has two wives or one of his wives by not splitting up up the time properly . he sometimes leaves the second wife house two or three hours late causing the first wife to be upset because of his lateness ."
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "b2e79f1edfa8938e:q0",
+            "group_id": "b2e79f1edfa8938e",
+            "query": "One of the characteristics of Makkan verses is that they are addressed to all of mankind"
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          }
+        ]
+      },
+      "ndcg@10": {
+        "metric": "ndcg@10",
+        "wins": 13,
+        "losses": 26,
+        "ties": 221,
+        "delta_mean": -0.000205,
+        "delta_ci95": [
+          -0.008703,
+          0.00938
+        ],
+        "gained_cases": [
+          {
+            "id": "0cbd12b72094f724:q0",
+            "group_id": "0cbd12b72094f724",
+            "query": "This is my first question to you and it is read as follows: Who was the first person to name our holy book (Qur'an) to be named QUR'AN? I read from a magazine that it was ABUBEKER (R.A.) . But I couldn't believe! In sura al INSAN verse 23 it says, \"We brought (down) to you the Qur'an\" . Dear brother please give me a clear picture about this. May Allah help you."
+          },
+          {
+            "id": "39e2cb8c186e5dfe:q0",
+            "group_id": "39e2cb8c186e5dfe",
+            "query": "It was mentioned in question 210 that their was a difference of scholarly opinion concerning the use of animal-derived ingredients in non-food products such as lotions and soaps and whether we as Muslims can use these products. I wanted to know if you could clarify this point and the meaning of the ayah and hadiths that follow: \"Say (O Muhammad): \"I find not in that which has been inspired to me anything forbidden to be eaten by one who wishes to eat it, unless it be Maytah (a dead animal) or blood poured forth...\" 6:145 the hadith: Jabir b. Abdullah (RAA) reported Allah's Messenger (S) as saying in the Year of Victory while he was in Mecca: Verily Allah and His Messenger have forbidden the sale of wine,carcass,swine,and idols. It was said: Allah's Messenger, you see that the fat of the carcasss is used for coating the boats and varnishing the hides and people use it for lighting purposes, whereupon he said: No, it is forbidden. Then Allah's Messenger (S) said: May Allah the Exalted and Majestic destroy the Jews; when Allah forbade the use of fat of the carcass for them, they melted it,and then sold it and made use of its price (received from it). [Sahih Muslim Eng. Trans. Vol. 3 Hadith 3840] The freed slave girl of Maimuna was given a goat in charity but it died. The Messenger of Allah (S) happened to pass by that (carcass). Upon this he said: Why did you not take off its skin? You could put it to use, after tanning it. They (the Companions) said: It was dead. Upon this he (the Messenger of Allah) said: Only its eating is prohibited. [Sahih Muslim Eng. Trans. Vol. 1 Haidith 704]."
+          },
+          {
+            "id": "3d8c66b3e1f5de4b:q0",
+            "group_id": "3d8c66b3e1f5de4b",
+            "query": "Trying to avoid being appointed as a judge"
+          },
+          {
+            "id": "67311851c0428378:q0",
+            "group_id": "67311851c0428378",
+            "query": "Will he be rewarded for memorizing the Qur’an if he memorizes it from an audio recording?"
+          },
+          {
+            "id": "6c5cf4b42348fd28:q0",
+            "group_id": "6c5cf4b42348fd28",
+            "query": "My husband and I have been married for nearly 6 months. We are having re-occuring problems regarding how much sex we have. My husband has strong needs in this area, which he has told me about many times. I have tried hard to meet his needs, but find myself unable to keep up with him for more than a week or so. I become very tired, and feel physically unable to do this. My husband now finds the situation hard to deal with, and often separates from me - within the home. I understand that it is my obligation to respond to his needs, but what are our rights to each other in the case that one finds it hard to keep up with the other, even though their intention is to please them. Is my husband allowed to separate from me in this way? Also is he allowed to come to me for such relations when we have had an argument and have not been speaking to each other? We are, alhumdulillah, very happy together otherwise and love and respect each other very much, and would like to find an Islamic resolution to remove this problem from our marriage."
+          },
+          {
+            "id": "716865c9c486d3e8:q0",
+            "group_id": "716865c9c486d3e8",
+            "query": "What’s So Special about the Month of Safar?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q1",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "Is it permissible for a Muslim woman to appear in front of a kaafir woman without hijab?"
+          },
+          {
+            "id": "98665bc10c86c45e:q0",
+            "group_id": "98665bc10c86c45e",
+            "query": "I have a Question to ask concerning Jesus (peace be upon him). Did Jesus (peace be upon him) ascend twice to Allah? I have read in some books that it mentions Jesus (peace be upon him) ascending to the skies and then later being brought down to comfort his mother and telling the Jews of something and then leaving. Is this true?"
+          },
+          {
+            "id": "a64b05eeb2b676e0:q0",
+            "group_id": "a64b05eeb2b676e0",
+            "query": "Is it permissable for a man to be unfair to his wife if he has two wives or one of his wives by not splitting up up the time properly . he sometimes leaves the second wife house two or three hours late causing the first wife to be upset because of his lateness ."
+          },
+          {
+            "id": "a71aaa6de681d390:q0",
+            "group_id": "a71aaa6de681d390",
+            "query": "I need to know whether we as Muslims are allowed to eat the eyes of a fish. I was eating at a seafood restaurant with a friend and I was enjoying the head of the fish and then I ate the eye and he was quite disgusted and said that it is not allowed in Islam. Is that true?"
+          },
+          {
+            "id": "ad04f23a3003e994:q0",
+            "group_id": "ad04f23a3003e994",
+            "query": "Allaah says (interpretation of the meaning):“It is not (proper) for the Prophet and those who believe to ask Allaah’s forgiveness for the Mushrikoon, even though they be of kin, after it has become clear to them that they are the dwellers of the Fire (because they died in a state of disbelief).” [al-Tawbah 9:113]The apparent meaning of this aayah is that it is not allowed to ask for forgiveness for mushrikeen even if they are close relatives. Many of us Bedouin Arabs have parents and relatives who are accustomed to offering sacrifices at graves, seeking a means of reaching Allaah through the occupants of those graves, fulfilling vows to offer sacrifices at their graves, and seeking the help of the occupants of the graves to alleviate distress and heal disease. They have died in this state, for no one reached them who could teach them about Tawheed and the true meaning of Laa ilaaha ill-Allaah, or who could teach them that vows, supplications and worship are not right unless they are directed to Allaah Alone. Is it correct to walk in their funeral procession, to pray over them, to make du’aa’ and seek forgiveness for them, to perform Hajj on their behalf and to give charity on their behalf?"
+          },
+          {
+            "id": "b2e79f1edfa8938e:q0",
+            "group_id": "b2e79f1edfa8938e",
+            "query": "One of the characteristics of Makkan verses is that they are addressed to all of mankind"
+          },
+          {
+            "id": "de6441ccd9f7504b:q0",
+            "group_id": "de6441ccd9f7504b",
+            "query": "What is the ruling of Islamic sharee’ah on the situation of workers who work in exhausting jobs, especially in the summer months. I can give you an example of those who work with furnaces for smelting metals. Is it permissible for them not to fast in Ramadaan?."
+          }
+        ],
+        "lost_cases": [
+          {
+            "id": "02333be63093d6d3:q0",
+            "group_id": "02333be63093d6d3",
+            "query": "as-salaam-u-alikumI would like to know why Muslims once prayed towards bait-ul-muqadis and why was this changed to the ka'baa.jazakallah"
+          },
+          {
+            "id": "0899e7b8458779ac:q0",
+            "group_id": "0899e7b8458779ac",
+            "query": "I would like to know my wife has gold jewellary which is given to her from mother but iam not well off and i am in dept also so how should i pay zakat on it."
+          },
+          {
+            "id": "23f79a3af9189bb0:q0",
+            "group_id": "23f79a3af9189bb0",
+            "query": "A man committed many sins. He is suffering from a severe illness and has tried treatment to no avail. The doctors have told him that they have no cure for his problem. Now he regrets his past and wants to repent. Does his repentance count now that he is suffering from this terminal illness from which he has no hope of a cure?"
+          },
+          {
+            "id": "24a5d1180671cd56:q0",
+            "group_id": "24a5d1180671cd56",
+            "query": "Reference to Holy Quran 33:40 ........; he was a messenger of God and the last prophet. - What is the difference between messenger and prophet? -Why A messnger and not the LAST messenger?"
+          },
+          {
+            "id": "350af697680169f8:q0",
+            "group_id": "350af697680169f8",
+            "query": "Revelation of the Quran: All at Once or Gradually?"
+          },
+          {
+            "id": "3b9a198dd14e1f5a:q0",
+            "group_id": "3b9a198dd14e1f5a",
+            "query": "I have never spoken to her, and generally do not speak to women. We sometimes exchange salams. How do I propose to her and approach her for marriage, since I am a practising muslim, and do not talk to sisters what is the best way? Should I go and speak to her and get to know her first, without stepping beyond the boundaries of Allah? or shall I propose straight away? I am afraid that because she does not really know me, and that we are from different cultural backgrounds I will be rejected instantly if I propose straight away without getting to know her first. Whilst on the other hand I fear that I am doing something Un-islamic If I talk to her and get to know her. I am in a difficult situation what is the best thing to do?"
+          },
+          {
+            "id": "3c7ffcc84b08c53f:q0",
+            "group_id": "3c7ffcc84b08c53f",
+            "query": "For a great time now my community and I have been concerned with the issue of foods such as Gelatin, mono and dyglycerides, pepsin and rennetAll these thing are in our foods today and yet we do not know what we can eat and the reason for each. PLease give me a very detailed response that could end this trouble."
+          },
+          {
+            "id": "3f3c62f4196c730e:q0",
+            "group_id": "3f3c62f4196c730e",
+            "query": "Is the doctors knowledge of the fetus in the uterus complete?"
+          },
+          {
+            "id": "41ff10ffb601ae37:q0",
+            "group_id": "41ff10ffb601ae37",
+            "query": "She shows her adornments before her husband’s brothers"
+          },
+          {
+            "id": "4963899545e9c6c9:q0",
+            "group_id": "4963899545e9c6c9",
+            "query": "My question is regarding the tribes of Yajuj and Majuj. I understand that they are huge in number, are plunderers and are destined for hell fire. My question is: do they still exist? If they do, are they confined within the wall erected by Dhul Qarnain? Is this wall (doorway) imaginary or physical (made of metal)?"
+          },
+          {
+            "id": "52f527a1261423f9:q0",
+            "group_id": "52f527a1261423f9",
+            "query": "Could you give me some brief details about the life of Prophet Muhammad (peace and blessings of Allah be upon him)?"
+          },
+          {
+            "id": "5c7e342fdb8cf016:q0",
+            "group_id": "5c7e342fdb8cf016",
+            "query": "Is it correct that our Prophet Muhammad (peace and blessings be upon him) discouraged marrying cousins? Should marrying cousins be the last resort?"
+          },
+          {
+            "id": "5f1989a38891b81d:q0",
+            "group_id": "5f1989a38891b81d",
+            "query": "Is it permissible for me to give kafaarat yameen to one poor person, i.e., by feeding him ten times, or must it be given to ten poor persons?."
+          },
+          {
+            "id": "61b68f51bad55711:q0",
+            "group_id": "61b68f51bad55711",
+            "query": "Does reciting al-Zalzalah at the time of childbirth make giving birth easier? Are there any du’aa’s or adhkaar that are prescribed when giving birth to make it easier? Will du’aa’s made at the time of childbirth be answered?"
+          },
+          {
+            "id": "748c9b8d8efdf88e:q0",
+            "group_id": "748c9b8d8efdf88e",
+            "query": "How can a disbeliever believe after Allah has cursed him and expelled him from His mercy?"
+          },
+          {
+            "id": "75b2dd5a7ddbbfa6:q0",
+            "group_id": "75b2dd5a7ddbbfa6",
+            "query": "We have a Christian servant. Do we have to observe hijab in front of her?."
+          },
+          {
+            "id": "89e39cf9aeb5af4b:q0",
+            "group_id": "89e39cf9aeb5af4b",
+            "query": "Is it true that all the kuffaar, even if their morals are good and they do not harm anyone, will enter Hell? If the answer is yes, then what about non-Muslim children and those who had no choice but to be born kaafirs?."
+          },
+          {
+            "id": "8f3aac2c2cd52124:q0",
+            "group_id": "8f3aac2c2cd52124",
+            "query": "Does his wife become haraam for him if he commits zina with her sister?"
+          },
+          {
+            "id": "9bc59643bd877a9a:q0",
+            "group_id": "9bc59643bd877a9a",
+            "query": "Is every practitioner of magic or witchcraft a kaafir?"
+          },
+          {
+            "id": "a810e50c3b7ceef7:q0",
+            "group_id": "a810e50c3b7ceef7",
+            "query": "What are all the conditions when ghusl is compulsory? Is the only time you have to do it is after seminal discharge?"
+          },
+          {
+            "id": "afa5c0dcc02ce8fc:q0",
+            "group_id": "afa5c0dcc02ce8fc",
+            "query": "I have not got married yet. I know that it is not permissible for the husband to have intercourse with his wife in her back passage, but I do not want to hide from you the fact that my desires always overwhelm me. I try to repent and do what is right, but sometimes I go back to sin. I am afraid that if I get married I will have intercourse with my wife in her back passage, and that the Shaytaan will overpower me. What advice can you give me? My second question is: would it be permissible for me to approach her from behind but over her clothes?."
+          },
+          {
+            "id": "de59443b9815cc31:q0",
+            "group_id": "de59443b9815cc31",
+            "query": "Ruling on a believer who commits some sins"
+          },
+          {
+            "id": "f326aeb1af02e9dc:q0",
+            "group_id": "f326aeb1af02e9dc",
+            "query": "What are the rights of the in-laws (the husband’s brothers and sisters) in Islam? Do the father- and mother-in-law have the right of obedience? Do they have the right to enter my room with or without permission? To what extent should I obey them with regard to my clothing, cooking, childcare, keeping house and going out of the house? Do they have the right to interfere in our marital life? Do they have any rights with regard to our work, where we live, education and the like? Do I have to ask their permission to visit my family? Do they have the right to know all the details about our life? Do I have to obey them and shake hands with my husband’s relatives? Do my husband and I have to attend weddings in which there are haraam things?."
+          },
+          {
+            "id": "f5beaa9fd14c00f4:q0",
+            "group_id": "f5beaa9fd14c00f4",
+            "query": "Is it proven that the believers will see their Lord in the Hereafter?"
+          },
+          {
+            "id": "fa5e7cfe784b2fd9:q0",
+            "group_id": "fa5e7cfe784b2fd9",
+            "query": "What is the meaning of the aayah (interpretation of the meaning), “Surely, His is the creation and commandment” [al-A’raaf 7:54]"
+          },
+          {
+            "id": "fc548525dcacb9d3:q0",
+            "group_id": "fc548525dcacb9d3",
+            "query": "If a lady reverts to Islam and is married to a non-Muslim man, must she divorce this man? If he refuses to become a Muslim, can she continue to live with him?"
+          }
+        ]
+      }
+    }
+  },
+  "selected_name": "parent_translation",
+  "selected_config": {
+    "semantic_ai": false,
+    "semantic_en_tafsir": false,
+    "extra_translation_id": "none",
+    "representation_scope": "translation"
+  },
+  "selected_config_sha256": "c8532707814cb9509f390303496b9dfef1c423d1013406b2a8ae871354c0d662",
+  "selected_changed": false,
+  "validation_gate_passed": false,
+  "determinism_check": {
+    "queries": 260,
+    "exact_queries": 260,
+    "passed": true
+  },
+  "representation_manifest": {
+    "experiment": "M04",
+    "representation": "extra_translation",
+    "display_field": "translation",
+    "source": {
+      "translation_id": "pickthall_1930",
+      "title": "The Meaning of the Glorious Koran",
+      "author": "Marmaduke Pickthall",
+      "publication_year": 1930,
+      "local_file": "Quran_English_with_Tafseer.csv",
+      "local_path": "D:\\Personal Projects\\Personal Projects\\Search Engine\\Daleel\\daleel_database_create\\temp\\Quran_English_with_Tafseer\\Quran_English_with_Tafseer.csv",
+      "source_csv_sha256": "b1389af90c3596ccbc9d067497d0ca295875f2eba25bb4f06f15b4dfec498d39",
+      "source_csv_bytes": 3124762,
+      "source_git_commit": null,
+      "source_url": "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)",
+      "license_url": "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)",
+      "reuse_status": "Public domain in the United States because published before January 1, 1931; users outside the United States must assess local rights.",
+      "content_type": "English Quran translation; only the Verse column is used"
+    },
+    "flattening": {
+      "method": "CSV parsing with quoted-field support followed by whitespace normalization",
+      "used_columns": [
+        "Surah",
+        "Ayat",
+        "Verse"
+      ],
+      "ignored_columns": [
+        "Name",
+        "Tafseer"
+      ]
+    },
+    "corpus": {
+      "verses": 6236,
+      "sha256": "d1c40be0bef518288500f3940d4419b3516c2497b7285f5dcbd22802487e34e0"
+    },
+    "mapping": {
+      "source_rows": 6236,
+      "unique_source_refs": 6236,
+      "corpus_verses": 6236,
+      "exact_reference_set": true,
+      "canonical_order": true,
+      "per_surah_counts_match": true,
+      "missing_source_ayahs": [],
+      "unknown_source_ayahs": [],
+      "numbering_policy": "Surah and Ayat are parsed as positive canonical integers; duplicates, unknown references, and non-canonical numbering are rejected."
+    },
+    "counts": {
+      "source_rows": 6236,
+      "valid_text": 6236,
+      "exported": 6205,
+      "malformed_text": 0,
+      "current_translation_duplicates_excluded": 31,
+      "overlap_excluded": 0,
+      "missing": 31,
+      "empty_text": 0
+    },
+    "current_translation_duplicate_ayahs": [
+      "3:150",
+      "7:122",
+      "20:1",
+      "20:30",
+      "20:32",
+      "21:53",
+      "26:48",
+      "26:221",
+      "36:2",
+      "36:4",
+      "37:136",
+      "51:17",
+      "52:1",
+      "56:36",
+      "69:43",
+      "74:2",
+      "74:51",
+      "77:10",
+      "78:34",
+      "79:30",
+      "80:35",
+      "80:36",
+      "80:39",
+      "85:2",
+      "89:1",
+      "90:9",
+      "95:1",
+      "109:1",
+      "113:2",
+      "114:1",
+      "114:3"
+    ],
+    "empty_text_ayahs": [],
+    "missing_ayahs": [
+      "3:150",
+      "7:122",
+      "20:1",
+      "20:30",
+      "20:32",
+      "21:53",
+      "26:48",
+      "26:221",
+      "36:2",
+      "36:4",
+      "37:136",
+      "51:17",
+      "52:1",
+      "56:36",
+      "69:43",
+      "74:2",
+      "74:51",
+      "77:10",
+      "78:34",
+      "79:30",
+      "80:35",
+      "80:36",
+      "80:39",
+      "85:2",
+      "89:1",
+      "90:9",
+      "95:1",
+      "109:1",
+      "113:2",
+      "114:1",
+      "114:3"
+    ],
+    "missing_verse_fallback": "Combined translation+extra scope falls back to the retained translation for missing optional rows; extra-only scope cannot return those ayat.",
+    "translation_independence": {
+      "method": "Exact normalized equality and per-ayah token-set Jaccard against the retained Saheeh International translation; no semantic independence claim.",
+      "exact_normalized_duplicates": 31,
+      "different_ayahs": 6205,
+      "unique_extra_texts": 6139,
+      "median_token_jaccard": 0.4090909090909091,
+      "mean_token_jaccard": 0.41710849409657536,
+      "examples": [
+        {
+          "ayah": "1:1",
+          "retained_translation": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+          "extra_translation": "In the name of Allah, the Beneficent, the Merciful."
+        },
+        {
+          "ayah": "2:255",
+          "retained_translation": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+          "extra_translation": "Allah! There is no God save Him, the Alive, the Eternal. Neither slumber nor sleep overtaketh Him. Unto Him belongeth whatsoever is in the heavens and whatsoever is in the earth. Who is he that intercedeth with Him save by His leave ? He knoweth that which is in front of them and that which is behind them, while they encompass nothing of His knowledge save what He will. His throne includeth the heavens and the earth, and He is never weary of preserving them. He is the Sublime, the Tremendous."
+        },
+        {
+          "ayah": "112:1",
+          "retained_translation": "Say, \"He is Allah, [who is] One,",
+          "extra_translation": "Say: He is Allah, the One!"
+        }
+      ],
+      "duplicate_policy": "Exact normalized duplicates of the retained translation are excluded from the optional index so they cannot act as a second independent candidate; combined retrieval uses the retained translation instead."
+    },
+    "characters": 822131,
+    "token_truncation": {
+      "counter": "AutoTokenizer.encode with passage prefix and special tokens",
+      "max_seq_length": 512,
+      "documents": 6205,
+      "truncated_documents": 0,
+      "truncated_ayahs_file": "runtime/truncated_ayahs.json",
+      "truncated_ayahs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "truncated_ayahs_bytes": 2,
+      "min": 7,
+      "median": 33,
+      "p95": 89,
+      "max": 376
+    },
+    "repeated_text": {
+      "all_exportable": {
+        "method": "Exact normalized 50-token spans shared by distinct ayat; overlapping windows are counted.",
+        "shingle_size": 50,
+        "documents": 6205,
+        "documents_with_repeated_spans": 0,
+        "unique_repeated_spans": 0,
+        "max_references_per_span": 0,
+        "exact_duplicate_text_groups": 38,
+        "documents_in_exact_duplicate_groups": 134,
+        "exact_duplicate_examples": [
+          [
+            "55:13",
+            "55:16",
+            "55:18",
+            "55:21",
+            "55:23",
+            "55:25",
+            "55:28",
+            "55:30",
+            "55:32",
+            "55:34",
+            "55:36",
+            "55:40",
+            "55:42",
+            "55:45",
+            "55:47",
+            "55:49",
+            "55:51",
+            "55:53",
+            "55:55",
+            "55:57",
+            "55:59",
+            "55:61",
+            "55:63",
+            "55:65",
+            "55:67",
+            "55:69",
+            "55:75",
+            "55:77"
+          ],
+          [
+            "77:15",
+            "77:19",
+            "77:24",
+            "77:28",
+            "77:34",
+            "77:37",
+            "77:40",
+            "77:45",
+            "77:47",
+            "77:49",
+            "83:10"
+          ],
+          [
+            "40:1",
+            "41:1",
+            "42:1",
+            "43:1",
+            "44:1",
+            "45:1",
+            "46:1"
+          ],
+          [
+            "26:107",
+            "26:125",
+            "26:143",
+            "26:162",
+            "26:178"
+          ],
+          [
+            "2:1",
+            "3:1",
+            "29:1",
+            "30:1",
+            "31:1"
+          ],
+          [
+            "26:109",
+            "26:127",
+            "26:145",
+            "26:164"
+          ],
+          [
+            "26:126",
+            "26:144",
+            "26:163",
+            "26:179"
+          ],
+          [
+            "54:17",
+            "54:22",
+            "54:32",
+            "54:40"
+          ],
+          [
+            "26:67",
+            "26:121",
+            "26:174"
+          ],
+          [
+            "26:9",
+            "26:159",
+            "26:191"
+          ],
+          [
+            "37:74",
+            "37:128",
+            "37:160"
+          ],
+          [
+            "37:80",
+            "37:121",
+            "37:131"
+          ],
+          [
+            "54:16",
+            "54:21",
+            "54:30"
+          ],
+          [
+            "55:38",
+            "55:71",
+            "55:73"
+          ],
+          [
+            "102:3",
+            "102:4"
+          ],
+          [
+            "10:48",
+            "36:48"
+          ],
+          [
+            "11:96",
+            "40:23"
+          ],
+          [
+            "15:36",
+            "38:79"
+          ],
+          [
+            "18:72",
+            "18:75"
+          ],
+          [
+            "18:89",
+            "18:92"
+          ]
+        ],
+        "voting_control": "One document per ayah and one maximum-scored result per ayah; repeated spans do not add votes."
+      },
+      "exported": {
+        "method": "Exact normalized 50-token spans shared by distinct ayat; overlapping windows are counted.",
+        "shingle_size": 50,
+        "documents": 6205,
+        "documents_with_repeated_spans": 0,
+        "unique_repeated_spans": 0,
+        "max_references_per_span": 0,
+        "exact_duplicate_text_groups": 38,
+        "documents_in_exact_duplicate_groups": 134,
+        "exact_duplicate_examples": [
+          [
+            "55:13",
+            "55:16",
+            "55:18",
+            "55:21",
+            "55:23",
+            "55:25",
+            "55:28",
+            "55:30",
+            "55:32",
+            "55:34",
+            "55:36",
+            "55:40",
+            "55:42",
+            "55:45",
+            "55:47",
+            "55:49",
+            "55:51",
+            "55:53",
+            "55:55",
+            "55:57",
+            "55:59",
+            "55:61",
+            "55:63",
+            "55:65",
+            "55:67",
+            "55:69",
+            "55:75",
+            "55:77"
+          ],
+          [
+            "77:15",
+            "77:19",
+            "77:24",
+            "77:28",
+            "77:34",
+            "77:37",
+            "77:40",
+            "77:45",
+            "77:47",
+            "77:49",
+            "83:10"
+          ],
+          [
+            "40:1",
+            "41:1",
+            "42:1",
+            "43:1",
+            "44:1",
+            "45:1",
+            "46:1"
+          ],
+          [
+            "26:107",
+            "26:125",
+            "26:143",
+            "26:162",
+            "26:178"
+          ],
+          [
+            "2:1",
+            "3:1",
+            "29:1",
+            "30:1",
+            "31:1"
+          ],
+          [
+            "26:109",
+            "26:127",
+            "26:145",
+            "26:164"
+          ],
+          [
+            "26:126",
+            "26:144",
+            "26:163",
+            "26:179"
+          ],
+          [
+            "54:17",
+            "54:22",
+            "54:32",
+            "54:40"
+          ],
+          [
+            "26:67",
+            "26:121",
+            "26:174"
+          ],
+          [
+            "26:9",
+            "26:159",
+            "26:191"
+          ],
+          [
+            "37:74",
+            "37:128",
+            "37:160"
+          ],
+          [
+            "37:80",
+            "37:121",
+            "37:131"
+          ],
+          [
+            "54:16",
+            "54:21",
+            "54:30"
+          ],
+          [
+            "55:38",
+            "55:71",
+            "55:73"
+          ],
+          [
+            "102:3",
+            "102:4"
+          ],
+          [
+            "10:48",
+            "36:48"
+          ],
+          [
+            "11:96",
+            "40:23"
+          ],
+          [
+            "15:36",
+            "38:79"
+          ],
+          [
+            "18:72",
+            "18:75"
+          ],
+          [
+            "18:89",
+            "18:92"
+          ]
+        ],
+        "voting_control": "One document per ayah and one maximum-scored result per ayah; repeated spans do not add votes.",
+        "sidecar_file": "runtime/repeated_blocks.json",
+        "sidecar_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "sidecar_bytes": 2
+      }
+    },
+    "provenance_audit": {
+      "method": "Exact normalized 50-token shingle intersection; no fuzzy or semantic independence claim.",
+      "shingle_size": 50,
+      "source_records_checked": 3615,
+      "source_shingles": 1507804,
+      "overlap_count": 0,
+      "overlaps": [],
+      "exclusion_rule": "Record exact normalized 50-token source matches without excluding rows: the pinned 1930 translation predates IslamQA, and complete mapping with explicit duplicate fallback is retained.",
+      "checked_source_fields": [
+        "question",
+        "answer"
+      ],
+      "included_row_count": 6205,
+      "excluded_rows": [],
+      "overlap_detected_rows": [],
+      "source_hashes": {
+        "train_validation_sources.json": "249763744ac9bcc92b3f06dd0fe99eba136d66a89f4716aac696fc48143f2c77"
+      },
+      "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+      "test_sources_used": false,
+      "limitation": "Exact long-span screening does not certify semantic independence from source answers; overlap is recorded rather than selectively excluded."
+    },
+    "output": {
+      "file": "extra_translation_docs.jsonl",
+      "sha256": "5a198096c5ce7cee5c9054bd005f11cae441c648edbe38b7e0d9096302b86296",
+      "bytes": 2081456
+    },
+    "selection_sources": {
+      "dataset_commit": "d936c64c51ebd0908b6ecf0d9b6e4debbb39b517",
+      "train_sources": {
+        "file": "islamqa_references_train.json",
+        "sha256": "128531b70ea03ba6ef28b631227d8ee2e7dc0664a5ad3a94e5574fb8c9e11244",
+        "records": 3355
+      },
+      "validation_questions": {
+        "file": "questions.jsonl",
+        "sha256": "a64681bafa984e7bf30576403894bcc45b86a18e8dda8015c3680fe4753fe694",
+        "groups": 257,
+        "wordings": 260
+      },
+      "combined_audit_file": "runtime/train_validation_sources.json",
+      "combined_audit_sha256": "249763744ac9bcc92b3f06dd0fe99eba136d66a89f4716aac696fc48143f2c77",
+      "test_sources_used": false,
+      "limitation": "The legacy train file has historical validation/test exposure; no public test source was used for M04 export or selection."
+    }
+  },
+  "representation_manifest_sha256": "7e1fca1549b1783e0cf4268499b15377c97b5e14a585897f594276984dcecd7d",
+  "index_artifacts": {
+    "translation": {
+      "index.faiss": {
+        "sha256": "689509fe3310db6994b532f4ae80948787edd0a44a95c70867f484ee07f22e87",
+        "bytes": 9578541
+      },
+      "index.pkl": {
+        "sha256": "38ea89fe70370f3c9e05adeb72e8fb7baae09ceb76b082801892c9b8d96a9d9e",
+        "bytes": 1682175
+      }
+    },
+    "extra_translation": {
+      "index.faiss": {
+        "sha256": "d97a2f0fed532720bf544a4aa1b026e276da026660009a20575aecca1cad414f",
+        "bytes": 9530925
+      },
+      "index.pkl": {
+        "sha256": "2cb7676c108bccbaa1d3ad92c7f98dc10750b5eda8b378f6c48500c872a32966",
+        "bytes": 1562318
+      }
+    }
+  },
+  "model": {
+    "name": "intfloat/multilingual-e5-small",
+    "revision": "c007d7ef6fd86656326059b28395a7a03a7c5846",
+    "files": {
+      "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+      "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b",
+      "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+    }
+  },
+  "prefixes": {
+    "query": "query: ",
+    "passage": "passage: "
+  },
+  "parent_commit": "02b71be4c1c6488c92ea230afe258682f89395dc",
+  "parent_report_sha256": "d63bcff759be68c1eda05d5542a0013b07263703d4e19cc8421523a0edc782c4",
+  "code_sha256": {
+    "evaluation/islamqa_frozen.py": "1fb52825603735b9c4d011da6948b95b3d956489654c666614615937d81986d5",
+    "evaluation/m04_translation.py": "4e5c88ff3d0752baa1f28d57b244b4168b1b19088b6712a0e178a9f9d502ea65",
+    "evaluation/representations.py": "f46b3ade355303388c65738cbf145d2ddb7ce35f2ca09df88e62e9dbc36a45b5",
+    "evaluation/test_extra_translation.py": "4f3e0e8504d787904cca42220c689b49c1121caccb8eb56a9bb969cf8b18dfcf",
+    "utils.py": "f75af0c38d95c1520288643b0ce70b793d39c38b40fead9aee31f4da640e6bee",
+    "app.py": "71692f80681556f9ef04eb40ef774f61a1029e0a7e52ca3f4fef24bfaac3d03e",
+    "dev_app.py": "72b658baf41f490bec4656d39cf25cf934208ea4d3289ea378b0879317bf41f3",
+    "build_vector_database.py": "d8ad7e3a73aac4f4038b08548898162601863af304e68dd14a4d7c1ba7f7e172"
+  },
+  "validation_ranking_artifacts": {
+    "parent_translation": {
+      "file": "validation_runs\\parent_translation.json",
+      "sha256": "90dc70b32148b69ba48da2b0c62359f1d9050d7083dc84b77f71d4b6cdb62450"
+    },
+    "pickthall_only_diagnostic": {
+      "file": "validation_runs\\pickthall_only_diagnostic.json",
+      "sha256": "290b668e5e8766d220f72a74435e3b64bc3ad494a76386ce102afbce5abd1297"
+    },
+    "parent_pickthall": {
+      "file": "validation_runs\\parent_pickthall.json",
+      "sha256": "3f8cbddd6dfbacc85f4b9f8e142a31bbae8777c7e15943b1c19a303525e7c049"
+    }
+  }
+}
