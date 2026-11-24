@@ -24,6 +24,25 @@ def normalize(text):
     return ' '.join(re.findall(r'\w+', unicodedata.normalize('NFKC', text).casefold()))
 
 
+def format_group(group):
+    variants = group['queries']
+    result = {key: value for key, value in group.items() if key != 'ayat'}
+    result['ayat'] = {}
+    for tier, verses in group['ayat'].items():
+        formatted = []
+        for verse in verses:
+            item = {key: value for key, value in verse.items() if key != 'judgments'}
+            item['judge_rationales'] = []
+            for judgment in verse['judgments']:
+                rationale = {key: value for key, value in judgment.items() if key not in ('query', 'reason')}
+                rationale['query_index'] = variants.index(judgment['query'])
+                rationale['reason'] = judgment['reason']
+                item['judge_rationales'].append(rationale)
+            formatted.append(item)
+        result['ayat'][tier] = formatted
+    return result
+
+
 def main():
     groups = read_lines(DATA / 'grouped_queries.jsonl')
     questions = json.loads((DATA / 'group_questions.json').read_text(encoding='utf8'))
@@ -67,7 +86,7 @@ def main():
         grades = [{'group_id': group['id'], 'ayah': verse['ayah'], 'grade': verse['grade']}
                   for group in items for verses in group['ayat'].values() for verse in verses
                   if (group['id'], verse['ayah']) not in excluded]
-        write_lines(PACKAGE / name / 'questions.jsonl', items)
+        write_lines(PACKAGE / name / 'questions.jsonl', [format_group(item) for item in items])
         write_lines(PACKAGE / name / 'grades.jsonl', grades)
         summary[name] = {'question_groups': len(items), 'grades': len(grades),
                          'direct_question_groups': sum(any(v['grade'] == 3 and (g['id'], v['ayah']) not in excluded

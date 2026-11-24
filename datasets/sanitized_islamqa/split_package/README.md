@@ -24,7 +24,32 @@ split_package/
   README.md
 ```
 
-Each line in `questions.jsonl` contains a group, its question versions, full verse text, original review reasons, source references and potential negatives. Use it to inspect examples and prepare training data. These files preserve all original judgments, **including the 39 disagreements**.
+Each line in `questions.jsonl` contains a group, its question versions, full verse text, judges' reasons, source references and potential negatives. Each question appears once in the group's `queries` list. Each verse has a `judge_rationales` list; `query_index` identifies which question in `queries` was reviewed, starting at 0. These files preserve all original judgments, **including the 39 disagreements**.
+
+For example, a record has this shape (the verse text is shortened here):
+
+```json
+{
+  "queries": ["Who goes to heaven?"],
+  "ayat": {
+    "direct": [{
+      "ayah": "40:40",
+      "text": "Whoever does righteousness ... will enter Paradise ...",
+      "grade": 3,
+      "judge_rationales": [{
+        "query_index": 0,
+        "label": "direct",
+        "reason": "Believing men and women who act righteously are explicitly promised Paradise.",
+        "source_id": "train:182:0",
+        "source_reference": "Surah Al-Mumin 40:40",
+        "reviewed_passage": ["40:40"]
+      }]
+    }]
+  }
+}
+```
+
+The full record includes all tiers, other matching verses and every review. A verse can have multiple rationales when it was cited or reviewed more than once. Each rationale retains its source ID and the original reviewed passage, including verse ranges.
 
 Each line in `grades.jsonl` contains a `group_id`, `ayah` and numeric `grade`. This is the scoring file. The 39 disputed question–ayah grades are excluded from it. The complete questions file still shows the original conflicting grades and `has_conflicting_grades` flag, so **do not use those disputed grades as settled labels for training**.
 
