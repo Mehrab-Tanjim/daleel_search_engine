@@ -6,3 +6,4 @@ openai
 datasets
 python-dotenv
 einops
+jsonschema>=4.23,<5
