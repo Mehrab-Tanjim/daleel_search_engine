@@ -39,6 +39,42 @@ For example, “Who goes to heaven?” has four direct ayat in the source datase
 
 For a full readable example of questions, verse text and reasons, see [the grouped dataset guide](../GROUPED_DATASET.md).
 
+## How the questions were collected
+
+The original Daleel collection used IslamQA question-and-answer material from two sources. The reference-extraction script loads the Hugging Face `minhalvp/islamqa` training data and local Kaggle IslamQA files. It removes Kaggle questions that match a training question after trimming and lowercasing. It writes separate original training and benchmark reference files. The present splits were made later from their reviewed contents. [Reference-extraction script](../../extract_daleel_from_islamqa.py)
+
+The repository also contains an earlier IslamQA scraping script. It requests topic pages, follows pagination, collects question IDs and attempts to fetch answer pages. Its intended output includes the page ID, URL, title, question, answer summary and full answer. The checked-in script builds answer URLs from the loop index rather than the collected question ID. Its comments and output filename also do not establish which topic range was actually captured. These details limit what can be concluded about the completeness and provenance of the saved scrape. We have not established that every item in the two reference files came from that script. [Scraping script](../../scrap_islamqa_dataset.py)
+
+The extraction script sends each question and answer to `gpt-4o`, asking it to extract quoted Quran verses and hadith references. It saves the question, answer and extracted citations. A citation shows what the answer cited. It does not by itself establish that the verse answers the reader's particular question. The script can also return an empty citation list on an error or when its expected JSON format is absent. The saved files are therefore not a complete inventory of every verse that may be relevant.
+
+## How we reviewed and organized the pairs
+
+We started with the two saved reference files and selected the **5,343 citations labeled Quran**. Reviewers compared each question and citation with the English verse text in the Aayatun search database and recorded a decision and reason. Where the cited number was missing or contradicted the quoted text, reviewers recorded corrections when they could identify the reference. The original reference remains in the data. For example, one citation labeled 23:40 quoted a passage from 40:40. Citation corrections still need independent verification.
+
+| First review decision | Citations | Why it was assigned |
+| --- | ---: | --- |
+| Direct | 761 | The cited verse or passage addresses the question or its main topic. |
+| Partial | 3,379 | It addresses part of the question or offers a relevant principle, while the specific answer needs more context. |
+| Background | 1,151 | It relates to the topic but does not answer the question. |
+| Unrelated | 29 | The reviewer found no useful connection to the question. |
+| Unresolved | 23 | The question or reference could not be judged reliably. |
+
+These are initial citation counts, before expanding ranges into individual ayat or combining question variants. The 23 unresolved citations were omitted from the grouped dataset. The full review decisions are saved in [the audit file](../all_pairs_reviewed.jsonl).
+
+We kept all different question wordings. Exact normalized matches were grouped, and multilingual E5-small was used to find question pairs with cosine similarity above 0.90. Model reviewers then checked those candidate pairs for equivalent intent. Similarity alone did not cause a merge. Every pair across a merged group required approval, avoiding automatic merges through a chain of merely similar questions. The [grouped dataset guide](../GROUPED_DATASET.md) describes the saved decisions and conservative overrides.
+
+For each group, the data keeps its direct, partial, background and unrelated ayat together with the original review reasons. Verse ranges are expanded into individual ayat for ranking, while `reviewed_passage` retains the original range. A grade assigned to a passage can depend on its surrounding ayat, so interpret an individual verse alongside that retained context.
+
+## Why the grades have this order
+
+The ranking reflects how useful a verse is for answering the reader's question. A **direct** answer should rank ahead of a verse that answers only part of the question. A **partial** answer should rank ahead of background that merely concerns the same topic. An explicitly reviewed **unrelated** verse receives grade 0 and can serve as a negative example.
+
+For example, 40:40 was graded direct for “Who goes to heaven?” because it explicitly promises Paradise to believing men and women who do righteous deeds. For a question asking the travel distance required to shorten prayer, 4:101 was graded partial. It addresses shortening prayer during travel, but does not state a minimum distance. For a question asking the Ramadan holiday date, 2:189 was graded background. It discusses the new moons as markers of time, but does not give the requested date.
+
+The numbers **3, 2, 1 and 0** encode that order for training and evaluation. They are ordinal labels, not measured probabilities or an assertion that one verse is exactly three times as useful as another. Verses within the same grade were not ordered against each other. Reviewers can disagree, especially when a question asks for a legal ruling and a verse supplies a general principle. The 39 disputed grades are excluded from the scoring files until resolved.
+
+The initial reviews were model-assisted. Another model reviewed the first 53 pairs and direct candidates in two review groups, and several decisions were changed after that check. This is not an independent human or scholarly review. The dataset retains the reasons and original evidence so a reader can inspect or correct the decisions.
+
 ## How the split was made
 
 The target is **65% training, 15% validation and 20% test**, measured by question group. The goal is to use training questions to develop search improvements, validation questions to choose settings, and test questions for the final comparison.
