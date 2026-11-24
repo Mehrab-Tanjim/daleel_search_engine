@@ -201,12 +201,13 @@ class SplitLogicTests(unittest.TestCase):
 
     def test_normalized_query_variants_are_deduplicated(self) -> None:
         query = "Who goes to heaven?"
+        variant = "  who   GOES to heaven?  "
         group = make_group("0000000000000020", query, "direct", "2:255")
-        group["queries"].append("  who   GOES to heaven?  ")
+        group["queries"].append(variant)
         group["ayat"]["direct"][0]["judgments"].append(
             {
                 "source_id": "train:variant:1",
-                "query": "Who goes to heaven?",
+                "query": variant,
                 "source_reference": "2:255",
                 "reviewed_passage": ["2:255"],
                 "label": "direct",
@@ -217,7 +218,18 @@ class SplitLogicTests(unittest.TestCase):
         queries, _ = dedupe_queries(group)
         self.assertEqual(len(queries), 1)
         self.assertEqual(queries[0]["text"], query)
-        self.assertEqual(len(queries[0]["source_ids"]), 2)
+        self.assertNotIn("source_ids", queries[0])
+        question = format_question(
+            group, stable_id("cmp_", group["id"]), set()
+        )
+        judgments = question["evidence"]["direct"][0]["judgments"]
+        self.assertNotIn("source_query", judgments[0])
+        self.assertEqual(judgments[1]["source_query"], variant)
+        self.assertEqual(
+            [judgment["source_id"] for judgment in judgments],
+            ["train:0000000000000020:0", "train:variant:1"],
+        )
+        self.assertTrue(all("grade" not in item["assessment"] for item in judgments))
 
     def test_conflicts_have_null_grades_and_no_qrels(self) -> None:
         group_id = "0000000000000030"
@@ -259,6 +271,12 @@ class SplitLogicTests(unittest.TestCase):
             {"label_status": "disputed", "provisional_grade": 3},
         )
         self.assertEqual(format_qrels(question), [])
+        self.assertEqual(
+            [item["assessment"]["label"] for item in verse["judgments"]],
+            ["direct", "partial"],
+        )
+        self.assertTrue(all("grade" not in item["assessment"] for item in verse["judgments"]))
+        self.assertTrue(all("source_query" not in item for item in verse["judgments"]))
         self.assertEqual(
             question["label_summary"], {"best_settled_label": "none"}
         )

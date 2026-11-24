@@ -180,7 +180,6 @@ def validate_package(
     query_ids: set[str] = set()
     evidence_by_group: dict[str, dict[str, dict[str, Any]]] = {}
     disputed_by_group: dict[str, dict[str, dict[str, Any]]] = {}
-    source_ids_by_query: dict[str, set[str]] = defaultdict(set)
 
     for split in SPLITS:
         for question in data["question"][split]:
@@ -237,26 +236,27 @@ def validate_package(
                             errors.append(
                                 f"{group_id}/{ayah}: judgment references unknown query {judgment['query_id']}"
                             )
-                        elif normalize_text(query["text"]) != normalize_text(judgment["query"]):
-                            errors.append(
-                                f"{group_id}/{ayah}: judgment query does not match query ID"
-                            )
+                        else:
+                            source_query = judgment.get("source_query", query["text"])
+                            if normalize_text(query["text"]) != normalize_text(source_query):
+                                errors.append(
+                                    f"{group_id}/{ayah}: source_query does not match query ID"
+                                )
+                            if judgment.get("source_query") == query["text"]:
+                                errors.append(
+                                    f"{group_id}/{ayah}: redundant source_query matches canonical query"
+                                )
                         if ayah not in judgment["reviewed_passage"]:
                             errors.append(
                                 f"{group_id}/{ayah}: ayah absent from reviewed_passage"
                             )
-                        if judgment["assessment"]["grade"] != GRADES[judgment["assessment"]["label"]]:
-                            errors.append(
-                                f"{group_id}/{ayah}: judgment grade does not match its label"
-                            )
-                        source_ids_by_query[judgment["query_id"]].add(judgment["source_id"])
 
                     if verse["status"]["label_status"] == "disputed":
                         disputed[ayah] = verse
                         if verse["grade"] is not None:
                             errors.append(f"{group_id}/{ayah}: disputed grade must be null")
                         expected_provisional = max(
-                            judgment["assessment"]["grade"]
+                            GRADES[judgment["assessment"]["label"]]
                             for judgment in verse["judgments"]
                         )
                         if verse["status"].get("provisional_grade") != expected_provisional:
@@ -272,9 +272,6 @@ def validate_package(
 
             evidence_by_group[group_id] = evidence
             disputed_by_group[group_id] = disputed
-            for query in question["queries"]:
-                if set(query["source_ids"]) != source_ids_by_query[query["query_id"]]:
-                    errors.append(f"{query['query_id']}: source_ids do not match judgments")
 
             has_positive = any(grade > 0 for grade in settled_grades)
             has_direct = any(grade == 3 for grade in settled_grades)

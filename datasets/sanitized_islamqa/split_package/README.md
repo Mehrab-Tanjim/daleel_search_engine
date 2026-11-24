@@ -57,7 +57,7 @@ The v2 schema follows four rules:
 1. **Identity first.** Stable IDs appear before descriptive content.
 2. **Related fields are nested.** Provenance, query statistics, evidence status, judgments, and labels have clear sections.
 3. **Constants live once.** Package-wide values such as the schema version live in `manifest.json`. A record's split comes from its directory. Tier order comes from the schema and this README, not a repeated `relevance_order` field.
-4. **Derived values are not duplicated.** For example, `label_summary.best_settled_label` replaces separate positive/direct booleans, and component membership replaces a repeated component count.
+4. **Derived values are not duplicated.** For example, `label_summary.best_settled_label` replaces separate positive/direct booleans, judgment grades are derived from labels, query source IDs are derived from judgments, and component membership replaces a repeated component count.
 
 The strict Draft 2020-12 schema is [schema.json](schema.json). It disallows unknown properties and distinguishes settled, disputed, and unjudged data.
 
@@ -71,7 +71,7 @@ The strict Draft 2020-12 schema is [schema.json](schema.json). It disallows unkn
 | `component_id` | Split component that owns the group. |
 | `provenance.origin_splits` | Original source splits: `train`, `benchmark`, or both. |
 | `provenance.missing_reference_records` | Source IDs whose verified reference is missing; also listed in `exclusions.jsonl`. |
-| `queries` | Deduplicated normalized wordings with stable query IDs, language, source IDs, and statistics. |
+| `queries` | Deduplicated normalized wordings with stable query IDs, language, and statistics. |
 | `evidence` | Ayat grouped into `direct`, `partial`, `background`, and `unrelated` tiers. |
 | `label_summary.best_settled_label` | Highest settled tier in the group, or `none`. |
 
@@ -82,7 +82,6 @@ A query has this shape:
   "query_id": "0123456789abcdef:q0",
   "text": "Who will enter Paradise?",
   "language": "en",
-  "source_ids": ["train:42:0"],
   "stats": {
     "char_length": 24,
     "question_mark_count": 1,
@@ -108,7 +107,7 @@ Evidence is organized by tier:
 
 The surrounding tier is the evidence label; it is not repeated inside each verse. A settled verse has an integer `grade` and `status.label_status: "settled_model_review"`. A disputed verse has `grade: null`, `status.label_status: "disputed"`, and a non-authoritative `status.provisional_grade`.
 
-Each judgment preserves its source ID, query ID, original query wording, source reference, reviewed passage, assessment, and reason. This retains the context needed to inspect or correct a label.
+Each judgment preserves its source ID, query ID, source reference, reviewed passage, assessment label, and reason. `source_query` is included only when the original source wording differs from the canonical query text. Judgment grades are derived from their labels, and query source IDs are derived from the nested judgments, so neither is stored twice.
 
 ### Authoritative qrels
 
@@ -186,7 +185,6 @@ The following indented question record and qrel are schema-valid. The text is il
       "query_id": "0123456789abcdef:q0",
       "text": "Who will enter Paradise?",
       "language": "en",
-      "source_ids": ["train:42:0"],
       "stats": {
         "char_length": 24,
         "question_mark_count": 1,
@@ -207,12 +205,10 @@ The following indented question record and qrel are schema-valid. The text is il
           {
             "source_id": "train:42:0",
             "query_id": "0123456789abcdef:q0",
-            "query": "Who will enter Paradise?",
             "source_reference": "1:1",
             "reviewed_passage": ["1:1"],
             "assessment": {
               "label": "direct",
-              "grade": 3,
               "reason": "Illustrative direct relevance judgment."
             }
           }

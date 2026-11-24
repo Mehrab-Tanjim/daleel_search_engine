@@ -34,7 +34,7 @@
     "query": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["query_id", "text", "language", "source_ids", "stats"],
+      "required": ["query_id", "text", "language", "stats"],
       "properties": {
         "query_id": {
           "type": "string",
@@ -42,11 +42,6 @@
         },
         "text": {"type": "string", "minLength": 1},
         "language": {"enum": ["en", "ar", "mixed", "und"]},
-        "source_ids": {
-          "type": "array",
-          "items": {"type": "string", "minLength": 1},
-          "uniqueItems": true
-        },
         "stats": {
           "type": "object",
           "additionalProperties": false,
@@ -67,7 +62,6 @@
       "required": [
         "source_id",
         "query_id",
-        "query",
         "source_reference",
         "reviewed_passage",
         "assessment"
@@ -75,7 +69,11 @@
       "properties": {
         "source_id": {"type": "string", "minLength": 1},
         "query_id": {"type": "string", "pattern": "^[0-9a-f]{16}:q[0-9]+$"},
-        "query": {"type": "string", "minLength": 1},
+        "source_query": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Original source wording, present only when it differs from the canonical query text."
+        },
         "source_reference": {"type": "string"},
         "reviewed_passage": {
           "type": "array",
@@ -86,12 +84,11 @@
         "assessment": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["label", "grade", "reason"],
+          "required": ["label", "reason"],
           "properties": {
             "label": {
               "enum": ["direct", "partial", "background", "unrelated"]
             },
-            "grade": {"type": "integer", "enum": [0, 1, 2, 3]},
             "reason": {"type": "string", "minLength": 1}
           }
         }

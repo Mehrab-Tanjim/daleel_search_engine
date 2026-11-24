@@ -255,12 +255,6 @@ def allocate_splits(
 
 
 def dedupe_queries(group: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
-    source_ids: dict[str, set[str]] = defaultdict(set)
-    for verses in group["ayat"].values():
-        for verse in verses:
-            for judgment in verse["judgments"]:
-                source_ids[normalize_text(judgment["query"])].add(judgment["source_id"])
-
     queries = []
     query_by_normalized: dict[str, dict[str, Any]] = {}
     seen = set()
@@ -274,7 +268,6 @@ def dedupe_queries(group: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[st
             "query_id": f"{group['id']}:q{len(queries)}",
             "text": text,
             "language": detect_language(text),
-            "source_ids": sorted(source_ids.get(normalized, set())),
             "stats": {
                 "char_length": len(text),
                 "question_mark_count": question_marks,
@@ -298,18 +291,23 @@ def format_judgment(
     query = query_by_normalized.get(normalize_text(judgment["query"]))
     if query is None:
         raise ValueError("Judgment query is absent from its group's deduplicated queries")
-    return {
+    formatted: dict[str, Any] = {
         "source_id": judgment["source_id"],
         "query_id": query["query_id"],
-        "query": judgment["query"],
-        "source_reference": judgment["source_reference"],
-        "reviewed_passage": judgment["reviewed_passage"],
-        "assessment": {
-            "label": judgment["label"],
-            "grade": judgment["grade"],
-            "reason": judgment["reason"],
-        },
     }
+    if judgment["query"] != query["text"]:
+        formatted["source_query"] = judgment["query"]
+    formatted.update(
+        {
+            "source_reference": judgment["source_reference"],
+            "reviewed_passage": judgment["reviewed_passage"],
+            "assessment": {
+                "label": judgment["label"],
+                "reason": judgment["reason"],
+            },
+        }
+    )
+    return formatted
 
 
 def format_question(
