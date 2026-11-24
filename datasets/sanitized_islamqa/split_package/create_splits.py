@@ -26,7 +26,7 @@ def normalize(text):
 
 def format_group(group):
     variants = group['queries']
-    result = {key: value for key, value in group.items() if key != 'ayat'}
+    result = {key: value for key, value in group.items() if key not in ('ayat', 'random_negative_candidates')}
     result['ayat'] = {}
     for tier, verses in group['ayat'].items():
         formatted = []
@@ -40,6 +40,7 @@ def format_group(group):
                 item['judge_rationales'].append(rationale)
             formatted.append(item)
         result['ayat'][tier] = formatted
+    result['random_negative_candidates'] = group['random_negative_candidates']
     return result
 
 
